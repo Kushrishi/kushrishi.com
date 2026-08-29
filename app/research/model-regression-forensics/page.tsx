@@ -1,16 +1,14 @@
 import Link from "next/link";
 
 const relatedWork = [
-  ["MODEL DIFFING", "Behavioral comparison across model versions", "ADJACENT"],
-  ["TRAINING-DATA ATTRIBUTION", "Rank examples or shards associated with model behavior", "ADJACENT"],
-  ["CAUSAL INTERVENTION", "Test whether a suspected training change actually moves the regression", "CORE"],
-  ["REGRESSION BENCHMARKING", "Controlled planted regressions with known ground-truth causes", "PROPOSED"],
+  ["MODEL DIFFING", "Behavioral comparison across model versions"],
+  ["TRAINING-DATA ATTRIBUTION", "Methods for relating training examples to model behavior"],
+  ["CAUSAL INTERVENTION", "Controlled changes used to test a suspected cause"],
 ];
 
 const log = [
-  ["LOG 000", "2026-08", "Define the question, map adjacent work, and refuse novelty claims before primary-source review."],
-  ["EXP 000", "NEXT", "Plant one reproducible post-training regression in a small open model and verify recovery with a controlled intervention."],
-  ["BENCH 000", "PLANNED", "Convert successful controlled experiments into RegressionBench cases with hidden root causes."],
+  ["LOG 000", "2026-08", "Defined the initial question and began reviewing adjacent work."],
+  ["EXP 000", "NEXT", "Plant one reproducible post-training regression and test whether a controlled intervention recovers the held-out behavior."],
 ];
 
 export default function ResearchPage() {
@@ -33,8 +31,8 @@ export default function ResearchPage() {
         <aside className="research-sidebar">
           <div><span>STATUS</span><strong>NOVELTY REVIEW / V0.1 DESIGN</strong></div>
           <div><span>PRIMARY QUESTION</span><strong>Why did the new model get worse?</strong></div>
-          <div><span>TARGET OUTPUT</span><strong>OSS · REGRESSIONBENCH · TECHNICAL REPORT</strong></div>
-          <div><span>NOVELTY CLAIM</span><strong>NOT ESTABLISHED</strong></div>
+          <div><span>EVIDENCE</span><strong>NO EXPERIMENTAL RESULTS YET</strong></div>
+          <div><span>NOVELTY</span><strong>NOT ESTABLISHED</strong></div>
         </aside>
 
         <div className="research-copy">
@@ -73,9 +71,8 @@ export default function ResearchPage() {
               This project does not currently claim novelty. The working wedge is end-to-end regression forensics that joins behavioral differencing, training lineage, candidate-cause ranking, and intervention-backed verification. The related-work review must establish whether that combination is sufficiently distinct and useful.
             </p>
             <div className="related-work-grid">
-              {relatedWork.map(([title, detail, status]) => (
+              {relatedWork.map(([title, detail]) => (
                 <div key={title}>
-                  <span>{status}</span>
                   <strong>{title}</strong>
                   <p>{detail}</p>
                 </div>
@@ -100,19 +97,8 @@ export default function ResearchPage() {
             </div>
           </section>
 
-          <section className="research-block" id="benchmark">
-            <div className="research-block-index">06 / PLANNED BENCHMARK</div>
-            <h2>RegressionBench</h2>
-            <p>
-              If Experiment 000 works, subsequent controlled regressions become benchmark cases with known ground-truth causes. Candidate debugging methods can then be measured on root-cause accuracy, top-k recall, intervention success, diagnosis cost, and false-cause rate.
-            </p>
-            <div className="benchmark-metrics">
-              <span>ROOT-CAUSE ACCURACY</span><span>TOP-K RECALL</span><span>INTERVENTION SUCCESS</span><span>DIAGNOSIS COST</span><span>FALSE-CAUSE RATE</span>
-            </div>
-          </section>
-
           <section className="research-block" id="log">
-            <div className="research-block-index">07 / RESEARCH LOG</div>
+            <div className="research-block-index">06 / RESEARCH LOG</div>
             <div className="research-log">
               {log.map(([id, date, text]) => (
                 <div key={id}><span>{id}</span><time>{date}</time><p>{text}</p></div>
@@ -121,10 +107,10 @@ export default function ResearchPage() {
           </section>
 
           <section className="research-block" id="reproduce">
-            <div className="research-block-index">08 / REPRODUCE</div>
-            <h2>Evidence before polish.</h2>
+            <div className="research-block-index">07 / REPRODUCE</div>
+            <h2>Reproduction starts with Experiment 000.</h2>
             <p>
-              Reproduction commands, configs, checkpoints, data-generation scripts, eval definitions, and result tables will appear here only after the first experiment exists. Until then, this page remains an explicit research specification rather than a results page.
+              Commands, configs, eval definitions, and summarized results will be added after the first experiment has been run and reproduced from a clean checkout.
             </p>
             <div className="code-placeholder">
               <span>$</span> experiment 000 has not been executed yet
@@ -133,7 +119,7 @@ export default function ResearchPage() {
 
           <div className="note-box">
             <span>NOTE / 2026-08</span>
-            <p>This page intentionally separates proposed methodology from completed evidence. Results will replace claims as experiments are completed.</p>
+            <p>This page separates the current research question from completed evidence. Experimental results will be added only after they are reproduced.</p>
           </div>
         </div>
       </section>

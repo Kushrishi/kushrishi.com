@@ -14,12 +14,12 @@ function AutonomyPreview() {
   );
 
   return (
-    <div className="project-preview autonomy-preview" aria-label="Interactive autonomy simulation preview">
+    <div className="project-preview autonomy-preview" role="region" aria-label="Interactive autonomy simulation preview">
       <div className="preview-toolbar">
         <span>LIVE SYSTEM PREVIEW</span>
         <div className="preview-toggle" role="group" aria-label="Autonomy preview mode">
-          <button className={mode === "plan" ? "active" : ""} onClick={() => setMode("plan")} type="button">PLAN</button>
-          <button className={mode === "localize" ? "active" : ""} onClick={() => setMode("localize")} type="button">LOCALIZE</button>
+          <button className={mode === "plan" ? "active" : ""} aria-pressed={mode === "plan"} onClick={() => setMode("plan")} type="button">PLAN</button>
+          <button className={mode === "localize" ? "active" : ""} aria-pressed={mode === "localize"} onClick={() => setMode("localize")} type="button">LOCALIZE</button>
         </div>
       </div>
       <svg viewBox="0 0 410 180" role="img" aria-label={mode === "plan" ? "Path planning visualization" : "Localization visualization"}>
@@ -69,21 +69,21 @@ function AutonomyPreview() {
 function CareBridgePreview() {
   const [step, setStep] = useState<"retrieve" | "ground" | "validate">("ground");
   return (
-    <div className="project-preview carebridge-preview" aria-label="Interactive source-grounded workflow preview">
+    <div className="project-preview carebridge-preview" role="region" aria-label="Interactive source-grounded workflow preview">
       <div className="preview-toolbar">
         <span>SOURCE-GROUNDED WORKFLOW</span>
         <span className="preview-live-dot">SYNTHETIC</span>
       </div>
       <div className="carebridge-flow">
-        <button className={step === "retrieve" ? "active" : ""} onClick={() => setStep("retrieve")} type="button">
+        <button className={step === "retrieve" ? "active" : ""} aria-pressed={step === "retrieve"} onClick={() => setStep("retrieve")} type="button">
           <span>01</span><strong>RETRIEVE</strong><small>3 source records</small>
         </button>
         <i>→</i>
-        <button className={step === "ground" ? "active" : ""} onClick={() => setStep("ground")} type="button">
+        <button className={step === "ground" ? "active" : ""} aria-pressed={step === "ground"} onClick={() => setStep("ground")} type="button">
           <span>02</span><strong>GROUND</strong><small>claim → evidence</small>
         </button>
         <i>→</i>
-        <button className={step === "validate" ? "active" : ""} onClick={() => setStep("validate")} type="button">
+        <button className={step === "validate" ? "active" : ""} aria-pressed={step === "validate"} onClick={() => setStep("validate")} type="button">
           <span>03</span><strong>VALIDATE</strong><small>structured output</small>
         </button>
       </div>

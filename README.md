@@ -1,36 +1,28 @@
-# Kush Rishi Portfolio
+# kushrishi.com
 
-Custom research-engineering portfolio focused on machine learning, ML systems, PNT, intelligent sensing, and work under uncertainty.
+Personal engineering portfolio for Kush Rishi.
 
-## Run locally
+The site presents work across machine learning, ML systems, positioning and navigation, intelligent sensing, and software engineering. It is built as a custom Next.js application rather than a portfolio template.
+
+## Stack
+
+- Next.js
+- React
+- TypeScript
+- React Three Fiber / Three.js
+- Framer Motion
+
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Production check:
 
-## Current structure
+```bash
+npm run build
+```
 
-- `/` — research-lab style homepage
-- `/research/model-regression-forensics` — working flagship research page
-- `PROJECT_SPEC.md` — flagship project research specification
-- `docs/RELATED_WORK_MATRIX.md` — novelty-review worksheet
-
-## Design principles
-
-- Research lab, not generic developer portfolio
-- Real technical visualizations over decorative particles
-- Claims follow evidence
-- Strong typography, restrained motion, minimal color system
-- Flagship work gets paper-style project pages as results become available
-
-## Next build steps
-
-1. Replace the synthetic hero field with a deterministic, parameterized behavior landscape.
-2. Add project-specific pages for Autonomy Simulation Lab and CareBridge.
-3. Add Lab Notes architecture.
-4. Add an OpenGraph image and favicon set.
-5. Add accessibility and performance checks.
-6. Connect the flagship page to real experiment artifacts as they are produced.
+The behavior atlas on the homepage is an explicitly synthetic visualization. Research results will replace synthetic demonstrations only after the underlying experiments have been run and reproduced.

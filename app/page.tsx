@@ -64,9 +64,9 @@ export default function Home() {
             </div>
             <div className="research-meta">
               <div><span>QUESTION</span><strong>Why did the new model get worse?</strong></div>
-              <div><span>TARGET OUTPUT</span><strong>OSS · BENCHMARK · REPORT</strong></div>
-              <div><span>STATUS</span><strong>SPECIFICATION / V0.1</strong></div>
-              <div><span>THESIS</span><strong>Behavior diff → lineage → intervention</strong></div>
+              <div><span>CURRENT STAGE</span><strong>CONTROLLED EXPERIMENT DESIGN</strong></div>
+              <div><span>EVIDENCE</span><strong>EXPERIMENT 000 / NOT RUN</strong></div>
+              <div><span>FOCUS</span><strong>Behavior diff → lineage → intervention</strong></div>
             </div>
           </div>
         </Reveal>

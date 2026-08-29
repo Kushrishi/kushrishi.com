@@ -178,7 +178,7 @@ export function BehaviorField() {
   const robustness = Math.max(0, 1 - failureRate / 100);
 
   return (
-    <div className="field-shell" aria-label="Interactive synthetic model behavior atlas">
+    <div className="field-shell" role="region" aria-label="Interactive synthetic model behavior atlas">
       <Canvas camera={{ position: [0, 0, 6.35], fov: 47 }} dpr={[1, 1.5]}>
         <fog attach="fog" args={["#07090b", 5.4, 9.2]} />
         <BehaviorAtlas model={model} stress={stress} scrollProgress={scrollProgress} />
@@ -195,6 +195,7 @@ export function BehaviorField() {
         <button
           type="button"
           className={model === "baseline" ? "active" : ""}
+          aria-pressed={model === "baseline"}
           onClick={() => setModel("baseline")}
         >
           BASELINE
@@ -202,6 +203,7 @@ export function BehaviorField() {
         <button
           type="button"
           className={model === "candidate" ? "active" : ""}
+          aria-pressed={model === "candidate"}
           onClick={() => setModel("candidate")}
         >
           CANDIDATE
