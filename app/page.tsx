@@ -1,13 +1,8 @@
 import Link from "next/link";
 import { BehaviorField } from "@/components/BehaviorField";
 import { Reveal } from "@/components/Reveal";
-
-const researchDirections = [
-  ["01", "Model Evaluation", "Behavior discovery, regressions, counterexamples, and reliable measurement."],
-  ["02", "ML Systems", "Training, inference, experiment infrastructure, observability, and reproducibility."],
-  ["03", "Multimodal Intelligence", "Models that reason across noisy, incomplete, and heterogeneous real-world signals."],
-  ["04", "PNT & Intelligent Sensing", "Positioning, estimation, sensor fusion, and physical-world uncertainty."],
-];
+import { ProjectPreview } from "@/components/ProjectPreview";
+import { ResearchDirections } from "@/components/ResearchDirections";
 
 export default function Home() {
   return (
@@ -83,19 +78,21 @@ export default function Home() {
           <div className="project-grid">
             <article className="project-card">
               <div className="project-index">01</div>
-              <div>
+              <div className="project-card-body">
                 <div className="project-tags">LOCALIZATION · STATE ESTIMATION · SYSTEMS</div>
                 <h3>Autonomy Simulation Lab</h3>
                 <p>Interactive autonomy and localization environment combining planning, noisy sensing, nonlinear localization, Kalman filtering, telemetry, and quantitative evaluation.</p>
+                <ProjectPreview kind="autonomy" />
                 <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Explore system →</a>
               </div>
             </article>
             <article className="project-card subdued">
               <div className="project-index">02</div>
-              <div>
+              <div className="project-card-body">
                 <div className="project-tags">FULL-STACK · AI WORKFLOWS · SAFETY</div>
                 <h3>CareBridge Canada</h3>
                 <p>Full-stack product prototype exploring source-grounded, safety-aware AI workflows with React, FastAPI, SQL, automated testing, and CI/CD.</p>
+                <ProjectPreview kind="carebridge" />
                 <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
               </div>
             </article>
@@ -106,15 +103,7 @@ export default function Home() {
       <section className="section" id="directions">
         <Reveal>
           <div className="section-label">02 / RESEARCH DIRECTIONS</div>
-          <div className="directions-list">
-            {researchDirections.map(([index, title, description]) => (
-              <div className="direction" key={title}>
-                <span>{index}</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </div>
-            ))}
-          </div>
+          <ResearchDirections />
         </Reveal>
       </section>
 

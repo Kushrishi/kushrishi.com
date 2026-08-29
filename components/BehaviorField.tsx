@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 type ModelVersion = "baseline" | "candidate";
@@ -9,6 +9,7 @@ type ModelVersion = "baseline" | "candidate";
 type AtlasProps = {
   model: ModelVersion;
   stress: number;
+  scrollProgress: number;
 };
 
 function mulberry32(seed: number) {
@@ -35,9 +36,10 @@ function boundaryAt(x: number, model: ModelVersion, stress: number) {
   return base + improvement + regression;
 }
 
-function BehaviorAtlas({ model, stress }: AtlasProps) {
+function BehaviorAtlas({ model, stress, scrollProgress }: AtlasProps) {
   const group = useRef<THREE.Group>(null);
   const probe = useRef<THREE.Mesh>(null);
+  const failureMaterial = useRef<THREE.PointsMaterial>(null);
 
   const { nominal, failure, boundary } = useMemo(() => {
     const random = mulberry32(481516);
@@ -76,8 +78,15 @@ function BehaviorAtlas({ model, stress }: AtlasProps) {
 
   useFrame(({ pointer, clock }) => {
     if (group.current) {
-      group.current.rotation.x = pointer.y * 0.035;
-      group.current.rotation.y = pointer.x * 0.045;
+      group.current.rotation.x = pointer.y * 0.035 + scrollProgress * 0.035;
+      group.current.rotation.y = pointer.x * 0.045 - scrollProgress * 0.055;
+      group.current.position.y = scrollProgress * 0.12;
+      const scale = 1 + scrollProgress * 0.065;
+      group.current.scale.setScalar(scale);
+    }
+
+    if (failureMaterial.current) {
+      failureMaterial.current.opacity = 0.38 + scrollProgress * 0.22;
     }
 
     if (probe.current) {
@@ -110,6 +119,7 @@ function BehaviorAtlas({ model, stress }: AtlasProps) {
           <bufferAttribute attach="attributes-position" args={[failure, 3]} />
         </bufferGeometry>
         <pointsMaterial
+          ref={failureMaterial}
           color="#ff9b8f"
           size={0.037}
           sizeAttenuation
@@ -141,6 +151,26 @@ function formatPercent(value: number) {
 export function BehaviorField() {
   const [model, setModel] = useState<ModelVersion>("candidate");
   const [stress, setStress] = useState(0.36);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const viewport = Math.max(window.innerHeight, 1);
+        setScrollProgress(THREE.MathUtils.clamp(window.scrollY / (viewport * 0.78), 0, 1));
+      });
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   const baselineFailure = 8.4 + stress * 31;
   const regressionDelta = model === "candidate" ? 2.1 + stress * 5.4 : 0;
@@ -151,10 +181,15 @@ export function BehaviorField() {
     <div className="field-shell" aria-label="Interactive synthetic model behavior atlas">
       <Canvas camera={{ position: [0, 0, 6.35], fov: 47 }} dpr={[1, 1.5]}>
         <fog attach="fog" args={["#07090b", 5.4, 9.2]} />
-        <BehaviorAtlas model={model} stress={stress} />
+        <BehaviorAtlas model={model} stress={stress} scrollProgress={scrollProgress} />
       </Canvas>
 
       <div className="field-hud field-hud-top">BEHAVIOR ATLAS / SYNTHETIC DEMO</div>
+      <div className="field-phase" aria-hidden="true">
+        <span>BEHAVIOR MAP</span>
+        <i><b style={{ width: `${Math.round(scrollProgress * 100)}%` }} /></i>
+        <span>FORENSICS</span>
+      </div>
 
       <div className="field-model-toggle" role="group" aria-label="Model version">
         <button
