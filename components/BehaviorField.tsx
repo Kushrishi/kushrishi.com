@@ -174,6 +174,7 @@ export function BehaviorField() {
   const [model, setModel] = useState<ModelVersion>("candidate");
   const [stress, setStress] = useState(0.36);
   const [isCoarsePointer, setIsCoarsePointer] = useState(false);
+  const [isTabletLike, setIsTabletLike] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -182,17 +183,23 @@ export function BehaviorField() {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const updateCapabilities = () => {
-      setIsCoarsePointer(coarseQuery.matches);
+      const coarsePointer = coarseQuery.matches;
+      setIsCoarsePointer(coarsePointer);
+      setIsTabletLike(
+        coarsePointer && Math.min(window.innerWidth, window.innerHeight) >= 600,
+      );
       setReducedMotion(motionQuery.matches);
     };
 
     updateCapabilities();
     coarseQuery.addEventListener("change", updateCapabilities);
     motionQuery.addEventListener("change", updateCapabilities);
+    window.addEventListener("resize", updateCapabilities, { passive: true });
 
     return () => {
       coarseQuery.removeEventListener("change", updateCapabilities);
       motionQuery.removeEventListener("change", updateCapabilities);
+      window.removeEventListener("resize", updateCapabilities);
     };
   }, []);
 
@@ -269,8 +276,13 @@ export function BehaviorField() {
   const regressionDelta = model === "candidate" ? 2.1 + stress * 5.4 : 0;
   const failureRate = baselineFailure + regressionDelta;
   const robustness = Math.max(0, 1 - failureRate / 100);
-  const pointCount = isCoarsePointer ? 440 : 680;
-  const boundarySegments = isCoarsePointer ? 64 : 92;
+  const pointCount = isCoarsePointer ? (isTabletLike ? 560 : 440) : 680;
+  const boundarySegments = isCoarsePointer ? (isTabletLike ? 78 : 64) : 92;
+  const canvasDpr: number | [number, number] = isCoarsePointer
+    ? isTabletLike
+      ? 1.5
+      : 1.25
+    : [1, 1.5];
   const frameLoop = !isVisible
     ? "never"
     : reducedMotion || isCoarsePointer
@@ -286,7 +298,7 @@ export function BehaviorField() {
     >
       <Canvas
         camera={{ position: [0, 0, 6.35], fov: 47 }}
-        dpr={isCoarsePointer ? 1 : [1, 1.5]}
+        dpr={canvasDpr}
         frameloop={frameLoop}
         onCreated={(state) => {
           invalidateRef.current = state.invalidate;
