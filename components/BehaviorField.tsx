@@ -170,6 +170,8 @@ export function BehaviorField() {
   const shellRef = useRef<HTMLDivElement>(null);
   const phaseFillRef = useRef<HTMLElement>(null);
   const scrollProgressRef = useRef(0);
+  const targetProgressRef = useRef(0);
+  const displayedProgressRef = useRef(0);
   const invalidateRef = useRef<() => void>(() => undefined);
   const [model, setModel] = useState<ModelVersion>("candidate");
   const [stress, setStress] = useState(0.36);
@@ -210,51 +212,96 @@ export function BehaviorField() {
   }, []);
 
   useEffect(() => {
-    let frame = 0;
+    let animationFrame = 0;
+    let lastFrameTime = 0;
+
+    const applyProgress = (progress: number) => {
+      displayedProgressRef.current = progress;
+      scrollProgressRef.current = progress;
+
+      if (phaseFillRef.current) {
+        phaseFillRef.current.style.transform = `scaleX(${progress})`;
+      }
+
+      // Demand-rendered touch canvases need an explicit frame when scroll
+      // changes the scene. Desktop continues using its normal render loop.
+      if (isVisible) invalidateRef.current();
+    };
+
+    const animateProgress = (time: number) => {
+      const deltaSeconds = lastFrameTime
+        ? Math.min((time - lastFrameTime) / 1000, 0.05)
+        : 1 / 60;
+      lastFrameTime = time;
+
+      const current = displayedProgressRef.current;
+      const target = targetProgressRef.current;
+      // Smooth over a few compositor frames so iOS scroll-event coalescing
+      // does not show up as visible steps, while still closely tracking scroll.
+      const smoothing = 1 - Math.exp(-28 * deltaSeconds);
+      const next = current + (target - current) * smoothing;
+      const settled = Math.abs(target - next) < 0.0005;
+
+      applyProgress(settled ? target : next);
+
+      if (!settled) {
+        animationFrame = requestAnimationFrame(animateProgress);
+      } else {
+        animationFrame = 0;
+        lastFrameTime = 0;
+      }
+    };
+
+    const startProgressAnimation = () => {
+      if (animationFrame) return;
+      animationFrame = requestAnimationFrame(animateProgress);
+    };
+
     const update = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const shell = shellRef.current;
-        if (!shell) return;
+      const shell = shellRef.current;
+      if (!shell) return;
 
-        const viewport = Math.max(window.innerHeight, 1);
-        const rect = shell.getBoundingClientRect();
-        const shellTop = window.scrollY + rect.top;
+      const viewport = Math.max(window.innerHeight, 1);
+      const rect = shell.getBoundingClientRect();
+      const shellTop = window.scrollY + rect.top;
 
-        // Start as the atlas approaches the main reading area and finish while
-        // it is still visibly on-screen. This keeps the transition consistent
-        // across side-by-side desktop and stacked phone/tablet layouts.
-        const startScroll = Math.max(0, shellTop - viewport * 0.72);
-        const endScroll = Math.max(
-          startScroll + 1,
-          shellTop + rect.height - viewport * 0.52,
-        );
-        const nextProgress = THREE.MathUtils.clamp(
-          (window.scrollY - startScroll) / (endScroll - startScroll),
-          0,
-          1,
-        );
+      // Start as the atlas approaches the main reading area and finish while
+      // it is still visibly on-screen. This keeps the transition consistent
+      // across side-by-side desktop and stacked phone/tablet layouts.
+      const startScroll = Math.max(0, shellTop - viewport * 0.72);
+      const endScroll = Math.max(
+        startScroll + 1,
+        shellTop + rect.height - viewport * 0.52,
+      );
+      const nextProgress = THREE.MathUtils.clamp(
+        (window.scrollY - startScroll) / (endScroll - startScroll),
+        0,
+        1,
+      );
 
-        scrollProgressRef.current = nextProgress;
-        if (phaseFillRef.current) {
-          phaseFillRef.current.style.transform = `scaleX(${nextProgress})`;
-        }
+      targetProgressRef.current = nextProgress;
 
-        // Demand-rendered touch canvases need an explicit frame when scroll
-        // changes the scene. Desktop continues using its normal render loop.
-        if (isVisible) invalidateRef.current();
-      });
+      // Reduced-motion users and offscreen canvases do not need interpolation.
+      if (reducedMotion || !isVisible) {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = 0;
+        lastFrameTime = 0;
+        applyProgress(nextProgress);
+        return;
+      }
+
+      startProgressAnimation();
     };
 
     update();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     return () => {
-      cancelAnimationFrame(frame);
+      cancelAnimationFrame(animationFrame);
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [isVisible]);
+  }, [isVisible, reducedMotion]);
 
   const baselineFailure = 8.4 + stress * 31;
   const regressionDelta = model === "candidate" ? 2.1 + stress * 5.4 : 0;
