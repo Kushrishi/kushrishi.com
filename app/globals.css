@@ -875,3 +875,34 @@ svg {
     box-shadow: none;
   }
 }
+
+/* V1.4 — section-relative atlas choreography and final mobile rhythm */
+@media (max-width: 680px) {
+  .section {
+    padding-top: 68px;
+    padding-bottom: 68px;
+  }
+
+  #about {
+    padding-bottom: 58px;
+  }
+
+  footer {
+    padding-top: 68px;
+  }
+}
+
+@media (max-width: 380px) {
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  #about {
+    padding-bottom: 52px;
+  }
+
+  footer {
+    padding-top: 60px;
+  }
+}

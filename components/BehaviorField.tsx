@@ -107,7 +107,10 @@ function BehaviorAtlas({
       const x = THREE.MathUtils.clamp(pointerX * 2.25, -2.25, 2.25);
       const y = boundaryAt(x, model, stress);
       probe.current.position.set(x, y, 0.12);
-      const pulse = reducedMotion ? 1 : 1 + Math.sin(clock.getElapsedTime() * 3.5) * 0.12;
+      const pulse =
+        reducedMotion || !interactivePointer
+          ? 1
+          : 1 + Math.sin(clock.getElapsedTime() * 3.5) * 0.12;
       probe.current.scale.setScalar(pulse);
     }
   });
@@ -208,8 +211,21 @@ export function BehaviorField() {
     const update = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
+        const shell = shellRef.current;
+        if (!shell) return;
+
         const viewport = Math.max(window.innerHeight, 1);
-        const nextProgress = THREE.MathUtils.clamp(window.scrollY / (viewport * 0.78), 0, 1);
+        const rect = shell.getBoundingClientRect();
+        const shellTop = window.scrollY + rect.top;
+        const startScroll = Math.max(0, shellTop - viewport * 0.72);
+        const endScroll = shellTop + rect.height - viewport * 0.28;
+        const travel = Math.max(endScroll - startScroll, 1);
+        const nextProgress = THREE.MathUtils.clamp(
+          (window.scrollY - startScroll) / travel,
+          0,
+          1,
+        );
+
         setScrollProgress((current) =>
           Math.abs(current - nextProgress) > 0.002 ? nextProgress : current,
         );
@@ -232,7 +248,11 @@ export function BehaviorField() {
   const robustness = Math.max(0, 1 - failureRate / 100);
   const pointCount = isCoarsePointer ? 440 : 680;
   const boundarySegments = isCoarsePointer ? 64 : 92;
-  const frameLoop = reducedMotion ? "demand" : isVisible ? "always" : "never";
+  const frameLoop = !isVisible
+    ? "never"
+    : reducedMotion || isCoarsePointer
+      ? "demand"
+      : "always";
 
   return (
     <div
