@@ -59,7 +59,7 @@ export default function Home() {
           <div className="section-label">00 / CURRENT RESEARCH</div>
           <div className="research-card">
             <div className="research-card-main">
-              <div className="status-line"><span className="status-dot" /> ACTIVE RESEARCH / WORKING TITLE</div>
+              <div className="status-line"><span className="status-dot" /> RESEARCH / NOVELTY REVIEW / V0.1 DESIGN</div>
               <h2>MODEL REGRESSION<br />FORENSICS</h2>
               <p className="lede">
                 What if a model regression could be traced back through training lineage to the change that caused it,
@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <div className="research-meta">
               <div><span>QUESTION</span><strong>Why did the new model get worse?</strong></div>
-              <div><span>OUTPUT</span><strong>OSS · BENCHMARK · REPORT</strong></div>
+              <div><span>TARGET OUTPUT</span><strong>OSS · BENCHMARK · REPORT</strong></div>
               <div><span>STATUS</span><strong>SPECIFICATION / V0.1</strong></div>
               <div><span>THESIS</span><strong>Behavior diff → lineage → intervention</strong></div>
             </div>
