@@ -9,7 +9,7 @@ type ModelVersion = "baseline" | "candidate";
 type AtlasProps = {
   model: ModelVersion;
   stress: number;
-  scrollProgress: number;
+  scrollProgressRef: { current: number };
   interactivePointer: boolean;
   reducedMotion: boolean;
   pointCount: number;
@@ -43,7 +43,7 @@ function boundaryAt(x: number, model: ModelVersion, stress: number) {
 function BehaviorAtlas({
   model,
   stress,
-  scrollProgress,
+  scrollProgressRef,
   interactivePointer,
   reducedMotion,
   pointCount,
@@ -90,6 +90,7 @@ function BehaviorAtlas({
   useFrame(({ pointer, clock }) => {
     const pointerX = interactivePointer ? pointer.x : 0;
     const pointerY = interactivePointer ? pointer.y : 0;
+    const scrollProgress = reducedMotion ? 0 : scrollProgressRef.current;
 
     if (group.current) {
       group.current.rotation.x = pointerY * 0.035 + scrollProgress * 0.035;
@@ -167,9 +168,11 @@ function formatPercent(value: number) {
 
 export function BehaviorField() {
   const shellRef = useRef<HTMLDivElement>(null);
+  const phaseFillRef = useRef<HTMLElement>(null);
+  const scrollProgressRef = useRef(0);
+  const invalidateRef = useRef<() => void>(() => undefined);
   const [model, setModel] = useState<ModelVersion>("candidate");
   const [stress, setStress] = useState(0.36);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isCoarsePointer, setIsCoarsePointer] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -217,18 +220,29 @@ export function BehaviorField() {
         const viewport = Math.max(window.innerHeight, 1);
         const rect = shell.getBoundingClientRect();
         const shellTop = window.scrollY + rect.top;
+
+        // Start as the atlas approaches the main reading area and finish while
+        // it is still visibly on-screen. This keeps the transition consistent
+        // across side-by-side desktop and stacked phone/tablet layouts.
         const startScroll = Math.max(0, shellTop - viewport * 0.72);
-        const endScroll = shellTop + rect.height - viewport * 0.28;
-        const travel = Math.max(endScroll - startScroll, 1);
+        const endScroll = Math.max(
+          startScroll + 1,
+          shellTop + rect.height - viewport * 0.52,
+        );
         const nextProgress = THREE.MathUtils.clamp(
-          (window.scrollY - startScroll) / travel,
+          (window.scrollY - startScroll) / (endScroll - startScroll),
           0,
           1,
         );
 
-        setScrollProgress((current) =>
-          Math.abs(current - nextProgress) > 0.002 ? nextProgress : current,
-        );
+        scrollProgressRef.current = nextProgress;
+        if (phaseFillRef.current) {
+          phaseFillRef.current.style.transform = `scaleX(${nextProgress})`;
+        }
+
+        // Demand-rendered touch canvases need an explicit frame when scroll
+        // changes the scene. Desktop continues using its normal render loop.
+        if (isVisible) invalidateRef.current();
       });
     };
 
@@ -240,7 +254,7 @@ export function BehaviorField() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [isVisible]);
 
   const baselineFailure = 8.4 + stress * 31;
   const regressionDelta = model === "candidate" ? 2.1 + stress * 5.4 : 0;
@@ -265,6 +279,9 @@ export function BehaviorField() {
         camera={{ position: [0, 0, 6.35], fov: 47 }}
         dpr={isCoarsePointer ? 1 : [1, 1.5]}
         frameloop={frameLoop}
+        onCreated={(state) => {
+          invalidateRef.current = state.invalidate;
+        }}
         gl={{ antialias: !isCoarsePointer, powerPreference: "high-performance" }}
         style={{ pointerEvents: isCoarsePointer ? "none" : "auto", touchAction: "pan-y" }}
       >
@@ -272,7 +289,7 @@ export function BehaviorField() {
         <BehaviorAtlas
           model={model}
           stress={stress}
-          scrollProgress={scrollProgress}
+          scrollProgressRef={scrollProgressRef}
           interactivePointer={!isCoarsePointer}
           reducedMotion={reducedMotion}
           pointCount={pointCount}
@@ -283,7 +300,7 @@ export function BehaviorField() {
       <div className="field-hud field-hud-top">BEHAVIOR ATLAS / SYNTHETIC DEMO</div>
       <div className="field-phase" aria-hidden="true">
         <span>BEHAVIOR MAP</span>
-        <i><b style={{ width: `${Math.round(scrollProgress * 100)}%` }} /></i>
+        <i><b ref={phaseFillRef} /></i>
         <span>FORENSICS</span>
       </div>
 

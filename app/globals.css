@@ -562,7 +562,7 @@ footer h2 { margin-bottom: 0; }
   letter-spacing: .1em;
 }
 .field-phase i { height: 1px; background: rgba(255,255,255,.09); overflow: hidden; }
-.field-phase b { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), #ff9b8f); transition: width .12s linear; }
+.field-phase b { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, var(--accent), #ff9b8f); transform: scaleX(0); transform-origin: left center; will-change: transform; }
 .hero .field-shell { transition: border-color .35s ease, box-shadow .35s ease; }
 .hero .field-shell:hover { border-color: rgba(157,249,255,.28); box-shadow: 0 0 0 1px rgba(157,249,255,.03), 0 30px 90px rgba(0,0,0,.24); }
 @media (max-width: 680px) {
