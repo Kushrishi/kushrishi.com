@@ -10,6 +10,10 @@ type AtlasProps = {
   model: ModelVersion;
   stress: number;
   scrollProgress: number;
+  interactivePointer: boolean;
+  reducedMotion: boolean;
+  pointCount: number;
+  boundarySegments: number;
 };
 
 function mulberry32(seed: number) {
@@ -36,7 +40,15 @@ function boundaryAt(x: number, model: ModelVersion, stress: number) {
   return base + improvement + regression;
 }
 
-function BehaviorAtlas({ model, stress, scrollProgress }: AtlasProps) {
+function BehaviorAtlas({
+  model,
+  stress,
+  scrollProgress,
+  interactivePointer,
+  reducedMotion,
+  pointCount,
+  boundarySegments,
+}: AtlasProps) {
   const group = useRef<THREE.Group>(null);
   const probe = useRef<THREE.Mesh>(null);
   const failureMaterial = useRef<THREE.PointsMaterial>(null);
@@ -46,7 +58,7 @@ function BehaviorAtlas({ model, stress, scrollProgress }: AtlasProps) {
     const nominalValues: number[] = [];
     const failureValues: number[] = [];
 
-    for (let i = 0; i < 680; i += 1) {
+    for (let i = 0; i < pointCount; i += 1) {
       const x = -2.55 + random() * 5.1;
       const y = -2.2 + random() * 4.4;
       const surface = boundaryAt(x, model, stress);
@@ -61,10 +73,9 @@ function BehaviorAtlas({ model, stress, scrollProgress }: AtlasProps) {
     }
 
     const boundaryValues: number[] = [];
-    const segments = 92;
-    for (let i = 0; i < segments - 1; i += 1) {
-      const x1 = -2.6 + (i / (segments - 1)) * 5.2;
-      const x2 = -2.6 + ((i + 1) / (segments - 1)) * 5.2;
+    for (let i = 0; i < boundarySegments - 1; i += 1) {
+      const x1 = -2.6 + (i / (boundarySegments - 1)) * 5.2;
+      const x2 = -2.6 + ((i + 1) / (boundarySegments - 1)) * 5.2;
       boundaryValues.push(x1, boundaryAt(x1, model, stress), 0.03);
       boundaryValues.push(x2, boundaryAt(x2, model, stress), 0.03);
     }
@@ -74,12 +85,15 @@ function BehaviorAtlas({ model, stress, scrollProgress }: AtlasProps) {
       failure: new Float32Array(failureValues),
       boundary: new Float32Array(boundaryValues),
     };
-  }, [model, stress]);
+  }, [boundarySegments, model, pointCount, stress]);
 
   useFrame(({ pointer, clock }) => {
+    const pointerX = interactivePointer ? pointer.x : 0;
+    const pointerY = interactivePointer ? pointer.y : 0;
+
     if (group.current) {
-      group.current.rotation.x = pointer.y * 0.035 + scrollProgress * 0.035;
-      group.current.rotation.y = pointer.x * 0.045 - scrollProgress * 0.055;
+      group.current.rotation.x = pointerY * 0.035 + scrollProgress * 0.035;
+      group.current.rotation.y = pointerX * 0.045 - scrollProgress * 0.055;
       group.current.position.y = scrollProgress * 0.12;
       const scale = 1 + scrollProgress * 0.065;
       group.current.scale.setScalar(scale);
@@ -90,10 +104,10 @@ function BehaviorAtlas({ model, stress, scrollProgress }: AtlasProps) {
     }
 
     if (probe.current) {
-      const x = THREE.MathUtils.clamp(pointer.x * 2.25, -2.25, 2.25);
+      const x = THREE.MathUtils.clamp(pointerX * 2.25, -2.25, 2.25);
       const y = boundaryAt(x, model, stress);
       probe.current.position.set(x, y, 0.12);
-      const pulse = 1 + Math.sin(clock.getElapsedTime() * 3.5) * 0.12;
+      const pulse = reducedMotion ? 1 : 1 + Math.sin(clock.getElapsedTime() * 3.5) * 0.12;
       probe.current.scale.setScalar(pulse);
     }
   });
@@ -149,9 +163,45 @@ function formatPercent(value: number) {
 }
 
 export function BehaviorField() {
+  const shellRef = useRef<HTMLDivElement>(null);
   const [model, setModel] = useState<ModelVersion>("candidate");
   const [stress, setStress] = useState(0.36);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isCoarsePointer, setIsCoarsePointer] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const coarseQuery = window.matchMedia("(pointer: coarse)");
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const updateCapabilities = () => {
+      setIsCoarsePointer(coarseQuery.matches);
+      setReducedMotion(motionQuery.matches);
+    };
+
+    updateCapabilities();
+    coarseQuery.addEventListener("change", updateCapabilities);
+    motionQuery.addEventListener("change", updateCapabilities);
+
+    return () => {
+      coarseQuery.removeEventListener("change", updateCapabilities);
+      motionQuery.removeEventListener("change", updateCapabilities);
+    };
+  }, []);
+
+  useEffect(() => {
+    const shell = shellRef.current;
+    if (!shell || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: "180px 0px" },
+    );
+
+    observer.observe(shell);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     let frame = 0;
@@ -159,9 +209,13 @@ export function BehaviorField() {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         const viewport = Math.max(window.innerHeight, 1);
-        setScrollProgress(THREE.MathUtils.clamp(window.scrollY / (viewport * 0.78), 0, 1));
+        const nextProgress = THREE.MathUtils.clamp(window.scrollY / (viewport * 0.78), 0, 1);
+        setScrollProgress((current) =>
+          Math.abs(current - nextProgress) > 0.002 ? nextProgress : current,
+        );
       });
     };
+
     update();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
@@ -176,12 +230,34 @@ export function BehaviorField() {
   const regressionDelta = model === "candidate" ? 2.1 + stress * 5.4 : 0;
   const failureRate = baselineFailure + regressionDelta;
   const robustness = Math.max(0, 1 - failureRate / 100);
+  const pointCount = isCoarsePointer ? 440 : 680;
+  const boundarySegments = isCoarsePointer ? 64 : 92;
+  const frameLoop = reducedMotion ? "demand" : isVisible ? "always" : "never";
 
   return (
-    <div className="field-shell" role="region" aria-label="Interactive synthetic model behavior atlas">
-      <Canvas camera={{ position: [0, 0, 6.35], fov: 47 }} dpr={[1, 1.5]}>
+    <div
+      ref={shellRef}
+      className="field-shell"
+      role="region"
+      aria-label="Interactive synthetic model behavior atlas"
+    >
+      <Canvas
+        camera={{ position: [0, 0, 6.35], fov: 47 }}
+        dpr={isCoarsePointer ? 1 : [1, 1.5]}
+        frameloop={frameLoop}
+        gl={{ antialias: !isCoarsePointer, powerPreference: "high-performance" }}
+        style={{ pointerEvents: isCoarsePointer ? "none" : "auto", touchAction: "pan-y" }}
+      >
         <fog attach="fog" args={["#07090b", 5.4, 9.2]} />
-        <BehaviorAtlas model={model} stress={stress} scrollProgress={scrollProgress} />
+        <BehaviorAtlas
+          model={model}
+          stress={stress}
+          scrollProgress={scrollProgress}
+          interactivePointer={!isCoarsePointer}
+          reducedMotion={reducedMotion}
+          pointCount={pointCount}
+          boundarySegments={boundarySegments}
+        />
       </Canvas>
 
       <div className="field-hud field-hud-top">BEHAVIOR ATLAS / SYNTHETIC DEMO</div>
