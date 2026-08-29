@@ -1,4 +1,28 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+const researchDescription =
+  "A working research direction for tracing model regressions through training lineage and testing likely causes with controlled intervention.";
+
+export const metadata: Metadata = {
+  title: "Model Regression Forensics | Kush Rishi",
+  description: researchDescription,
+  alternates: {
+    canonical: "/research/model-regression-forensics",
+  },
+  openGraph: {
+    title: "Model Regression Forensics | Kush Rishi",
+    description: researchDescription,
+    url: "/research/model-regression-forensics",
+    siteName: "Kush Rishi",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Model Regression Forensics | Kush Rishi",
+    description: researchDescription,
+  },
+};
 
 const relatedWork = [
   ["MODEL DIFFING", "Behavioral comparison across model versions"],
