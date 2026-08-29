@@ -563,6 +563,28 @@ footer h2 { margin-bottom: 0; }
 }
 .field-phase i { height: 1px; background: rgba(255,255,255,.09); overflow: hidden; }
 .field-phase b { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, var(--accent), #ff9b8f); transform: scaleX(0); transform-origin: left center; will-change: transform; }
+
+@keyframes atlas-phase-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* On touch devices, modern Safari/Chromium can keep this progress bar on the
+   compositor thread instead of waiting on JavaScript scroll events. */
+@media (pointer: coarse) {
+  @supports (animation-timeline: view()) {
+    .field-shell {
+      view-timeline-name: --atlas-phase;
+      view-timeline-axis: block;
+    }
+
+    .field-phase b {
+      animation: atlas-phase-fill 1ms linear both;
+      animation-timeline: --atlas-phase;
+      animation-range: 12% 58%;
+    }
+  }
+}
 .hero .field-shell { transition: border-color .35s ease, box-shadow .35s ease; }
 .hero .field-shell:hover { border-color: rgba(157,249,255,.28); box-shadow: 0 0 0 1px rgba(157,249,255,.03), 0 30px 90px rgba(0,0,0,.24); }
 @media (max-width: 680px) {
