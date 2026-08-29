@@ -39,8 +39,8 @@ export default function ResearchPage() {
   return (
     <main className="research-page">
       <header className="site-header compact-header">
-        <Link className="wordmark" href="/">KR</Link>
-        <Link className="back-link" href="/">← Index</Link>
+        <Link className="wordmark" href="/" prefetch={false}>KR</Link>
+        <Link className="back-link" href="/" prefetch={false}>← Index</Link>
       </header>
 
       <section className="research-hero-page">

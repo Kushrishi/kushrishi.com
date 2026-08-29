@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <Link className="wordmark" href="#top">KR</Link>
+        <a className="wordmark" href="#top">KR</a>
         <nav aria-label="Primary navigation">
           <a href="#research">Research</a>
           <a href="#systems">Systems</a>
@@ -60,7 +60,7 @@ export default function Home() {
                 What if a model regression could be traced back through training lineage to the change that caused it,
                 then verified with an intervention instead of guessed from correlation?
               </p>
-              <Link className="text-link" href="/research/model-regression-forensics">Enter project →</Link>
+              <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>Enter project →</Link>
             </div>
             <div className="research-meta">
               <div><span>QUESTION</span><strong>Why did the new model get worse?</strong></div>
