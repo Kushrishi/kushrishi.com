@@ -60,7 +60,22 @@ const log = [
   [
     "EXP 003-D",
     "2026-08",
-    "Explicit-policy role binding reached 96/96 held-out; Experiment 004 is the next major RCA benchmark.",
+    "Explicit-policy role binding reached 96/96 held-out and restored a trustworthy clean task for later RCA experiments.",
+  ],
+  [
+    "EXP 004",
+    "2026-08",
+    "Task-aware ranking localized the intended shard, but restoring it produced no target recovery, separating localization from causal verification.",
+  ],
+  [
+    "EXP 005",
+    "2026-09",
+    "Five prospectively frozen worlds all failed the localized-regression gate; causal certification was never reached.",
+  ],
+  [
+    "EXP 006",
+    "2026-09",
+    "A semantic-controlled five-world causal RCA protocol is frozen and currently being evaluated.",
   ],
 ];
 
@@ -77,7 +92,7 @@ export default function ResearchPage() {
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 001 / ACTIVE RESEARCH / EXPERIMENT 004 NEXT</div>
+        <div className="section-label">PROJECT 001 / ACTIVE RESEARCH / EXPERIMENT 006</div>
         <h1>
           MODEL
           <br />
@@ -97,7 +112,7 @@ export default function ResearchPage() {
         <aside className="research-sidebar">
           <div>
             <span>STATUS</span>
-            <strong>ACTIVE / EXP 003-D COMPLETE</strong>
+            <strong>ACTIVE / EXP 006 IN PROGRESS</strong>
           </div>
 
           <div>
@@ -107,7 +122,7 @@ export default function ResearchPage() {
 
           <div>
             <span>EVIDENCE</span>
-            <strong>CONTROLLED SFT + BLINDED RCA + INTERVENTION</strong>
+            <strong>CONTROLLED SFT + BLINDED RCA + CAUSAL VERIFICATION</strong>
           </div>
 
           <div>
@@ -217,7 +232,7 @@ export default function ResearchPage() {
             <div className="experiment-panel">
               <div className="experiment-head">
                 <span>CONTROLLED EXPERIMENT SERIES</span>
-                <strong>THROUGH 003-D</strong>
+                <strong>EXP006 ACTIVE</strong>
               </div>
 
               <div className="experiment-row">
@@ -256,8 +271,18 @@ export default function ResearchPage() {
               </div>
 
               <div className="experiment-row">
-                <span>NEXT</span>
-                <b>Experiment 004 / hardened RCA benchmark</b>
+                <span>EXP 004</span>
+                <b>correct localization / causal verification failed</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>EXP 005</span>
+                <b>five frozen worlds / localized-regression gate not reached</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>EXP 006</span>
+                <b>semantic-controlled causal RCA / active</b>
               </div>
             </div>
           </section>
@@ -331,12 +356,12 @@ export default function ResearchPage() {
           </section>
 
           <div className="note-box">
-            <span>NOTE / 2026-08</span>
+            <span>NOTE / 2026-09</span>
 
             <p>
               Current evidence is controlled and synthetic. Findings are conditional on the pinned
-              model and training setup, and novelty is not established. Stable research history now
-              runs through Experiment 003-D; Experiment 004 is next.
+              model and training setup, and novelty is not established. Experiments 000 through 005
+              are complete; Experiment 006 is being evaluated under a frozen five-world protocol.
             </p>
           </div>
         </div>
