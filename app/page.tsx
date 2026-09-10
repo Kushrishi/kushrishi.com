@@ -67,7 +67,7 @@ export default function Home() {
               <div><span>QUESTION</span><strong>Which training change caused the regression?</strong></div>
               <div><span>CURRENT TEST</span><strong>EXPERIMENT 008</strong></div>
               <div><span>LATEST RESULT</span><strong>CLEAN REFERENCE · 96/96</strong></div>
-              <div><span>METHOD</span><strong>Compare behavior → trace changes → reverse candidate → retrain</strong></div>
+              <div><span>METHOD</span><strong>Measure regression → trace changes → rank candidates → retrain + verify</strong></div>
             </div>
           </div>
         </Reveal>
@@ -116,7 +116,7 @@ export default function Home() {
         <Reveal delay={0.1}>
           <div className="about-copy">
             <p>
-              My foundation is in Geomatics Engineering, GNSS/PNT, sensing, and measurement systems. At Xona, I work with Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
+              My foundation is in Geomatics Engineering, PNT/GNSS, sensing, and measurement systems. At Xona, I work with Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
             </p>
             <p>
               Alongside that work, I am developing deeper expertise in ML systems and research engineering through projects focused on model evaluation, reliability, multimodal sensing, and reproducible experimentation.

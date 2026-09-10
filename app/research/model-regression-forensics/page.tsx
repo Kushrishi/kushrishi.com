@@ -317,7 +317,7 @@ export default function ResearchPage() {
               05 / TECHNICAL SNAPSHOT
             </div>
 
-            <h2>Controlled fine-tuning with reproducible experiment state.</h2>
+            <h2>Controlled fine-tuning with reproducible experiments.</h2>
 
             <div className="method-grid technical-grid">
               <div>
