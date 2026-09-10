@@ -31,8 +31,8 @@ export default function Home() {
             <em>UNCERTAINTY.</em>
           </h1>
           <p className="hero-deck">
-            Machine learning, software systems, PNT, and intelligent sensing. I build and test
-            systems that need to stay reliable when real-world data gets messy.
+            Machine learning, software systems, PNT/GNSS, and intelligent sensing. I build and
+            evaluate systems where reliability, measurement, and rigorous testing matter.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Enter the lab <span>↗</span></a>
@@ -57,17 +57,17 @@ export default function Home() {
               <div className="status-line"><span className="status-dot" /> RESEARCH / EXP008 IN PROGRESS</div>
               <h2>MODEL REGRESSION<br />FORENSICS</h2>
               <p className="lede">
-                When a model gets worse after retraining, it can be hard to tell which training
-                change caused the problem. I am testing a way to find the likely cause, undo it,
-                retrain the model, and see whether the failure actually disappears.
+                When a model regresses after retraining, identifying the responsible training
+                change is difficult. This project tests a workflow that narrows the likely cause,
+                reverses that change, retrains the model, and measures whether the behavior recovers.
               </p>
               <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>Enter project →</Link>
             </div>
             <div className="research-meta">
-              <div><span>QUESTION</span><strong>Why did the new model get worse?</strong></div>
+              <div><span>QUESTION</span><strong>Which training change caused the regression?</strong></div>
               <div><span>CURRENT TEST</span><strong>EXPERIMENT 008</strong></div>
-              <div><span>LATEST RESULT</span><strong>CLEAN MODEL · 96/96</strong></div>
-              <div><span>METHOD</span><strong>Find likely cause → undo it → retrain → check recovery</strong></div>
+              <div><span>LATEST RESULT</span><strong>CLEAN REFERENCE · 96/96</strong></div>
+              <div><span>METHOD</span><strong>Compare behavior → trace changes → reverse candidate → retrain</strong></div>
             </div>
           </div>
         </Reveal>
@@ -116,15 +116,15 @@ export default function Home() {
         <Reveal delay={0.1}>
           <div className="about-copy">
             <p>
-              My foundation is in Geomatics Engineering, GNSS/PNT, sensing, and measurement systems. I now work across Python/Linux engineering, data pipelines, validation, and observability while building deeper research and engineering depth in machine learning.
+              My foundation is in Geomatics Engineering, GNSS/PNT, sensing, and measurement systems. At Xona, I work with Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
             </p>
             <p>
-              I am particularly interested in model evaluation, ML systems, multimodal intelligence, and how learned systems behave under distribution shift, incomplete information, and real-world uncertainty.
+              Alongside that work, I am developing deeper expertise in ML systems and research engineering through projects focused on model evaluation, reliability, multimodal sensing, and reproducible experimentation.
             </p>
             <div className="experience-mini">
-              <div><span>2026—</span><strong>GNSS Analyst · Xona</strong></div>
-              <div><span>2025—26</span><strong>Research Assistant · University of Calgary</strong></div>
-              <div><span>2022—26</span><strong>BSc Geomatics Engineering · With Distinction</strong></div>
+              <div><span>2026-PRESENT</span><strong>GNSS Analyst · Xona</strong></div>
+              <div><span>2025-26</span><strong>Research Assistant · University of Calgary</strong></div>
+              <div><span>2022-26</span><strong>BSc Geomatics Engineering · With Distinction</strong></div>
             </div>
           </div>
         </Reveal>

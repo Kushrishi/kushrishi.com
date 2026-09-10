@@ -264,7 +264,7 @@ footer h2 { margin-bottom: 0; }
   .research-sidebar { grid-template-columns: 1fr; }
 }
 
-/* V1.1 — behavior atlas controls */
+/* V1.1  -  behavior atlas controls */
 .field-model-toggle {
   position: absolute;
   z-index: 4;
@@ -368,7 +368,7 @@ footer h2 { margin-bottom: 0; }
   .field-hud-top { max-width: 150px; }
 }
 
-/* V1.2 — evidence-first project cards, reactive research directions, living research page */
+/* V1.2  -  evidence-first project cards, reactive research directions, living research page */
 .project-card {
   min-height: 620px;
   overflow: hidden;
@@ -613,7 +613,7 @@ footer h2 { margin-bottom: 0; }
   }
 }
 
-/* V1.3 — responsive hardening and touch/performance ergonomics */
+/* V1.3  -  responsive hardening and touch/performance ergonomics */
 html,
 body {
   width: 100%;
@@ -898,7 +898,7 @@ svg {
   }
 }
 
-/* V1.4 — section-relative atlas choreography and final mobile rhythm */
+/* V1.4  -  section-relative atlas choreography and final mobile rhythm */
 @media (max-width: 680px) {
   .section {
     padding-top: 68px;
