@@ -35,7 +35,7 @@ export default function Home() {
             evaluate systems where reliability, measurement, and rigorous testing matter.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#research">Enter the lab <span>↗</span></a>
+            <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
             <a className="button" href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">View GitHub</a>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function Home() {
                 change is difficult. This project tests a workflow that narrows the likely cause,
                 reverses that change, retrains the model, and measures whether the behavior recovers.
               </p>
-              <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>Enter project →</Link>
+              <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>View research →</Link>
             </div>
             <div className="research-meta">
               <div><span>QUESTION</span><strong>Which training change caused the regression?</strong></div>
@@ -132,7 +132,7 @@ export default function Home() {
 
       <footer>
         <div>
-          <div className="footer-kicker">BUILD / MEASURE / QUESTION / REPEAT</div>
+          <div className="footer-kicker">BUILD / MEASURE / VALIDATE / ITERATE</div>
           <h2>LET&apos;S BUILD<br />WHAT&apos;S MISSING.</h2>
         </div>
         <div className="footer-links">

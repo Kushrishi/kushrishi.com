@@ -261,6 +261,11 @@ export default function ResearchPage() {
                 <span>NEXT GATE</span>
                 <b>independent restoration and retraining</b>
               </div>
+
+              <div className="experiment-row">
+                <span>CAUSAL RESULT</span>
+                <b>not claimed at the current stage</b>
+              </div>
             </div>
           </section>
 
@@ -314,7 +319,7 @@ export default function ResearchPage() {
 
             <h2>Controlled fine-tuning with reproducible experiment state.</h2>
 
-            <div className="method-grid">
+            <div className="method-grid technical-grid">
               <div>
                 <span>MODEL</span>
                 <strong>SmolLM2-360M-Instruct</strong>
@@ -401,16 +406,6 @@ export default function ResearchPage() {
             </Link>
           </section>
 
-          <div className="note-box">
-            <span>STATUS / 2026-09</span>
-
-            <p>
-              Experiment 008 remains in progress. The clean reference model
-              passed 96/96 held-out cases. No causal result is claimed unless
-              the candidate and restoration stages also satisfy the criteria
-              defined before training.
-            </p>
-          </div>
         </div>
       </section>
     </main>

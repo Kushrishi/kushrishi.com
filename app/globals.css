@@ -928,3 +928,67 @@ svg {
     padding-top: 60px;
   }
 }
+
+/* Final research-page visual polish */
+
+/* Technical Snapshot uses descriptive labels rather than the single-letter
+   A/B/C/D markers used by the Approach section. Keep those labels above the
+   card title so longer words never collide with the content. */
+.technical-grid > div {
+  min-height: 176px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.technical-grid span {
+  display: block;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.technical-grid strong {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.technical-grid p {
+  grid-column: auto;
+  width: 100%;
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* The Research Log has no large heading beneath its section label, unlike
+   the surrounding sections, so give the table equivalent breathing room. */
+#log .research-log {
+  margin-top: 24px;
+}
+
+/* Indicate the active experiment without turning the historical log into
+   a dashboard or changing its established layout. */
+#log .research-log > div:last-child span,
+#log .research-log > div:last-child time {
+  color: var(--accent);
+}
+
+/* Make the repository destination read as a deliberate compact action
+   rather than a padded inline text fragment. */
+.code-placeholder {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Keep the technical cards comfortable on small screens as they collapse
+   from two columns to one. */
+@media (max-width: 680px) {
+  .technical-grid > div {
+    min-height: 0;
+  }
+}
