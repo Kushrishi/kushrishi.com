@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const researchDescription =
-  "Active research on diagnosing training-data-induced model regressions using blinded lineage analysis and intervention-backed verification.";
+  "Active research on diagnosing training-data-induced model regressions using truth-isolated lineage analysis and counterfactual verification.";
 
 export const metadata: Metadata = {
   title: "Model Regression Forensics | Kush Rishi",
@@ -75,7 +75,17 @@ const log = [
   [
     "EXP 006",
     "2026-09",
-    "A semantic-controlled five-world causal RCA protocol is frozen and currently being evaluated.",
+    "Semantic-space balancing preserved clean capability but produced zero target regression across all five frozen worlds.",
+  ],
+  [
+    "EXP 007",
+    "2026-09",
+    "Sensitivity calibration produced material target regressions, but protected behavior also regressed, so the locality gate failed and certification stopped.",
+  ],
+  [
+    "EXP 008",
+    "2026-09",
+    "A two-world selective causal RCA protocol was frozen before training; the shared clean baseline scored 96/96 and candidate evaluation is underway.",
   ],
 ];
 
@@ -92,7 +102,7 @@ export default function ResearchPage() {
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 001 / ACTIVE RESEARCH / EXPERIMENT 006</div>
+        <div className="section-label">PROJECT 001 / ACTIVE RESEARCH / EXPERIMENT 008</div>
         <h1>
           MODEL
           <br />
@@ -103,8 +113,8 @@ export default function ResearchPage() {
 
         <p className="hero-deck">
           An active research project on tracing behavioral regressions through training lineage,
-          ranking plausible causes under blinded conditions, and verifying suspected causes through
-          controlled intervention.
+          ranking plausible causes through truth-isolated diagnostics, and verifying suspected causes
+          through controlled counterfactual intervention.
         </p>
       </section>
 
@@ -112,7 +122,7 @@ export default function ResearchPage() {
         <aside className="research-sidebar">
           <div>
             <span>STATUS</span>
-            <strong>ACTIVE / EXP 006 IN PROGRESS</strong>
+            <strong>ACTIVE / EXP 008 CANDIDATE EVALUATION</strong>
           </div>
 
           <div>
@@ -122,7 +132,7 @@ export default function ResearchPage() {
 
           <div>
             <span>EVIDENCE</span>
-            <strong>CONTROLLED SFT + BLINDED RCA + CAUSAL VERIFICATION</strong>
+            <strong>CONTROLLED SFT + TRUTH-ISOLATED RCA + COUNTERFACTUAL VERIFICATION</strong>
           </div>
 
           <div>
@@ -139,7 +149,7 @@ export default function ResearchPage() {
             <p>
               Model teams can observe that a checkpoint regressed, yet still struggle to identify
               which training change caused the behavioral failure. This project asks whether
-              behavioral differencing, structured training lineage, blinded candidate ranking, and
+              behavioral differencing, structured training lineage, truth-isolated candidate ranking, and
               targeted interventions can turn regression debugging into a reproducible engineering
               workflow.
             </p>
@@ -232,7 +242,7 @@ export default function ResearchPage() {
             <div className="experiment-panel">
               <div className="experiment-head">
                 <span>CONTROLLED EXPERIMENT SERIES</span>
-                <strong>EXP006 ACTIVE</strong>
+                <strong>EXP008 ACTIVE</strong>
               </div>
 
               <div className="experiment-row">
@@ -282,7 +292,17 @@ export default function ResearchPage() {
 
               <div className="experiment-row">
                 <span>EXP 006</span>
-                <b>semantic-controlled causal RCA / active</b>
+                <b>semantic-balanced RCA / target materiality failed</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>EXP 007</span>
+                <b>sensitivity calibration / materiality passed; locality failed</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>EXP 008</span>
+                <b>selective causal RCA / frozen; clean baseline 96/96</b>
               </div>
             </div>
           </section>
@@ -315,6 +335,23 @@ export default function ResearchPage() {
                   The 003 diagnostics showed that selected-slot lookup and explicit-policy role
                   binding are individually learnable, while their implicit-policy composition
                   failed under the frozen setup.
+                </p>
+              </div>
+
+              <div>
+                <strong>MATERIALITY IS NOT LOCALITY</strong>
+                <p>
+                  Experiment 007 produced strong target regression, but protected behavior also
+                  moved. The frozen locality gate failed, so causal certification did not proceed.
+                </p>
+              </div>
+
+              <div>
+                <strong>EXP008 IS FROZEN PROSPECTIVELY</strong>
+                <p>
+                  The current two-world benchmark was committed before model training. Its clean
+                  baseline scored 96/96; candidate and restoration evidence are not claimed before
+                  their frozen gates are actually run.
                 </p>
               </div>
             </div>
@@ -360,8 +397,9 @@ export default function ResearchPage() {
 
             <p>
               Current evidence is controlled and synthetic. Findings are conditional on the pinned
-              model and training setup, and novelty is not established. Experiments 000 through 005
-              are complete; Experiment 006 is being evaluated under a frozen five-world protocol.
+              model and training setup, and novelty is not established. Experiments 000 through 007
+              are complete. Experiment 008 was frozen before model training; its clean baseline
+              scored 96/96, and candidate evaluation is the active result-bearing stage.
             </p>
           </div>
         </div>
