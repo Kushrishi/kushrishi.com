@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { SocialCard } from "@/components/SocialCard";
 
-export const alt = "Model Regression Forensics  -  Kush Rishi";
+export const alt = "Model Regression Forensics | Kush Rishi";
 
 export const size = {
   width: 1200,
@@ -15,7 +15,7 @@ export default function Image() {
     <SocialCard
       eyebrow="PROJECT 001 / ACTIVE RESEARCH"
       lines={["MODEL", "REGRESSION", "FORENSICS."]}
-      footer="BLINDED RCA · TRAINING LINEAGE · CONTROLLED INTERVENTION"
+      footer="MODEL DEBUGGING · TRAINING CHANGES · CONTROLLED RETRAINING"
     />,
     size,
   );

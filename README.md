@@ -25,4 +25,4 @@ Production check:
 npm run build
 ```
 
-The behavior atlas on the homepage is an explicitly synthetic visualization. Research results will replace synthetic demonstrations only after the underlying experiments have been run and reproduced.
+The behavior atlas on the homepage is an explicitly synthetic visualization and is not presented as experimental evidence. Research results are reported separately on the research page and in the Model Regression Forensics repository.
