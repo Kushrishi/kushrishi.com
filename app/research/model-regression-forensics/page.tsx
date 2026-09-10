@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const researchDescription =
-  "Active research on diagnosing training-data-induced model regressions using truth-isolated lineage analysis and counterfactual verification.";
+  "Researching how to trace a model regression back to the training change that caused it, then test the diagnosis by undoing that change and retraining.";
 
 export const metadata: Metadata = {
   title: "Model Regression Forensics | Kush Rishi",
@@ -24,68 +24,51 @@ export const metadata: Metadata = {
   },
 };
 
-const relatedWork = [
-  ["MODEL DIFFING", "Behavioral comparison across model versions"],
-  ["TRAINING-DATA ATTRIBUTION", "Methods for relating training examples to model behavior"],
-  ["CAUSAL INTERVENTION", "Controlled changes used to test a suspected cause"],
-];
-
 const log = [
-  ["EXP 000", "2026-08", "Validated the reproducible controlled SFT regression and recovery protocol."],
+  [
+    "EXP 000",
+    "2026-08",
+    "Built and reproduced the basic train → break → diagnose → repair experiment pipeline.",
+  ],
   [
     "EXP 001",
     "2026-08",
-    "Blinded multicandidate diagnosis succeeded, then exposed a whole-artifact lexical shortcut.",
+    "The debugger found the planted change, but a simple text-matching shortcut made the test too easy.",
   ],
   [
     "EXP 002",
     "2026-08",
-    "Entangled distractors neutralized that shortcut; changed-record analysis localized the hidden cause and selective restoration recovered the target behavior.",
+    "Removed the obvious shortcut. The hidden change was still found, and reversing it improved the target behavior.",
   ],
   [
     "EXP 003",
     "2026-08",
-    "A harder role-binding benchmark failed its clean baseline, so RCA was stopped before candidate and intervention runs.",
+    "A harder task failed even before debugging began, so the experiment was stopped instead of forcing a result.",
   ],
   [
-    "EXP 003-B",
+    "EXP 003-C/D",
     "2026-08",
-    "Balanced loss did not rescue the clean role-binding baseline.",
-  ],
-  [
-    "EXP 003-C",
-    "2026-08",
-    "Selected-slot lookup reached 96/96 on held-out evaluation, isolating the lookup primitive as learnable.",
-  ],
-  [
-    "EXP 003-D",
-    "2026-08",
-    "Explicit-policy role binding reached 96/96 held-out and restored a trustworthy clean task for later RCA experiments.",
+    "Follow-up tests showed which parts of the harder task the model could and could not reliably learn.",
   ],
   [
     "EXP 004",
     "2026-08",
-    "Task-aware ranking localized the intended shard, but restoring it produced no target recovery, separating localization from causal verification.",
+    "The debugger picked the intended change, but reversing that change did not repair the model. Ranking was not enough.",
   ],
   [
-    "EXP 005",
+    "EXP 005–006",
     "2026-09",
-    "Five prospectively frozen worlds all failed the localized-regression gate; causal certification was never reached.",
-  ],
-  [
-    "EXP 006",
-    "2026-09",
-    "Semantic-space balancing preserved clean capability but produced zero target regression across all five frozen worlds.",
+    "Better-controlled training changes still failed to create the clean, isolated model regression the benchmark needed.",
   ],
   [
     "EXP 007",
     "2026-09",
-    "Sensitivity calibration produced material target regressions, but protected behavior also regressed, so the locality gate failed and certification stopped.",
+    "The intended failure finally appeared, but unrelated behaviors broke too. The experiment stopped at its predefined gate.",
   ],
   [
     "EXP 008",
     "2026-09",
-    "A two-world selective causal RCA protocol was frozen before training; the shared clean baseline scored 96/96 and candidate evaluation is underway.",
+    "Current experiment. The setup was fixed before training. The clean reference model scored 96/96; changed-model evaluation is underway.",
   ],
 ];
 
@@ -102,7 +85,10 @@ export default function ResearchPage() {
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 001 / ACTIVE RESEARCH / EXPERIMENT 008</div>
+        <div className="section-label">
+          PROJECT 001 / ACTIVE RESEARCH / EXPERIMENT 008
+        </div>
+
         <h1>
           MODEL
           <br />
@@ -112,9 +98,9 @@ export default function ResearchPage() {
         </h1>
 
         <p className="hero-deck">
-          An active research project on tracing behavioral regressions through training lineage,
-          ranking plausible causes through truth-isolated diagnostics, and verifying suspected causes
-          through controlled counterfactual intervention.
+          When a model gets worse after retraining, I want to know which training
+          change caused it — and test that answer by undoing the change and
+          seeing whether the model recovers.
         </p>
       </section>
 
@@ -122,243 +108,204 @@ export default function ResearchPage() {
         <aside className="research-sidebar">
           <div>
             <span>STATUS</span>
-            <strong>ACTIVE / EXP 008 CANDIDATE EVALUATION</strong>
+            <strong>EXP 008 IN PROGRESS</strong>
           </div>
 
           <div>
-            <span>PRIMARY QUESTION</span>
-            <strong>Why did the new model get worse?</strong>
+            <span>QUESTION</span>
+            <strong>WHICH TRAINING CHANGE CAUSED THE FAILURE?</strong>
           </div>
 
           <div>
-            <span>EVIDENCE</span>
-            <strong>CONTROLLED SFT + TRUTH-ISOLATED RCA + COUNTERFACTUAL VERIFICATION</strong>
+            <span>LATEST RESULT</span>
+            <strong>CLEAN MODEL · 96/96</strong>
           </div>
 
           <div>
-            <span>NOVELTY</span>
-            <strong>NOT ESTABLISHED</strong>
+            <span>SCOPE</span>
+            <strong>CONTROLLED ML EXPERIMENTS</strong>
           </div>
         </aside>
 
         <div className="research-copy">
           <section className="research-block" id="problem">
-            <div className="research-block-index">01 / PROBLEM</div>
-            <h2>Observe the regression. Find the cause.</h2>
+            <div className="research-block-index">01 / THE PROBLEM</div>
+
+            <h2>Seeing a model fail is not the same as knowing why.</h2>
 
             <p>
-              Model teams can observe that a checkpoint regressed, yet still struggle to identify
-              which training change caused the behavioral failure. This project asks whether
-              behavioral differencing, structured training lineage, truth-isolated candidate ranking, and
-              targeted interventions can turn regression debugging into a reproducible engineering
-              workflow.
+              Imagine version A of a model works correctly. You retrain it with
+              new data and produce version B. Version B now fails on something
+              version A handled correctly.
+            </p>
+
+            <p>
+              You may know that hundreds or thousands of things changed during
+              training, but that does not tell you which change caused the new
+              behavior. That is the debugging problem I am studying.
             </p>
           </section>
 
-          <section className="research-block" id="question">
-            <div className="research-block-index">02 / RESEARCH QUESTION</div>
+          <section className="research-block" id="idea">
+            <div className="research-block-index">02 / THE CORE IDEA</div>
 
             <blockquote>
-              Can an automated debugger localize the training change responsible for a model
-              regression, then verify that diagnosis through intervention rather than correlation
-              alone?
+              Do not stop at “this training change looks suspicious.” Undo it
+              and see whether the model gets better.
             </blockquote>
+
+            <div className="pipeline research-pipeline">
+              <span>MODEL GETS WORSE</span>
+              <b>→</b>
+              <span>COMPARE TRAINING CHANGES</span>
+              <b>→</b>
+              <span>PICK LIKELY CAUSE</span>
+              <b>→</b>
+              <span>UNDO IT</span>
+              <b>→</b>
+              <span>RETRAIN + TEST</span>
+            </div>
           </section>
 
           <section className="research-block" id="method">
-            <div className="research-block-index">03 / FORENSICS LOOP</div>
-
-            <div className="pipeline research-pipeline">
-              <span>BEHAVIOR DIFF</span>
-              <b>→</b>
-              <span>REGRESSION CLUSTER</span>
-              <b>→</b>
-              <span>LINEAGE SEARCH</span>
-              <b>→</b>
-              <span>INTERVENTION</span>
-              <b>→</b>
-              <span>VERIFIED CAUSE</span>
-            </div>
+            <div className="research-block-index">03 / HOW IT WORKS</div>
 
             <div className="method-grid">
               <div>
                 <span>A</span>
                 <strong>Detect</strong>
-                <p>Measure a behavioral delta between baseline and candidate checkpoints.</p>
+                <p>
+                  Measure exactly what got worse between the old and new model.
+                </p>
               </div>
 
               <div>
                 <span>B</span>
-                <strong>Localize</strong>
-                <p>Rank changed data, configuration, or training phases as candidate causes.</p>
+                <strong>Narrow</strong>
+                <p>
+                  Compare the training changes and rank which ones are most
+                  suspicious.
+                </p>
               </div>
 
               <div>
                 <span>C</span>
-                <strong>Intervene</strong>
-                <p>Remove, replace, or replay the suspected change under controlled conditions.</p>
+                <strong>Test</strong>
+                <p>
+                  Undo one suspected change and retrain under the same
+                  conditions.
+                </p>
               </div>
 
               <div>
                 <span>D</span>
                 <strong>Verify</strong>
-                <p>Test recovery on held-out cases and unrelated capabilities.</p>
+                <p>
+                  Check whether the broken behavior recovers without damaging
+                  other behavior.
+                </p>
               </div>
             </div>
           </section>
 
-          <section className="research-block" id="novelty">
-            <div className="research-block-index">04 / NOVELTY STATUS</div>
-            <h2>Adjacent work exists. The gap still has to be earned.</h2>
+          <section className="research-block" id="current">
+            <div className="research-block-index">
+              04 / CURRENT EXPERIMENT
+            </div>
+
+            <h2>Experiment 008: five possible changes, one intended cause.</h2>
 
             <p>
-              This project does not currently claim novelty. The working wedge is end-to-end
-              regression forensics that joins behavioral differencing, training lineage,
-              candidate-cause ranking, and intervention-backed verification. Experiments completed
-              so far are controlled and synthetic; the related-work review and later comparative
-              studies must establish whether the overall method is sufficiently distinct and useful.
+              Experiment 008 starts with a clean model and five different
+              training-data changes. One change is designed to cause a specific
+              failure. The other four are distractions.
             </p>
 
-            <div className="related-work-grid">
-              {relatedWork.map(([title, detail]) => (
-                <div key={title}>
-                  <strong>{title}</strong>
-                  <p>{detail}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="research-block" id="experiment">
-            <div className="research-block-index">05 / EXPERIMENT PROGRESSION</div>
-            <h2>The benchmark has been hardened by its own failures.</h2>
+            <p>
+              First, I train the changed model and check whether the intended
+              failure actually appears while the rest of the model stays stable.
+              If that succeeds in both test worlds, I undo each change one at a
+              time and retrain.
+            </p>
 
             <p>
-              Each stage has been used to test not only the debugger, but whether the benchmark
-              itself is trustworthy. Shortcuts and failed clean baselines are recorded rather than
-              tuned away after seeing results.
+              The strongest result would be simple: reversing one specific
+              change repairs the failure, while reversing the other four does
+              not.
             </p>
 
             <div className="experiment-panel">
               <div className="experiment-head">
-                <span>CONTROLLED EXPERIMENT SERIES</span>
-                <strong>EXP008 ACTIVE</strong>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 000</span>
-                <b>protocol validation / complete</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 001</span>
-                <b>blinded RCA / lexical shortcut discovered</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 002</span>
-                <b>entangled distractors / hidden cause localized + recovery</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 003</span>
-                <b>role binding / clean baseline failed; RCA stopped</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 003-B</span>
-                <b>balanced loss / baseline not rescued</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 003-C</span>
-                <b>selected-slot lookup / 96/96 held-out</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 003-D</span>
-                <b>explicit-policy role binding / 96/96 held-out</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 004</span>
-                <b>correct localization / causal verification failed</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 005</span>
-                <b>five frozen worlds / localized-regression gate not reached</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 006</span>
-                <b>semantic-balanced RCA / target materiality failed</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>EXP 007</span>
-                <b>sensitivity calibration / materiality passed; locality failed</b>
-              </div>
-
-              <div className="experiment-row">
                 <span>EXP 008</span>
-                <b>selective causal RCA / frozen; clean baseline 96/96</b>
+                <strong>IN PROGRESS</strong>
+              </div>
+
+              <div className="experiment-row">
+                <span>SETUP</span>
+                <b>defined before model training</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>CLEAN MODEL</span>
+                <b>96 / 96 held-out cases</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>NOW</span>
+                <b>evaluating the changed models</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>NEXT IF THEY PASS</span>
+                <b>undo each possible cause and retrain</b>
               </div>
             </div>
           </section>
 
-          <section className="research-block" id="findings">
-            <div className="research-block-index">06 / KEY FINDINGS</div>
-            <h2>What the experiments have established so far.</h2>
+          <section className="research-block" id="why">
+            <div className="research-block-index">
+              05 / WHY SO MANY EXPERIMENTS?
+            </div>
+
+            <h2>The failed experiments are part of the result.</h2>
+
+            <p>
+              Earlier versions of the benchmark kept exposing ways this problem
+              could look solved when it really was not. Instead of hiding those
+              failures, each one became a reason to make the next experiment
+              stricter.
+            </p>
 
             <div className="related-work-grid">
               <div>
-                <strong>SHORTCUTS CAN MISLEAD</strong>
+                <strong>SHORTCUTS CAN FOOL US</strong>
                 <p>
-                  Experiment 001 showed that an apparently successful diagnosis can rely on simple
-                  lexical overlap rather than a meaningful forensic signal.
+                  A debugger can appear to find the right answer simply because
+                  one training change contains obvious matching words.
                 </p>
               </div>
 
               <div>
-                <strong>CHANGE-FOCUSED RCA HELD UP</strong>
+                <strong>A GOOD GUESS IS NOT PROOF</strong>
                 <p>
-                  After Experiment 002 neutralized whole-artifact lexical ranking, analysis of the
-                  changed records still localized the hidden cause and intervention recovered the
-                  target behavior.
+                  Experiment 004 picked the intended change, but reversing it
+                  did not fix the model. That showed why the repair test matters.
                 </p>
               </div>
 
               <div>
-                <strong>COMPOSITION MATTERS</strong>
+                <strong>THE TEST ITSELF CAN FAIL</strong>
                 <p>
-                  The 003 diagnostics showed that selected-slot lookup and explicit-policy role
-                  binding are individually learnable, while their implicit-policy composition
-                  failed under the frozen setup.
-                </p>
-              </div>
-
-              <div>
-                <strong>MATERIALITY IS NOT LOCALITY</strong>
-                <p>
-                  Experiment 007 produced strong target regression, but protected behavior also
-                  moved. The frozen locality gate failed, so causal certification did not proceed.
-                </p>
-              </div>
-
-              <div>
-                <strong>EXP008 IS FROZEN PROSPECTIVELY</strong>
-                <p>
-                  The current two-world benchmark was committed before model training. Its clean
-                  baseline scored 96/96; candidate and restoration evidence are not claimed before
-                  their frozen gates are actually run.
+                  Some experiments never produced the intended model failure.
+                  Others broke too many unrelated behaviors. Those are benchmark
+                  failures, not debugging successes.
                 </p>
               </div>
             </div>
           </section>
 
           <section className="research-block" id="log">
-            <div className="research-block-index">07 / RESEARCH LOG</div>
+            <div className="research-block-index">06 / RESEARCH LOG</div>
 
             <div className="research-log">
               {log.map(([id, date, text]) => (
@@ -371,14 +318,36 @@ export default function ResearchPage() {
             </div>
           </section>
 
-          <section className="research-block" id="reproduce">
-            <div className="research-block-index">08 / REPRODUCE</div>
-            <h2>Protocols, configs, tests, and results are public in the repository.</h2>
+          <section className="research-block" id="scope">
+            <div className="research-block-index">07 / SCOPE</div>
+
+            <h2>What this project does and does not claim.</h2>
 
             <p>
-              The research repo records frozen experiment configurations, deterministic preparation
-              scripts, model-training and evaluation runners, decision logs, and per-experiment
-              results. Generated checkpoints and datasets are intentionally excluded from Git.
+              These are controlled synthetic experiments on a small language
+              model. They are meant to test the debugging method carefully
+              before trying to generalize it to larger, messier, real-world
+              regressions.
+            </p>
+
+            <p>
+              Related work already exists in model comparison, training-data
+              attribution, influence estimation, and ML debugging. I am testing
+              whether those ideas can fit into an end-to-end workflow where a
+              suspected cause is checked by actually reversing it.
+            </p>
+          </section>
+
+          <section className="research-block" id="code">
+            <div className="research-block-index">08 / CODE + DETAILS</div>
+
+            <h2>The technical record is public.</h2>
+
+            <p>
+              The repository contains the experiment configs, preparation
+              scripts, training and evaluation code, tests, decision logs, and
+              detailed results. Deeper documentation records the exact model
+              revision, dataset hashes, training settings, and experiment rules.
             </p>
 
             <Link
@@ -396,10 +365,10 @@ export default function ResearchPage() {
             <span>NOTE / 2026-09</span>
 
             <p>
-              Current evidence is controlled and synthetic. Findings are conditional on the pinned
-              model and training setup, and novelty is not established. Experiments 000 through 007
-              are complete. Experiment 008 was frozen before model training; its clean baseline
-              scored 96/96, and candidate evaluation is the active result-bearing stage.
+              Experiment 008 is still running. The clean reference model has
+              passed 96/96 held-out cases. No causal success is being claimed
+              unless the changed-model and repair tests also pass the rules
+              defined before training.
             </p>
           </div>
         </div>
