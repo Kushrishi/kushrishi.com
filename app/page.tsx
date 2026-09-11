@@ -74,7 +74,7 @@ export default function Home() {
           <div className="research-secondary-card">
             <div className="research-secondary-main">
               <div className="status-line">
-                <span className="status-dot" /> PRECLINICAL TECHNICAL VALIDATION
+                <span className="status-dot" /> EARLY TECHNICAL VALIDATION
               </div>
               <h3>
                 RESTORATION INTERFACE
@@ -92,12 +92,12 @@ export default function Home() {
               <div>
                 <span>QUESTION</span>
                 <strong>
-                  Can longitudinal sensing separate true change from measurement confounds?
+                  Can longitudinal sensing distinguish real change from measurement variability?
                 </strong>
               </div>
               <div>
                 <span>STATUS</span>
-                <strong>Physical falsification protocol frozen</strong>
+                <strong>Experimental protocol frozen before physical testing</strong>
               </div>
               <div>
                 <span>NEXT</span>
