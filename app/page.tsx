@@ -70,6 +70,41 @@ export default function Home() {
               <div><span>METHOD</span><strong>Measure regression → trace changes → rank candidates → retrain + verify</strong></div>
             </div>
           </div>
+
+          <div className="research-secondary-card">
+            <div className="research-secondary-main">
+              <div className="status-line">
+                <span className="status-dot" /> PRECLINICAL TECHNICAL VALIDATION
+              </div>
+              <h3>
+                RESTORATION INTERFACE
+                <br />
+                SENSING
+              </h3>
+              <p>
+                Longitudinal optical sensing research investigating whether meaningful change
+                around existing dental restorations can be separated from positioning, hydration,
+                and measurement variability.
+              </p>
+            </div>
+
+            <div className="research-secondary-meta">
+              <div>
+                <span>QUESTION</span>
+                <strong>
+                  Can longitudinal sensing separate true change from measurement confounds?
+                </strong>
+              </div>
+              <div>
+                <span>STATUS</span>
+                <strong>Physical falsification protocol frozen</strong>
+              </div>
+              <div>
+                <span>NEXT</span>
+                <strong>Single-channel bench repeatability</strong>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </section>
 
