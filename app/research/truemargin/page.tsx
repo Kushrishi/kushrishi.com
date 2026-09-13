@@ -66,7 +66,7 @@ export default function TrueMarginPage() {
 
           <div>
             <span>LATEST COMPLETED RESULT</span>
-            <strong>GATE A DID NOT PASS</strong>
+            <strong>CORRECTED ENSEMBLE · PREDEFINED GATE FAILED</strong>
           </div>
 
           <div>
@@ -122,7 +122,7 @@ export default function TrueMarginPage() {
           <section className="research-block" id="gate-a">
             <div className="research-block-index">03 / COMPLETED RESULT</div>
 
-            <h2>The corrected intensity-perturbation ensemble did not earn promotion.</h2>
+            <h2>The corrected intensity-perturbation ensemble did not pass the predefined gate.</h2>
 
             <p>
               None of the tested nonzero perturbation levels satisfied the predeclared combination
