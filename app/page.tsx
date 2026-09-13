@@ -32,8 +32,8 @@ export default function Home() {
           </h1>
           <p className="hero-deck">
             Machine learning, research engineering, software systems, and intelligent sensing. I
-            build and evaluate systems where model behavior, uncertainty, measurement, and
-            reliability need to be tested rather than assumed.
+            build and test systems where model behavior, uncertainty, measurement, and reliability
+            matter.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
@@ -81,10 +81,10 @@ export default function Home() {
               </div>
               <h3>TRUEMARGIN</h3>
               <p>
-                Medical-imaging research testing whether registration-uncertainty signals are
-                actually informative about spatial error point-by-point, not merely calibrated in
-                aggregate.
+                Medical-imaging research asking whether registration uncertainty actually identifies
+                where spatial error is high, rather than only looking reasonable in aggregate.
               </p>
+              <Link className="text-link" href="/research/truemargin" prefetch={false}>View research →</Link>
             </div>
 
             <div className="research-secondary-meta">
@@ -94,11 +94,11 @@ export default function Home() {
               </div>
               <div>
                 <span>STATUS</span>
-                <strong>Prospective Gate A negative result preserved · convergence study active</strong>
+                <strong>Gate A did not pass · registration convergence study active</strong>
               </div>
               <div>
                 <span>NEXT</span>
-                <strong>Freeze stable registration regime → prospectively test next uncertainty mechanism</strong>
+                <strong>Establish a stable registration regime before testing another uncertainty method</strong>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function Home() {
               <div className="project-card-body">
                 <div className="project-tags">APPLIED AI · RAG · FULL-STACK · SAFETY</div>
                 <h3>CareBridge Canada</h3>
-                <p>Healthcare-continuity product ecosystem exploring source-grounded, safety-aware AI workflows with React, FastAPI, SQL, retrieval, automated testing, and CI/CD.</p>
+                <p>Healthcare-continuity prototype combining a public product demo with a private FastAPI/SQL/RAG backend for source-grounded workflows, validation, and auditability.</p>
                 <ProjectPreview kind="carebridge" />
                 <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
               </div>
@@ -151,7 +151,7 @@ export default function Home() {
               My foundation is in Geomatics Engineering, PNT/GNSS, sensing, estimation, and measurement systems. At Xona, I work with Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
             </p>
             <p>
-              Alongside that work, I am developing deeper expertise in ML and research engineering through model evaluation and reliability research, medical-image uncertainty, evidence-grounded AI systems, and reproducible experimentation.
+              Outside that work, I focus on machine-learning research and software projects around model regressions, uncertainty in medical imaging, evidence-grounded AI, and reproducible experimentation.
             </p>
             <div className="experience-mini">
               <div><span>2026-PRESENT</span><strong>GNSS Analyst · Xona</strong></div>
