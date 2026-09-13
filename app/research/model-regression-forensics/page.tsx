@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const researchDescription =
-  "Independent ML research on identifying which training change caused a model regression and verifying the diagnosis through controlled retraining.";
+  "Independent ML research on identifying which training change caused a model regression and verifying the diagnosis through controlled counterfactual retraining.";
 
 export const metadata: Metadata = {
   title: "Model Regression Forensics | Kush Rishi",
@@ -70,6 +70,11 @@ const log = [
     "2026-09",
     "Completed the frozen two-world test. The planted root was uniquely ranked first and its restoration fully recovered the target in both worlds, but non-root restorations also produced material recovery, so unique causal certification failed.",
   ],
+  [
+    "EXP 009",
+    "2026-09",
+    "Moved to Banking77 with prospectively frozen materiality and locality gates, paired training trajectories, and explicit stochastic controls. The first 1/8 pilot produced a localized 4.50-point target regression but did not meet the predeclared 10-point materiality gate, so dose calibration continues under the frozen rule.",
+  ],
 ];
 
 export default function ResearchPage() {
@@ -87,7 +92,7 @@ export default function ResearchPage() {
 
       <section className="research-hero-page">
         <div className="section-label">
-          PROJECT 001 / ACTIVE RESEARCH / NEXT PHASE
+          PROJECT 001 / ACTIVE RESEARCH / EXP009
         </div>
 
         <h1>
@@ -100,8 +105,8 @@ export default function ResearchPage() {
 
         <p className="hero-deck">
           Independent ML research on identifying which training change caused a
-          model regression and verifying the diagnosis by reversing that change
-          and retraining.
+          model regression and verifying the diagnosis through controlled
+          counterfactual retraining.
         </p>
       </section>
 
@@ -109,7 +114,7 @@ export default function ResearchPage() {
         <aside className="research-sidebar">
           <div>
             <span>STATUS</span>
-            <strong>EXP 008 COMPLETE</strong>
+            <strong>EXP 009 ACTIVE</strong>
           </div>
 
           <div>
@@ -118,18 +123,18 @@ export default function ResearchPage() {
           </div>
 
           <div>
-            <span>LATEST RESULT</span>
-            <strong>ROOT LOCALIZED · 2/2 WORLDS</strong>
+            <span>LATEST COMPLETED RESULT</span>
+            <strong>EXP008 · ROOT LOCALIZED · 2/2 WORLDS</strong>
           </div>
 
           <div>
-            <span>NEXT PHASE</span>
-            <strong>REALISTIC REGRESSIONS · PAIRED RETRAINING</strong>
+            <span>CURRENT PHASE</span>
+            <strong>BANKING77 · PAIRED RETRAINING</strong>
           </div>
 
           <div>
             <span>STACK</span>
-            <strong>PYTORCH · TRANSFORMERS · PEFT/LORA</strong>
+            <strong>PYTORCH · TRANSFORMERS · BANKING77</strong>
           </div>
         </aside>
 
@@ -158,7 +163,8 @@ export default function ResearchPage() {
 
             <blockquote>
               A suspicious training change is not treated as the cause until
-              reversing it produces measurable recovery.
+              reversing it produces measurable recovery that is distinguishable
+              from nuisance restorations and ordinary retraining variability.
             </blockquote>
 
             <div className="pipeline research-pipeline">
@@ -197,7 +203,7 @@ export default function ResearchPage() {
                 <strong>Test</strong>
                 <p>
                   Reverse candidate changes independently and retrain under the
-                  same experimental conditions.
+                  same controlled conditions.
                 </p>
               </div>
 
@@ -205,16 +211,80 @@ export default function ResearchPage() {
                 <span>D</span>
                 <strong>Verify</strong>
                 <p>
-                  Measure whether target behavior recovers while unrelated
-                  behavior remains stable.
+                  Compare recovery against protected behavior, nuisance
+                  restorations, and retraining variability.
                 </p>
               </div>
             </div>
           </section>
 
           <section className="research-block" id="current">
+            <div className="research-block-index">03 / CURRENT PHASE</div>
+
+            <h2>Experiment 009</h2>
+
+            <p>
+              Experiment 009 was designed in response to the central weakness
+              exposed by Experiment 008: restoring the planted root recovered
+              the target, but some non-root restorations also produced material
+              recovery. A single successful retraining outcome therefore was
+              not specific enough to certify causality.
+            </p>
+
+            <p>
+              The current phase moves beyond the earlier synthetic shape tasks
+              to a natural-language Banking77 classification setting. Clean and
+              corrupted candidates are paired through controlled initial model
+              states and training-slot schedules, and the experiment explicitly
+              measures stochastic retraining variability before causal-specificity
+              claims are allowed.
+            </p>
+
+            <p>
+              The first planted corruption pilot used a symmetric label swap at
+              dose 1/8. It produced a localized 4.50 percentage-point target
+              regression while protected behavior remained effectively stable,
+              but it did not meet the prospectively frozen 10-point target
+              materiality gate. The threshold was not changed after seeing the
+              result; dose calibration continues under the predeclared rule.
+            </p>
+
+            <div className="experiment-panel">
+              <div className="experiment-head">
+                <span>EXP 009</span>
+                <strong>ACTIVE</strong>
+              </div>
+
+              <div className="experiment-row">
+                <span>TASK</span>
+                <b>Banking77 · DistilBERT classifier</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>PAIRING</span>
+                <b>controlled initialization + identical slot schedule</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>1/8 PILOT</span>
+                <b>4.50-point target regression · localized</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>FROZEN GATE</span>
+                <b>target drop ≥10 points · protected drop ≤2 points</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>OFFICIAL TEST</span>
+                <b>embargoed during pilot/development</b>
+              </div>
+            </div>
+          </section>
+
+          <section className="research-block" id="latest-complete">
             <div className="research-block-index">
-              03 / LATEST EXPERIMENT
+              04 / LATEST COMPLETED CAUSAL TEST
             </div>
 
             <h2>Experiment 008</h2>
@@ -239,7 +309,7 @@ export default function ResearchPage() {
               Primary causal certification still failed because some non-root
               restorations also produced material target recovery. The result
               therefore supports successful localization and strong planted-root
-              restorative influence under this benchmark, but not uniquely
+              restorative influence under that benchmark, but not uniquely
               specific causal verification from a single retraining outcome.
             </p>
 
@@ -279,19 +349,10 @@ export default function ResearchPage() {
                 <b>failed · non-root recovery was not specific</b>
               </div>
             </div>
-
-            <p>
-              The next phase will move beyond the synthetic shape substrate and
-              explicitly measure retraining variability on a more realistic
-              natural-language regression task using repeated, paired runs. The
-              exact next experiment protocol has not yet been frozen.
-            </p>
           </section>
 
           <section className="research-block" id="findings">
-            <div className="research-block-index">
-              04 / FINDINGS
-            </div>
+            <div className="research-block-index">05 / FINDINGS</div>
 
             <h2>The benchmark became stricter as weaknesses were exposed.</h2>
 
@@ -325,53 +386,56 @@ export default function ResearchPage() {
                 <strong>RETRAINING VARIABILITY MATTERS</strong>
                 <p>
                   Experiment 008 restored the planted root perfectly, but some
-                  nuisance restorations also recovered the target. Verification
-                  therefore needs a variability baseline rather than one fresh
-                  retraining result.
+                  nuisance restorations also recovered the target. Experiment
+                  009 therefore treats variability as part of the causal test.
                 </p>
               </div>
             </div>
           </section>
 
           <section className="research-block" id="technical">
-            <div className="research-block-index">
-              05 / TECHNICAL SNAPSHOT
-            </div>
+            <div className="research-block-index">06 / TECHNICAL SNAPSHOT</div>
 
-            <h2>Controlled fine-tuning with reproducible experiments.</h2>
+            <h2>Controlled training with reproducible experiments.</h2>
 
             <div className="method-grid technical-grid">
               <div>
-                <span>MODEL</span>
-                <strong>SmolLM2-360M-Instruct</strong>
-                <p>Pinned model revision across the completed synthetic series.</p>
+                <span>MODELS</span>
+                <strong>SmolLM2 → DistilBERT</strong>
+                <p>
+                  SmolLM2-360M-Instruct powered the completed synthetic series;
+                  Experiment 009 uses a Banking77 DistilBERT classifier.
+                </p>
               </div>
 
               <div>
                 <span>TRAINING</span>
                 <strong>PyTorch · Transformers · PEFT/LoRA</strong>
-                <p>Controlled supervised fine-tuning under fixed parameters.</p>
+                <p>Controlled fine-tuning and paired retraining protocols.</p>
               </div>
 
               <div>
                 <span>EVALUATION</span>
-                <strong>Held-out behavioral tests</strong>
-                <p>Target and protected behaviors are measured separately.</p>
+                <strong>Target + protected behavior</strong>
+                <p>
+                  Regression materiality, locality, restoration effects, and
+                  stochastic variability are evaluated separately.
+                </p>
               </div>
 
               <div>
                 <span>REPRODUCIBILITY</span>
                 <strong>Configs · seeds · hashes · provenance</strong>
                 <p>
-                  Experiment inputs and runtime state are recorded for each
-                  comparison.
+                  Experiment inputs, initial states, schedules, and runtime state
+                  are recorded for controlled comparison.
                 </p>
               </div>
             </div>
           </section>
 
           <section className="research-block" id="log">
-            <div className="research-block-index">06 / RESEARCH LOG</div>
+            <div className="research-block-index">07 / RESEARCH LOG</div>
 
             <div className="research-log">
               {log.map(([id, date, text]) => (
@@ -385,28 +449,30 @@ export default function ResearchPage() {
           </section>
 
           <section className="research-block" id="scope">
-            <div className="research-block-index">07 / SCOPE</div>
+            <div className="research-block-index">08 / SCOPE</div>
 
             <h2>Controlled evidence first, broader claims later.</h2>
 
             <p>
               Experiments 000 through 008 used controlled synthetic tasks on a
-              small language model. They test the debugging methodology under
-              conditions where training history and expected behavior can be
+              small language model. They tested the debugging methodology under
+              conditions where training history and expected behavior could be
               measured precisely.
             </p>
 
             <p>
-              The project does not currently claim broad generalization or
-              established novelty. The next phase will test more realistic
-              regressions and retraining variability; larger models and broader
+              Experiment 009 moves to a natural-language intent-classification
+              task with explicit pairing and stochastic controls. Pilot and
+              development work remains separate from the untouched official
+              Banking77 test split. The project does not currently claim broad
+              generalization or established novelty; larger models and broader
               comparison with data-attribution and influence methods remain
               later research steps.
             </p>
           </section>
 
           <section className="research-block" id="code">
-            <div className="research-block-index">08 / CODE + DETAILS</div>
+            <div className="research-block-index">09 / CODE + DETAILS</div>
 
             <h2>The complete technical record is public.</h2>
 
@@ -427,7 +493,6 @@ export default function ResearchPage() {
               <span>$</span> github.com/Kushrishi/model-regression-forensics
             </Link>
           </section>
-
         </div>
       </section>
     </main>

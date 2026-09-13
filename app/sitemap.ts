@@ -12,5 +12,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: "https://kushrishi.com/research/truemargin",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }
