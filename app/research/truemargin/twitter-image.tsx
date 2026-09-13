@@ -14,7 +14,7 @@ export default function Image() {
   return new ImageResponse(
     <SocialCard
       eyebrow="PROJECT 002 / PRIVATE RESEARCH"
-      lines={["TRUE", "MARGIN."]}
+      lines={["TRUE", "MARGIN", "VALIDATION."]}
       footer="MEDICAL IMAGING · REGISTRATION UNCERTAINTY · VALIDATION"
     />,
     size,
