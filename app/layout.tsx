@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteDescription =
-  "Engineering across machine learning, software systems, PNT/GNSS, and intelligent sensing, with a focus on reliability and rigorous evaluation.";
+  "Machine learning, research engineering, software systems, and intelligent sensing, with a focus on model behavior, uncertainty, reliability, and rigorous evaluation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kushrishi.com"),
-  title: "Kush Rishi | Machine Learning, ML Systems & PNT/GNSS",
+  title: "Kush Rishi | ML & Research Engineering",
   description: siteDescription,
   authors: [{ name: "Kush Rishi", url: "https://kushrishi.com" }],
   creator: "Kush Rishi",
