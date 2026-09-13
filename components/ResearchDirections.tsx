@@ -17,14 +17,14 @@ const directions = [
   },
   {
     index: "03",
-    title: "Multimodal Intelligence",
-    description: "Models that reason across noisy, incomplete, and heterogeneous real-world signals.",
+    title: "Scientific & Medical ML",
+    description: "Uncertainty, calibration, imaging, real-data validation, and trustworthy model behavior.",
     kind: "multi",
   },
   {
     index: "04",
-    title: "PNT & Intelligent Sensing",
-    description: "Positioning, estimation, sensor fusion, and physical-world uncertainty.",
+    title: "Intelligent Sensing & Estimation",
+    description: "State estimation, sensor fusion, positioning, and physical-world uncertainty.",
     kind: "pnt",
   },
 ] as const;
