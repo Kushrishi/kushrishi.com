@@ -68,7 +68,7 @@ const log = [
   [
     "EXP 008",
     "2026-09",
-    "Current experiment. The design was fixed before training. The clean reference scored 96/96, and candidate evaluation is underway.",
+    "Completed the frozen two-world test. The planted root was uniquely ranked first and its restoration fully recovered the target in both worlds, but non-root restorations also produced material recovery, so unique causal certification failed.",
   ],
 ];
 
@@ -87,7 +87,7 @@ export default function ResearchPage() {
 
       <section className="research-hero-page">
         <div className="section-label">
-          PROJECT 001 / ACTIVE RESEARCH / EXPERIMENT 008
+          PROJECT 001 / ACTIVE RESEARCH / NEXT PHASE
         </div>
 
         <h1>
@@ -109,7 +109,7 @@ export default function ResearchPage() {
         <aside className="research-sidebar">
           <div>
             <span>STATUS</span>
-            <strong>EXP 008 IN PROGRESS</strong>
+            <strong>EXP 008 COMPLETE</strong>
           </div>
 
           <div>
@@ -119,7 +119,12 @@ export default function ResearchPage() {
 
           <div>
             <span>LATEST RESULT</span>
-            <strong>CLEAN REFERENCE · 96/96</strong>
+            <strong>ROOT LOCALIZED · 2/2 WORLDS</strong>
+          </div>
+
+          <div>
+            <span>NEXT PHASE</span>
+            <strong>REALISTIC REGRESSIONS · PAIRED RETRAINING</strong>
           </div>
 
           <div>
@@ -209,42 +214,44 @@ export default function ResearchPage() {
 
           <section className="research-block" id="current">
             <div className="research-block-index">
-              03 / CURRENT EXPERIMENT
+              03 / LATEST EXPERIMENT
             </div>
 
             <h2>Experiment 008</h2>
 
             <p>
-              Each test world contains five recorded training-data changes.
-              One modifies supervision for the target behavior. The other four
-              are controlled distractors that preserve correct labels for
-              protected behavior.
+              Experiment 008 was a prospectively frozen two-world test with five
+              recorded training-data changes per world. One change corrupted
+              supervision for the target behavior while four policy-correct
+              nuisance changes preserved the intended labels for protected
+              behavior.
             </p>
 
             <p>
-              The experiment design was fixed before result-bearing model
-              training began. The clean reference model completed evaluation
-              with 96/96 accuracy, including 16/16 on each of the six measured
-              behavior slices.
+              Both candidate worlds produced the required target-localized
+              regression with zero protected-behavior drift. The task-aware
+              diagnostic uniquely ranked the planted root first in both worlds,
+              and restoring that root fully recovered the target with zero
+              protected drift in both worlds.
             </p>
 
             <p>
-              Candidate models are now being evaluated against predefined
-              target-regression and protected-behavior criteria. If both worlds
-              pass, each possible training change will be reversed independently
-              and the model retrained to determine which restoration produces
-              selective recovery.
+              Primary causal certification still failed because some non-root
+              restorations also produced material target recovery. The result
+              therefore supports successful localization and strong planted-root
+              restorative influence under this benchmark, but not uniquely
+              specific causal verification from a single retraining outcome.
             </p>
 
             <div className="experiment-panel">
               <div className="experiment-head">
                 <span>EXP 008</span>
-                <strong>IN PROGRESS</strong>
+                <strong>COMPLETE</strong>
               </div>
 
               <div className="experiment-row">
                 <span>DESIGN</span>
-                <b>fixed before result-bearing training</b>
+                <b>frozen before result-bearing training</b>
               </div>
 
               <div className="experiment-row">
@@ -253,25 +260,37 @@ export default function ResearchPage() {
               </div>
 
               <div className="experiment-row">
-                <span>CURRENT STAGE</span>
-                <b>candidate-model evaluation</b>
+                <span>CANDIDATE GATE</span>
+                <b>2 / 2 worlds passed</b>
               </div>
 
               <div className="experiment-row">
-                <span>NEXT GATE</span>
-                <b>independent restoration and retraining</b>
+                <span>LOCALIZATION</span>
+                <b>planted root uniquely Top-1 · 2 / 2</b>
               </div>
 
               <div className="experiment-row">
-                <span>CAUSAL RESULT</span>
-                <b>not claimed at the current stage</b>
+                <span>ROOT RESTORATION</span>
+                <b>full target recovery · 2 / 2</b>
+              </div>
+
+              <div className="experiment-row">
+                <span>PRIMARY CERTIFICATION</span>
+                <b>failed · non-root recovery was not specific</b>
               </div>
             </div>
+
+            <p>
+              The next phase will move beyond the synthetic shape substrate and
+              explicitly measure retraining variability on a more realistic
+              natural-language regression task using repeated, paired runs. The
+              exact next experiment protocol has not yet been frozen.
+            </p>
           </section>
 
           <section className="research-block" id="findings">
             <div className="research-block-index">
-              04 / EARLIER FINDINGS
+              04 / FINDINGS
             </div>
 
             <h2>The benchmark became stricter as weaknesses were exposed.</h2>
@@ -303,10 +322,12 @@ export default function ResearchPage() {
               </div>
 
               <div>
-                <strong>NEGATIVE RESULTS ARE RETAINED</strong>
+                <strong>RETRAINING VARIABILITY MATTERS</strong>
                 <p>
-                  Failed clean baselines and failed experiment gates are
-                  recorded rather than silently retuned after observing results.
+                  Experiment 008 restored the planted root perfectly, but some
+                  nuisance restorations also recovered the target. Verification
+                  therefore needs a variability baseline rather than one fresh
+                  retraining result.
                 </p>
               </div>
             </div>
@@ -323,7 +344,7 @@ export default function ResearchPage() {
               <div>
                 <span>MODEL</span>
                 <strong>SmolLM2-360M-Instruct</strong>
-                <p>Pinned model revision across the current experiment series.</p>
+                <p>Pinned model revision across the completed synthetic series.</p>
               </div>
 
               <div>
@@ -369,17 +390,18 @@ export default function ResearchPage() {
             <h2>Controlled evidence first, broader claims later.</h2>
 
             <p>
-              The current results come from controlled synthetic tasks on a
+              Experiments 000 through 008 used controlled synthetic tasks on a
               small language model. They test the debugging methodology under
-              conditions where the training history and expected behavior can
-              be measured precisely.
+              conditions where training history and expected behavior can be
+              measured precisely.
             </p>
 
             <p>
               The project does not currently claim broad generalization or
-              established novelty. Larger models, more realistic regressions,
-              and comparison with existing data-attribution and influence
-              methods remain later research steps.
+              established novelty. The next phase will test more realistic
+              regressions and retraining variability; larger models and broader
+              comparison with data-attribution and influence methods remain
+              later research steps.
             </p>
           </section>
 
