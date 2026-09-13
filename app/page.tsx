@@ -31,8 +31,9 @@ export default function Home() {
             <em>UNCERTAINTY.</em>
           </h1>
           <p className="hero-deck">
-            Machine learning, software systems, PNT/GNSS, and intelligent sensing. I build and
-            evaluate systems where reliability, measurement, and rigorous testing matter.
+            Machine learning, research engineering, software systems, and intelligent sensing. I
+            build and evaluate systems where model behavior, uncertainty, measurement, and
+            reliability need to be tested rather than assumed.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
@@ -46,7 +47,7 @@ export default function Home() {
         <div>MODEL BEHAVIOR</div>
         <div>FAILURE FORENSICS</div>
         <div>ROBUST EVALUATION</div>
-        <div>PHYSICAL-WORLD INTELLIGENCE</div>
+        <div>SCIENTIFIC ML</div>
       </section>
 
       <section className="section" id="research">
@@ -54,20 +55,21 @@ export default function Home() {
           <div className="section-label">00 / CURRENT RESEARCH</div>
           <div className="research-card">
             <div className="research-card-main">
-              <div className="status-line"><span className="status-dot" /> RESEARCH / EXP008 COMPLETE</div>
+              <div className="status-line"><span className="status-dot" /> RESEARCH / EXP009 ACTIVE</div>
               <h2>MODEL REGRESSION<br />FORENSICS</h2>
               <p className="lede">
                 When a model regresses after retraining, identifying the responsible training
-                change is difficult. This project tests a workflow that narrows the likely cause,
-                reverses that change, retrains the model, and measures whether the behavior recovers.
+                change is difficult. This project tests whether a suspected cause can be localized
+                and then verified through controlled counterfactual retraining rather than inferred
+                from correlation alone.
               </p>
               <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>View research →</Link>
             </div>
             <div className="research-meta">
               <div><span>QUESTION</span><strong>Which training change caused the regression?</strong></div>
-              <div><span>LATEST EXPERIMENT</span><strong>EXPERIMENT 008</strong></div>
-              <div><span>LATEST RESULT</span><strong>ROOT LOCALIZED 2/2 · UNIQUE CERTIFICATION FAILED</strong></div>
-              <div><span>NEXT PHASE</span><strong>Realistic regressions · repeated paired retraining</strong></div>
+              <div><span>CURRENT EXPERIMENT</span><strong>EXPERIMENT 009</strong></div>
+              <div><span>LATEST COMPLETED RESULT</span><strong>EXP008 · ROOT LOCALIZED 2/2 · UNIQUE CERTIFICATION FAILED</strong></div>
+              <div><span>CURRENT PHASE</span><strong>Banking77 · paired retraining · stochastic controls</strong></div>
               <div><span>METHOD</span><strong>Measure regression → trace changes → rank candidates → retrain + verify</strong></div>
             </div>
           </div>
@@ -75,34 +77,28 @@ export default function Home() {
           <div className="research-secondary-card">
             <div className="research-secondary-main">
               <div className="status-line">
-                <span className="status-dot" /> EARLY TECHNICAL VALIDATION
+                <span className="status-dot" /> MEDICAL IMAGING / ACTIVE VALIDATION
               </div>
-              <h3>
-                RESTORATION INTERFACE
-                <br />
-                SENSING
-              </h3>
+              <h3>TRUEMARGIN</h3>
               <p>
-                Longitudinal optical sensing research investigating whether meaningful change
-                around existing dental restorations can be separated from positioning, hydration,
-                and measurement variability.
+                Medical-imaging research testing whether registration-uncertainty signals are
+                actually informative about spatial error point-by-point, not merely calibrated in
+                aggregate.
               </p>
             </div>
 
             <div className="research-secondary-meta">
               <div>
                 <span>QUESTION</span>
-                <strong>
-                  Can longitudinal sensing distinguish real change from measurement variability?
-                </strong>
+                <strong>Does uncertainty identify where registration is actually wrong?</strong>
               </div>
               <div>
                 <span>STATUS</span>
-                <strong>Experimental protocol frozen before physical testing</strong>
+                <strong>Prospective Gate A negative result preserved · convergence study active</strong>
               </div>
               <div>
                 <span>NEXT</span>
-                <strong>Single-channel bench repeatability</strong>
+                <strong>Freeze stable registration regime → prospectively test next uncertainty mechanism</strong>
               </div>
             </div>
           </div>
@@ -116,21 +112,21 @@ export default function Home() {
             <article className="project-card">
               <div className="project-index">01</div>
               <div className="project-card-body">
-                <div className="project-tags">LOCALIZATION · STATE ESTIMATION · SYSTEMS</div>
-                <h3>Autonomy Simulation Lab</h3>
-                <p>Interactive autonomy and localization environment combining planning, noisy sensing, nonlinear localization, Kalman filtering, telemetry, and quantitative evaluation.</p>
-                <ProjectPreview kind="autonomy" />
-                <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Explore system →</a>
+                <div className="project-tags">APPLIED AI · RAG · FULL-STACK · SAFETY</div>
+                <h3>CareBridge Canada</h3>
+                <p>Healthcare-continuity product ecosystem exploring source-grounded, safety-aware AI workflows with React, FastAPI, SQL, retrieval, automated testing, and CI/CD.</p>
+                <ProjectPreview kind="carebridge" />
+                <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
               </div>
             </article>
             <article className="project-card subdued">
               <div className="project-index">02</div>
               <div className="project-card-body">
-                <div className="project-tags">FULL-STACK · AI WORKFLOWS · SAFETY</div>
-                <h3>CareBridge Canada</h3>
-                <p>Full-stack product prototype exploring source-grounded, safety-aware AI workflows with React, FastAPI, SQL, automated testing, and CI/CD.</p>
-                <ProjectPreview kind="carebridge" />
-                <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
+                <div className="project-tags">ROBOTICS · LOCALIZATION · STATE ESTIMATION</div>
+                <h3>Autonomy Simulation Lab</h3>
+                <p>Completed v1.0 autonomy and localization environment combining planning, noisy sensing, nonlinear localization, Kalman filtering, telemetry, and quantitative evaluation.</p>
+                <ProjectPreview kind="autonomy" />
+                <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Explore system →</a>
               </div>
             </article>
           </div>
@@ -152,10 +148,10 @@ export default function Home() {
         <Reveal delay={0.1}>
           <div className="about-copy">
             <p>
-              My foundation is in Geomatics Engineering, PNT/GNSS, sensing, and measurement systems. At Xona, I work with Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
+              My foundation is in Geomatics Engineering, PNT/GNSS, sensing, estimation, and measurement systems. At Xona, I work with Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
             </p>
             <p>
-              Alongside that work, I am developing deeper expertise in ML systems and research engineering through projects focused on model evaluation, reliability, multimodal sensing, and reproducible experimentation.
+              Alongside that work, I am developing deeper expertise in ML and research engineering through model evaluation and reliability research, medical-image uncertainty, evidence-grounded AI systems, and reproducible experimentation.
             </p>
             <div className="experience-mini">
               <div><span>2026-PRESENT</span><strong>GNSS Analyst · Xona</strong></div>
