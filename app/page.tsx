@@ -31,9 +31,9 @@ export default function Home() {
             <em>UNCERTAINTY.</em>
           </h1>
           <p className="hero-deck">
-            Machine learning, research engineering, software systems, and intelligent sensing. I
-            build and test systems where model behavior, uncertainty, measurement, and reliability
-            matter.
+            Machine learning, software systems, and intelligent sensing. I build tools and run
+            experiments to understand when models or measurements fail, and what the evidence
+            actually supports.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
@@ -68,7 +68,7 @@ export default function Home() {
             <div className="research-meta">
               <div><span>QUESTION</span><strong>Which training change caused the regression?</strong></div>
               <div><span>CURRENT EXPERIMENT</span><strong>EXPERIMENT 009</strong></div>
-              <div><span>LATEST COMPLETED RESULT</span><strong>EXP008 · ROOT LOCALIZED 2/2 · UNIQUE CERTIFICATION FAILED</strong></div>
+              <div><span>LATEST COMPLETED RESULT</span><strong>EXP008 · ROOT LOCALIZED 2/2 · CAUSAL-SPECIFICITY TEST FAILED</strong></div>
               <div><span>CURRENT PHASE</span><strong>Banking77 · paired retraining · stochastic controls</strong></div>
               <div><span>METHOD</span><strong>Measure regression → trace changes → rank candidates → retrain + verify</strong></div>
             </div>
@@ -94,7 +94,7 @@ export default function Home() {
               </div>
               <div>
                 <span>STATUS</span>
-                <strong>Gate A did not pass · registration convergence study active</strong>
+                <strong>Corrected uncertainty ensemble failed its predefined gate · convergence study active</strong>
               </div>
               <div>
                 <span>NEXT</span>
@@ -112,9 +112,9 @@ export default function Home() {
             <article className="project-card">
               <div className="project-index">01</div>
               <div className="project-card-body">
-                <div className="project-tags">APPLIED AI · RAG · FULL-STACK · SAFETY</div>
+                <div className="project-tags">APPLIED AI · RETRIEVAL · FULL-STACK · SAFETY</div>
                 <h3>CareBridge Canada</h3>
-                <p>Healthcare-continuity prototype combining a public product demo with a private FastAPI/SQL/RAG backend for source-grounded workflows, validation, and auditability.</p>
+                <p>Healthcare-continuity prototype combining a public product demo with a private retrieval-backed backend for source-grounded workflows, validation, and auditability.</p>
                 <ProjectPreview kind="carebridge" />
                 <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
               </div>
@@ -135,7 +135,7 @@ export default function Home() {
 
       <section className="section" id="directions">
         <Reveal>
-          <div className="section-label">02 / RESEARCH DIRECTIONS</div>
+          <div className="section-label">02 / AREAS OF WORK</div>
           <ResearchDirections />
         </Reveal>
       </section>
@@ -151,7 +151,7 @@ export default function Home() {
               My foundation is in Geomatics Engineering, PNT/GNSS, sensing, estimation, and measurement systems. At Xona, I work with Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
             </p>
             <p>
-              Outside that work, I focus on machine-learning research and software projects around model regressions, uncertainty in medical imaging, evidence-grounded AI, and reproducible experimentation.
+              Outside that work, I focus on machine-learning research and software projects around model regressions, uncertainty in medical imaging, source-grounded AI workflows, and reproducible experimentation.
             </p>
             <div className="experience-mini">
               <div><span>2026-PRESENT</span><strong>GNSS Analyst · Xona</strong></div>
