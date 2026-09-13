@@ -1,28 +1,17 @@
 # kushrishi.com
 
-Personal engineering portfolio for Kush Rishi.
+Personal research and engineering portfolio for Kush Rishi.
 
-The site presents work across machine learning, ML systems, positioning and navigation, intelligent sensing, and software engineering. It is built as a custom Next.js application rather than a portfolio template.
+The site focuses on current machine-learning research, scientific/medical ML, selected software systems, and a technical trajectory from measurement and estimation toward intelligent systems.
 
-## Stack
+## Current research
 
-- Next.js
-- React
-- TypeScript
-- React Three Fiber / Three.js
-- Framer Motion
+- Model Regression Forensics
+- TrueMargin
 
-## Development
+## Selected systems
 
-```bash
-npm install
-npm run dev
-```
+- CareBridge Canada
+- Autonomy Simulation Lab
 
-Production check:
-
-```bash
-npm run build
-```
-
-The behavior atlas on the homepage is an explicitly synthetic visualization and is not presented as experimental evidence. Research results are reported separately on the research page and in the Model Regression Forensics repository.
+Built with Next.js and TypeScript.
