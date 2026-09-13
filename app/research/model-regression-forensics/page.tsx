@@ -124,7 +124,7 @@ export default function ResearchPage() {
 
           <div>
             <span>LATEST COMPLETED RESULT</span>
-            <strong>EXP008 · ROOT LOCALIZED · 2/2 WORLDS</strong>
+            <strong>EXP008 · ROOT LOCALIZED 2/2 · CERTIFICATION FAILED</strong>
           </div>
 
           <div>
@@ -133,8 +133,8 @@ export default function ResearchPage() {
           </div>
 
           <div>
-            <span>STACK</span>
-            <strong>PYTORCH · TRANSFORMERS · BANKING77</strong>
+            <span>MODEL / TASK</span>
+            <strong>DISTILBERT · BANKING77</strong>
           </div>
         </aside>
 
