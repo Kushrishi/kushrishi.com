@@ -6,25 +6,25 @@ const directions = [
   {
     index: "01",
     title: "Model Evaluation",
-    description: "Behavior discovery, regressions, counterexamples, and reliable measurement.",
+    description: "Regressions, behavioral testing, counterexamples, and reliable measurement.",
     kind: "eval",
   },
   {
     index: "02",
     title: "ML Systems",
-    description: "Training, inference, experiment infrastructure, observability, and reproducibility.",
+    description: "Training, evaluation infrastructure, experiment tooling, observability, and reproducibility.",
     kind: "systems",
   },
   {
     index: "03",
     title: "Scientific & Medical ML",
-    description: "Uncertainty, calibration, imaging, real-data validation, and trustworthy model behavior.",
+    description: "Uncertainty, calibration, medical imaging, and real-data validation.",
     kind: "multi",
   },
   {
     index: "04",
-    title: "Intelligent Sensing & Estimation",
-    description: "State estimation, sensor fusion, positioning, and physical-world uncertainty.",
+    title: "Sensing & Estimation",
+    description: "Positioning, state estimation, sensor fusion, and physical-world measurement.",
     kind: "pnt",
   },
 ] as const;
