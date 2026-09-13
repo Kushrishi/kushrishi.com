@@ -54,7 +54,7 @@ export default function Home() {
           <div className="section-label">00 / CURRENT RESEARCH</div>
           <div className="research-card">
             <div className="research-card-main">
-              <div className="status-line"><span className="status-dot" /> RESEARCH / EXP008 IN PROGRESS</div>
+              <div className="status-line"><span className="status-dot" /> RESEARCH / EXP008 COMPLETE</div>
               <h2>MODEL REGRESSION<br />FORENSICS</h2>
               <p className="lede">
                 When a model regresses after retraining, identifying the responsible training
@@ -65,8 +65,9 @@ export default function Home() {
             </div>
             <div className="research-meta">
               <div><span>QUESTION</span><strong>Which training change caused the regression?</strong></div>
-              <div><span>CURRENT TEST</span><strong>EXPERIMENT 008</strong></div>
-              <div><span>LATEST RESULT</span><strong>CLEAN REFERENCE · 96/96</strong></div>
+              <div><span>LATEST EXPERIMENT</span><strong>EXPERIMENT 008</strong></div>
+              <div><span>LATEST RESULT</span><strong>ROOT LOCALIZED 2/2 · UNIQUE CERTIFICATION FAILED</strong></div>
+              <div><span>NEXT PHASE</span><strong>Realistic regressions · repeated paired retraining</strong></div>
               <div><span>METHOD</span><strong>Measure regression → trace changes → rank candidates → retrain + verify</strong></div>
             </div>
           </div>
