@@ -136,24 +136,24 @@ nav a,
 .preview-toolbar,
 .preview-toggle button,
 .preview-readout {
-  font-size: 8px;
+  font-size: 10px;
   line-height: 1.2;
 }
 
 .project-preview text {
-  font-size: 8px;
+  font-size: 10px;
 }
 
 .carebridge-flow button span,
 .carebridge-flow button small,
 .evidence-head,
 .evidence-line {
-  font-size: 7px;
+  font-size: 10px;
   line-height: 1.35;
 }
 
 .carebridge-flow button strong {
-  font-size: 9px;
+  font-size: 11px;
 }
 
 /* Research pages: optimize for sustained reading rather than dashboard density. */
@@ -362,6 +362,6 @@ nav a,
   .preview-toolbar,
   .preview-toggle button,
   .preview-readout {
-    font-size: 8px;
+    font-size: 10px;
   }
 }
