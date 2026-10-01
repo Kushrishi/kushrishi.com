@@ -31,9 +31,9 @@ export default function Home() {
             <em>UNCERTAINTY.</em>
           </h1>
           <p className="hero-deck">
-            Machine learning, software systems, and intelligent sensing. I build tools and run
-            experiments to understand when models or measurements fail, and what the evidence
-            actually supports.
+            Reliable machine learning and sensing systems. I work on evaluation, uncertainty,
+            estimation, and reproducible experiments that ask when a model or measurement can
+            actually be trusted.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
@@ -44,61 +44,60 @@ export default function Home() {
       </section>
 
       <section className="manifesto-band">
-        <div>MODEL BEHAVIOR</div>
-        <div>FAILURE FORENSICS</div>
-        <div>ROBUST EVALUATION</div>
-        <div>SCIENTIFIC ML</div>
+        <div>MODEL EVALUATION</div>
+        <div>UNCERTAINTY</div>
+        <div>SENSING + ESTIMATION</div>
+        <div>REPRODUCIBLE EVIDENCE</div>
       </section>
 
       <section className="section" id="research">
         <Reveal>
-          <div className="section-label">00 / CURRENT RESEARCH</div>
+          <div className="section-label">00 / FLAGSHIP RESEARCH</div>
           <div className="research-card">
             <div className="research-card-main">
-              <div className="status-line"><span className="status-dot" /> RESEARCH / EXP009 ACTIVE</div>
+              <div className="status-line"><span className="status-dot" /> RELIABLE ML / EXP009 ACTIVE</div>
               <h2>MODEL REGRESSION<br />FORENSICS</h2>
               <p className="lede">
-                When a model regresses after retraining, identifying the responsible training
-                change is difficult. This project tests whether a suspected cause can be localized
-                and then verified through controlled counterfactual retraining rather than inferred
-                from correlation alone.
+                When a model regresses after retraining, identifying a suspicious training change is
+                not enough. This project tests whether counterfactual retraining can distinguish a
+                responsible change from plausible alternatives and ordinary retraining variability.
               </p>
               <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>View research →</Link>
             </div>
             <div className="research-meta">
-              <div><span>QUESTION</span><strong>Which training change caused the regression?</strong></div>
-              <div><span>CURRENT EXPERIMENT</span><strong>EXPERIMENT 009</strong></div>
-              <div><span>LATEST COMPLETED RESULT</span><strong>EXP008 · ROOT LOCALIZED 2/2 · CAUSAL-SPECIFICITY TEST FAILED</strong></div>
-              <div><span>CURRENT PHASE</span><strong>Banking77 · paired retraining · stochastic controls</strong></div>
-              <div><span>METHOD</span><strong>Measure regression → trace changes → rank candidates → retrain + verify</strong></div>
+              <div><span>QUESTION</span><strong>What evidence is sufficient to identify the responsible change?</strong></div>
+              <div><span>LATEST MILESTONE</span><strong>M3 · STRUCTURALLY MATCHED BENCHMARK COMPLETE</strong></div>
+              <div><span>BENCHMARK</span><strong>2 worlds · 5 matched candidates each · Banking77</strong></div>
+              <div><span>CURRENT PHASE</span><strong>M4 · competitive localization baselines</strong></div>
+              <div><span>BOUNDARY</span><strong>matched-benchmark localization + causal specificity remain untested</strong></div>
             </div>
           </div>
 
           <div className="research-secondary-card">
             <div className="research-secondary-main">
               <div className="status-line">
-                <span className="status-dot" /> MEDICAL IMAGING / ACTIVE VALIDATION
+                <span className="status-dot" /> MEDICAL IMAGING / KNOWN-GT STUDY COMPLETE
               </div>
               <h3>TRUEMARGIN</h3>
               <p>
-                Medical-imaging research asking whether registration uncertainty actually identifies
-                where spatial error is high, rather than only looking reasonable in aggregate.
+                Medical-image-computing research testing whether local registration uncertainty
+                contains useful information about true local spatial registration error.
               </p>
               <Link className="text-link" href="/research/truemargin" prefetch={false}>View research →</Link>
             </div>
 
             <div className="research-secondary-meta">
               <div>
-                <span>QUESTION</span>
-                <strong>Does uncertainty identify where registration is actually wrong?</strong>
+                <span>PRIMARY RESULT</span>
+                <strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong>
               </div>
               <div>
-                <span>STATUS</span>
-                <strong>Corrected uncertainty ensemble failed its predefined gate · convergence study active</strong>
+                <span>COMPARATOR BOUNDARY</span>
+                <strong>stronger than residual/Jacobian here · not superior to inverse consistency</strong>
               </div>
               <div>
-                <span>NEXT</span>
-                <strong>Establish a stable registration regime before testing another uncertainty method</strong>
+                <span>CURRENT PHASE</span>
+                <strong>M5 · comparator, blind-spot, and failure analysis</strong>
               </div>
             </div>
           </div>
@@ -107,20 +106,10 @@ export default function Home() {
 
       <section className="section" id="systems">
         <Reveal>
-          <div className="section-label">01 / SELECTED SYSTEMS</div>
+          <div className="section-label">01 / SELECTED ENGINEERING</div>
           <div className="project-grid">
             <article className="project-card">
               <div className="project-index">01</div>
-              <div className="project-card-body">
-                <div className="project-tags">APPLIED AI · RETRIEVAL · FULL-STACK · SAFETY</div>
-                <h3>CareBridge Canada</h3>
-                <p>Healthcare-continuity prototype combining a public product demo with a private retrieval-backed backend for source-grounded workflows, validation, and auditability.</p>
-                <ProjectPreview kind="carebridge" />
-                <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
-              </div>
-            </article>
-            <article className="project-card subdued">
-              <div className="project-index">02</div>
               <div className="project-card-body">
                 <div className="project-tags">ROBOTICS · LOCALIZATION · STATE ESTIMATION</div>
                 <h3>Autonomy Simulation Lab</h3>
@@ -129,13 +118,23 @@ export default function Home() {
                 <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Explore system →</a>
               </div>
             </article>
+            <article className="project-card subdued">
+              <div className="project-index">02</div>
+              <div className="project-card-body">
+                <div className="project-tags">APPLIED AI · RETRIEVAL · FULL-STACK · SAFETY</div>
+                <h3>CareBridge Canada</h3>
+                <p>Healthcare-continuity prototype exploring source-grounded workflows, structured validation, auditability, and bounded AI behavior using synthetic data.</p>
+                <ProjectPreview kind="carebridge" />
+                <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
+              </div>
+            </article>
           </div>
         </Reveal>
       </section>
 
       <section className="section" id="directions">
         <Reveal>
-          <div className="section-label">02 / AREAS OF WORK</div>
+          <div className="section-label">02 / TECHNICAL FOCUS</div>
           <ResearchDirections />
         </Reveal>
       </section>
@@ -148,10 +147,10 @@ export default function Home() {
         <Reveal delay={0.1}>
           <div className="about-copy">
             <p>
-              My foundation is in Geomatics Engineering, PNT/GNSS, sensing, estimation, and measurement systems. At Xona, I work with Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
+              My foundation is in Geomatics Engineering, PNT/GNSS, sensing, estimation, and measurement systems. At Xona, I work on Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
             </p>
             <p>
-              Outside that work, I focus on machine-learning research and software projects around model regressions, uncertainty in medical imaging, source-grounded AI workflows, and reproducible experimentation.
+              My independent research extends the same measurement discipline into machine learning and medical image computing: define the failure precisely, separate signal from variability, test interventions prospectively, and keep claims inside the evidence.
             </p>
             <div className="experience-mini">
               <div><span>2026-PRESENT</span><strong>GNSS Analyst · Xona</strong></div>
@@ -164,8 +163,8 @@ export default function Home() {
 
       <footer>
         <div>
-          <div className="footer-kicker">BUILD / MEASURE / VALIDATE / ITERATE</div>
-          <h2>LET&apos;S BUILD<br />WHAT&apos;S MISSING.</h2>
+          <div className="footer-kicker">RESEARCH / ENGINEERING / EVIDENCE</div>
+          <h2>BUILD.<br />MEASURE.<br />VERIFY.</h2>
         </div>
         <div className="footer-links">
           <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub ↗</a>
