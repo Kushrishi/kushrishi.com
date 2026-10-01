@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const researchDescription =
-  "Independent ML research on identifying which training change caused a model regression and verifying the diagnosis through controlled counterfactual retraining.";
+  "Independent ML research on when counterfactual retraining can distinguish the training change responsible for a model regression from plausible alternatives.";
 
 export const metadata: Metadata = {
   title: "Model Regression Forensics | Kush Rishi",
@@ -24,77 +24,16 @@ export const metadata: Metadata = {
   },
 };
 
-const log = [
-  [
-    "EXP 000",
-    "2026-08",
-    "Validated the baseline, regression, diagnosis, and recovery experiment pipeline.",
-  ],
-  [
-    "EXP 001",
-    "2026-08",
-    "Localized the planted change, but exposed a lexical shortcut that made the benchmark too easy.",
-  ],
-  [
-    "EXP 002",
-    "2026-08",
-    "Removed the obvious shortcut. Changed-record analysis still localized the hidden change, and restoration recovered the target with recorded spillover.",
-  ],
-  [
-    "EXP 003",
-    "2026-08",
-    "A harder role-binding task failed its clean baseline, so regression analysis was stopped.",
-  ],
-  [
-    "EXP 003-C/D",
-    "2026-08",
-    "Capability tests isolated the failure boundary and restored a clean 96/96 task using an explicit policy.",
-  ],
-  [
-    "EXP 004",
-    "2026-08",
-    "Correctly localized the intended training change, but reversing it produced no target recovery.",
-  ],
-  [
-    "EXP 005-006",
-    "2026-09",
-    "More controlled benchmark designs still failed to produce the required isolated target regression.",
-  ],
-  [
-    "EXP 007",
-    "2026-09",
-    "Produced a strong target regression, but unrelated behaviors also degraded, so verification stopped at the predefined gate.",
-  ],
-  [
-    "EXP 008",
-    "2026-09",
-    "Completed the frozen two-world test. The planted root was uniquely ranked first and its restoration fully recovered the target in both worlds, but non-root restorations also produced material recovery, so unique causal certification failed.",
-  ],
-  [
-    "EXP 009",
-    "2026-09",
-    "Moved to Banking77 with prospectively frozen materiality and locality gates, paired training trajectories, and explicit stochastic controls. The first 1/8 pilot produced a localized 4.50-point target regression but did not meet the predeclared 10-point materiality gate, so dose calibration continues under the frozen rule.",
-  ],
-];
-
 export default function ResearchPage() {
   return (
     <main className="research-page">
       <header className="site-header compact-header">
-        <Link className="wordmark" href="/" prefetch={false}>
-          KR
-        </Link>
-
-        <Link className="back-link" href="/" prefetch={false}>
-          ← Index
-        </Link>
+        <Link className="wordmark" href="/" prefetch={false}>KR</Link>
+        <Link className="back-link" href="/" prefetch={false}>← Index</Link>
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">
-          PROJECT 001 / ACTIVE RESEARCH / EXP009
-        </div>
-
+        <div className="section-label">PROJECT 001 / ACTIVE RESEARCH / EXP009 · M4</div>
         <h1>
           MODEL
           <br />
@@ -102,396 +41,169 @@ export default function ResearchPage() {
           <br />
           <em>FORENSICS.</em>
         </h1>
-
         <p className="hero-deck">
-          Independent ML research on identifying which training change caused a
-          model regression and verifying the diagnosis through controlled
-          counterfactual retraining.
+          Independent ML research on what evidence is sufficient to identify the training change
+          responsible for a model regression rather than a merely correlated one.
         </p>
       </section>
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div>
-            <span>STATUS</span>
-            <strong>EXP 009 ACTIVE</strong>
-          </div>
-
-          <div>
-            <span>QUESTION</span>
-            <strong>WHICH TRAINING CHANGE CAUSED THE REGRESSION?</strong>
-          </div>
-
-          <div>
-            <span>LATEST COMPLETED RESULT</span>
-            <strong>EXP008 · ROOT LOCALIZED 2/2 · CERTIFICATION FAILED</strong>
-          </div>
-
-          <div>
-            <span>CURRENT PHASE</span>
-            <strong>BANKING77 · PAIRED RETRAINING</strong>
-          </div>
-
-          <div>
-            <span>MODEL / TASK</span>
-            <strong>DISTILBERT · BANKING77</strong>
-          </div>
+          <div><span>STATUS</span><strong>M3 COMPLETE · M4 ACTIVE</strong></div>
+          <div><span>QUESTION</span><strong>WHICH VERSIONED TRAINING CHANGE IS RESPONSIBLE?</strong></div>
+          <div><span>LATEST MILESTONE</span><strong>STRUCTURALLY MATCHED BENCHMARK FROZEN</strong></div>
+          <div><span>CURRENT STUDY</span><strong>COMPETITIVE LOCALIZATION BASELINES</strong></div>
+          <div><span>BOUNDARY</span><strong>CAUSAL SPECIFICITY NOT ESTABLISHED</strong></div>
         </aside>
 
         <div className="research-copy">
           <section className="research-block" id="problem">
             <div className="research-block-index">01 / PROBLEM</div>
-
             <h2>Detecting a regression does not explain its cause.</h2>
-
             <p>
-              A model can perform correctly before retraining and then lose a
-              capability after new training data or other changes are
-              introduced.
+              A model can lose a capability after retraining while many data or configuration
+              changes appear plausibly related. Ranking one change as suspicious is useful, but it
+              is not the same as showing that the change was specifically responsible for the
+              observed failure.
             </p>
-
             <p>
-              The failure can be measured, but the training run may contain
-              many plausible explanations. The research question is whether
-              those changes can be narrowed to the one that actually caused
-              the regression.
+              MRF therefore separates localization, restorative influence, and causal specificity.
+              A candidate is not treated as causally supported merely because an attribution score
+              is high or because one retraining run improves after the candidate is reverted.
             </p>
           </section>
 
           <section className="research-block" id="approach">
             <div className="research-block-index">02 / APPROACH</div>
-
             <blockquote>
-              A suspicious training change is not treated as the cause until
-              reversing it produces measurable recovery that is distinguishable
-              from nuisance restorations and ordinary retraining variability.
+              Localize a plausible cause, reverse it, retrain under controlled pairing, and ask whether the recovery is distinguishable from plausible alternatives and ordinary retraining variability.
             </blockquote>
-
             <div className="pipeline research-pipeline">
               <span>MEASURE REGRESSION</span>
               <b>→</b>
-              <span>TRACE TRAINING CHANGES</span>
+              <span>RANK CHANGES</span>
               <b>→</b>
-              <span>RANK CANDIDATES</span>
+              <span>REVERSE CANDIDATE</span>
               <b>→</b>
-              <span>REVERSE CHANGE</span>
+              <span>RETRAIN</span>
               <b>→</b>
-              <span>RETRAIN + VERIFY</span>
+              <span>CERTIFY OR ABSTAIN</span>
             </div>
+          </section>
 
-            <div className="method-grid">
-              <div>
-                <span>A</span>
-                <strong>Measure</strong>
-                <p>
-                  Compare baseline and candidate models to identify the exact
-                  behavior that regressed.
-                </p>
-              </div>
-
-              <div>
-                <span>B</span>
-                <strong>Trace</strong>
-                <p>
-                  Use the recorded training history to identify plausible
-                  changes associated with the failure.
-                </p>
-              </div>
-
-              <div>
-                <span>C</span>
-                <strong>Test</strong>
-                <p>
-                  Reverse candidate changes independently and retrain under the
-                  same controlled conditions.
-                </p>
-              </div>
-
-              <div>
-                <span>D</span>
-                <strong>Verify</strong>
-                <p>
-                  Compare recovery against protected behavior, nuisance
-                  restorations, and retraining variability.
-                </p>
-              </div>
+          <section className="research-block" id="development">
+            <div className="research-block-index">03 / EXP009 DEVELOPMENT EVIDENCE</div>
+            <h2>Paired development trajectories produced a reproducible localized regression and favorable restoration separation.</h2>
+            <p>
+              Experiment 009 moved the project to Banking77 with a pinned DistilBERT classifier,
+              deterministic versioned training releases, and repeated paired training trajectories.
+              A 1/4 symmetric label-mapping fault changes 66 stable training slots for the pilot
+              target behavior.
+            </p>
+            <div className="experiment-panel">
+              <div className="experiment-head"><span>STAGE A + B</span><strong>DEVELOPMENT COMPLETE</strong></div>
+              <div className="experiment-row"><span>PAIRED TRAJECTORIES</span><b>3</b></div>
+              <div className="experiment-row"><span>MEAN TARGET REGRESSION</span><b>0.1293</b></div>
+              <div className="experiment-row"><span>STAGE-B TRAININGS</span><b>18 / 18 complete</b></div>
+              <div className="experiment-row"><span>MEAN ROOT RECOVERY</span><b>+0.1244</b></div>
+              <div className="experiment-row"><span>MEAN ROOT − STRONGEST NUISANCE</span><b>+0.1195</b></div>
             </div>
+            <p>
+              A truth-isolated last-layer Grad-Dot baseline ranked the planted root first in all
+              three Stage-A trajectories. Root restoration also exceeded every nuisance restoration
+              in all three Stage-B trajectories. These are development results, not confirmatory
+              causal-certification evidence.
+            </p>
+          </section>
+
+          <section className="research-block" id="m3">
+            <div className="research-block-index">04 / M3 STRUCTURALLY MATCHED BENCHMARK</div>
+            <h2>The next benchmark removes a structural shortcut exposed by the development pilot.</h2>
+            <p>
+              The Stage-A/Stage-B nuisance construction was useful for intervention-effect
+              development, but root and nuisance diffs were structurally distinguishable. M3 was
+              therefore designed so that every candidate has the same observable change structure:
+              exactly 66 stable-slot label changes, 33 in each direction, zero text changes,
+              preserved aggregate label mass, two touched labels, and the same candidate-facing
+              schema.
+            </p>
+            <p>
+              The original protocol requested three worlds of five globally intent-disjoint
+              candidates. Before any matched-benchmark model training, clean-only capacity analysis
+              found a maximum matching of 13 eligible disjoint pairs, fewer than the 15 required.
+              The eligibility rule was not weakened. A prospective amendment reduced the design to
+              two complete worlds.
+            </p>
+            <div className="experiment-panel">
+              <div className="experiment-head"><span>M3</span><strong>COMPLETE</strong></div>
+              <div className="experiment-row"><span>WORLDS</span><b>2</b></div>
+              <div className="experiment-row"><span>CANDIDATES</span><b>5 per world · 10 total</b></div>
+              <div className="experiment-row"><span>UNIQUE TOUCHED INTENTS</span><b>20</b></div>
+              <div className="experiment-row"><span>STRUCTURAL PREFLIGHT</span><b>passed</b></div>
+              <div className="experiment-row"><span>MATCHED MODEL TRAINING</span><b>not yet performed</b></div>
+            </div>
+            <p>
+              Passing M3 establishes benchmark construction only. It does not establish that any
+              diagnostic can localize the root in the new worlds, and it does not establish causal
+              specificity.
+            </p>
           </section>
 
           <section className="research-block" id="current">
-            <div className="research-block-index">03 / CURRENT PHASE</div>
-
-            <h2>Experiment 009</h2>
-
+            <div className="research-block-index">05 / CURRENT MILESTONE</div>
+            <h2>M4 tests whether localization remains meaningful once the candidate structure is matched.</h2>
             <p>
-              Experiment 009 was designed in response to the central weakness
-              exposed by Experiment 008: restoring the planted root recovered
-              the target, but some non-root restorations also produced material
-              recovery. A single successful retraining outcome therefore was
-              not specific enough to certify causality.
+              The current milestone compares target-compatible diagnostics before any later
+              certify/abstain protocol is treated as confirmatory. Required baselines include a
+              seeded random reference, a simple semantic or changed-record-overlap reference where
+              applicable, target-faithful last-layer Grad-Dot, and modern influence/data-attribution
+              methods only when their objective can be implemented faithfully for the frozen target.
             </p>
-
-            <p>
-              The current phase moves beyond the earlier synthetic shape tasks
-              to a natural-language Banking77 classification setting. Clean and
-              corrupted candidates are paired through controlled initial model
-              states and training-slot schedules, and the experiment explicitly
-              measures stochastic retraining variability before causal-specificity
-              claims are allowed.
-            </p>
-
-            <p>
-              The first planted corruption pilot used a symmetric label swap at
-              dose 1/8. It produced a localized 4.50 percentage-point target
-              regression while protected behavior remained effectively stable,
-              but it did not meet the prospectively frozen 10-point target
-              materiality gate. The threshold was not changed after seeing the
-              result; dose calibration continues under the predeclared rule.
-            </p>
-
-            <div className="experiment-panel">
-              <div className="experiment-head">
-                <span>EXP 009</span>
-                <strong>ACTIVE</strong>
-              </div>
-
-              <div className="experiment-row">
-                <span>TASK</span>
-                <b>Banking77 · DistilBERT classifier</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>PAIRING</span>
-                <b>controlled initialization + identical slot schedule</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>1/8 PILOT</span>
-                <b>4.50-point target regression · localized</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>FROZEN GATE</span>
-                <b>target drop ≥10 points · protected drop ≤2 points</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>OFFICIAL TEST</span>
-                <b>embargoed during pilot/development</b>
-              </div>
-            </div>
+            <blockquote>
+              If a simple baseline solves localization, that is a result — not a reason to redesign the benchmark after seeing it.
+            </blockquote>
           </section>
 
-          <section className="research-block" id="latest-complete">
-            <div className="research-block-index">
-              04 / LATEST COMPLETED CAUSAL TEST
-            </div>
-
-            <h2>Experiment 008</h2>
-
+          <section className="research-block" id="why">
+            <div className="research-block-index">06 / WHY CERTIFICATION IS SEPARATE</div>
+            <h2>Earlier experiments showed why attribution and causal verification cannot be collapsed.</h2>
             <p>
-              Experiment 008 was a prospectively frozen two-world test with five
-              recorded training-data changes per world. One change corrupted
-              supervision for the target behavior while four policy-correct
-              nuisance changes preserved the intended labels for protected
-              behavior.
+              In Experiment 008, the planted root was localized correctly and restoring it fully
+              recovered the target in both worlds. Yet some non-root restorations also produced
+              material recovery, so the prospectively defined causal-specificity criterion failed.
             </p>
-
             <p>
-              Both candidate worlds produced the required target-localized
-              regression with zero protected-behavior drift. The task-aware
-              diagnostic uniquely ranked the planted root first in both worlds,
-              and restoring that root fully recovered the target with zero
-              protected drift in both worlds.
+              Experiment 009 therefore treats retraining variability and plausible alternative
+              interventions as part of the causal test. The eventual research target is a
+              prospectively defined certify-or-abstain decision, not a claim that every regression
+              has a uniquely identifiable training-data cause.
             </p>
-
-            <p>
-              Primary causal certification still failed because some non-root
-              restorations also produced material target recovery. The result
-              therefore supports successful localization and strong planted-root
-              restorative influence under that benchmark, but not uniquely
-              specific causal verification from a single retraining outcome.
-            </p>
-
-            <div className="experiment-panel">
-              <div className="experiment-head">
-                <span>EXP 008</span>
-                <strong>COMPLETE</strong>
-              </div>
-
-              <div className="experiment-row">
-                <span>DESIGN</span>
-                <b>frozen before result-bearing training</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>CLEAN REFERENCE</span>
-                <b>96 / 96 held-out cases</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>CANDIDATE GATE</span>
-                <b>2 / 2 worlds passed</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>LOCALIZATION</span>
-                <b>planted root uniquely Top-1 · 2 / 2</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>ROOT RESTORATION</span>
-                <b>full target recovery · 2 / 2</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>PRIMARY CERTIFICATION</span>
-                <b>failed · non-root recovery was not specific</b>
-              </div>
-            </div>
-          </section>
-
-          <section className="research-block" id="findings">
-            <div className="research-block-index">05 / FINDINGS</div>
-
-            <h2>The benchmark became stricter as weaknesses were exposed.</h2>
-
-            <div className="related-work-grid">
-              <div>
-                <strong>SHORTCUTS CAN MISLEAD</strong>
-                <p>
-                  Experiment 001 showed that lexical similarity can make a
-                  diagnosis appear stronger than the underlying evidence.
-                </p>
-              </div>
-
-              <div>
-                <strong>LOCALIZATION IS NOT VERIFICATION</strong>
-                <p>
-                  Experiment 004 identified the intended training change, but
-                  reversing that change did not repair the target behavior.
-                </p>
-              </div>
-
-              <div>
-                <strong>THE BENCHMARK MUST ALSO PASS</strong>
-                <p>
-                  Experiments 005 through 007 showed that a useful test requires
-                  a measurable target regression without unacceptable damage to
-                  unrelated behavior.
-                </p>
-              </div>
-
-              <div>
-                <strong>RETRAINING VARIABILITY MATTERS</strong>
-                <p>
-                  Experiment 008 restored the planted root perfectly, but some
-                  nuisance restorations also recovered the target. Experiment
-                  009 therefore treats variability as part of the causal test.
-                </p>
-              </div>
-            </div>
           </section>
 
           <section className="research-block" id="technical">
-            <div className="research-block-index">06 / TECHNICAL SNAPSHOT</div>
-
-            <h2>Controlled training with reproducible experiments.</h2>
-
+            <div className="research-block-index">07 / TECHNICAL SNAPSHOT</div>
+            <h2>Controlled training with explicit provenance.</h2>
             <div className="method-grid technical-grid">
-              <div>
-                <span>MODELS</span>
-                <strong>SmolLM2 → DistilBERT</strong>
-                <p>
-                  SmolLM2-360M-Instruct powered the completed synthetic series;
-                  Experiment 009 uses a Banking77 DistilBERT classifier.
-                </p>
-              </div>
-
-              <div>
-                <span>TRAINING</span>
-                <strong>PyTorch · Transformers · PEFT/LoRA</strong>
-                <p>Controlled fine-tuning and paired retraining protocols.</p>
-              </div>
-
-              <div>
-                <span>EVALUATION</span>
-                <strong>Target + protected behavior</strong>
-                <p>
-                  Regression materiality, locality, restoration effects, and
-                  stochastic variability are evaluated separately.
-                </p>
-              </div>
-
-              <div>
-                <span>REPRODUCIBILITY</span>
-                <strong>Configs · seeds · hashes · provenance</strong>
-                <p>
-                  Experiment inputs, initial states, schedules, and runtime state
-                  are recorded for controlled comparison.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section className="research-block" id="log">
-            <div className="research-block-index">07 / RESEARCH LOG</div>
-
-            <div className="research-log">
-              {log.map(([id, date, text]) => (
-                <div key={id}>
-                  <span>{id}</span>
-                  <time>{date}</time>
-                  <p>{text}</p>
-                </div>
-              ))}
+              <div><span>TASK</span><strong>Banking77 · DistilBERT</strong><p>Natural-language intent classification with versioned training releases.</p></div>
+              <div><span>TRAINING</span><strong>PyTorch · Transformers</strong><p>Paired initialization and training schedules for controlled retraining.</p></div>
+              <div><span>EVALUATION</span><strong>Target + protected behavior</strong><p>Materiality, locality, restoration effects, and stochastic variability are separated.</p></div>
+              <div><span>REPRODUCIBILITY</span><strong>Configs · seeds · hashes · CI</strong><p>Protocols, source identities, manifests, runtime provenance, and negative results are retained.</p></div>
             </div>
           </section>
 
           <section className="research-block" id="scope">
-            <div className="research-block-index">08 / SCOPE</div>
-
-            <h2>Controlled evidence first, broader claims later.</h2>
-
+            <div className="research-block-index">08 / SCOPE + CODE</div>
+            <h2>The current benchmark is stronger; the scientific claim is still deliberately incomplete.</h2>
             <p>
-              Experiments 000 through 008 used controlled synthetic tasks on a
-              small language model. They tested the debugging methodology under
-              conditions where training history and expected behavior could be
-              measured precisely.
+              MRF does not currently establish successful localization on the new matched benchmark,
+              confirmatory causal certification, superiority to modern attribution methods,
+              cross-model or cross-dataset generalization, or a completed publication.
             </p>
-
             <p>
-              Experiment 009 moves to a natural-language intent-classification
-              task with explicit pairing and stochastic controls. Pilot and
-              development work remains separate from the untouched official
-              Banking77 test split. The project does not currently claim broad
-              generalization or established novelty; larger models and broader
-              comparison with data-attribution and influence methods remain
-              later research steps.
+              The public repository contains the experimental protocols, code, tests, development
+              evidence, matched-benchmark construction, claims ledger, and roadmap.
             </p>
-          </section>
-
-          <section className="research-block" id="code">
-            <div className="research-block-index">09 / CODE + DETAILS</div>
-
-            <h2>The complete technical record is public.</h2>
-
-            <p>
-              The repository contains experiment configs, deterministic data
-              preparation, training and evaluation code, tests, decision logs,
-              model revisions, dataset hashes, runtime provenance, experiment
-              gates, and detailed results.
-            </p>
-
-            <Link
-              className="code-placeholder"
-              href="https://github.com/Kushrishi/model-regression-forensics"
-              target="_blank"
-              rel="noreferrer"
-              prefetch={false}
-            >
-              <span>$</span> github.com/Kushrishi/model-regression-forensics
-            </Link>
+            <a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics" target="_blank" rel="noreferrer">View repository →</a>
           </section>
         </div>
       </section>
