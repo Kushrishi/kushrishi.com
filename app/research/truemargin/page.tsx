@@ -33,7 +33,7 @@ export default function TrueMarginPage() {
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 002 / PUBLIC RESEARCH / M5 ACTIVE</div>
+        <div className="section-label">PROJECT 002 / PUBLIC RESEARCH / M5 COMPLETE</div>
         <h1>
           TRUE
           <br />
@@ -47,9 +47,10 @@ export default function TrueMarginPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>M4 COMPLETE · M5 ACTIVE</strong></div>
-          <div><span>QUESTION</span><strong>IS REGISTRATION UNCERTAINTY POINTWISE INFORMATIVE?</strong></div>
+          <div><span>STATUS</span><strong>M4 + M5 COMPLETE · M6 DESIGN</strong></div>
+          <div><span>QUESTION</span><strong>WHEN IS REGISTRATION UNCERTAINTY TRUSTWORTHY?</strong></div>
           <div><span>PRIMARY RESULT</span><strong>10 / 10 ANATOMIES POSITIVE · MEDIAN ρ 0.684</strong></div>
+          <div><span>FAILURE ANALYSIS</span><strong>39 / 1,500 SIGMA BLIND SPOTS · 6 / 30 CASE RANKINGS NEGATIVE</strong></div>
           <div><span>COMPARATOR</span><strong>ICE PERFORMED COMPARABLY · NO SUPERIORITY CLAIM</strong></div>
           <div><span>SCOPE</span><strong>RESEARCH ONLY · NO CLINICAL-USE CLAIMS</strong></div>
         </aside>
@@ -139,23 +140,51 @@ export default function TrueMarginPage() {
             </blockquote>
           </section>
 
-          <section className="research-block" id="current">
-            <div className="research-block-index">05 / CURRENT MILESTONE</div>
-            <h2>M5 asks where the signal fails, not whether the headline correlation can be made larger.</h2>
+          <section className="research-block" id="failures">
+            <div className="research-block-index">05 / M5 FAILURE CHARACTERIZATION</div>
+            <h2>The anatomy-level result is positive, but the signal is not uniformly reliable.</h2>
             <p>
-              The current work is anatomy-aware comparator, blind-spot, and failure analysis using
-              the frozen M4 outputs. High-error / low-reported-uncertainty cases, invalid comparator
-              cases, and weak-anatomy behavior are preserved rather than filtered away.
+              M5 reconstructed all 1,500 frozen ROI observations from the original hash-verified M4
+              patient shards without rerunning registration. Under the original blind-spot rule,
+              39 locations were simultaneously in the highest-error quartile and lowest-sigma
+              quartile of their case. Those failures occurred in 11 of 30 cases and 7 of 10
+              anatomies.
             </p>
             <p>
-              Calibration remains a separate downstream question. Any robustness study must be
-              frozen before its result-bearing execution, and external generalization requires a
-              genuinely independent substrate.
+              Deformation-specific rank behavior was also heterogeneous: 24 of 30 case-level
+              sigma/error Spearman associations were positive and 6 were negative. Anatomy
+              `aaa0069` was weak across all three replicates, while `aaa0053` contained one severe
+              inverted replicate (ρ = -0.902) despite a strong anatomy-level median.
+            </p>
+            <p>
+              ICE had 34 blind-spot points among 1,350 points from its 27 valid cases, and only 12
+              of the 39 sigma blind spots overlapped with ICE blind spots. This is descriptive
+              failure evidence, not evidence that the signals should be combined.
+            </p>
+            <blockquote>
+              A positive aggregate result does not erase local failure modes; those failures are part of the result.
+            </blockquote>
+          </section>
+
+          <section className="research-block" id="current">
+            <div className="research-block-index">06 / NEXT MILESTONE</div>
+            <h2>M6 keeps numerical calibration separate from rank informativeness.</h2>
+            <p>
+              The next milestone is protocol design for numerical calibration. Before any
+              result-bearing calibration work, the quantity being calibrated, fitting/evaluation
+              separation, coverage or calibration metrics, failure handling, and inference boundary
+              must be frozen prospectively.
+            </p>
+            <p>
+              M4 and M5 are not tuning datasets. The completed estimator, cohort, ROI locations,
+              primary statistic, and observed failure cases will not be changed to make calibration
+              look better. Robustness and external generalization remain later, separately frozen
+              questions.
             </p>
           </section>
 
           <section className="research-block" id="technical">
-            <div className="research-block-index">06 / TECHNICAL SNAPSHOT</div>
+            <div className="research-block-index">07 / TECHNICAL SNAPSHOT</div>
             <h2>Built around prospective decisions and reproducible evidence.</h2>
             <div className="method-grid technical-grid">
               <div><span>DATA</span><strong>Public prostate imaging</strong><p>Explicit acquisition provenance and held-out anatomy evaluation.</p></div>
@@ -166,17 +195,18 @@ export default function TrueMarginPage() {
           </section>
 
           <section className="research-block" id="scope">
-            <div className="research-block-index">07 / SCOPE + CODE</div>
+            <div className="research-block-index">08 / SCOPE + CODE</div>
             <h2>The evidence is public; the claims stay narrow.</h2>
             <p>
-              TrueMargin currently supports a positive pointwise-rank-informativeness result for one
-              frozen estimator in one controlled known-deformation study. It does not currently
-              establish numerical calibration, superiority over ICE, external generalization,
-              clinical usefulness, or a completed publication.
+              TrueMargin currently supports a positive but heterogeneous pointwise-rank-
+              informativeness result for one frozen estimator in one controlled known-deformation
+              study. It does not currently establish numerical calibration, superiority over ICE,
+              absence of deformation-specific blind spots, external generalization, clinical
+              usefulness, or a completed publication.
             </p>
             <p>
-              The public repository contains the current protocols, claims ledger, result record,
-              implementation, tests, provenance, and roadmap.
+              The public repository contains the current protocols, claims ledger, M4 and M5 result
+              records, implementation, tests, provenance, and roadmap.
             </p>
             <a className="text-link" href="https://github.com/Kushrishi/truemargin" target="_blank" rel="noreferrer">View repository →</a>
           </section>

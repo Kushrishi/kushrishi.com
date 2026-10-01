@@ -76,12 +76,13 @@ export default function Home() {
           <div className="research-secondary-card">
             <div className="research-secondary-main">
               <div className="status-line">
-                <span className="status-dot" /> MEDICAL IMAGING / KNOWN-GT STUDY COMPLETE
+                <span className="status-dot" /> MEDICAL IMAGING / M5 COMPLETE
               </div>
               <h3>TRUEMARGIN</h3>
               <p>
-                Medical-image-computing research testing whether local registration uncertainty
-                contains useful information about true local spatial registration error.
+                Medical-image-computing research testing when local registration uncertainty
+                contains useful information about true local spatial registration error — and where
+                that signal fails.
               </p>
               <Link className="text-link" href="/research/truemargin" prefetch={false}>View research →</Link>
             </div>
@@ -92,12 +93,16 @@ export default function Home() {
                 <strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong>
               </div>
               <div>
+                <span>FAILURE BOUNDARY</span>
+                <strong>39 / 1,500 sigma blind spots · 6 / 30 case rankings negative</strong>
+              </div>
+              <div>
                 <span>COMPARATOR BOUNDARY</span>
                 <strong>stronger than residual/Jacobian here · not superior to inverse consistency</strong>
               </div>
               <div>
                 <span>CURRENT PHASE</span>
-                <strong>M5 · comparator, blind-spot, and failure analysis</strong>
+                <strong>M6 · calibration protocol design</strong>
               </div>
             </div>
           </div>
