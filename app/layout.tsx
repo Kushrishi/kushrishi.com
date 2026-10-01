@@ -3,11 +3,11 @@ import "./globals.css";
 import "./readability.css";
 
 const siteDescription =
-  "Machine learning, software systems, PNT/GNSS, and intelligent sensing, with a focus on model behavior, uncertainty, measurement, and reliable evaluation.";
+  "Reliable machine learning and sensing systems, with a focus on evaluation, uncertainty, estimation, and reproducible evidence.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kushrishi.com"),
-  title: "Kush Rishi | Machine Learning, Software Systems & PNT",
+  title: "Kush Rishi | Reliable ML, Sensing & Estimation",
   description: siteDescription,
   authors: [{ name: "Kush Rishi", url: "https://kushrishi.com" }],
   creator: "Kush Rishi",

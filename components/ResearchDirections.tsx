@@ -5,27 +5,21 @@ import { useState } from "react";
 const directions = [
   {
     index: "01",
-    title: "Model Evaluation",
-    description: "Regressions, behavioral testing, counterexamples, and reliable measurement.",
+    title: "Reliable ML & Evaluation",
+    description: "Regressions, behavioral testing, causal verification, uncertainty, and reproducible evaluation.",
     kind: "eval",
   },
   {
     index: "02",
-    title: "ML Systems",
-    description: "Training, evaluation infrastructure, experiment tooling, observability, and reproducibility.",
-    kind: "systems",
+    title: "Sensing, Estimation & Localization",
+    description: "PNT/GNSS, state estimation, sensor fusion, localization, and physical-world measurement.",
+    kind: "pnt",
   },
   {
     index: "03",
-    title: "Scientific & Medical ML",
-    description: "Uncertainty, calibration, medical imaging, and real-data validation.",
+    title: "Scientific & Medical Systems",
+    description: "Medical imaging, registration uncertainty, controlled validation, and evidence-aware computation.",
     kind: "multi",
-  },
-  {
-    index: "04",
-    title: "Sensing & Estimation",
-    description: "Positioning, state estimation, sensor fusion, and physical-world measurement.",
-    kind: "pnt",
   },
 ] as const;
 
@@ -37,20 +31,6 @@ function DirectionVisual({ kind }: { kind: (typeof directions)[number]["kind"] }
         <path className="dir-accent" d="M12 48 C46 42 57 16 88 29 C117 43 131 17 160 22 C184 26 193 39 213 31" />
         <circle className="dir-failure" cx="148" cy="29" r="4" />
         <circle className="dir-point" cx="74" cy="27" r="3" />
-      </svg>
-    );
-  }
-  if (kind === "systems") {
-    return (
-      <svg viewBox="0 0 220 64" aria-hidden="true">
-        <g className="dir-nodes">
-          <rect x="8" y="24" width="42" height="18" rx="2" />
-          <rect x="89" y="9" width="42" height="18" rx="2" />
-          <rect x="89" y="39" width="42" height="18" rx="2" />
-          <rect x="170" y="24" width="42" height="18" rx="2" />
-        </g>
-        <path className="dir-link" d="M50 33H72M72 33V18H89M72 33V48H89M131 18H149V33H170M131 48H149V33" />
-        <circle className="dir-pulse" cx="149" cy="33" r="4" />
       </svg>
     );
   }

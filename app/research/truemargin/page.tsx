@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const researchDescription =
-  "Private medical-imaging research on whether registration uncertainty is actually informative about spatial registration error.";
+  "Medical-image-computing research on whether local registration uncertainty is informative about true local spatial error.";
 
 export const metadata: Metadata = {
   title: "TrueMargin | Kush Rishi",
@@ -28,215 +28,157 @@ export default function TrueMarginPage() {
   return (
     <main className="research-page">
       <header className="site-header compact-header">
-        <Link className="wordmark" href="/" prefetch={false}>
-          KR
-        </Link>
-
-        <Link className="back-link" href="/" prefetch={false}>
-          ← Index
-        </Link>
+        <Link className="wordmark" href="/" prefetch={false}>KR</Link>
+        <Link className="back-link" href="/" prefetch={false}>← Index</Link>
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 002 / PRIVATE RESEARCH / ACTIVE VALIDATION</div>
-
+        <div className="section-label">PROJECT 002 / PUBLIC RESEARCH / M5 ACTIVE</div>
         <h1>
           TRUE
           <br />
           <em>MARGIN.</em>
         </h1>
-
         <p className="hero-deck">
-          Medical-imaging research on a narrow question: when an image-registration method reports
-          uncertainty, does that uncertainty actually identify where the registration is wrong?
+          Medical-image-computing research asking whether local uncertainty from deformable image
+          registration actually contains useful information about true local spatial error.
         </p>
       </section>
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div>
-            <span>STATUS</span>
-            <strong>ACTIVE VALIDATION</strong>
-          </div>
-
-          <div>
-            <span>QUESTION</span>
-            <strong>IS REGISTRATION UNCERTAINTY POINTWISE INFORMATIVE?</strong>
-          </div>
-
-          <div>
-            <span>LATEST COMPLETED RESULT</span>
-            <strong>CORRECTED ENSEMBLE · PREDEFINED GATE FAILED</strong>
-          </div>
-
-          <div>
-            <span>CURRENT STUDY</span>
-            <strong>REGISTRATION CONVERGENCE</strong>
-          </div>
-
-          <div>
-            <span>SCOPE</span>
-            <strong>RESEARCH ONLY · NO CLINICAL-USE CLAIMS</strong>
-          </div>
+          <div><span>STATUS</span><strong>M4 COMPLETE · M5 ACTIVE</strong></div>
+          <div><span>QUESTION</span><strong>IS REGISTRATION UNCERTAINTY POINTWISE INFORMATIVE?</strong></div>
+          <div><span>PRIMARY RESULT</span><strong>10 / 10 ANATOMIES POSITIVE · MEDIAN ρ 0.684</strong></div>
+          <div><span>COMPARATOR</span><strong>ICE PERFORMED COMPARABLY · NO SUPERIORITY CLAIM</strong></div>
+          <div><span>SCOPE</span><strong>RESEARCH ONLY · NO CLINICAL-USE CLAIMS</strong></div>
         </aside>
 
         <div className="research-copy">
           <section className="research-block" id="problem">
             <div className="research-block-index">01 / PROBLEM</div>
-
-            <h2>Calibration is not the same as knowing where a registration is wrong.</h2>
-
+            <h2>Knowing an uncertainty value is not the same as knowing where a registration is wrong.</h2>
             <p>
-              An uncertainty estimator can look reasonable when results are averaged across a
-              dataset and still be unhelpful at the individual locations where an error matters.
-              TrueMargin is testing that distinction directly.
+              Image-registration methods can produce confidence or variability signals that look
+              plausible in aggregate while failing at the specific locations where spatial error
+              matters. TrueMargin separates operational variability, pointwise informativeness,
+              calibration, blind spots, and generalization instead of treating them as one question.
             </p>
-
             <p>
-              The real prostate-imaging dataset does not provide independently verified pointwise
-              T2-to-DCE correspondences. Real-data error measurements are therefore treated as a
-              reference proxy, not as ground truth. Synthetic known-deformation experiments are
-              reserved for settings where true registration error can actually be known.
+              Real T2-to-DCE prostate data do not provide independently verified pointwise
+              correspondence ground truth. Historical real-data error measurements are therefore
+              treated as reference proxies. The primary validation study uses synthetic known
+              deformations, where local registration error can actually be measured.
             </p>
           </section>
 
-          <section className="research-block" id="audit">
-            <div className="research-block-index">02 / METHOD AUDIT</div>
-
-            <h2>The first task was to test whether the original uncertainty mechanism was doing meaningful work.</h2>
-
+          <section className="research-block" id="rebuild">
+            <div className="research-block-index">02 / PROSPECTIVE REBUILD</div>
+            <h2>Negative mechanism tests were kept instead of tuned away.</h2>
             <p>
-              An audit of the historical ensemble found that it added Gaussian noise with a fixed
-              raw-intensity standard deviation of 0.02 to DICOM images whose intensity scales were
-              often in the hundreds or thousands. That made the perturbation likely too small to
-              probe meaningful registration sensitivity.
+              The research program first audited the original intensity-perturbation ensemble and
+              found that its fixed raw noise scale was poorly matched to the underlying image
+              intensities. A scale-aware replacement was specified prospectively, but it failed its
+              frozen promotion gate. A later initialization-sensitivity ensemble also failed its
+              frozen gate.
             </p>
-
             <p>
-              A scale-aware replacement was defined before result-bearing runs: noise magnitude was
-              tied to each image&apos;s own intensity standard deviation. Five patients and six frozen
-              settings were then evaluated across 150 registrations.
+              Registration convergence was then tested separately. The mesh-3, 15-iteration regime
+              passed the predefined field-stability rule. A nine-member hyperparameter ensemble —
+              Mattes-MI bins 32/50/64 crossed with gradient tolerances 1e-4/1e-5/1e-6 — subsequently
+              passed its operational promotion criterion and became the frozen estimator for the
+              known-ground-truth study.
             </p>
-          </section>
-
-          <section className="research-block" id="gate-a">
-            <div className="research-block-index">03 / COMPLETED RESULT</div>
-
-            <h2>The corrected intensity-perturbation ensemble did not pass the predefined gate.</h2>
-
-            <p>
-              None of the tested nonzero perturbation levels satisfied the predeclared combination
-              of repeatability, non-inertness, and error-degradation criteria. Small perturbations
-              were often difficult to distinguish from baseline repeatability, while larger
-              perturbations increasingly produced registration failures or large displacement-field
-              divergence.
-            </p>
-
-            <div className="experiment-panel">
-              <div className="experiment-head">
-                <span>GATE A</span>
-                <strong>COMPLETE</strong>
-              </div>
-
-              <div className="experiment-row">
-                <span>WORKLOAD</span>
-                <b>5 patients · 6 settings · 5 registrations each</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>TOTAL</span>
-                <b>150 / 150 registrations attempted</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>SELECTED ALPHA</span>
-                <b>none</b>
-              </div>
-
-              <div className="experiment-row">
-                <span>DECISION</span>
-                <b>do not widen the grid post hoc</b>
-              </div>
-            </div>
-
-            <p>
-              The failed gate is part of the result. The experiment was not extended with additional
-              perturbation values after the fact to search for a more favorable outcome.
-            </p>
-          </section>
-
-          <section className="research-block" id="current">
-            <div className="research-block-index">04 / CURRENT STUDY</div>
-
-            <h2>Before testing another uncertainty mechanism, the registration itself has to be stable enough.</h2>
-
-            <p>
-              Gate A produced enough failures and divergence to raise a more basic question: are the
-              uncertainty experiments measuring sensitivity to meaningful perturbations, or partly
-              measuring optimizer instability?
-            </p>
-
-            <p>
-              The current experiment varies only the registration iteration budget while keeping the
-              rest of the mesh-3 registration regime fixed. Budgets of 15, 30, 60, and 100 iterations
-              are tested with five repeated registrations for each of five patients. The 100-iteration
-              regime is the reference, giving a frozen 100-registration study.
-            </p>
-
             <blockquote>
-              Proxy error is recorded descriptively, but it is not allowed to choose the iteration budget.
+              Operational variability was treated as necessary evidence, not proof that the signal tracked true error.
             </blockquote>
           </section>
 
+          <section className="research-block" id="known-gt">
+            <div className="research-block-index">03 / PRIMARY KNOWN-GROUND-TRUTH RESULT</div>
+            <h2>The promoted uncertainty signal was informative about true local spatial error.</h2>
+            <p>
+              The source-pinned M4 study completed on September 26, 2026 under the frozen protocol,
+              cohort, deformation design, spatial sampling rule, comparator specification, and
+              540-registration execution budget. It evaluated 30 synthetic known-deformation cases
+              across ten held-out anatomies, with 50 fixed-domain ROI locations per case.
+            </p>
+            <div className="experiment-panel">
+              <div className="experiment-head"><span>M4 KNOWN-GT</span><strong>COMPLETE</strong></div>
+              <div className="experiment-row"><span>CASES</span><b>30 / 30 complete · 10 anatomies</b></div>
+              <div className="experiment-row"><span>ANATOMY ASSOCIATIONS</span><b>10 / 10 positive</b></div>
+              <div className="experiment-row"><span>MEDIAN SPEARMAN</span><b>0.6841</b></div>
+              <div className="experiment-row"><span>BOOTSTRAP 95% CI</span><b>[0.3048, 0.8284]</b></div>
+              <div className="experiment-row"><span>ONE-SIDED SIGN TEST</span><b>p = 0.0009766</b></div>
+            </div>
+            <p>
+              The bounded conclusion is that, in this frozen synthetic known-deformation study,
+              larger hyperparameter-ensemble spread tended to rank locations with larger true local
+              registration error. The result does not establish numerical calibration, clinical
+              validity, or external-dataset generalization.
+            </p>
+          </section>
+
+          <section className="research-block" id="comparators">
+            <div className="research-block-index">04 / COMPARATOR BOUNDARY</div>
+            <h2>The strongest comparator prevents a universal method-superiority claim.</h2>
+            <p>
+              The prospectively frozen comparator suite included inverse-consistency error (ICE),
+              same-modality post-registration residual, and Jacobian deviation. Median anatomy-level
+              Spearman association was 0.7203 for ICE, 0.2851 for residual, and 0.1689 for Jacobian
+              deviation, versus 0.6841 for the target sigma.
+            </p>
+            <p>
+              Paired anatomy-level bootstrap intervals support stronger rank informativeness for the
+              target sigma than the residual and Jacobian-deviation comparators in this study. The
+              target-minus-ICE interval crosses zero, so the evidence does <strong>not</strong>
+              establish superiority over inverse-consistency error.
+            </p>
+            <blockquote>
+              The useful result is comparative evidence about local quality signals — not a manufactured single winner.
+            </blockquote>
+          </section>
+
+          <section className="research-block" id="current">
+            <div className="research-block-index">05 / CURRENT MILESTONE</div>
+            <h2>M5 asks where the signal fails, not whether the headline correlation can be made larger.</h2>
+            <p>
+              The current work is anatomy-aware comparator, blind-spot, and failure analysis using
+              the frozen M4 outputs. High-error / low-reported-uncertainty cases, invalid comparator
+              cases, and weak-anatomy behavior are preserved rather than filtered away.
+            </p>
+            <p>
+              Calibration remains a separate downstream question. Any robustness study must be
+              frozen before its result-bearing execution, and external generalization requires a
+              genuinely independent substrate.
+            </p>
+          </section>
+
           <section className="research-block" id="technical">
-            <div className="research-block-index">05 / TECHNICAL SNAPSHOT</div>
-
-            <h2>Designed around prospective decisions and reproducible evidence.</h2>
-
+            <div className="research-block-index">06 / TECHNICAL SNAPSHOT</div>
+            <h2>Built around prospective decisions and reproducible evidence.</h2>
             <div className="method-grid technical-grid">
-              <div>
-                <span>DATA</span>
-                <strong>Public prostate imaging</strong>
-                <p>Patient-level T2/DCE registration experiments with explicit data provenance.</p>
-              </div>
-
-              <div>
-                <span>REGISTRATION</span>
-                <strong>Deformable image registration</strong>
-                <p>Repeated registrations and displacement-field comparisons under frozen settings.</p>
-              </div>
-
-              <div>
-                <span>UNCERTAINTY</span>
-                <strong>Repeatability and calibration</strong>
-                <p>Aggregate behavior is kept separate from pointwise informativeness.</p>
-              </div>
-
-              <div>
-                <span>VALIDATION</span>
-                <strong>Real proxy + synthetic known deformation</strong>
-                <p>Ground-truth language is reserved for experiments where the deformation is known.</p>
-              </div>
+              <div><span>DATA</span><strong>Public prostate imaging</strong><p>Explicit acquisition provenance and held-out anatomy evaluation.</p></div>
+              <div><span>REGISTRATION</span><strong>Deformable B-spline registration</strong><p>Repeated controlled registrations and displacement-field analysis.</p></div>
+              <div><span>VALIDATION</span><strong>Synthetic known deformation</strong><p>Ground-truth language is reserved for settings where the deformation is known.</p></div>
+              <div><span>REPRODUCIBILITY</span><strong>Frozen protocols · hashes · CI</strong><p>Result-bearing source, inputs, workflow evidence, and claim boundaries are recorded publicly.</p></div>
             </div>
           </section>
 
-          <section className="research-block" id="next">
-            <div className="research-block-index">06 / NEXT</div>
-
-            <h2>The next uncertainty experiment depends on the convergence result.</h2>
-
+          <section className="research-block" id="scope">
+            <div className="research-block-index">07 / SCOPE + CODE</div>
+            <h2>The evidence is public; the claims stay narrow.</h2>
             <p>
-              If a stable registration regime is established, the next uncertainty mechanism will
-              be specified before its results are observed. Candidate directions include controlled
-              initialization or registration-parameter perturbations, followed by sensitivity checks,
-              synthetic known-deformation experiments, final cohort analysis, and manuscript
-              reconciliation.
+              TrueMargin currently supports a positive pointwise-rank-informativeness result for one
+              frozen estimator in one controlled known-deformation study. It does not currently
+              establish numerical calibration, superiority over ICE, external generalization,
+              clinical usefulness, or a completed publication.
             </p>
-
             <p>
-              TrueMargin remains private while the methodology is still being tested. The project
-              currently makes no clinical-performance, diagnostic, or deployment claims.
+              The public repository contains the current protocols, claims ledger, result record,
+              implementation, tests, provenance, and roadmap.
             </p>
+            <a className="text-link" href="https://github.com/Kushrishi/truemargin" target="_blank" rel="noreferrer">View repository →</a>
           </section>
         </div>
       </section>
