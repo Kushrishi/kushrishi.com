@@ -198,7 +198,7 @@ export default function TrueMarginPage() {
             <div className="research-block-index">08 / SCOPE + CODE</div>
             <h2>The evidence is public; the claims stay narrow.</h2>
             <p>
-              TrueMargin currently supports a positive but heterogeneous pointwise-rank-
+              TrueMargin currently supports a positive but heterogeneous pointwise rank
               informativeness result for one frozen estimator in one controlled known-deformation
               study. It does not currently establish numerical calibration, superiority over ICE,
               absence of deformation-specific blind spots, external generalization, clinical
