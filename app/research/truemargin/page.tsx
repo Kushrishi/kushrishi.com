@@ -131,8 +131,8 @@ export default function TrueMarginPage() {
             <p>
               Paired anatomy-level bootstrap intervals support stronger rank informativeness for the
               target sigma than the residual and Jacobian-deviation comparators in this study. The
-              target-minus-ICE interval crosses zero, so the evidence does <strong>not</strong>
-              establish superiority over inverse-consistency error.
+              target-minus-ICE interval crosses zero, so the evidence does not establish superiority
+              over inverse-consistency error.
             </p>
             <blockquote>
               The useful result is comparative evidence about local quality signals — not a manufactured single winner.
