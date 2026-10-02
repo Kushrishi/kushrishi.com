@@ -31,9 +31,8 @@ export default function Home() {
             <em>UNCERTAINTY.</em>
           </h1>
           <p className="hero-deck">
-            Reliable machine learning and sensing systems. I work on evaluation, uncertainty,
-            estimation, and reproducible experiments that ask when a model or measurement can
-            actually be trusted.
+            Research engineering for reliable machine learning and sensing systems, focused on
+            evaluation, uncertainty, and estimation.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
@@ -46,7 +45,7 @@ export default function Home() {
       <section className="manifesto-band">
         <div>MODEL EVALUATION</div>
         <div>UNCERTAINTY</div>
-        <div>SENSING + ESTIMATION</div>
+        <div>SENSING & ESTIMATION</div>
         <div>REPRODUCIBLE EVIDENCE</div>
       </section>
 
@@ -55,54 +54,52 @@ export default function Home() {
           <div className="section-label">00 / FLAGSHIP RESEARCH</div>
           <div className="research-card">
             <div className="research-card-main">
-              <div className="status-line"><span className="status-dot" /> RELIABLE ML / EXP009 ACTIVE</div>
-              <h2>MODEL REGRESSION<br />FORENSICS</h2>
+              <div className="status-line"><span className="status-dot" /> MEDICAL IMAGING / M6 PROTOCOL DESIGN</div>
+              <h2>TRUE<br />MARGIN</h2>
               <p className="lede">
-                When a model regresses after retraining, identifying a suspicious training change is
-                not enough. This project tests whether counterfactual retraining can distinguish a
-                responsible change from plausible alternatives and ordinary retraining variability.
+                Research on whether local uncertainty from deformable image registration contains
+                useful information about true local spatial error, and where that signal fails.
               </p>
-              <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>View research →</Link>
+              <Link className="text-link" href="/research/truemargin" prefetch={false}>View research →</Link>
             </div>
             <div className="research-meta">
-              <div><span>QUESTION</span><strong>What evidence is sufficient to identify the responsible change?</strong></div>
-              <div><span>LATEST MILESTONE</span><strong>M3 · STRUCTURALLY MATCHED BENCHMARK COMPLETE</strong></div>
-              <div><span>BENCHMARK</span><strong>2 worlds · 5 matched candidates each · Banking77</strong></div>
-              <div><span>CURRENT PHASE</span><strong>M4 · competitive localization baselines</strong></div>
-              <div><span>BOUNDARY</span><strong>matched-benchmark localization + causal specificity remain untested</strong></div>
+              <div><span>QUESTION</span><strong>When is local registration uncertainty informative about true spatial error?</strong></div>
+              <div><span>PRIMARY RESULT</span><strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong></div>
+              <div><span>COMPARATOR</span><strong>stronger than residual and Jacobian here · no superiority over inverse consistency</strong></div>
+              <div><span>CURRENT PHASE</span><strong>M6 · calibration and external-input protocol design</strong></div>
+              <div><span>SCOPE</span><strong>research only · no clinical-use claim</strong></div>
             </div>
           </div>
 
           <div className="research-secondary-card">
             <div className="research-secondary-main">
               <div className="status-line">
-                <span className="status-dot" /> MEDICAL IMAGING / M5 COMPLETE
+                <span className="status-dot" /> RELIABLE ML / M4 ACTIVE
               </div>
-              <h3>TRUEMARGIN</h3>
+              <h3>MODEL REGRESSION FORENSICS</h3>
               <p>
-                Medical-image-computing research testing when local registration uncertainty
-                contains useful information about true local spatial registration error — and where
-                that signal fails.
+                Research on whether counterfactual retraining can distinguish the training change
+                responsible for a model regression from plausible alternatives.
               </p>
-              <Link className="text-link" href="/research/truemargin" prefetch={false}>View research →</Link>
+              <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>View research →</Link>
             </div>
 
             <div className="research-secondary-meta">
               <div>
-                <span>PRIMARY RESULT</span>
-                <strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong>
+                <span>LATEST MILESTONE</span>
+                <strong>M3 · structurally matched benchmark complete</strong>
               </div>
               <div>
-                <span>FAILURE BOUNDARY</span>
-                <strong>39 / 1,500 sigma blind spots · 6 / 30 case rankings negative</strong>
-              </div>
-              <div>
-                <span>COMPARATOR BOUNDARY</span>
-                <strong>stronger than residual/Jacobian here · not superior to inverse consistency</strong>
+                <span>BENCHMARK</span>
+                <strong>2 worlds · 5 matched candidates each · Banking77</strong>
               </div>
               <div>
                 <span>CURRENT PHASE</span>
-                <strong>M6 · calibration protocol design</strong>
+                <strong>M4 · competitive localization baselines</strong>
+              </div>
+              <div>
+                <span>BOUNDARY</span>
+                <strong>matched-benchmark localization and causal specificity remain untested</strong>
               </div>
             </div>
           </div>
@@ -126,9 +123,9 @@ export default function Home() {
             <article className="project-card subdued">
               <div className="project-index">02</div>
               <div className="project-card-body">
-                <div className="project-tags">APPLIED AI · RETRIEVAL · FULL-STACK · SAFETY</div>
+                <div className="project-tags">RETRIEVAL · VALIDATION · FULL STACK · SAFETY</div>
                 <h3>CareBridge Canada</h3>
-                <p>Healthcare-continuity prototype exploring source-grounded workflows, structured validation, auditability, and bounded AI behavior using synthetic data.</p>
+                <p>Healthcare-continuity prototype exploring source-grounded retrieval, structured validation, auditability, and bounded model behavior using synthetic data.</p>
                 <ProjectPreview kind="carebridge" />
                 <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
               </div>
@@ -152,10 +149,14 @@ export default function Home() {
         <Reveal delay={0.1}>
           <div className="about-copy">
             <p>
-              My foundation is in Geomatics Engineering, PNT/GNSS, sensing, estimation, and measurement systems. At Xona, I work on Python/Linux engineering systems supporting GNSS data collection, processing, monitoring, validation, and analysis.
+              My foundation is in Geomatics Engineering, PNT/GNSS, sensing, estimation, and
+              measurement systems. At Xona, I work on Python and Linux systems supporting GNSS data
+              collection, processing, monitoring, validation, and analysis.
             </p>
             <p>
-              My independent research extends the same measurement discipline into machine learning and medical image computing: define the failure precisely, separate signal from variability, test interventions prospectively, and keep claims inside the evidence.
+              My independent research applies the same measurement discipline to machine learning
+              and medical image computing: define the failure precisely, separate signal from
+              variability, test interventions prospectively, and keep claims within the evidence.
             </p>
             <div className="experience-mini">
               <div><span>2026-PRESENT</span><strong>GNSS Analyst · Xona</strong></div>
