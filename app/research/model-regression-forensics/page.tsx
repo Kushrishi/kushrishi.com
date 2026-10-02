@@ -160,7 +160,7 @@ export default function ResearchPage() {
               methods only when their objective can be implemented faithfully for the frozen target.
             </p>
             <blockquote>
-              If a simple baseline solves localization, that is a result — not a reason to redesign the benchmark after seeing it.
+              If a simple baseline solves localization, that is a result. It is not a reason to redesign the benchmark after seeing it.
             </blockquote>
           </section>
 
@@ -193,7 +193,7 @@ export default function ResearchPage() {
 
           <section className="research-block" id="scope">
             <div className="research-block-index">08 / SCOPE + CODE</div>
-            <h2>The current benchmark is stronger; the scientific claim is still deliberately incomplete.</h2>
+            <h2>The benchmark is structurally matched; the scientific claim remains incomplete.</h2>
             <p>
               MRF does not currently establish successful localization on the new matched benchmark,
               confirmatory causal certification, superiority to modern attribution methods,
