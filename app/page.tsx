@@ -33,7 +33,7 @@ export default function Home() {
           <p className="hero-deck">
             Reliable machine learning and sensing systems. I work on evaluation, uncertainty,
             estimation, and reproducible experiments that ask when a model or measurement can
-            actually be trusted.
+            be trusted.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
@@ -81,7 +81,7 @@ export default function Home() {
               <h3>TRUEMARGIN</h3>
               <p>
                 Medical-image-computing research testing when local registration uncertainty
-                contains useful information about true local spatial registration error — and where
+                contains useful information about true local spatial registration error and where
                 that signal fails.
               </p>
               <Link className="text-link" href="/research/truemargin" prefetch={false}>View research →</Link>
