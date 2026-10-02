@@ -41,7 +41,7 @@ export default function TrueMarginPage() {
         </h1>
         <p className="hero-deck">
           Medical-image-computing research asking whether local uncertainty from deformable image
-          registration actually contains useful information about true local spatial error.
+          registration contains useful information about true local spatial error.
         </p>
       </section>
 
@@ -69,7 +69,7 @@ export default function TrueMarginPage() {
               Real T2-to-DCE prostate data do not provide independently verified pointwise
               correspondence ground truth. Historical real-data error measurements are therefore
               treated as reference proxies. The primary validation study uses synthetic known
-              deformations, where local registration error can actually be measured.
+              deformations, where local registration error can be measured.
             </p>
           </section>
 
@@ -85,8 +85,8 @@ export default function TrueMarginPage() {
             </p>
             <p>
               Registration convergence was then tested separately. The mesh-3, 15-iteration regime
-              passed the predefined field-stability rule. A nine-member hyperparameter ensemble —
-              Mattes-MI bins 32/50/64 crossed with gradient tolerances 1e-4/1e-5/1e-6 — subsequently
+              passed the predefined field-stability rule. A nine-member hyperparameter ensemble
+              (Mattes-MI bins 32/50/64 crossed with gradient tolerances 1e-4/1e-5/1e-6) subsequently
               passed its operational promotion criterion and became the frozen estimator for the
               known-ground-truth study.
             </p>
@@ -136,7 +136,7 @@ export default function TrueMarginPage() {
               over inverse-consistency error.
             </p>
             <blockquote>
-              The useful result is comparative evidence about local quality signals — not a manufactured single winner.
+              The useful result is comparative evidence about local quality signals, not a manufactured single winner.
             </blockquote>
           </section>
 
