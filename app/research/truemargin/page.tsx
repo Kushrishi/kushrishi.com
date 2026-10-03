@@ -33,7 +33,7 @@ export default function TrueMarginPage() {
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">INDEPENDENT RESEARCH / PROSPECTIVE CALIBRATION</div>
+        <div className="section-label">INDEPENDENT RESEARCH / COMPLETED CASE STUDY</div>
         <h1>
           TRUE
           <br />
@@ -47,7 +47,7 @@ export default function TrueMarginPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>KNOWN-ERROR STUDY COMPLETE · CALIBRATION ACTIVE</strong></div>
+          <div><span>STATUS</span><strong>M4–M6 COMPLETE · NEW EXPERIMENTS PAUSED</strong></div>
           <div><span>QUESTION</span><strong>WHEN IS REGISTRATION UNCERTAINTY INFORMATIVE?</strong></div>
           <div><span>PRIMARY RESULT</span><strong>10 / 10 ANATOMIES POSITIVE · MEDIAN ρ 0.684</strong></div>
           <div><span>FAILURE ANALYSIS</span><strong>39 / 1,500 HIGH-ERROR, LOW-UNCERTAINTY OBSERVATIONS · 6 / 30 CASE RANKINGS NEGATIVE</strong></div>
@@ -120,14 +120,19 @@ export default function TrueMarginPage() {
           </section>
 
           <section className="research-block" id="current">
-            <div className="research-block-index">05 / CURRENT MILESTONE</div>
-            <h2>The next study tests whether uncertainty can yield reliable numerical error bounds.</h2>
+            <div className="research-block-index">05 / HELD-OUT CALIBRATION</div>
+            <h2>High coverage did not establish useful numerical precision.</h2>
             <p>
-              M6 is an active prospective calibration study with a frozen source-stratified split:
-              30 calibration anatomies and 30 sealed evaluation anatomies. Source-specific
-              hierarchical conformal prediction evaluates the ensemble uncertainty signal alongside
-              inverse-consistency error. Calibration thresholds must be reviewed and sealed before
-              evaluation. Numerical calibration remains unestablished; M4 and M5 remain locked.
+              M6 completed a frozen split of 30 calibration and 30 evaluation anatomies across
+              two acquisition sources. Thresholds were sealed before evaluation. At nominal 90%,
+              equal-anatomy empirical coverage was 97.73% and 99.73%, with median anatomy radii
+              of 3.93 mm and 4.36 mm. One anatomy had a 70.69 mm median radius.
+            </p>
+            <p>
+              The 95% thresholds are infinite under the frozen 15-calibration-group construction;
+              their coverage is not finite-radius validation. ICE failures prevented the planned
+              full-cohort calibrated comparison. These are conservative bounds in a synthetic
+              study, not evidence of clinical precision or an adaptive-efficiency advantage.
             </p>
           </section>
 
@@ -136,14 +141,17 @@ export default function TrueMarginPage() {
             <h2>The evidence is public and the claims remain narrow.</h2>
             <p>
               TrueMargin currently supports a positive but heterogeneous local rank-information result for one frozen estimator in one controlled known-deformation
-              study. It does not currently establish numerical calibration, superiority over ICE,
-              external generalization, clinical usefulness, or a completed publication.
+              study, followed by conservative held-out coverage with important radius-size limits.
+              It does not establish useful clinical error bounds, superiority over ICE,
+              external generalization, clinical usefulness, or a peer-reviewed publication.
             </p>
             <p>
               The public repository contains the protocols, claims ledger, result records,
               implementation, tests, provenance, and roadmap.
             </p>
             <a className="text-link" href="https://github.com/Kushrishi/truemargin" target="_blank" rel="noreferrer">View repository →</a>
+            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/technical_report.md" target="_blank" rel="noreferrer">Read technical report →</a></p>
+            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/m6_failure_diagnostics.md" target="_blank" rel="noreferrer">Review failure diagnostics →</a></p>
           </section>
         </div>
       </section>

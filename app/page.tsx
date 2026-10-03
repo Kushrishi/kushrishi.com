@@ -55,7 +55,7 @@ export default function Home() {
           <div className="section-label">00 / FLAGSHIP RESEARCH</div>
           <div className="research-card">
             <div className="research-card-main">
-              <div className="status-line"><span className="status-dot" /> MEDICAL IMAGING / CALIBRATION STUDY</div>
+              <div className="status-line"><span className="status-dot" /> MEDICAL IMAGING / STUDY COMPLETE</div>
               <h2>TRUE<br />MARGIN</h2>
               <p className="lede">
                 Research on whether local uncertainty from deformable image registration contains
@@ -67,7 +67,7 @@ export default function Home() {
               <div><span>QUESTION</span><strong>When is local registration uncertainty informative about true spatial error?</strong></div>
               <div><span>PRIMARY RESULT</span><strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong></div>
               <div><span>COMPARATOR</span><strong>stronger than residual and Jacobian here · no superiority over inverse consistency</strong></div>
-              <div><span>CURRENT PHASE</span><strong>Prospective calibration study</strong></div>
+              <div><span>STATUS</span><strong>M4–M6 complete · technical report available · new experiments paused</strong></div>
               <div><span>SCOPE</span><strong>research only · no clinical-use claim</strong></div>
             </div>
           </div>

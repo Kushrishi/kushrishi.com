@@ -159,6 +159,8 @@ export default function ResearchPage() {
               matched-benchmark construction, claims ledger, and roadmap.
             </p>
             <a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics" target="_blank" rel="noreferrer">View repository →</a>
+            <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md" target="_blank" rel="noreferrer">Read technical report →</a></p>
+            <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/REPRODUCE_M4.md" target="_blank" rel="noreferrer">Replay retained results →</a></p>
           </section>
         </div>
       </section>

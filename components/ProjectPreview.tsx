@@ -16,7 +16,7 @@ function AutonomyPreview() {
   return (
     <div className="project-preview autonomy-preview" role="region" aria-label="Interactive autonomy simulation preview">
       <div className="preview-toolbar">
-        <span>LIVE SYSTEM PREVIEW</span>
+        <span>ILLUSTRATIVE SYSTEM PREVIEW</span>
         <div className="preview-toggle" role="group" aria-label="Autonomy preview mode">
           <button className={mode === "plan" ? "active" : ""} aria-pressed={mode === "plan"} onClick={() => setMode("plan")} type="button">PLAN</button>
           <button className={mode === "localize" ? "active" : ""} aria-pressed={mode === "localize"} onClick={() => setMode("localize")} type="button">LOCALIZE</button>
@@ -53,14 +53,14 @@ function AutonomyPreview() {
             <circle className="estimate-point" cx="300" cy="49" r="5" />
             <circle className="uncertainty-ring" cx="300" cy="49" r="18" />
             <circle className="uncertainty-ring outer" cx="300" cy="49" r="30" />
-            <text x="18" y="22">RMSE 0.42 m</text>
+            <text x="18" y="22">SYNTHETIC TRAJECTORY</text>
             <text x="298" y="82">x̂</text>
           </>
         )}
       </svg>
       <div className="preview-readout">
         <span>{mode === "plan" ? "A* / weighted terrain" : "GNSS-inspired measurements"}</span>
-        <span>{mode === "plan" ? "replanning: enabled" : "Kalman estimate: tracking"}</span>
+        <span>Illustration · open demo to run</span>
       </div>
     </div>
   );
@@ -72,7 +72,7 @@ function CareBridgePreview() {
     <div className="project-preview carebridge-preview" role="region" aria-label="Interactive source-grounded workflow preview">
       <div className="preview-toolbar">
         <span>SOURCE-GROUNDED WORKFLOW</span>
-        <span className="preview-live-dot">SYNTHETIC</span>
+        <span className="preview-live-dot">ILLUSTRATIVE</span>
       </div>
       <div className="carebridge-flow">
         <button className={step === "retrieve" ? "active" : ""} aria-pressed={step === "retrieve"} onClick={() => setStep("retrieve")} type="button">
