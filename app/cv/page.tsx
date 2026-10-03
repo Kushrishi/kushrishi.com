@@ -55,11 +55,11 @@ export default function CVPage() {
         <h2>Independent research</h2>
         <article>
           <h3><Link href="/research/truemargin" prefetch={false}>TrueMargin</Link></h3>
-          <p>Medical image registration uncertainty and local spatial error. Completed a frozen known-ground-truth study across 30 synthetic cases and 10 held-out anatomies, followed by blind-spot analysis and calibration on 30 separate calibration and 30 evaluation anatomies. Held-out bounds were conservative, with a large-radius tail and infinite 95% thresholds. The technical report preserves these limits; superiority over inverse-consistency error and clinical usefulness remain unestablished.</p>
+          <p>Medical image registration uncertainty and local spatial error. Completed a frozen known-ground-truth study across 30 synthetic cases and 10 held-out anatomies, followed by blind-spot analysis and calibration on 30 separate calibration and 30 evaluation anatomies. Held-out bounds were conservative, with a large-radius tail and infinite 95% thresholds. The technical report preserves these limits. Current exploratory development compares error-scale models; superiority over inverse-consistency error and clinical usefulness remain unestablished.</p>
         </article>
         <article>
           <h3><Link href="/research/model-regression-forensics" prefetch={false}>Model Regression Forensics</Link></h3>
-          <p>Versioned model regression debugging, counterfactual restoration, and causal specificity. Completed a frozen localization study across two structurally matched Banking77 worlds, with three paired training trajectories in each. Simple visible-change baselines localized both worlds; causal certification remains unestablished and continuation is under review.</p>
+          <p>Versioned model regression debugging, counterfactual restoration, and causal specificity. Completed a frozen localization study across two structurally matched Banking77 worlds, with three paired training trajectories in each. Simple visible-change baselines localized both worlds; causal certification remains unestablished. Built an experimental exact-label release comparator with strict record alignment and an external handwritten-digits fixture checked against NumPy.</p>
         </article>
       </section>
 

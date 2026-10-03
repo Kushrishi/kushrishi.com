@@ -47,7 +47,7 @@ export default function TrueMarginPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>M4–M6 COMPLETE · NEW EXPERIMENTS PAUSED</strong></div>
+          <div><span>STATUS</span><strong>M4–M6 COMPLETE · EXPLORATORY DEVELOPMENT</strong></div>
           <div><span>QUESTION</span><strong>WHEN IS REGISTRATION UNCERTAINTY INFORMATIVE?</strong></div>
           <div><span>PRIMARY RESULT</span><strong>10 / 10 ANATOMIES POSITIVE · MEDIAN ρ 0.684</strong></div>
           <div><span>FAILURE ANALYSIS</span><strong>39 / 1,500 HIGH-ERROR, LOW-UNCERTAINTY OBSERVATIONS · 6 / 30 CASE RANKINGS NEGATIVE</strong></div>
@@ -149,9 +149,17 @@ export default function TrueMarginPage() {
               The public repository contains the protocols, claims ledger, result records,
               implementation, tests, provenance, and roadmap.
             </p>
+            <p>
+              Current development tests an ordinary affine error scale: a baseline error term plus
+              ensemble spread. Retained-data comparisons produced smaller mean radii than the
+              spread-only mapping across six source/split settings, at different achieved coverage.
+              These analyses reuse previously observed evaluation anatomies and do not establish
+              superiority or a new confirmatory result. Development validation must precede a fresh study.
+            </p>
             <a className="text-link" href="https://github.com/Kushrishi/truemargin" target="_blank" rel="noreferrer">View repository →</a>
             <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/technical_report.md" target="_blank" rel="noreferrer">Read technical report →</a></p>
             <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/m6_failure_diagnostics.md" target="_blank" rel="noreferrer">Review failure diagnostics →</a></p>
+            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/m6_scale_development.md" target="_blank" rel="noreferrer">Review exploratory scale analysis →</a></p>
           </section>
         </div>
       </section>

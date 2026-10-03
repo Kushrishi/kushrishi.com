@@ -49,10 +49,10 @@ export default function ResearchPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>MATCHED STUDY COMPLETE · CONTINUATION REVIEW</strong></div>
+          <div><span>STATUS</span><strong>MATCHED STUDY COMPLETE · UTILITY PILOT</strong></div>
           <div><span>QUESTION</span><strong>WHICH VERSIONED TRAINING CHANGE IS RESPONSIBLE?</strong></div>
           <div><span>LATEST MILESTONE</span><strong>SIMPLE BASELINES LOCALIZED BOTH WORLDS</strong></div>
-          <div><span>CURRENT PHASE</span><strong>CAUSAL CERTIFICATION UNDER REVIEW</strong></div>
+          <div><span>CURRENT PHASE</span><strong>EXACT-LABEL RELEASE COMPARISON</strong></div>
           <div><span>BOUNDARY</span><strong>CAUSAL SPECIFICITY NOT ESTABLISHED</strong></div>
         </aside>
 
@@ -61,14 +61,15 @@ export default function ResearchPage() {
             <div className="research-block-index">01 / QUESTION</div>
             <h2>Detecting a regression does not identify its cause.</h2>
             <p>
-              A training release can contain several plausible changes while only one is responsible
-              for a failed behavior. MRF separates localization, restorative influence, and causal
+              A training release can contain several changes that interact or independently repair
+              a failed behavior. MRF separates localization, restorative influence, and causal
               specificity instead of treating a high attribution score as causal evidence.
             </p>
           </section>
 
           <section className="research-block" id="method">
-            <div className="research-block-index">02 / METHOD</div>
+            <div className="research-block-index">02 / RESEARCH WORKFLOW</div>
+            <p>This is the research goal; a general certification procedure has not been established.</p>
             <blockquote>
               Localize a plausible cause, reverse it, retrain under controlled pairing, and test whether recovery is distinguishable from plausible alternatives and ordinary retraining variability.
             </blockquote>
@@ -81,7 +82,7 @@ export default function ResearchPage() {
               <b>→</b>
               <span>RETRAIN</span>
               <b>→</b>
-              <span>CERTIFY OR ABSTAIN</span>
+              <span>ASSESS SPECIFICITY</span>
             </div>
           </section>
 
@@ -141,6 +142,7 @@ export default function ResearchPage() {
             <p>
               The model-based methods added no top-1 benefit over the simple baselines in this
               design. This is descriptive development evidence from two constructed worlds.
+              Known target labels and disjoint candidate label pairs still provide a semantic shortcut.
               M5 is held pending a focused review of whether causal certification still offers a
               useful contribution. The benchmark and negative evidence are preserved.
             </p>
@@ -148,7 +150,7 @@ export default function ResearchPage() {
 
           <section className="research-block" id="scope">
             <div className="research-block-index">06 / SCOPE + CODE</div>
-            <h2>Localization is complete; causal certification remains unestablished.</h2>
+            <h2>The matched localization study is complete; causal certification remains unestablished.</h2>
             <p>
               MRF does not currently establish general localization success,
               confirmatory causal certification, superiority to modern attribution methods,
@@ -158,9 +160,17 @@ export default function ResearchPage() {
               The public repository contains the protocols, code, tests, development evidence,
               matched-benchmark construction, claims ledger, and roadmap.
             </p>
+            <p>
+              An experimental command-line comparator now checks exact-label predictions on declared
+              evaluation slices, rejects misaligned records, and reports individual regressions.
+              A separate handwritten-digits fixture agrees with an independent NumPy reference.
+              This establishes implementation agreement, not causal identification or an advantage
+              over existing evaluation tools. The next design tests ambiguity between alternative repairs.
+            </p>
             <a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics" target="_blank" rel="noreferrer">View repository →</a>
             <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md" target="_blank" rel="noreferrer">Read technical report →</a></p>
             <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/REPRODUCE_M4.md" target="_blank" rel="noreferrer">Replay retained results →</a></p>
+            <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/external-release-task.md" target="_blank" rel="noreferrer">Review the comparison utility →</a></p>
           </section>
         </div>
       </section>
