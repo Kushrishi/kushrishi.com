@@ -67,7 +67,7 @@ export default function Home() {
               <div><span>QUESTION</span><strong>When is local registration uncertainty informative about true spatial error?</strong></div>
               <div><span>PRIMARY RESULT</span><strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong></div>
               <div><span>COMPARATOR</span><strong>stronger than residual and Jacobian here · no superiority over inverse consistency</strong></div>
-              <div><span>STATUS</span><strong>M4–M6 complete · technical report available · new experiments paused</strong></div>
+              <div><span>STATUS</span><strong>M4–M6 complete · exploratory error-scale development</strong></div>
               <div><span>SCOPE</span><strong>research only · no clinical-use claim</strong></div>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function Home() {
               </div>
               <div>
                 <span>CURRENT PHASE</span>
-                <strong>Continuation review · causal certification remains unestablished</strong>
+                <strong>Experimental release comparator · causal certification unestablished</strong>
               </div>
               <div>
                 <span>BOUNDARY</span>
@@ -127,8 +127,8 @@ export default function Home() {
           </div>
           <div className="additional-work">
             <span>ADDITIONAL WORK</span>
-            <a href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">CareBridge Canada</a>
-            <p>Healthcare-continuity prototype using synthetic data and structured validation.</p>
+            <a href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">CareBridge / PrairieReach</a>
+            <p>Synthetic healthcare-access prototype. Development is paused.</p>
           </div>
         </Reveal>
       </section>
