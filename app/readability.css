@@ -677,3 +677,47 @@ nav a,
     min-height: 390px;
   }
 }
+
+/* Public portfolio review: shared card rhythm and compact phone reading. */
+.research-card-main,
+.research-secondary-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.research-card-main .lede,
+.research-secondary-main p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.research-card-main .text-link,
+.research-secondary-main .text-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  margin-top: 24px;
+}
+.research-meta,
+.research-secondary-meta {
+  grid-template-rows: none;
+  grid-auto-rows: 1fr;
+}
+@media (max-width: 680px) {
+  .research-card-main,
+  .research-secondary-main { padding: 28px 22px; }
+  .research-card-main .lede,
+  .research-secondary-main p { font-size: 16px; }
+  .research-card h2,
+  .research-secondary-card h3 { margin-top: 24px; margin-bottom: 20px; }
+  .research-meta > div,
+  .research-secondary-meta > div {
+    padding: 20px 22px;
+    gap: 12px;
+  }
+  #about { gap: 24px; }
+  #about .section-title { margin-bottom: 0; }
+  .about-copy { padding-top: 0; font-size: 17px; line-height: 1.65; }
+  .about-copy > p:first-child { margin-top: 0; }
+}
