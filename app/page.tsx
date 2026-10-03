@@ -13,6 +13,7 @@ export default function Home() {
           <a href="#research">Research</a>
           <a href="#systems">Systems</a>
           <a href="#about">About</a>
+          <Link href="/cv" prefetch={false}>CV</Link>
           <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
       </header>
@@ -54,7 +55,7 @@ export default function Home() {
           <div className="section-label">00 / FLAGSHIP RESEARCH</div>
           <div className="research-card">
             <div className="research-card-main">
-              <div className="status-line"><span className="status-dot" /> MEDICAL IMAGING / M6 PROTOCOL DESIGN</div>
+              <div className="status-line"><span className="status-dot" /> MEDICAL IMAGING / M6 CALIBRATION ACTIVE</div>
               <h2>TRUE<br />MARGIN</h2>
               <p className="lede">
                 Research on whether local uncertainty from deformable image registration contains
@@ -66,7 +67,7 @@ export default function Home() {
               <div><span>QUESTION</span><strong>When is local registration uncertainty informative about true spatial error?</strong></div>
               <div><span>PRIMARY RESULT</span><strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong></div>
               <div><span>COMPARATOR</span><strong>stronger than residual and Jacobian here · no superiority over inverse consistency</strong></div>
-              <div><span>CURRENT PHASE</span><strong>M6 · calibration and external-input protocol design</strong></div>
+              <div><span>CURRENT PHASE</span><strong>M6 · prospective calibration study</strong></div>
               <div><span>SCOPE</span><strong>research only · no clinical-use claim</strong></div>
             </div>
           </div>
@@ -74,7 +75,7 @@ export default function Home() {
           <div className="research-secondary-card">
             <div className="research-secondary-main">
               <div className="status-line">
-                <span className="status-dot" /> RELIABLE ML / M4 ACTIVE
+                <span className="status-dot" /> RELIABLE ML / M4 COMPLETE
               </div>
               <h3>MODEL REGRESSION FORENSICS</h3>
               <p>
@@ -87,7 +88,7 @@ export default function Home() {
             <div className="research-secondary-meta">
               <div>
                 <span>LATEST MILESTONE</span>
-                <strong>M3 · structurally matched benchmark complete</strong>
+                <strong>M4 · complete matched-benchmark localization study</strong>
               </div>
               <div>
                 <span>BENCHMARK</span>
@@ -95,11 +96,11 @@ export default function Home() {
               </div>
               <div>
                 <span>CURRENT PHASE</span>
-                <strong>M4 · competitive localization baselines</strong>
+                <strong>Continuation review · causal certification remains unestablished</strong>
               </div>
               <div>
                 <span>BOUNDARY</span>
-                <strong>matched-benchmark localization and causal specificity remain untested</strong>
+                <strong>simple baselines localized the root in both evaluated worlds</strong>
               </div>
             </div>
           </div>
@@ -109,7 +110,7 @@ export default function Home() {
       <section className="section" id="systems">
         <Reveal>
           <div className="section-label">01 / SELECTED ENGINEERING</div>
-          <div className="project-grid">
+          <div className="project-grid primary-engineering">
             <article className="project-card">
               <div className="project-index">01</div>
               <div className="project-card-body">
@@ -120,16 +121,11 @@ export default function Home() {
                 <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Explore system →</a>
               </div>
             </article>
-            <article className="project-card subdued">
-              <div className="project-index">02</div>
-              <div className="project-card-body">
-                <div className="project-tags">RETRIEVAL · VALIDATION · FULL STACK · SAFETY</div>
-                <h3>CareBridge Canada</h3>
-                <p>Healthcare-continuity prototype exploring source-grounded retrieval, structured validation, auditability, and bounded model behavior using synthetic data.</p>
-                <ProjectPreview kind="carebridge" />
-                <a className="text-link" href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">View project →</a>
-              </div>
-            </article>
+          </div>
+          <div className="additional-work">
+            <span>ADDITIONAL WORK</span>
+            <a href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">CareBridge Canada</a>
+            <p>Healthcare-continuity prototype using synthetic data and structured validation.</p>
           </div>
         </Reveal>
       </section>
@@ -173,8 +169,10 @@ export default function Home() {
           <h2>BUILD.<br />MEASURE.<br />VERIFY.</h2>
         </div>
         <div className="footer-links">
+          <Link href="/cv" prefetch={false}>CV</Link>
           <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub ↗</a>
           <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">Contact</a>
         </div>
       </footer>
     </main>

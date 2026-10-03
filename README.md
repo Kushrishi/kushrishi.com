@@ -1,17 +1,9 @@
 # kushrishi.com
 
-Personal research and engineering portfolio for Kush Rishi.
+Research and engineering portfolio for Kush Rishi: reliable ML, sensing, localization, and estimation.
 
-The site focuses on current machine-learning research, scientific/medical ML, selected software systems, and a technical trajectory from measurement and estimation toward intelligent systems.
+Featured research: TrueMargin and Model Regression Forensics. Primary engineering: Autonomy Simulation Lab. CareBridge Canada remains in Additional Work.
 
-## Current research
-
-- Model Regression Forensics
-- TrueMargin
-
-## Selected systems
-
-- CareBridge Canada
-- Autonomy Simulation Lab
+Public research summaries follow the canonical repository records. The site also provides a CV and professional contact links.
 
 Built with Next.js and TypeScript.

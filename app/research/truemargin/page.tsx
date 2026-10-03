@@ -33,7 +33,7 @@ export default function TrueMarginPage() {
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 001 / PUBLIC RESEARCH / M6 PROTOCOL DESIGN</div>
+        <div className="section-label">PROJECT 001 / PUBLIC RESEARCH / M6 CALIBRATION ACTIVE</div>
         <h1>
           TRUE
           <br />
@@ -123,10 +123,11 @@ export default function TrueMarginPage() {
             <div className="research-block-index">05 / CURRENT MILESTONE</div>
             <h2>M6 asks whether rank information can be converted into honest numerical error bounds.</h2>
             <p>
-              M6 is still prospective. Before any result-bearing calibration run, the external input
-              identities, eligibility rules, anatomy-aware calibration method, target quantity,
-              coverage definition, failure handling, comparator plan, and evaluation split must be
-              frozen. M4 and M5 remain locked and will not be reused as tuning data.
+              M6 is an active prospective calibration study with a frozen source-stratified split:
+              30 calibration anatomies and 30 sealed evaluation anatomies. Source-specific
+              hierarchical conformal prediction evaluates the ensemble uncertainty signal alongside
+              inverse-consistency error. Calibration thresholds must be reviewed and sealed before
+              evaluation. Numerical calibration remains unestablished; M4 and M5 remain locked.
             </p>
           </section>
 

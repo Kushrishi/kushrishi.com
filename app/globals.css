@@ -1076,3 +1076,27 @@ svg {
     min-height: 0;
   }
 }
+
+.primary-engineering { grid-template-columns: minmax(0, 1fr); }
+.primary-engineering .project-card { min-height: 0; }
+.primary-engineering .project-preview { max-width: 760px; }
+.additional-work { margin-top: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
+.additional-work > span { display: block; color: var(--accent); font-size: 12px; letter-spacing: 0.08em; margin-bottom: 12px; }
+.additional-work > a { font-size: 18px; text-decoration: underline; text-underline-offset: 4px; }
+.additional-work p { font-size: 16px; color: #afb9bd; line-height: 1.6; margin-bottom: 0; }
+.footer-links { flex-wrap: wrap; line-height: 1.5; }
+.cv-page { max-width: 900px; margin: 0 auto; padding: 28px 24px 80px; }
+.cv-page h1 { font-size: clamp(42px, 7vw, 72px); letter-spacing: -0.04em; margin-bottom: 16px; }
+.cv-page h2 { font-size: 24px; margin-top: 40px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.cv-page h3 { font-size: 19px; margin-bottom: 8px; }
+.cv-page p, .cv-page li { font-size: 16px; line-height: 1.7; color: #c9d2d6; }
+.cv-page a { text-decoration: underline; text-underline-offset: 4px; }
+.cv-page .cv-links { display: flex; gap: 20px; flex-wrap: wrap; }
+@media print {
+  .cv-page { color: #111; background: #fff; max-width: none; padding: 0; }
+  .cv-page .site-header { display: none; }
+  .cv-page p, .cv-page li { color: #222; }
+  .cv-page h2 { border-color: #aaa; }
+  .cv-page h2, .cv-page h3 { break-after: avoid; }
+  .cv-page article { break-inside: avoid; }
+}

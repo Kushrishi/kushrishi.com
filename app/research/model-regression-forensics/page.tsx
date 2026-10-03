@@ -33,7 +33,7 @@ export default function ResearchPage() {
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 002 / PUBLIC RESEARCH / M4 ACTIVE</div>
+        <div className="section-label">PROJECT 002 / PUBLIC RESEARCH / M4 COMPLETE</div>
         <h1>
           MODEL
           <br />
@@ -49,10 +49,10 @@ export default function ResearchPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>M3 COMPLETE · M4 ACTIVE</strong></div>
+          <div><span>STATUS</span><strong>M4 COMPLETE · CONTINUATION REVIEW</strong></div>
           <div><span>QUESTION</span><strong>WHICH VERSIONED TRAINING CHANGE IS RESPONSIBLE?</strong></div>
-          <div><span>LATEST MILESTONE</span><strong>STRUCTURALLY MATCHED BENCHMARK FROZEN</strong></div>
-          <div><span>CURRENT STUDY</span><strong>COMPETITIVE LOCALIZATION BASELINES</strong></div>
+          <div><span>LATEST MILESTONE</span><strong>SIMPLE BASELINES LOCALIZED BOTH WORLDS</strong></div>
+          <div><span>CURRENT PHASE</span><strong>M5 HELD AT CONTINUATION GATE</strong></div>
           <div><span>BOUNDARY</span><strong>CAUSAL SPECIFICITY NOT ESTABLISHED</strong></div>
         </aside>
 
@@ -124,27 +124,33 @@ export default function ResearchPage() {
               <div className="experiment-row"><span>CANDIDATES</span><b>5 per world · 10 total</b></div>
               <div className="experiment-row"><span>UNIQUE TOUCHED INTENTS</span><b>20</b></div>
               <div className="experiment-row"><span>STRUCTURAL PREFLIGHT</span><b>passed</b></div>
-              <div className="experiment-row"><span>MATCHED MODEL TRAINING</span><b>not yet performed</b></div>
+              <div className="experiment-row"><span>BENCHMARK SELECTION</span><b>before matched model training</b></div>
             </div>
           </section>
 
           <section className="research-block" id="current">
             <div className="research-block-index">05 / CURRENT MILESTONE</div>
-            <h2>M4 measures how much localization signal remains once candidate structure is matched.</h2>
+            <h2>Simple visible-change baselines solved localization in both evaluated worlds.</h2>
             <p>
-              M4 will compare a seeded random reference, a simple semantic or changed-record-overlap
-              baseline, target-faithful last-layer Grad-Dot, and modern influence or data-attribution
-              methods only when their objectives can be implemented faithfully for the frozen
-              target. If a simple baseline solves localization, that is a valid result and not a
-              reason to redesign the benchmark after observing it.
+              M4 completed three clean and six composite trainings across two worlds and three
+              paired trajectories. Complete blind rankings were finalized before separate truth
+              scoring. Target-label overlap and lexical Jaccard each ranked the root first in both
+              worlds. Final-checkpoint Grad-Dot and seven-checkpoint TracIn each ranked it first in
+              one world and last in the other.
+            </p>
+            <p>
+              The model-based methods added no top-1 benefit over the simple baselines in this
+              design. This is descriptive development evidence from two constructed worlds.
+              M5 is held pending a focused review of whether causal certification still offers a
+              useful contribution. The benchmark and negative evidence are preserved.
             </p>
           </section>
 
           <section className="research-block" id="scope">
             <div className="research-block-index">06 / SCOPE + CODE</div>
-            <h2>The benchmark is frozen; the central causal claim is still untested.</h2>
+            <h2>Localization is complete; causal certification remains unestablished.</h2>
             <p>
-              MRF does not currently establish successful localization on the matched benchmark,
+              MRF does not currently establish general localization success,
               confirmatory causal certification, superiority to modern attribution methods,
               cross-model or cross-dataset generalization, or a completed publication.
             </p>
