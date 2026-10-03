@@ -29,11 +29,11 @@ export default function TrueMarginPage() {
     <main className="research-page">
       <header className="site-header compact-header">
         <Link className="wordmark" href="/" prefetch={false}>KR</Link>
-        <Link className="back-link" href="/" prefetch={false}>← Index</Link>
+        <Link className="back-link" href="/" prefetch={false}>← Portfolio</Link>
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 001 / PUBLIC RESEARCH / M6 CALIBRATION ACTIVE</div>
+        <div className="section-label">INDEPENDENT RESEARCH / PROSPECTIVE CALIBRATION</div>
         <h1>
           TRUE
           <br />
@@ -47,11 +47,11 @@ export default function TrueMarginPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>M4 + M5 COMPLETE · M6 ACTIVE</strong></div>
+          <div><span>STATUS</span><strong>KNOWN-ERROR STUDY COMPLETE · CALIBRATION ACTIVE</strong></div>
           <div><span>QUESTION</span><strong>WHEN IS REGISTRATION UNCERTAINTY INFORMATIVE?</strong></div>
           <div><span>PRIMARY RESULT</span><strong>10 / 10 ANATOMIES POSITIVE · MEDIAN ρ 0.684</strong></div>
-          <div><span>FAILURE ANALYSIS</span><strong>39 / 1,500 SIGMA BLIND SPOTS · 6 / 30 CASE RANKINGS NEGATIVE</strong></div>
-          <div><span>COMPARATOR</span><strong>ICE PERFORMED COMPARABLY · NO SUPERIORITY CLAIM</strong></div>
+          <div><span>FAILURE ANALYSIS</span><strong>39 / 1,500 HIGH-ERROR, LOW-UNCERTAINTY OBSERVATIONS · 6 / 30 CASE RANKINGS NEGATIVE</strong></div>
+          <div><span>COMPARATOR</span><strong>NO ESTABLISHED ADVANTAGE OVER INVERSE-CONSISTENCY ERROR</strong></div>
           <div><span>SCOPE</span><strong>RESEARCH ONLY · NO CLINICAL-USE CLAIM</strong></div>
         </aside>
 
@@ -70,7 +70,7 @@ export default function TrueMarginPage() {
 
           <section className="research-block" id="design">
             <div className="research-block-index">02 / STUDY DESIGN</div>
-            <h2>The uncertainty estimator was promoted prospectively before the primary result.</h2>
+            <h2>The estimator was selected and frozen before the primary study.</h2>
             <p>
               Two earlier candidate mechanisms failed frozen promotion gates and were retained as
               negative results. A nine-member registration-hyperparameter ensemble then passed its
@@ -87,7 +87,7 @@ export default function TrueMarginPage() {
             <div className="research-block-index">03 / PRIMARY RESULT</div>
             <h2>The frozen uncertainty signal carried substantial local rank information about true spatial error.</h2>
             <div className="experiment-panel">
-              <div className="experiment-head"><span>M4 KNOWN-GT</span><strong>COMPLETE</strong></div>
+              <div className="experiment-head"><span>KNOWN-ERROR STUDY</span><strong>COMPLETE</strong></div>
               <div className="experiment-row"><span>CASES</span><b>30 / 30 complete · 10 anatomies</b></div>
               <div className="experiment-row"><span>ANATOMY ASSOCIATIONS</span><b>10 / 10 positive</b></div>
               <div className="experiment-row"><span>MEDIAN SPEARMAN</span><b>0.6841</b></div>
@@ -121,7 +121,7 @@ export default function TrueMarginPage() {
 
           <section className="research-block" id="current">
             <div className="research-block-index">05 / CURRENT MILESTONE</div>
-            <h2>M6 asks whether rank information can be converted into honest numerical error bounds.</h2>
+            <h2>The next study tests whether uncertainty can yield reliable numerical error bounds.</h2>
             <p>
               M6 is an active prospective calibration study with a frozen source-stratified split:
               30 calibration anatomies and 30 sealed evaluation anatomies. Source-specific
@@ -135,8 +135,7 @@ export default function TrueMarginPage() {
             <div className="research-block-index">06 / SCOPE + CODE</div>
             <h2>The evidence is public and the claims remain narrow.</h2>
             <p>
-              TrueMargin currently supports a positive but heterogeneous pointwise rank-
-              informativeness result for one frozen estimator in one controlled known-deformation
+              TrueMargin currently supports a positive but heterogeneous local rank-information result for one frozen estimator in one controlled known-deformation
               study. It does not currently establish numerical calibration, superiority over ICE,
               external generalization, clinical usefulness, or a completed publication.
             </p>
