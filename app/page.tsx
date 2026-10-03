@@ -32,8 +32,8 @@ export default function Home() {
             <em>UNCERTAINTY.</em>
           </h1>
           <p className="hero-deck">
-            GNSS engineering and independent research in reliable machine learning,
-            uncertainty, and estimation.
+            GNSS Analyst at Xona, building Python and Linux workflows for positioning data.
+            Independent research in reliable ML, uncertainty, and estimation.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
@@ -118,7 +118,10 @@ export default function Home() {
                 <h3>Autonomy Simulation Lab</h3>
                 <p>Completed v1.0 autonomy and localization environment combining planning, noisy sensing, nonlinear localization, Kalman filtering, telemetry, and quantitative evaluation.</p>
                 <ProjectPreview kind="autonomy" />
-                <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Explore system →</a>
+                <div className="hero-actions">
+                  <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Interactive demo →</a>
+                  <a className="text-link" href="https://github.com/Kushrishi/autonomy-simulation-lab" target="_blank" rel="noreferrer">Source code →</a>
+                </div>
               </div>
             </article>
           </div>
