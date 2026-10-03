@@ -32,8 +32,8 @@ export default function Home() {
             <em>UNCERTAINTY.</em>
           </h1>
           <p className="hero-deck">
-            Research engineering for reliable machine learning and sensing systems, focused on
-            evaluation, uncertainty, and estimation.
+            GNSS engineering and independent research in reliable machine learning,
+            uncertainty, and estimation.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
@@ -145,14 +145,15 @@ export default function Home() {
         <Reveal delay={0.1}>
           <div className="about-copy">
             <p>
-              My foundation is in Geomatics Engineering, PNT/GNSS, sensing, estimation, and
-              measurement systems. At Xona, I work on Python and Linux systems supporting GNSS data
-              collection, processing, monitoring, validation, and analysis.
+              I’m a GNSS Analyst at Xona and a Geomatics Engineering graduate from the University
+              of Calgary, where I graduated with distinction. I develop Python and Linux workflows
+              for GNSS data collection, processing, monitoring, validation, and analysis.
             </p>
             <p>
-              My independent research applies the same measurement discipline to machine learning
-              and medical image computing: define the failure precisely, separate signal from
-              variability, test interventions prospectively, and keep claims within the evidence.
+              Alongside that work, I study model regressions and uncertainty in medical image
+              registration. Those projects use prospectively specified experiments, controlled
+              comparisons, and public records of positive and negative results. My earlier research
+              assistant work involved quality assessment of LiDAR and photogrammetric point clouds.
             </p>
             <div className="experience-mini">
               <div><span>2026-PRESENT</span><strong>GNSS Analyst · Xona</strong></div>

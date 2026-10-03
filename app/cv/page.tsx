@@ -26,8 +26,28 @@ export default function CVPage() {
         <h2>Professional engineering</h2>
         <article>
           <h3>GNSS Analyst · Xona</h3>
-          <p>Montréal · 2026–present</p>
-          <p>Python and Linux systems supporting GNSS data collection, processing, monitoring, validation, and analysis.</p>
+          <p>Montréal · June 2026–present</p>
+          <p>Develop and maintain Python and Linux workflows for GNSS data collection, processing, monitoring, validation, and analysis. Build automated data-quality checks, engineering metrics, and dashboards; support receiver integration and troubleshooting.</p>
+        </article>
+        <article>
+          <h3>Research Assistant · University of Calgary</h3>
+          <p>December 2025–April 2026</p>
+          <p>Processed LiDAR and photogrammetric point clouds in CloudCompare, computed spatial quality metrics, and produced annotated visualizations and documented datasets for faculty research.</p>
+        </article>
+        <article>
+          <h3>Geomatics Team Member · Relectric Car Team</h3>
+          <p>September 2023–April 2026</p>
+          <p>Supported electric vehicle conversion through spatial measurement and geometry models for chassis, battery, and drivetrain placement. Worked with GNSS, IMU, and LiDAR data and prepared technical outputs for other engineering subteams.</p>
+        </article>
+        <article>
+          <h3>Survey Assistant · McElhanney</h3>
+          <p>May–August 2024</p>
+          <p>Supported control, layout, and as-built surveying for the Valley Line West LRT extension. Used GNSS receivers, total stations, and digital levels for field measurements, control checks, and documentation.</p>
+        </article>
+        <article>
+          <h3>Software Application Developer · Hycroft Chiropractic &amp; Massage</h3>
+          <p>September 2021–June 2022 · Freelance</p>
+          <p>Built and maintained the Stretch2Go mobile application in Dart, including booking, exercise plans, journaling, and content updates. Tested and refined user flows using feedback.</p>
         </article>
       </section>
 
@@ -56,6 +76,7 @@ export default function CVPage() {
         <h3>University of Calgary</h3>
         <p>BSc Geomatics Engineering, With Distinction · 2022–2026</p>
         <p>Foundations in measurement, sensing, estimation, positioning, and digital imaging.</p>
+        <p>Student leadership: President of the Geomatics Engineering Students’ Society and member of the Engineering Students’ Society Board of Directors, 2025–2026.</p>
       </section>
 
       <section>
