@@ -29,11 +29,11 @@ export default function ResearchPage() {
     <main className="research-page">
       <header className="site-header compact-header">
         <Link className="wordmark" href="/" prefetch={false}>KR</Link>
-        <Link className="back-link" href="/" prefetch={false}>← Index</Link>
+        <Link className="back-link" href="/" prefetch={false}>← Portfolio</Link>
       </header>
 
       <section className="research-hero-page">
-        <div className="section-label">PROJECT 002 / PUBLIC RESEARCH / M4 COMPLETE</div>
+        <div className="section-label">INDEPENDENT RESEARCH / MATCHED STUDY COMPLETE</div>
         <h1>
           MODEL
           <br />
@@ -49,10 +49,10 @@ export default function ResearchPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>M4 COMPLETE · CONTINUATION REVIEW</strong></div>
+          <div><span>STATUS</span><strong>MATCHED STUDY COMPLETE · CONTINUATION REVIEW</strong></div>
           <div><span>QUESTION</span><strong>WHICH VERSIONED TRAINING CHANGE IS RESPONSIBLE?</strong></div>
           <div><span>LATEST MILESTONE</span><strong>SIMPLE BASELINES LOCALIZED BOTH WORLDS</strong></div>
-          <div><span>CURRENT PHASE</span><strong>M5 HELD AT CONTINUATION GATE</strong></div>
+          <div><span>CURRENT PHASE</span><strong>CAUSAL CERTIFICATION UNDER REVIEW</strong></div>
           <div><span>BOUNDARY</span><strong>CAUSAL SPECIFICITY NOT ESTABLISHED</strong></div>
         </aside>
 
@@ -87,7 +87,7 @@ export default function ResearchPage() {
 
           <section className="research-block" id="development">
             <div className="research-block-index">03 / DEVELOPMENT EVIDENCE</div>
-            <h2>Experiment 009 produced a reproducible regression and strong root-restoration separation.</h2>
+            <h2>The pilot reproduced a regression and separated root reversal from alternative interventions.</h2>
             <p>
               The development pilot uses Banking77 with a pinned DistilBERT classifier, deterministic
               versioned training releases, and paired stochastic trajectories. A planted symmetric
@@ -110,7 +110,7 @@ export default function ResearchPage() {
 
           <section className="research-block" id="benchmark">
             <div className="research-block-index">04 / MATCHED BENCHMARK</div>
-            <h2>M3 removes the structural shortcut before testing localization again.</h2>
+            <h2>The matched benchmark removes the structural shortcut before testing localization again.</h2>
             <p>
               Every candidate in the new benchmark has the same observable change structure: 66
               stable-slot label changes, 33 in each direction, no text changes, preserved aggregate
@@ -119,7 +119,7 @@ export default function ResearchPage() {
               complete worlds before any matched-benchmark model training.
             </p>
             <div className="experiment-panel">
-              <div className="experiment-head"><span>M3</span><strong>COMPLETE</strong></div>
+              <div className="experiment-head"><span>MATCHED BENCHMARK</span><strong>COMPLETE</strong></div>
               <div className="experiment-row"><span>WORLDS</span><b>2</b></div>
               <div className="experiment-row"><span>CANDIDATES</span><b>5 per world · 10 total</b></div>
               <div className="experiment-row"><span>UNIQUE TOUCHED INTENTS</span><b>20</b></div>
@@ -132,8 +132,8 @@ export default function ResearchPage() {
             <div className="research-block-index">05 / CURRENT MILESTONE</div>
             <h2>Simple visible-change baselines solved localization in both evaluated worlds.</h2>
             <p>
-              M4 completed three clean and six composite trainings across two worlds and three
-              paired trajectories. Complete blind rankings were finalized before separate truth
+              The matched study completed three clean trainings and six composite trainings:
+              three paired trajectories in each of two worlds. Complete blind rankings were finalized before separate truth
               scoring. Target-label overlap and lexical Jaccard each ranked the root first in both
               worlds. Final-checkpoint Grad-Dot and seven-checkpoint TracIn each ranked it first in
               one world and last in the other.
