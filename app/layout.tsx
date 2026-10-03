@@ -3,7 +3,7 @@ import "./globals.css";
 import "./readability.css";
 
 const siteDescription =
-  "Reliable machine learning and sensing systems, with a focus on evaluation, uncertainty, estimation, and reproducible evidence.";
+  "Research engineering for reliable machine learning and sensing systems, focused on evaluation, uncertainty, and estimation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kushrishi.com"),

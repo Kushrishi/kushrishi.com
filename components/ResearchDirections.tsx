@@ -6,19 +6,19 @@ const directions = [
   {
     index: "01",
     title: "Reliable ML & Evaluation",
-    description: "Regressions, behavioral testing, causal verification, uncertainty, and reproducible evaluation.",
+    description: "Model regressions, causal verification, uncertainty, and reproducible evaluation.",
     kind: "eval",
   },
   {
     index: "02",
     title: "Sensing, Estimation & Localization",
-    description: "PNT/GNSS, state estimation, sensor fusion, localization, and physical-world measurement.",
+    description: "PNT/GNSS, state estimation, localization, sensor fusion, and measurement systems.",
     kind: "pnt",
   },
   {
     index: "03",
     title: "Scientific & Medical Systems",
-    description: "Medical imaging, registration uncertainty, controlled validation, and evidence-aware computation.",
+    description: "Medical imaging, registration uncertainty, controlled validation, and scientific computing.",
     kind: "multi",
   },
 ] as const;
