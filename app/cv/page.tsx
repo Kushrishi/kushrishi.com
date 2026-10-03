@@ -55,7 +55,7 @@ export default function CVPage() {
         <h2>Independent research</h2>
         <article>
           <h3><Link href="/research/truemargin" prefetch={false}>TrueMargin</Link></h3>
-          <p>Medical image registration uncertainty and local spatial error. Completed a prospective known-ground-truth study across 30 synthetic cases and 10 held-out anatomies, followed by comparator and blind-spot analysis. Prospective calibration is active; numerical calibration and superiority over inverse-consistency error remain unestablished.</p>
+          <p>Medical image registration uncertainty and local spatial error. Completed a frozen known-ground-truth study across 30 synthetic cases and 10 held-out anatomies, followed by blind-spot analysis and calibration on 30 separate calibration and 30 evaluation anatomies. Held-out bounds were conservative, with a large-radius tail and infinite 95% thresholds. The technical report preserves these limits; superiority over inverse-consistency error and clinical usefulness remain unestablished.</p>
         </article>
         <article>
           <h3><Link href="/research/model-regression-forensics" prefetch={false}>Model Regression Forensics</Link></h3>

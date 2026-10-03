@@ -1,10 +1,28 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Component, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Component, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import * as THREE from "three";
 
 type ModelVersion = "baseline" | "candidate";
+
+// Browser capability is fixed for this mount. Keep the server and hydration
+// snapshot flat, then read the cached capability without effect-driven state.
+const subscribeToWebGL = () => () => undefined;
+const getServerWebGLSnapshot = () => false;
+let webGLSnapshot: boolean | undefined;
+
+function getWebGLSnapshot() {
+  if (webGLSnapshot !== undefined) return webGLSnapshot;
+  try {
+    const context = document.createElement("canvas").getContext("webgl2");
+    webGLSnapshot = Boolean(context);
+    context?.getExtension("WEBGL_lose_context")?.loseContext();
+  } catch {
+    webGLSnapshot = false;
+  }
+  return webGLSnapshot;
+}
 
 type AtlasProps = {
   model: ModelVersion;
@@ -209,14 +227,11 @@ export function BehaviorField() {
   const [isTabletLike, setIsTabletLike] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [webGLAvailable, setWebGLAvailable] = useState(false);
-
-  useEffect(() => {
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("webgl2");
-    setWebGLAvailable(Boolean(context));
-    context?.getExtension("WEBGL_lose_context")?.loseContext();
-  }, []);
+  const webGLAvailable = useSyncExternalStore(
+    subscribeToWebGL,
+    getWebGLSnapshot,
+    getServerWebGLSnapshot,
+  );
 
   useEffect(() => {
     const coarseQuery = window.matchMedia("(pointer: coarse)");
