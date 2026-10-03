@@ -13,9 +13,9 @@ export const contentType = "image/png";
 export default function Image() {
   return new ImageResponse(
     <SocialCard
-      eyebrow="PROJECT 002 / PRIVATE RESEARCH"
-      lines={["TRUE", "MARGIN", "VALIDATION."]}
-      footer="MEDICAL IMAGING · REGISTRATION UNCERTAINTY · VALIDATION"
+      eyebrow="TRUEMARGIN / INDEPENDENT RESEARCH"
+      lines={["TRUE", "MARGIN", "RESEARCH."]}
+      footer="MEDICAL IMAGING · REGISTRATION UNCERTAINTY · SPATIAL ERROR"
     />,
     size,
   );

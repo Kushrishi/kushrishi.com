@@ -13,7 +13,7 @@ export const contentType = "image/png";
 export default function Image() {
   return new ImageResponse(
     <SocialCard
-      eyebrow="PROJECT 001 / ACTIVE RESEARCH"
+      eyebrow="MODEL REGRESSION FORENSICS / RESEARCH"
       lines={["MODEL", "REGRESSION", "FORENSICS."]}
       footer="MODEL DEBUGGING · TRAINING CHANGES · CONTROLLED RETRAINING"
     />,

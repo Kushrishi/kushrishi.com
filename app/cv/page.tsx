@@ -59,7 +59,7 @@ export default function CVPage() {
         </article>
         <article>
           <h3><a href="https://github.com/Kushrishi/model-regression-forensics">Model Regression Forensics</a></h3>
-          <p>Versioned model regression debugging, counterfactual restoration, and causal specificity. Completed a frozen localization study across two structurally matched Banking77 worlds and three paired training trajectories. Simple visible-change baselines localized both worlds; causal certification remains unestablished and continuation is under review.</p>
+          <p>Versioned model regression debugging, counterfactual restoration, and causal specificity. Completed a frozen localization study across two structurally matched Banking77 worlds, with three paired training trajectories in each. Simple visible-change baselines localized both worlds; causal certification remains unestablished and continuation is under review.</p>
         </article>
       </section>
 
