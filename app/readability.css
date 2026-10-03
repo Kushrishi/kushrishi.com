@@ -678,6 +678,10 @@ nav a,
   }
 }
 
+/* Direct project evidence links remain distinct and easy to tap. */
+.project-card .hero-actions { gap: 16px 24px; }
+.project-card .hero-actions .text-link { display: inline-flex; align-items: center; min-height: 44px; }
+
 /* Public portfolio review: shared card rhythm and compact phone reading. */
 .research-card-main,
 .research-secondary-main {
