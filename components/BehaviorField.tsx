@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Component, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import * as THREE from "three";
 
 type ModelVersion = "baseline" | "candidate";
@@ -166,6 +166,38 @@ function formatPercent(value: number) {
   return `${value.toFixed(1)}%`;
 }
 
+function FlatBehaviorAtlas({ model, stress }: { model: ModelVersion; stress: number }) {
+  const points = useMemo(() => {
+    const random = mulberry32(481516);
+    return Array.from({ length: 440 }, (_, index) => {
+      const x = -2.55 + random() * 5.1;
+      const y = -2.2 + random() * 4.4;
+      const noise = (random() - 0.5) * 0.12;
+      random();
+      return { index, x, y, failure: y > boundaryAt(x, model, stress) + noise };
+    });
+  }, [model, stress]);
+  const boundary = Array.from({ length: 92 }, (_, index) => {
+    const x = -2.6 + (index / 91) * 5.2;
+    return `${260 + x * 82},${220 - boundaryAt(x, model, stress) * 70}`;
+  }).join(" ");
+
+  return (
+    <svg className="field-flat-atlas" viewBox="0 0 520 440" role="img" aria-label="Synthetic behavior map showing nominal and failure regions">
+      {points.map(({ index, x, y, failure }) => (
+        <circle key={index} cx={260 + x * 82} cy={220 - y * 70} r="1.8" fill={failure ? "#ff9b8f" : "#9df9ff"} opacity={failure ? 0.44 : 0.72} />
+      ))}
+      <polyline points={boundary} fill="none" stroke="#f2ffff" strokeWidth="1.2" opacity="0.72" />
+    </svg>
+  );
+}
+
+class AtlasBoundary extends Component<{ children: ReactNode; fallback: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() { return { failed: true }; }
+  render() { return this.state.failed ? this.props.fallback : this.props.children; }
+}
+
 export function BehaviorField() {
   const shellRef = useRef<HTMLDivElement>(null);
   const phaseFillRef = useRef<HTMLElement>(null);
@@ -177,6 +209,14 @@ export function BehaviorField() {
   const [isTabletLike, setIsTabletLike] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [webGLAvailable, setWebGLAvailable] = useState(false);
+
+  useEffect(() => {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("webgl2");
+    setWebGLAvailable(Boolean(context));
+    context?.getExtension("WEBGL_lose_context")?.loseContext();
+  }, []);
 
   useEffect(() => {
     const coarseQuery = window.matchMedia("(pointer: coarse)");
@@ -296,7 +336,7 @@ export function BehaviorField() {
       role="region"
       aria-label="Interactive synthetic model behavior atlas"
     >
-      <Canvas
+      {webGLAvailable ? <AtlasBoundary fallback={<FlatBehaviorAtlas model={model} stress={stress} />}><Canvas
         camera={{ position: [0, 0, 6.35], fov: 47 }}
         dpr={canvasDpr}
         frameloop={frameLoop}
@@ -316,7 +356,7 @@ export function BehaviorField() {
           pointCount={pointCount}
           boundarySegments={boundarySegments}
         />
-      </Canvas>
+      </Canvas></AtlasBoundary> : <FlatBehaviorAtlas model={model} stress={stress} />}
 
       <div className="field-hud field-hud-top">BEHAVIOR ATLAS / SYNTHETIC DEMO</div>
       <div className="field-phase" aria-hidden="true">
