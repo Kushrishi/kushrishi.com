@@ -184,6 +184,15 @@ nav a,
   font-size: 11px;
 }
 
+.field-readout {
+  width: 196px;
+}
+
+.field-readout span,
+.field-readout strong {
+  white-space: nowrap;
+}
+
 .field-readout span,
 .field-stress-label span,
 .field-legend {
@@ -639,6 +648,17 @@ nav a,
   .experiment-row {
     gap: 6px;
     padding: 13px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .field-readout {
+    width: auto;
+  }
+
+  .field-readout span {
+    font-size: 9px;
+    letter-spacing: 0.02em;
   }
 }
 
