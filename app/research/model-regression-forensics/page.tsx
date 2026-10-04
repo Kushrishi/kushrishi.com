@@ -49,10 +49,10 @@ export default function ResearchPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>MATCHED STUDY COMPLETE · UTILITY PILOT</strong></div>
+          <div><span>STATUS</span><strong>MATCHED STUDY COMPLETE</strong></div>
           <div><span>QUESTION</span><strong>WHICH VERSIONED TRAINING CHANGE IS RESPONSIBLE?</strong></div>
           <div><span>LATEST MILESTONE</span><strong>SIMPLE BASELINES LOCALIZED BOTH WORLDS</strong></div>
-          <div><span>CURRENT PHASE</span><strong>EXACT-LABEL RELEASE COMPARISON</strong></div>
+          <div><span>CURRENT PHASE</span><strong>AMBIGUOUS REPAIR EVIDENCE</strong></div>
           <div><span>BOUNDARY</span><strong>CAUSAL SPECIFICITY NOT ESTABLISHED</strong></div>
         </aside>
 
@@ -143,8 +143,7 @@ export default function ResearchPage() {
               The model-based methods added no top-1 benefit over the simple baselines in this
               design. This is descriptive development evidence from two constructed worlds.
               Known target labels and disjoint candidate label pairs still provide a semantic shortcut.
-              M5 is held pending a focused review of whether causal certification still offers a
-              useful contribution. The benchmark and negative evidence are preserved.
+              The next study asks whether multiple plausible interventions can restore the same behavior, in which case a debugger should abstain from claiming a unique cause.
             </p>
           </section>
 
