@@ -3,7 +3,7 @@ import "./globals.css";
 import "./readability.css";
 
 const siteDescription =
-  "Research engineering for reliable machine learning and sensing systems, focused on evaluation, uncertainty, and estimation.";
+  "GNSS engineering, reliable machine learning, sensing, localization, and estimation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kushrishi.com"),
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Kush Rishi | Intelligence Under Uncertainty",
+    title: "Kush Rishi | Reliable ML, Sensing & Estimation",
     description: siteDescription,
     url: "/",
     siteName: "Kush Rishi",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kush Rishi | Intelligence Under Uncertainty",
+    title: "Kush Rishi | Reliable ML, Sensing & Estimation",
     description: siteDescription,
   },
   robots: {

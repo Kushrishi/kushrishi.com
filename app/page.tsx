@@ -43,13 +43,6 @@ export default function Home() {
         <BehaviorField />
       </section>
 
-      <section className="manifesto-band">
-        <div>MODEL EVALUATION</div>
-        <div>UNCERTAINTY</div>
-        <div>SENSING & ESTIMATION</div>
-        <div>REPRODUCIBLE EVIDENCE</div>
-      </section>
-
       <section className="section" id="research">
         <Reveal>
           <div className="section-label">00 / FLAGSHIP RESEARCH</div>
@@ -67,7 +60,7 @@ export default function Home() {
               <div><span>QUESTION</span><strong>When is local registration uncertainty informative about true spatial error?</strong></div>
               <div><span>PRIMARY RESULT</span><strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong></div>
               <div><span>COMPARATOR</span><strong>stronger than residual and Jacobian here · no superiority over inverse consistency</strong></div>
-              <div><span>STATUS</span><strong>M4–M6 complete · exploratory error-scale development</strong></div>
+              <div><span>STATUS</span><strong>Controlled and held-out studies complete</strong></div>
               <div><span>SCOPE</span><strong>research only · no clinical-use claim</strong></div>
             </div>
           </div>
@@ -96,7 +89,7 @@ export default function Home() {
               </div>
               <div>
                 <span>CURRENT PHASE</span>
-                <strong>Experimental release comparator · causal certification unestablished</strong>
+                <strong>Testing when repair evidence is ambiguous</strong>
               </div>
               <div>
                 <span>BOUNDARY</span>
@@ -125,11 +118,6 @@ export default function Home() {
               </div>
             </article>
           </div>
-          <div className="additional-work">
-            <span>ADDITIONAL WORK</span>
-            <a href="https://kushrishi.github.io/carebridge-canada/" target="_blank" rel="noreferrer">CareBridge / PrairieReach</a>
-            <p>Synthetic healthcare-access prototype. Development is paused.</p>
-          </div>
         </Reveal>
       </section>
 
@@ -143,7 +131,7 @@ export default function Home() {
       <section className="section split" id="about">
         <Reveal>
           <div className="section-label">03 / TRAJECTORY</div>
-          <h2 className="section-title">FROM MEASUREMENT<br />TO INTELLIGENCE.</h2>
+          <h2 className="section-title">ENGINEERING<br />AND RESEARCH.</h2>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="about-copy">
@@ -169,8 +157,8 @@ export default function Home() {
 
       <footer>
         <div>
-          <div className="footer-kicker">RESEARCH / ENGINEERING / EVIDENCE</div>
-          <h2>BUILD.<br />MEASURE.<br />VERIFY.</h2>
+          <div className="footer-kicker">KUSH RISHI</div>
+          <h2>SELECTED<br />WORK.</h2>
         </div>
         <div className="footer-links">
           <Link href="/cv" prefetch={false}>CV</Link>

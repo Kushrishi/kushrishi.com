@@ -47,7 +47,7 @@ export default function TrueMarginPage() {
 
       <section className="research-body">
         <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>M4–M6 COMPLETE · EXPLORATORY DEVELOPMENT</strong></div>
+          <div><span>STATUS</span><strong>CONTROLLED + HELD-OUT STUDIES COMPLETE</strong></div>
           <div><span>QUESTION</span><strong>WHEN IS REGISTRATION UNCERTAINTY INFORMATIVE?</strong></div>
           <div><span>PRIMARY RESULT</span><strong>10 / 10 ANATOMIES POSITIVE · MEDIAN ρ 0.684</strong></div>
           <div><span>FAILURE ANALYSIS</span><strong>39 / 1,500 HIGH-ERROR, LOW-UNCERTAINTY OBSERVATIONS · 6 / 30 CASE RANKINGS NEGATIVE</strong></div>
@@ -70,7 +70,7 @@ export default function TrueMarginPage() {
 
           <section className="research-block" id="design">
             <div className="research-block-index">02 / STUDY DESIGN</div>
-            <h2>The estimator was selected and frozen before the primary study.</h2>
+            <h2>The primary estimator was selected before the known-error evaluation.</h2>
             <p>
               Two earlier candidate mechanisms failed frozen promotion gates and were retained as
               negative results. A nine-member registration-hyperparameter ensemble then passed its
@@ -112,7 +112,7 @@ export default function TrueMarginPage() {
               superiority over ICE.
             </p>
             <p>
-              M5 reconstructed all 1,500 frozen ROI observations without rerunning registration.
+              The failure analysis reused the same 1,500 ROI observations without rerunning registration.
               Sigma produced 39 high-error, low-sigma blind spots across 11 of 30 cases, and 6 of 30
               case-level rank associations were negative. These failures are part of the result, not
               cases to be tuned away.
@@ -123,7 +123,7 @@ export default function TrueMarginPage() {
             <div className="research-block-index">05 / HELD-OUT CALIBRATION</div>
             <h2>High coverage did not establish useful numerical precision.</h2>
             <p>
-              M6 completed a frozen split of 30 calibration and 30 evaluation anatomies across
+              A separate study used 30 calibration and 30 evaluation anatomies across
               two acquisition sources. Thresholds were sealed before evaluation. At nominal 90%,
               equal-anatomy empirical coverage was 97.73% and 99.73%, with median anatomy radii
               of 3.93 mm and 4.36 mm. One anatomy had a 70.69 mm median radius.
