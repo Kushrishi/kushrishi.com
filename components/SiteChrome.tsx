@@ -2,7 +2,7 @@ import Link from "next/link";
 export function Header() {
   return (
     <header className="site-header">
-      <Link className="wordmark" href="/" aria-label="Kush Rishi, home">
+      <Link className="wordmark" href="/" aria-label="KR · Kush Rishi, home">
         KR<span>Kush Rishi</span>
       </Link>
       <nav aria-label="Primary navigation">
