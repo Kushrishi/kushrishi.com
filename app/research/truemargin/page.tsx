@@ -1,174 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const researchDescription =
-  "Medical-image-computing research on whether local registration uncertainty is informative about true local spatial error.";
-
 export const metadata: Metadata = {
   title: "TrueMargin | Kush Rishi",
-  description: researchDescription,
-  alternates: {
-    canonical: "/research/truemargin",
-  },
-  openGraph: {
-    title: "TrueMargin | Kush Rishi",
-    description: researchDescription,
-    url: "/research/truemargin",
-    siteName: "Kush Rishi",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TrueMargin | Kush Rishi",
-    description: researchDescription,
-  },
+  description: "Testing whether registration uncertainty predicts spatial alignment error.",
+  alternates: { canonical: "/research/truemargin" },
+  openGraph: { title: "TrueMargin | Kush Rishi", description: "Testing whether registration uncertainty predicts spatial alignment error.", url: "/research/truemargin", type: "website" },
+  twitter: { card: "summary_large_image", title: "TrueMargin | Kush Rishi", description: "Testing whether registration uncertainty predicts spatial alignment error." },
 };
 
-export default function TrueMarginPage() {
+export default function ResearchPage() {
   return (
     <main className="research-page">
-      <header className="site-header compact-header">
-        <Link className="wordmark" href="/" prefetch={false}>KR</Link>
-        <Link className="back-link" href="/" prefetch={false}>← Portfolio</Link>
-      </header>
-
-      <section className="research-hero-page">
-        <div className="section-label">INDEPENDENT RESEARCH / COMPLETED CASE STUDY</div>
-        <h1>
-          TRUE
-          <br />
-          <em>MARGIN.</em>
-        </h1>
-        <p className="hero-deck">
-          Research on whether local uncertainty from deformable image registration contains useful
-          information about true local spatial error, and where that signal fails.
-        </p>
-      </section>
-
-      <section className="research-body">
-        <aside className="research-sidebar">
-          <div><span>STATUS</span><strong>CONTROLLED + HELD-OUT STUDIES COMPLETE</strong></div>
-          <div><span>QUESTION</span><strong>WHEN IS REGISTRATION UNCERTAINTY INFORMATIVE?</strong></div>
-          <div><span>PRIMARY RESULT</span><strong>10 / 10 ANATOMIES POSITIVE · MEDIAN ρ 0.684</strong></div>
-          <div><span>FAILURE ANALYSIS</span><strong>39 / 1,500 HIGH-ERROR, LOW-UNCERTAINTY OBSERVATIONS · 6 / 30 CASE RANKINGS NEGATIVE</strong></div>
-          <div><span>COMPARATOR</span><strong>NO ESTABLISHED ADVANTAGE OVER INVERSE-CONSISTENCY ERROR</strong></div>
-          <div><span>SCOPE</span><strong>RESEARCH ONLY · NO CLINICAL-USE CLAIM</strong></div>
-        </aside>
-
-        <div className="research-copy">
-          <section className="research-block" id="question">
-            <div className="research-block-index">01 / QUESTION</div>
-            <h2>An uncertainty signal is useful only if it tells us something about actual registration error.</h2>
-            <p>
-              TrueMargin separates operational variability, pointwise informativeness, numerical
-              calibration, blind spots, and generalization. Real prostate registration data do not
-              provide independently verified pointwise correspondence ground truth, so the primary
-              validation study uses synthetic known deformations where local spatial error can be
-              measured directly.
-            </p>
-          </section>
-
-          <section className="research-block" id="design">
-            <div className="research-block-index">02 / STUDY DESIGN</div>
-            <h2>The primary estimator was selected before the known-error evaluation.</h2>
-            <p>
-              Two earlier candidate mechanisms failed frozen promotion gates and were retained as
-              negative results. A nine-member registration-hyperparameter ensemble then passed its
-              operational gate and was frozen for the known-ground-truth study. The primary analysis
-              used anatomy-level inference so repeated spatial samples were not treated as
-              independent subjects.
-            </p>
-            <blockquote>
-              Operational variability was required before evaluation, but it was not treated as proof of true-error informativeness.
-            </blockquote>
-          </section>
-
-          <section className="research-block" id="result">
-            <div className="research-block-index">03 / PRIMARY RESULT</div>
-            <h2>The frozen uncertainty signal carried substantial local rank information about true spatial error.</h2>
-            <div className="experiment-panel">
-              <div className="experiment-head"><span>KNOWN-ERROR STUDY</span><strong>COMPLETE</strong></div>
-              <div className="experiment-row"><span>CASES</span><b>30 / 30 complete · 10 anatomies</b></div>
-              <div className="experiment-row"><span>ANATOMY ASSOCIATIONS</span><b>10 / 10 positive</b></div>
-              <div className="experiment-row"><span>MEDIAN SPEARMAN</span><b>0.6841</b></div>
-              <div className="experiment-row"><span>BOOTSTRAP 95% CI</span><b>[0.3048, 0.8284]</b></div>
-              <div className="experiment-row"><span>ONE-SIDED SIGN TEST</span><b>p = 0.0009766</b></div>
-            </div>
-            <p>
-              The bounded conclusion is that larger ensemble spread tended to rank locations with
-              larger known local error in this frozen synthetic study. This does not establish
-              numerical calibration, clinical validity, or external-dataset generalization.
-            </p>
-          </section>
-
-          <section className="research-block" id="boundaries">
-            <div className="research-block-index">04 / COMPARATORS + FAILURES</div>
-            <h2>The positive aggregate result does not imply uniform reliability or method superiority.</h2>
-            <p>
-              Median anatomy-level Spearman association was 0.7203 for inverse-consistency error
-              (ICE), 0.2851 for same-modality residual, and 0.1689 for Jacobian deviation, versus
-              0.6841 for the target sigma. Paired bootstrap summaries support stronger rank
-              informativeness than residual and Jacobian deviation in this study, but not
-              superiority over ICE.
-            </p>
-            <p>
-              The failure analysis reused the same 1,500 ROI observations without rerunning registration.
-              Sigma produced 39 high-error, low-sigma blind spots across 11 of 30 cases, and 6 of 30
-              case-level rank associations were negative. These failures are part of the result, not
-              cases to be tuned away.
-            </p>
-          </section>
-
-          <section className="research-block" id="current">
-            <div className="research-block-index">05 / HELD-OUT CALIBRATION</div>
-            <h2>High coverage did not establish useful numerical precision.</h2>
-            <p>
-              A separate study used 30 calibration and 30 evaluation anatomies across
-              two acquisition sources. Thresholds were sealed before evaluation. At nominal 90%,
-              equal-anatomy empirical coverage was 97.73% and 99.73%, with median anatomy radii
-              of 3.93 mm and 4.36 mm. One anatomy had a 70.69 mm median radius.
-            </p>
-            <p>
-              The 95% thresholds are infinite under the frozen 15-calibration-group construction;
-              their coverage is not finite-radius validation. ICE failures prevented the planned
-              full-cohort calibrated comparison. These are conservative bounds in a synthetic
-              study, not evidence of clinical precision or an adaptive-efficiency advantage.
-            </p>
-          </section>
-
-          <section className="research-block" id="scope">
-            <div className="research-block-index">06 / SCOPE + CODE</div>
-            <h2>The evidence is public and the claims remain narrow.</h2>
-            <p>
-              TrueMargin currently supports a positive but heterogeneous local rank-information result for one frozen estimator in one controlled known-deformation
-              study, followed by conservative held-out coverage with important radius-size limits.
-              It does not establish useful clinical error bounds, superiority over ICE,
-              external generalization, clinical usefulness, or a peer-reviewed publication.
-            </p>
-            <p>
-              The public repository contains the protocols, claims ledger, result records,
-              implementation, tests, provenance, and roadmap.
-            </p>
-            <p>
-              A later analysis used only the original calibration cohort to compare constant,
-              spread-only, and affine error scales. The constant radius was smaller than the affine
-              radius in the 3T source; the affine radius was smaller in the Diagnosis source. Both
-              exceeded 90% mean coverage in those overlapping development folds. Adaptation did not
-              provide a uniform improvement, and these folds are not independent confirmation.
-            </p>
-            <p>
-              The next planned study tests the unchanged estimator on external lung CT pairs with
-              manual landmarks. The protocol and training-image preflight are implemented; no
-              external landmark result is available yet.
-            </p>
-            <a className="text-link" href="https://github.com/Kushrishi/truemargin" target="_blank" rel="noreferrer">View repository →</a>
-            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/technical_report.md" target="_blank" rel="noreferrer">Read technical report →</a></p>
-            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/m6_failure_diagnostics.md" target="_blank" rel="noreferrer">Review failure diagnostics →</a></p>
-            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/m6_calibration_only_scale_validation.md" target="_blank" rel="noreferrer">Review calibration-only analysis →</a></p>
-            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/external_lung_validation_protocol.md" target="_blank" rel="noreferrer">Read external-validation protocol →</a></p>
-          </section>
-        </div>
-      </section>
+      <a className="skip-link" href="#study">Skip to study</a>
+      <header className="site-header"><Link className="wordmark" href="/" aria-label="Kush Rishi, home">KR</Link><Link className="back-link" href="/">Portfolio</Link></header>
+      <section className="research-hero-page"><p className="section-label">Independent research</p><h1>TrueMargin</h1><p className="hero-deck">Testing whether registration uncertainty predicts spatial alignment error.</p></section>
+      <div className="research-body" id="study"><div className="research-copy">
+<h2>The question</h2>
+<p>When two medical images are aligned, disagreement between repeated registrations may reveal where the alignment is uncertain. TrueMargin tests whether that disagreement actually tracks spatial error, and whether it can produce useful error bounds.</p>
+<h2>What I built</h2>
+<p>I evaluated a nine-member registration-hyperparameter ensemble on synthetic deformations with known spatial error. The study covered 30 cases across 10 anatomies and 1,500 sampled locations. The estimator was fixed before evaluation; anatomy-level analysis avoided counting repeated spatial samples as independent subjects.</p>
+<h2>What the study found</h2>
+<table className="result-table"><caption>Median anatomy-level Spearman correlation with known spatial error</caption><thead><tr><th scope="col">Signal</th><th scope="col">Correlation</th></tr></thead><tbody><tr><th scope="row">Ensemble uncertainty</th><td>0.6841</td></tr><tr><th scope="row">Inverse-consistency error</th><td>0.7203</td></tr><tr><th scope="row">Image residual</th><td>0.2851</td></tr><tr><th scope="row">Jacobian deviation</th><td>0.1689</td></tr></tbody></table>
+<p>All 10 anatomy-level associations were positive. Uncertainty was more informative than image residual and Jacobian deviation in this study, but an advantage over inverse-consistency error was not established.</p>
+<p>The aggregate result also hid failures: 6 of 30 case-level correlations were negative, and 39 of 1,500 observations had high error despite low uncertainty.</p>
+<h2>Do the error bounds help?</h2>
+<p>A separate study used 30 calibration and 30 evaluation anatomies across two acquisition sources. At a nominal 90% coverage level, observed mean anatomy-level coverage was 97.73% and 99.73%. Median anatomy radii were 3.93 mm and 4.36 mm, with one reaching 70.69 mm.</p>
+<p>The bounds were conservative and sometimes very wide. The 95% thresholds were infinite with 15 calibration groups per source. Inverse-consistency failures prevented the planned full-cohort calibrated comparison.</p>
+<p>A later analysis using only the calibration cohort compared constant and adaptive error scales. Adaptation produced a smaller radius in one source and a larger radius in the other. Those overlapping development folds do not provide independent confirmation.</p>
+<h2>What comes next</h2>
+<p>The next study tests the unchanged estimator on external lung CT pairs with manual landmarks. Its protocol and image preflight are implemented; the external experiment has not run. The current results support a controlled association between uncertainty and error, with clear blind spots. They do not establish clinical validity or external generalization.</p>
+<div className="research-links"><a className="text-link" href="https://github.com/Kushrishi/truemargin">Code and protocols</a><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/technical_report.md">Technical report</a><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/external_lung_validation_protocol.md">Next study</a></div>
+</div></div>
+      <footer><Link href="/">Kush Rishi</Link><div className="footer-links"><Link href="/cv">CV</Link><a href="https://github.com/Kushrishi">GitHub</a><a href="mailto:kushrishi04@gmail.com">Email</a></div></footer>
     </main>
   );
 }

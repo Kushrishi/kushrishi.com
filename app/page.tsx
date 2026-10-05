@@ -1,172 +1,47 @@
 import Link from "next/link";
-import { BehaviorField } from "@/components/BehaviorField";
-import { Reveal } from "@/components/Reveal";
-import { ProjectPreview } from "@/components/ProjectPreview";
-import { ResearchDirections } from "@/components/ResearchDirections";
 
 export default function Home() {
   return (
-    <main>
+    <main id="top">
+      <a className="skip-link" href="#work">Skip to selected work</a>
       <header className="site-header">
-        <a className="wordmark" href="#top">KR</a>
+        <a className="wordmark" href="#top" aria-label="Kush Rishi, home">KR</a>
         <nav aria-label="Primary navigation">
-          <a href="#research">Research</a>
-          <a href="#systems">Systems</a>
-          <a href="#about">About</a>
-          <Link href="/cv" prefetch={false}>CV</Link>
-          <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#work">Work</a><a href="#about">About</a><Link href="/cv">CV</Link>
+          <a href="https://github.com/Kushrishi">GitHub</a>
         </nav>
       </header>
-
-      <section className="hero" id="top">
-        <div className="hero-copy">
-          <div className="eyebrow">
-            <span>KUSH RISHI</span>
-            <span>MONTRÉAL, CANADA</span>
-          </div>
-          <h1>
-            INTELLIGENCE
-            <br />
-            UNDER
-            <br />
-            <em>UNCERTAINTY.</em>
-          </h1>
-          <p className="hero-deck">
-            GNSS Analyst at Xona, building Python and Linux workflows for positioning data.
-            Independent research in reliable ML, uncertainty, and estimation.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#research">Explore research <span>↗</span></a>
-            <a className="button" href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">View GitHub</a>
-          </div>
-        </div>
-        <BehaviorField />
-      </section>
-
-      <section className="section" id="research">
-        <Reveal>
-          <div className="section-label">00 / SELECTED RESEARCH</div>
-          <div className="research-card">
-            <div className="research-card-main">
-              <div className="status-line"><span className="status-dot" /> MEDICAL IMAGING / STUDY COMPLETE</div>
-              <h2>TRUE<br />MARGIN</h2>
-              <p className="lede">
-                Research on whether local uncertainty from deformable image registration contains
-                useful information about true local spatial error, and where that signal fails.
-              </p>
-              <Link className="text-link" href="/research/truemargin" prefetch={false}>View research →</Link>
-            </div>
-            <div className="research-meta">
-              <div><span>QUESTION</span><strong>When is local registration uncertainty informative about true spatial error?</strong></div>
-              <div><span>PRIMARY RESULT</span><strong>10 / 10 anatomy associations positive · median Spearman 0.684</strong></div>
-              <div><span>COMPARATOR</span><strong>stronger than residual and Jacobian here · no superiority over inverse consistency</strong></div>
-              <div><span>STATUS</span><strong>Controlled and held-out studies complete</strong></div>
-              <div><span>SCOPE</span><strong>research only · no clinical-use claim</strong></div>
-            </div>
-          </div>
-
-          <div className="research-secondary-card">
-            <div className="research-secondary-main">
-              <div className="status-line">
-                <span className="status-dot" /> RELIABLE ML / MATCHED STUDY COMPLETE
-              </div>
-              <h3>MODEL REGRESSION FORENSICS</h3>
-              <p>
-                A study of regressions after training-data changes, with tools for comparing
-                releases and testing whether successful repairs identify a unique cause.
-              </p>
-              <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>View research →</Link>
-            </div>
-
-            <div className="research-secondary-meta">
-              <div>
-                <span>LATEST MILESTONE</span>
-                <strong>Matched-benchmark localization study completed</strong>
-              </div>
-              <div>
-                <span>BENCHMARK</span>
-                <strong>2 worlds · 5 matched candidates each · Banking77</strong>
-              </div>
-              <div>
-                <span>CURRENT PHASE</span>
-                <strong>Ambiguous-repair example complete; contribution review next</strong>
-              </div>
-              <div>
-                <span>BOUNDARY</span>
-                <strong>simple baselines localized the root in both evaluated worlds</strong>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      <section className="section" id="systems">
-        <Reveal>
-          <div className="section-label">01 / SELECTED ENGINEERING</div>
-          <div className="project-grid primary-engineering">
-            <article className="project-card">
-              <div className="project-index">01</div>
-              <div className="project-card-body">
-                <div className="project-tags">ROBOTICS · LOCALIZATION · STATE ESTIMATION</div>
-                <h3>Autonomy Simulation Lab</h3>
-                <p>An interactive grid simulator with path planning, dynamic obstacles, noisy sensing, range localization, Kalman filtering, and telemetry analysis. The browser application is complete. A separate C++ replay tool validates recordings and decodes PNG frames.</p>
-                <ProjectPreview kind="autonomy" />
-                <div className="hero-actions">
-                  <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Interactive demo →</a>
-                  <a className="text-link" href="https://github.com/Kushrishi/autonomy-simulation-lab" target="_blank" rel="noreferrer">Source code →</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </Reveal>
-      </section>
-
-      <section className="section" id="directions">
-        <Reveal>
-          <div className="section-label">02 / TECHNICAL FOCUS</div>
-          <ResearchDirections />
-        </Reveal>
-      </section>
-
-      <section className="section split" id="about">
-        <Reveal>
-          <div className="section-label">03 / TRAJECTORY</div>
-          <h2 className="section-title">ENGINEERING<br />AND RESEARCH.</h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <div className="about-copy">
-            <p>
-              I’m a GNSS Analyst at Xona and a Geomatics Engineering graduate from the University
-              of Calgary, where I graduated with distinction. I develop Python and Linux workflows
-              for GNSS data collection, processing, monitoring, validation, and analysis.
-            </p>
-            <p>
-              Alongside that work, I study model regressions and uncertainty in medical image
-              registration. I compare methods under controlled conditions and retain the findings,
-              including failures and negative results. My earlier research
-              assistant work involved quality assessment of LiDAR and photogrammetric point clouds.
-            </p>
-            <div className="experience-mini">
-              <div><span>2026-PRESENT</span><strong>GNSS Analyst · Xona</strong></div>
-              <div><span>2025-26</span><strong>Research Assistant · University of Calgary</strong></div>
-              <div><span>2022-26</span><strong>BSc Geomatics Engineering · With Distinction</strong></div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      <footer>
+      <section className="hero">
         <div>
-          <div className="footer-kicker">KUSH RISHI</div>
-          <h2>SELECTED<br />WORK.</h2>
+          <p className="eyebrow">GNSS Analyst at Xona · Montréal</p>
+          <h1>Kush Rishi<span className="hero-subtitle">Positioning. Estimation.<br />Model evaluation.</span></h1>
+          <p className="hero-deck">I build Python and Linux tools for positioning data. Outside work, I study how models fail and when uncertainty helps explain their errors.</p>
+          <div className="hero-actions"><a className="button button-primary" href="#work">Selected work</a><Link className="button" href="/cv">View CV</Link></div>
         </div>
-        <div className="footer-links">
-          <Link href="/cv" prefetch={false}>CV</Link>
-          <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="mailto:kushrishi04@gmail.com">Email</a>
-        </div>
-      </footer>
+        <aside className="work-index" aria-label="Selected projects">
+          <p className="section-label">Three projects, three questions</p>
+          <a href="#truemargin"><span>01 / TrueMargin</span><strong>Can registration uncertainty predict alignment error?</strong></a>
+          <a href="#mrf"><span>02 / Model Regression Forensics</span><strong>Which training change explains a regression?</strong></a>
+          <a href="#autonomy"><span>03 / Autonomy Simulation Lab</span><strong>How do planning and localization behave under noise?</strong></a>
+        </aside>
+      </section>
+      <section className="section" id="work">
+        <div className="section-heading"><p className="section-label">Selected work</p><h2>Questions tested.<br /><em>Results explained.</em></h2></div>
+        <article className="work-card" id="truemargin">
+          <div className="work-description"><p className="eyebrow">01 / Medical image registration</p><h3>TrueMargin</h3><p>Does disagreement between image registrations help locate alignment errors? I tested a nine-member ensemble against known deformations, then examined its failures and calibrated error bounds.</p><div className="hero-actions"><Link className="text-link" href="/research/truemargin">Study and results</Link><a className="text-link" href="https://github.com/Kushrishi/truemargin">Code</a></div></div>
+          <div className="evidence-panel"><p className="section-label">Controlled study · 30 cases / 10 anatomies</p><dl><div><dt>Median anatomy-level rank correlation</dt><dd>0.684</dd></div><div><dt>Anatomies with a positive association</dt><dd>10 / 10</dd></div></dl><p className="finding">Uncertainty tracked error overall, but missed some large errors. It did not outperform inverse-consistency error.</p></div>
+        </article>
+        <article className="work-card" id="mrf">
+          <div className="work-description"><p className="eyebrow">02 / Training-data changes</p><h3>Model Regression Forensics</h3><p>Which change caused a model to get worse? I compared simple and gradient-based rankings on matched training changes, and built a release comparator and an example with two successful repairs.</p><div className="hero-actions"><Link className="text-link" href="/research/model-regression-forensics">Study and results</Link><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics">Code</a></div></div>
+          <div className="evidence-panel"><p className="section-label">Banking77 · 2 constructed worlds</p><div className="rank-table"><div><span>Method</span><span>Root rank by world</span></div><div><strong>Label overlap / lexical similarity</strong><b>1 / 1</b></div><div><strong>Grad-Dot / TracIn</strong><b>1 / 5</b></div></div><p className="finding">Simple baselines solved both worlds. A semantic shortcut limited what the benchmark could establish.</p></div>
+        </article>
+        <article className="work-card" id="autonomy">
+          <div className="work-description"><p className="eyebrow">03 / Planning and localization</p><h3>Autonomy Simulation Lab</h3><p>A browser simulator for comparing path planners, adding measurement noise, and inspecting localization estimates. It combines A*, Dijkstra and BFS with range localization, Kalman filtering and telemetry.</p><div className="hero-actions"><a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/">Run the simulator</a><a className="text-link" href="https://github.com/Kushrishi/autonomy-simulation-lab">Code</a></div></div>
+          <div className="evidence-panel"><p className="section-label">Available now</p><h4>Change the conditions.<br />Inspect the response.</h4><p>Compare routes, introduce obstacles and examine the difference between true and estimated position.</p><p className="finding">The browser simulator is complete. A separate C++ tool validates recordings and decodes PNG frames; preprocessing and inference are next.</p></div>
+        </article>
+      </section>
+      <section className="section about-section" id="about"><div><p className="section-label">About</p><h2>From measurements<br />to working software.</h2></div><div className="about-copy"><p>I’m a GNSS Analyst at Xona, developing tools for collecting, processing and monitoring positioning data. I graduated with distinction in Geomatics Engineering from the University of Calgary.</p><p>My earlier work covered LiDAR and photogrammetric point-cloud quality, field surveying for the Valley Line West LRT extension, and software development. My independent projects build on those interests in sensing, estimation and careful evaluation.</p><Link className="text-link" href="/cv">Experience and education</Link></div></section>
+      <footer><span>Kush Rishi</span><div className="footer-links"><a href="mailto:kushrishi04@gmail.com">Email</a><a href="https://www.linkedin.com/in/kushrishi/">LinkedIn</a><a href="https://github.com/Kushrishi">GitHub</a><Link href="/cv">CV</Link></div></footer>
     </main>
   );
 }
