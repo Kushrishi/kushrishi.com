@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "TrueMargin | Kush Rishi",
@@ -28,7 +29,7 @@ export default function ResearchPage() {
 <p>A separate study used 30 calibration and 30 evaluation anatomies across two acquisition sources. At a nominal 90% coverage level, observed mean anatomy-level coverage was 97.73% and 99.73%. Median anatomy radii were 3.93 mm and 4.36 mm, with one reaching 70.69 mm.</p>
 <p>The bounds were conservative and sometimes very wide. The 95% thresholds were infinite with 15 calibration groups per source. Inverse-consistency failures prevented the planned full-cohort calibrated comparison.</p>
 <p>A later analysis using only the calibration cohort compared constant and adaptive error scales. Adaptation produced a smaller radius in one source and a larger radius in the other. Those overlapping development folds do not provide independent confirmation.</p>
-<h2>What comes next</h2>
+<figure className="project-figure light-figure"><Image src="/projects/truemargin.png" width={2200} height={1200} alt="TrueMargin results comparing uncertainty association, blind spots and calibrated error bounds" /><figcaption>Published repository figure for the controlled M4 to M6 studies. See the technical report for definitions and full results.</figcaption></figure><h2>What comes next</h2>
 <p>The next study tests the unchanged estimator on external lung CT pairs with manual landmarks. Its protocol and image preflight are implemented; the external experiment has not run. The current results support a controlled association between uncertainty and error, with clear blind spots. They do not establish clinical validity or external generalization.</p>
 <div className="research-links"><a className="text-link" href="https://github.com/Kushrishi/truemargin">Code and protocols</a><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/technical_report.md">Technical report</a><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/external_lung_validation_protocol.md">Next study</a></div>
 </div></div>
