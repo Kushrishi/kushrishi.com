@@ -1,38 +1,256 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-
+import { LaunchPage, MethodChain } from "@/components/LaunchPage";
+import { RegressionVisual } from "@/components/ProjectVisual";
 export const metadata: Metadata = {
   title: "Model Regression Forensics | Kush Rishi",
-  description: "Investigating training-data changes, model regressions and competing repairs.",
+  description:
+    "Comparing evidence for regressions after training-data changes.",
   alternates: { canonical: "/research/model-regression-forensics" },
-  openGraph: { title: "Model Regression Forensics | Kush Rishi", description: "Investigating training-data changes, model regressions and competing repairs.", url: "/research/model-regression-forensics", type: "website" },
-  twitter: { card: "summary_large_image", title: "Model Regression Forensics | Kush Rishi", description: "Investigating training-data changes, model regressions and competing repairs." },
+  openGraph: {
+    title: "Model Regression Forensics | Kush Rishi",
+    description:
+      "Comparing evidence for regressions after training-data changes.",
+    url: "/research/model-regression-forensics",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Model Regression Forensics | Kush Rishi",
+    description:
+      "Comparing evidence for regressions after training-data changes.",
+  },
 };
-
-export default function ResearchPage() {
+export default function Page() {
   return (
-    <main className="research-page">
-      <a className="skip-link" href="#study">Skip to study</a>
-      <header className="site-header"><Link className="wordmark" href="/" aria-label="Kush Rishi, home">KR</Link><Link className="back-link" href="/">Portfolio</Link></header>
-      <section className="research-hero-page"><p className="section-label">Independent research</p><h1>Model Regression Forensics</h1><p className="hero-deck">Investigating training-data changes, model regressions and competing repairs.</p></section>
-      <div className="research-body" id="study"><div className="research-copy">
-<h2>The question</h2>
-<p>A model performs worse after retraining. Which training-data change explains the regression? A useful ranking should distinguish the responsible change from plausible alternatives. Finding a repair is a further test, but a successful repair alone may not identify the original cause.</p>
-<h2>What I built</h2>
-<p>I constructed versioned Banking77 training releases around a DistilBERT classifier. In the matched study, each of two constructed worlds contained five candidate changes with the same structure: 66 label changes, balanced in both directions, with no text edits. Three paired training trajectories per world controlled some retraining variability.</p>
-<h2>What the study found</h2>
-<table className="result-table"><caption>Rank of the planted change among five candidates, by world</caption><thead><tr><th scope="col">Method</th><th scope="col">World 1</th><th scope="col">World 2</th></tr></thead><tbody><tr><th scope="row">Target-label overlap</th><td>1</td><td>1</td></tr><tr><th scope="row">Lexical Jaccard</th><td>1</td><td>1</td></tr><tr><th scope="row">Grad-Dot</th><td>1</td><td>5</td></tr><tr><th scope="row">TracIn</th><td>1</td><td>5</td></tr></tbody></table>
-<p>Simple baselines identified the planted change in both worlds. Gradient-based methods added no first-place ranking benefit. Although the candidates were structurally matched, known target labels and disjoint candidate label pairs left a semantic shortcut.</p>
-<p>These are findings from two constructed worlds, not evidence that simple methods generally outperform attribution methods. They show why a benchmark must rule out easy shortcuts before supporting a stronger conclusion.</p>
-<h2>Why a repair is not enough</h2>
-<p>A separate deterministic example has two distinct repairs that restore the same predictions. Without additional evidence, the result remains ambiguous about the historical cause. This example illustrates the distinction between restoring behavior and identifying what originally went wrong.</p>
-<h2>A working comparison tool</h2>
-<p>The experimental command-line utility compares exact-label predictions on declared evaluation slices. It checks record alignment and reports individual regressions. A handwritten-digits fixture agrees with an independent NumPy calculation. That verifies the comparison arithmetic; it does not establish causal attribution.</p>
-<h2>What comes next</h2>
-<p>The completed study is worth documenting. A stronger follow-up needs candidates that remain plausible after target labels and simple lexical cues are considered, followed by controlled reversal and retraining. The current work does not establish a general causal-identification method or a completed publication.</p>
-<div className="research-links"><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics">Code and protocols</a><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md">Technical report</a><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/ambiguous-repairs.md">Competing repairs</a></div>
-</div></div>
-      <footer><Link href="/">Kush Rishi</Link><div className="footer-links"><Link href="/cv">CV</Link><a href="https://github.com/Kushrishi">GitHub</a><a href="mailto:kushrishi04@gmail.com">Email</a></div></footer>
-    </main>
+    <LaunchPage
+      number="02"
+      title="Model Regression Forensics"
+      question="A model gets worse after retraining. Which training change explains the regression?"
+      status="Matched study complete / benchmark redesign next"
+      stack="Python / PyTorch / DistilBERT"
+      links={[
+        {
+          label: "Code",
+          href: "https://github.com/Kushrishi/model-regression-forensics",
+        },
+        {
+          label: "Technical report",
+          href: "https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md",
+        },
+      ]}
+      visual={<RegressionVisual />}
+      sections={[
+        {
+          id: "question",
+          title: "The question",
+          content: (
+            <>
+              <p>
+                After a model regresses, a team needs to decide which training
+                change to inspect or reverse. MRF studies what evidence can
+                support that decision, and when a successful repair still leaves
+                the historical cause uncertain.
+              </p>
+              <p>
+                It separates localization, restoration and specificity: finding
+                a suspicious change, repairing behavior, and distinguishing that
+                repair from plausible alternatives.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "method",
+          title: "Method and architecture",
+          content: (
+            <>
+              <p>
+                Two constructed Banking77 worlds contain five matched label-swap
+                candidates each. Every candidate changes sixty-six label slots
+                while leaving text and aggregate label counts unchanged.
+                Candidate identifiers are opaque. A pinned DistilBERT classifier
+                is trained across three paired trajectories per world.
+              </p>
+              <MethodChain
+                steps={[
+                  "Construct candidate changes and paired model releases",
+                  "Rank candidates without benchmark truth",
+                  "Finalize rankings, then score against planted truth",
+                ]}
+              />
+              <p>
+                The study compares deterministic random ranking, target-label
+                overlap, lexical Jaccard, final-checkpoint Grad-Dot and
+                seven-checkpoint TracIn. Ranking aggregation and truth scoring
+                are separate steps with retained identities and digests.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "experiments",
+          title: "Experiment history",
+          content: (
+            <>
+              <p>
+                Earlier shape-task experiments tested task capability, lexical
+                shortcuts and restoration specificity. Some could not learn the
+                clean task; others produced nonlocal regressions or competing
+                repairs. They are retained as negative development evidence.
+              </p>
+              <p>
+                A Banking77 pilot found separable root restoration, but nuisance
+                changes differed structurally. The matched study addressed that
+                confound without removing a semantic shortcut. Its repeated
+                training trajectories are not independent benchmark worlds.
+              </p>
+              <p>
+                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/EXPERIMENT_HISTORY.md">
+                  Complete experimental history
+                </a>
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "results",
+          title: "Results",
+          content: (
+            <>
+              <p>
+                Label overlap and lexical similarity ranked the planted root
+                first in both matched worlds. Grad-Dot and TracIn ranked it
+                first in one world and last in the other. The random reference
+                ranked it third in each.
+              </p>
+              <p>
+                The model-based diagnostics added no top-1 benefit in this
+                construction. Known target labels and disjoint candidate pairs
+                made the simple baseline decisive.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "failures",
+          title: "Negative results",
+          content: (
+            <>
+              <p>
+                Matching the size and structure of changes did not make the
+                benchmark semantically difficult. This study cannot establish
+                general root-cause identification or superiority to modern
+                training-data attribution.
+              </p>
+              <p>
+                A separate deterministic repair example shows another limit:
+                restoring input feature order and reversing model weights both
+                recover the same baseline predictions. The assessment returns{" "}
+                <code>ambiguous_repairs</code> and leaves the historical cause{" "}
+                <code>not_identified</code>.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "engineering",
+          title: "Comparison utility",
+          content: (
+            <>
+              <p>
+                An experimental release comparator validates aligned records,
+                declared evaluation slices and accuracy-drop tolerances. A
+                handwritten-digits fixture agrees with an independent NumPy
+                reference.
+              </p>
+              <p>
+                This verifies arithmetic and policy handling. It does not
+                diagnose a cause. The repair example can be run without
+                retraining the research models.
+              </p>
+              <pre>
+                <code>uv run python examples/ambiguous_repairs.py</code>
+              </pre>
+              <p>
+                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/ambiguous-repairs.md">
+                  Repair example
+                </a>{" "}
+                ·{" "}
+                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/external-release-task.md">
+                  Independent comparison fixture
+                </a>
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "limits",
+          title: "Limitations",
+          content: (
+            <>
+              <p>
+                Two constructed worlds, a controlled classifier task and planted
+                changes are a narrow basis for inference. A successful
+                counterfactual repair is not necessarily proof of a unique
+                historical cause. The release utility is experimental; the
+                project has no published paper.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "reproduce",
+          title: "Reproducibility",
+          content: (
+            <>
+              <pre>
+                <code>
+                  {
+                    "uv sync --extra dev\nuv run ruff check .\nuv run ruff format --check .\nuv run pytest"
+                  }
+                </code>
+              </pre>
+              <p>
+                Python 3.12 or later is required. The retained twelve-file M4
+                replay reproduces aggregation and truth scoring without a GPU,
+                model training or dataset downloads. It does not regenerate the
+                original scores or checkpoints.
+              </p>
+              <p>
+                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/REPRODUCE_M4.md">
+                  Digest-checked replay instructions
+                </a>{" "}
+                ·{" "}
+                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_RESULT.json">
+                  Accepted result record
+                </a>
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "next",
+          title: "Next experiment",
+          content: (
+            <>
+              <p>
+                Construct candidate changes with overlapping target labels and
+                plausible semantic alternatives. Test cheap visible-change
+                baselines before paying for larger training runs. Freeze the
+                construction criteria instead of selecting worlds after
+                favorable outcomes.
+              </p>
+              <p>
+                Then compare diagnostic ranking, verified recovery, alternative
+                repairs, ambiguity and computational cost. A contribution review
+                must show what decision this adds beyond existing causal
+                diagnosis and training-data attribution. The existing
+                continuation gate remains in force.
+              </p>
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }
