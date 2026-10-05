@@ -150,16 +150,22 @@ export default function TrueMarginPage() {
               implementation, tests, provenance, and roadmap.
             </p>
             <p>
-              Current development tests an ordinary affine error scale: a baseline error term plus
-              ensemble spread. Retained-data comparisons produced smaller mean radii than the
-              spread-only mapping across six source/split settings, at different achieved coverage.
-              These analyses reuse previously observed evaluation anatomies and do not establish
-              superiority or a new confirmatory result. Development validation must precede a fresh study.
+              A later analysis used only the original calibration cohort to compare constant,
+              spread-only, and affine error scales. The constant radius was smaller than the affine
+              radius in the 3T source; the affine radius was smaller in the Diagnosis source. Both
+              exceeded 90% mean coverage in those overlapping development folds. Adaptation did not
+              provide a uniform improvement, and these folds are not independent confirmation.
+            </p>
+            <p>
+              The next planned study tests the unchanged estimator on external lung CT pairs with
+              manual landmarks. The protocol and training-image preflight are implemented; no
+              external landmark result is available yet.
             </p>
             <a className="text-link" href="https://github.com/Kushrishi/truemargin" target="_blank" rel="noreferrer">View repository →</a>
             <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/technical_report.md" target="_blank" rel="noreferrer">Read technical report →</a></p>
             <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/m6_failure_diagnostics.md" target="_blank" rel="noreferrer">Review failure diagnostics →</a></p>
-            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/m6_scale_development.md" target="_blank" rel="noreferrer">Review exploratory scale analysis →</a></p>
+            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/m6_calibration_only_scale_validation.md" target="_blank" rel="noreferrer">Review calibration-only analysis →</a></p>
+            <p><a className="text-link" href="https://github.com/Kushrishi/truemargin/blob/main/docs/external_lung_validation_protocol.md" target="_blank" rel="noreferrer">Read external-validation protocol →</a></p>
           </section>
         </div>
       </section>

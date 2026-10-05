@@ -45,7 +45,7 @@ export default function Home() {
 
       <section className="section" id="research">
         <Reveal>
-          <div className="section-label">00 / FLAGSHIP RESEARCH</div>
+          <div className="section-label">00 / SELECTED RESEARCH</div>
           <div className="research-card">
             <div className="research-card-main">
               <div className="status-line"><span className="status-dot" /> MEDICAL IMAGING / STUDY COMPLETE</div>
@@ -72,8 +72,8 @@ export default function Home() {
               </div>
               <h3>MODEL REGRESSION FORENSICS</h3>
               <p>
-                Research on whether counterfactual retraining can distinguish the training change
-                responsible for a model regression from plausible alternatives.
+                A study of regressions after training-data changes, with tools for comparing
+                releases and testing whether successful repairs identify a unique cause.
               </p>
               <Link className="text-link" href="/research/model-regression-forensics" prefetch={false}>View research →</Link>
             </div>
@@ -89,7 +89,7 @@ export default function Home() {
               </div>
               <div>
                 <span>CURRENT PHASE</span>
-                <strong>Testing when repair evidence is ambiguous</strong>
+                <strong>Ambiguous-repair example complete; contribution review next</strong>
               </div>
               <div>
                 <span>BOUNDARY</span>
@@ -109,7 +109,7 @@ export default function Home() {
               <div className="project-card-body">
                 <div className="project-tags">ROBOTICS · LOCALIZATION · STATE ESTIMATION</div>
                 <h3>Autonomy Simulation Lab</h3>
-                <p>Completed v1.0 autonomy and localization environment combining planning, noisy sensing, nonlinear localization, Kalman filtering, telemetry, and quantitative evaluation.</p>
+                <p>An interactive grid simulator with path planning, dynamic obstacles, noisy sensing, range localization, Kalman filtering, and telemetry analysis. The browser application is complete. A separate C++ replay tool validates recordings and decodes PNG frames.</p>
                 <ProjectPreview kind="autonomy" />
                 <div className="hero-actions">
                   <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/" target="_blank" rel="noreferrer">Interactive demo →</a>
@@ -142,8 +142,8 @@ export default function Home() {
             </p>
             <p>
               Alongside that work, I study model regressions and uncertainty in medical image
-              registration. I specify experiments before running them, compare methods under controlled
-              conditions, and publish positive and negative results. My earlier research
+              registration. I compare methods under controlled conditions and retain the findings,
+              including failures and negative results. My earlier research
               assistant work involved quality assessment of LiDAR and photogrammetric point clouds.
             </p>
             <div className="experience-mini">
@@ -164,7 +164,7 @@ export default function Home() {
           <Link href="/cv" prefetch={false}>CV</Link>
           <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub ↗</a>
           <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">Contact</a>
+          <a href="mailto:kushrishi04@gmail.com">Email</a>
         </div>
       </footer>
     </main>

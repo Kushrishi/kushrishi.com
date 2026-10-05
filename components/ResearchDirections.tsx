@@ -6,7 +6,7 @@ const directions = [
   {
     index: "01",
     title: "Reliable ML & Evaluation",
-    description: "Model regressions, causal verification, uncertainty, and reproducible evaluation.",
+    description: "Release comparisons, regression debugging, uncertainty, and reproducible evaluation.",
     kind: "eval",
   },
   {

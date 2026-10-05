@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const researchDescription =
-  "Independent ML research on when counterfactual retraining can distinguish the training change responsible for a model regression from plausible alternatives.";
+  "A study of model regressions after training-data changes, release comparison, and the limits of identifying a cause from successful repairs.";
 
 export const metadata: Metadata = {
   title: "Model Regression Forensics | Kush Rishi",
@@ -88,7 +88,7 @@ export default function ResearchPage() {
 
           <section className="research-block" id="development">
             <div className="research-block-index">03 / DEVELOPMENT EVIDENCE</div>
-            <h2>The pilot reproduced a regression and separated root reversal from alternative interventions.</h2>
+            <h2>The early pilot reproduced a regression, but its candidates were structurally different.</h2>
             <p>
               The development pilot uses Banking77 with a pinned DistilBERT classifier, deterministic
               versioned training releases, and paired stochastic trajectories. A planted symmetric
@@ -111,7 +111,7 @@ export default function ResearchPage() {
 
           <section className="research-block" id="benchmark">
             <div className="research-block-index">04 / MATCHED BENCHMARK</div>
-            <h2>The matched benchmark removes the structural shortcut before testing localization again.</h2>
+            <h2>Matching the change structure left a semantic shortcut.</h2>
             <p>
               Every candidate in the new benchmark has the same observable change structure: 66
               stable-slot label changes, 33 in each direction, no text changes, preserved aggregate
@@ -143,7 +143,7 @@ export default function ResearchPage() {
               The model-based methods added no top-1 benefit over the simple baselines in this
               design. This is descriptive development evidence from two constructed worlds.
               Known target labels and disjoint candidate label pairs still provide a semantic shortcut.
-              The next study asks whether multiple plausible interventions can restore the same behavior, in which case a debugger should abstain from claiming a unique cause.
+              A later deterministic example tests a different limit: two distinct repairs can restore the same predictions without identifying a unique historical cause.
             </p>
           </section>
 
@@ -164,12 +164,19 @@ export default function ResearchPage() {
               evaluation slices, rejects misaligned records, and reports individual regressions.
               A separate handwritten-digits fixture agrees with an independent NumPy reference.
               This establishes implementation agreement, not causal identification or an advantage
-              over existing evaluation tools. The next design tests ambiguity between alternative repairs.
+              over existing evaluation tools.
+            </p>
+            <p>
+              The ambiguous-repair example is complete. Restoring feature order and reversing model
+              weights both recover the original predictions. The assessment reports ambiguous repairs
+              and leaves the historical cause unidentified. Further research is paused until a review
+              of existing methods identifies a distinct question worth testing.
             </p>
             <a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics" target="_blank" rel="noreferrer">View repository →</a>
             <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md" target="_blank" rel="noreferrer">Read technical report →</a></p>
             <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/REPRODUCE_M4.md" target="_blank" rel="noreferrer">Replay retained results →</a></p>
             <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/external-release-task.md" target="_blank" rel="noreferrer">Review the comparison utility →</a></p>
+            <p><a className="text-link" href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/ambiguous-repairs.md" target="_blank" rel="noreferrer">Run the ambiguous-repair example →</a></p>
           </section>
         </div>
       </section>
