@@ -9,3 +9,5 @@
 @media print{body{background:white;color:#111}.site-header,.skip-link,.launch-toc{display:none}.cv-page,.launch-hero,.launch-content{max-width:none;padding:0;display:block}.cv-page p,.cv-page li,.study-section p,.study-section li{color:#222}.cv-page article{break-inside:avoid}h2,h3{break-after:avoid}a{color:inherit}.experiment-plate{background:white;color:#111}}
 
 .method-chain{padding:0;list-style:none}.method-chain>li{margin:0;color:var(--text)}
+.plate-heading{opacity:1}.hero-copy,.project-copy,.study-sections{min-width:0}.rank-plate table{table-layout:fixed}.rank-plate th:first-child{width:48%}.rank-plate td{width:26%}.rank-cell{min-width:0}.launch-deck,.launch-hero h1{overflow-wrap:break-word}.launch-links{min-width:0}
+@media(max-width:440px){.anatomy-controls{flex-wrap:wrap}.anatomy-controls p{text-align:left}.hero-statement{font-size:clamp(3rem,13vw,3.7rem)}.site-header nav{min-width:0}}

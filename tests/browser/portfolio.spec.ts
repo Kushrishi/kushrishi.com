@@ -7,7 +7,8 @@ for(const width of [320,390,768,1440]){
   for(const route of routes){
    const response=await page.goto(route);expect(response?.status()).toBe(200);
    await expect(page.locator('h1')).toHaveCount(1);
-   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+   const overflow=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,elements:[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1).slice(0,8).map(e=>({tag:e.tagName,class:e.className,right:e.getBoundingClientRect().right}))}));
+   expect(overflow.scroll,JSON.stringify({route,...overflow})).toBeLessThanOrEqual(width);
    expect(await page.locator('body').innerText()).not.toContain('\u2014');
    await expect(page.locator('main')).toBeVisible();
   }
