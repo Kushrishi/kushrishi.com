@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 const manrope = localFont({
@@ -10,6 +10,11 @@ const manrope = localFont({
 
 const siteDescription =
   "Kush Rishi, GNSS Analyst at Xona. ML systems, evaluation and spatial intelligence. Independent research and engineering grounded in measurement.";
+
+export const viewport: Viewport = {
+  themeColor: "#fcfcfd",
+  colorScheme: "light",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kushrishi.com"),

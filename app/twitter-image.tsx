@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 import { SocialCard } from "@/components/SocialCard";
 
-export const alt = "Kush Rishi | Engineering & Research";
+export const alt = "Kush Rishi | ML systems, evaluation & spatial intelligence";
 export const size = {
   width: 1200,
   height: 630,
@@ -10,14 +10,5 @@ export const size = {
 export const contentType = "image/png";
 
 export default function Image() {
-  return new ImageResponse(
-    (
-      <SocialCard
-        eyebrow="KUSH RISHI / MONTRÉAL, CANADA"
-        lines={["KUSH RISHI", "ENGINEERING", "& RESEARCH"]}
-        footer="POSITIONING · ESTIMATION · MODEL EVALUATION"
-      />
-    ),
-    size,
-  );
+  return new ImageResponse(<SocialCard kind="home" />, size);
 }

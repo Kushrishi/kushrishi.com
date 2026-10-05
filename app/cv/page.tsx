@@ -26,6 +26,9 @@ export default function CVPage() {
         GNSS Analyst at Xona. Geomatics Engineering graduate with independent
         work in ML systems, evaluation and spatial intelligence.
       </p>
+      <p className="print-contact">
+        Montréal · kushrishi04@gmail.com · kushrishi.com · github.com/Kushrishi
+      </p>
       <div className="cv-links">
         <PrintCV />
         <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">
@@ -63,16 +66,6 @@ export default function CVPage() {
           </p>
         </article>
         <article>
-          <h3>Geomatics Team Member · Relectric Car Team</h3>
-          <p>September 2023–April 2026</p>
-          <p>
-            Supported electric vehicle conversion through spatial measurement
-            and geometry models for chassis, battery, and drivetrain placement.
-            Worked with GNSS, IMU, and LiDAR data and prepared technical outputs
-            for other engineering subteams.
-          </p>
-        </article>
-        <article>
           <h3>Survey Assistant · McElhanney</h3>
           <p>May–August 2024</p>
           <p>
@@ -83,14 +76,34 @@ export default function CVPage() {
           </p>
         </article>
         <article>
+          <h3>Geomatics Team Member · Relectric Car Team</h3>
+          <p>September 2023–April 2026</p>
+          <p className="web-only">
+            Supported electric vehicle conversion through spatial measurement
+            and geometry models for chassis, battery, and drivetrain placement.
+            Worked with GNSS, IMU, and LiDAR data and prepared technical outputs
+            for other engineering subteams.
+          </p>
+          <p className="print-only">
+            Spatial measurement and geometry models for electric vehicle
+            conversion; GNSS, IMU and LiDAR data; technical documentation for
+            engineering subteams.
+          </p>
+        </article>
+        <article>
           <h3>
             Software Application Developer · Hycroft Chiropractic &amp; Massage
           </h3>
           <p>September 2021–June 2022 · Freelance</p>
-          <p>
+          <p className="web-only">
             Built and maintained the Stretch2Go mobile application in Dart,
             including booking, exercise plans, journaling, and content updates.
             Tested and refined user flows using feedback.
+          </p>
+          <p className="print-only">
+            Built and maintained the Stretch2Go mobile application in Dart;
+            booking, exercise plans, journaling, testing and feedback-driven
+            updates.
           </p>
         </article>
       </section>
@@ -103,7 +116,7 @@ export default function CVPage() {
               TrueMargin
             </Link>
           </h3>
-          <p>
+          <p className="web-only">
             Studied whether variability between image registrations helps
             identify spatial error. The controlled study covered 30 synthetic
             cases across 10 anatomies, followed by failure analysis and separate
@@ -114,6 +127,13 @@ export default function CVPage() {
             inverse-consistency error or clinical usefulness has been
             established.
           </p>
+          <p className="print-only">
+            Controlled registration study: 30 cases across 10 anatomies. Median
+            anatomy-level Spearman correlation 0.6841, with six case reversals
+            and 39 high-error/low-spread observations. Conservative calibrated
+            bounds; no established advantage over inverse-consistency error.
+            External validation next.
+          </p>
         </article>
         <article>
           <h3>
@@ -121,7 +141,7 @@ export default function CVPage() {
               Model Regression Forensics
             </Link>
           </h3>
-          <p>
+          <p className="web-only">
             Studied regressions after training-data changes in two constructed
             Banking77 worlds, with three paired training trajectories each.
             Simple baselines localized both planted changes; gradient-based
@@ -129,6 +149,12 @@ export default function CVPage() {
             comparator checked against NumPy and a deterministic example in
             which two distinct repairs restore the same predictions. These
             results do not establish unique causal attribution.
+          </p>
+          <p className="print-only">
+            Two matched Banking77 worlds: simple baselines ranked both planted
+            changes first; gradient-based diagnostics added no consistent top-1
+            benefit. Separate deterministic fixture showed two repairs can
+            restore identical predictions. Benchmark redesign next.
           </p>
         </article>
       </section>
@@ -141,12 +167,18 @@ export default function CVPage() {
               Autonomy Simulation Lab
             </a>
           </h3>
-          <p>
+          <p className="web-only">
             Built a browser grid simulator with A*, Dijkstra, BFS, dynamic
             replanning, noisy sensing, range localization, Kalman filtering, and
             telemetry analysis. The separate C++ replay tool currently validates
             frame identities and file integrity and decodes PNG inputs.
             Preprocessing and inference are planned.
+          </p>
+          <p className="print-only">
+            Stable browser planning/localization simulator with telemetry.
+            Separate C++ foundation validates manifests, timestamps, contained
+            paths and SHA-256 identities, then performs bounded PNG decoding.
+            Sanitizer-tested; preprocessing and inference planned.
           </p>
           <p>
             <a href="https://kushrishi.github.io/autonomy-simulation-lab/">

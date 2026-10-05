@@ -4,12 +4,12 @@ import { SimulatorVisual } from "@/components/ProjectVisual";
 export const metadata: Metadata = {
   title: "Autonomy Simulation Lab | Kush Rishi",
   description:
-    "An interactive planning and localization simulator with a separate native replay pipeline.",
+    "Stable browser planning/localization simulator and a C++ replay foundation: manifest, timestamp, SHA-256 and bounded PNG contracts.",
   alternates: { canonical: "/projects/autonomy-simulation-lab" },
   openGraph: {
     title: "Autonomy Simulation Lab | Kush Rishi",
     description:
-      "An interactive planning and localization simulator with a separate native replay pipeline.",
+      "Stable browser planning/localization simulator and a C++ replay foundation: manifest, timestamp, SHA-256 and bounded PNG contracts.",
     url: "/projects/autonomy-simulation-lab",
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Autonomy Simulation Lab | Kush Rishi",
     description:
-      "An interactive planning and localization simulator with a separate native replay pipeline.",
+      "Stable browser planning/localization simulator and a C++ replay foundation: manifest, timestamp, SHA-256 and bounded PNG contracts.",
   },
 };
 export default function Page() {
@@ -168,11 +168,13 @@ export default function Page() {
               </p>
               <MethodChain
                 steps={[
-                  "Validate manifest and verify exact file bytes",
-                  "Decode bounded PNG inputs into RGB8",
-                  "Next: preprocessing contract and CPU inference",
+                  "Implemented: recording manifest and structural validation",
+                  "Implemented: timestamp and contained-path constraints",
+                  "Implemented: SHA-256 file identity verification",
+                  "Implemented: bounded PNG decode into RGB8",
                 ]}
               />
+              <p className="status-line">Planned: preprocessing parity → inference → deterministic comparison/evaluation. No native model output or replay viewer is implemented.</p>
             </>
           ),
         },

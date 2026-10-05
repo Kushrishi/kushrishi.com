@@ -182,3 +182,74 @@ test("visual evidence, image loading, console and zoom", async ({
   }
   expect(errors).toEqual([]);
 });
+
+test("direct slider manipulation has no positional easing", async ({
+  page,
+  browser,
+}) => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    hasTouch: true,
+  });
+  const touchPage = await context.newPage();
+  await touchPage.goto("/");
+  const slider = touchPage.getByRole("slider", {
+    name: "Explore displacement",
+  });
+  await slider.scrollIntoViewIfNeeded();
+  const rect = await slider.boundingBox();
+  if (!rect) throw new Error("Slider is missing");
+  await touchPage.touchscreen.tap(
+    rect.x + rect.width * 0.8,
+    rect.y + rect.height / 2,
+  );
+  const value = Number(await slider.inputValue());
+  expect(value).toBeGreaterThan(55);
+  expect(
+    await touchPage
+      .locator(".field-figure circle")
+      .first()
+      .evaluate((e) => getComputedStyle(e).transitionDuration),
+  ).toBe("0s");
+  const center = touchPage.locator(".field-figure circle[r='6']");
+  expect(Number(await center.getAttribute("cx"))).toBeCloseTo(
+    252 + value * 0.85,
+    3,
+  );
+  await context.close();
+});
+test("Letter resume PDF and current icon metadata", async ({
+  page,
+  browserName,
+}, testInfo) => {
+  await page.goto("/cv");
+  await expect(
+    page.getByRole("button", { name: "Save résumé as PDF" }),
+  ).toBeVisible();
+  await page.emulateMedia({ media: "print" });
+  await expect(page.locator(".site-header")).toBeHidden();
+  await expect(page.locator(".print-contact")).toBeVisible();
+  if (browserName === "chromium") {
+    const output = testInfo.outputPath("Kush-Rishi-Resume.pdf");
+    await page.pdf({
+      path: output,
+      preferCSSPageSize: true,
+      printBackground: true,
+    });
+    await testInfo.attach("resume", {
+      path: output,
+      contentType: "application/pdf",
+    });
+  }
+  await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute(
+    "sizes",
+    "180x180",
+  );
+  const href = await page
+    .locator('link[rel="icon"][type="image/svg+xml"]')
+    .getAttribute("href");
+  expect(href).toBeTruthy();
+  const icon = await page.request.get(href!);
+  expect(icon.status()).toBe(200);
+  expect(await icon.text()).toContain("#234fe5");
+});

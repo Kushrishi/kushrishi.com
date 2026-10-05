@@ -1,18 +1,6 @@
 import records from "@/data/registration.json";
-type Props = {
-  eyebrow: string;
-  lines: [string, string, string];
-  footer: string;
-  accentLine?: number;
-};
-export function SocialCard({ eyebrow }: Props) {
-  const kind = eyebrow.includes("REGRESSION")
-    ? "mrf"
-    : eyebrow.includes("AUTONOMY")
-      ? "asl"
-      : eyebrow.includes("TRUEMARGIN")
-        ? "tm"
-        : "home";
+type Props = { kind?: "home" | "tm" | "mrf" | "asl" };
+export function SocialCard({ kind = "home" }: Props) {
   const info = {
     home: {
       name: "Kush Rishi",

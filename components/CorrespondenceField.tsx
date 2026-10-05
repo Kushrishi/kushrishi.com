@@ -1,22 +1,28 @@
 "use client";
 import { useState } from "react";
 
+const grid = Array.from({ length: 117 }, (_, i) => {
+  const col = i % 13,
+    row = Math.floor(i / 13);
+  const x = 36 + col * 36,
+    y = 44 + row * 36;
+  const weight = Math.exp(-((col - 6) ** 2 + (row - 4) ** 2) / 15);
+  return {
+    x,
+    y,
+    wx: weight * 0.85,
+    wy: weight * Math.sin(col * 0.5) * 0.6,
+  };
+});
+
 /** A schematic correspondence field, not an experimental result. */
 export function CorrespondenceField() {
   const [amount, setAmount] = useState(55);
-  const points = Array.from({ length: 117 }, (_, i) => {
-    const col = i % 13,
-      row = Math.floor(i / 13);
-    const x = 36 + col * 36,
-      y = 44 + row * 36;
-    const weight = Math.exp(-((col - 6) ** 2 + (row - 4) ** 2) / 15);
-    return {
-      x,
-      y,
-      dx: weight * amount * 0.85,
-      dy: weight * Math.sin(col * 0.5) * amount * 0.6,
-    };
-  });
+  const points = grid.map((p) => ({
+    ...p,
+    dx: p.wx * amount,
+    dy: p.wy * amount,
+  }));
   return (
     <figure className="field-figure">
       <div className="field-label">

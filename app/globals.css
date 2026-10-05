@@ -282,7 +282,7 @@ nav a,
 }
 .field-figure circle,
 .field-figure line {
-  transition: all var(--fast) var(--ease);
+  transition: none;
 }
 .field-control {
   display: flex;
@@ -1409,4 +1409,83 @@ a {
   overflow-wrap: break-word;
 }
 
-@media print { .print-control { display: none; } }
+@media print {
+  .print-control {
+    display: none;
+  }
+}
+
+@media (max-width: 440px) {
+  .field-figure {
+    padding: 12px 16px;
+  }
+  .field-label {
+    padding-bottom: 8px;
+  }
+  .field-figure svg {
+    height: auto;
+    aspect-ratio: 510 / 320;
+    padding-block: 4px;
+  }
+  .field-figure figcaption {
+    margin-top: 4px;
+  }
+}
+@media print {
+  @page {
+    size: letter;
+    margin: 0.6in;
+  }
+  .cv-page {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  .cv-page h1 {
+    font-size: 25pt;
+    margin-bottom: 6pt;
+  }
+  .cv-page h2 {
+    font-size: 13pt;
+    margin: 14pt 0 6pt;
+  }
+  .cv-page h3 {
+    font-size: 10.5pt;
+    margin: 8pt 0 3pt;
+  }
+  .cv-page p {
+    font-size: 10pt;
+    line-height: 1.4;
+    margin: 0 0 5pt;
+  }
+  .cv-page section {
+    margin-top: 0;
+    padding: 0;
+    border: 0;
+  }
+  .cv-page article {
+    margin: 0 0 8pt;
+    padding: 0;
+  }
+  .cv-page .cv-links {
+    gap: 12pt;
+    margin: 6pt 0 10pt;
+  }
+  .cv-page .print-contact {
+    display: block;
+  }
+  .cv-page .web-only {
+    display: none;
+  }
+  .cv-page .print-only {
+    display: block;
+  }
+  .cv-page .print-compact {
+    font-size: 9.5pt;
+  }
+}
+@media screen {
+  .print-only,
+  .print-contact {
+    display: none;
+  }
+}

@@ -76,15 +76,15 @@ export function SimulatorVisual() {
         <span>Actual browser interface</span>
       </div>
       <Image
-        src="/projects/autonomy.jpg"
-        width={1348}
-        height={926}
-        alt="A-star route through a warehouse grid with path-planning and simulation controls"
+        src="/projects/asl-v1-current.webp"
+        width={1280}
+        height={900}
+        alt="Live ASL v1 weighted-terrain A-star route beside populated noisy-position, range least-squares and Kalman localization metrics"
         sizes="(max-width: 800px) 100vw, 55vw"
       />
       <figcaption>
-        A* on the warehouse scenario. Open the simulator to inspect search,
-        sensing and localization.
+        Captured from a completed weighted-terrain A* run on 5 October 2026.
+        Simulated measurements; this is the browser v1, not native inference.
       </figcaption>
     </figure>
   );
