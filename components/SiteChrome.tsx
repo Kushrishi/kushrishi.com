@@ -9,7 +9,7 @@ export function Header() {
         <Link href="/#work">Work</Link>
         <Link href="/#about">About</Link>
         <Link href="/cv">CV</Link>
-        <a href="https://github.com/Kushrishi">GitHub ↗</a>
+        <a href="https://github.com/Kushrishi">GitHub</a>
       </nav>
     </header>
   );
@@ -19,7 +19,7 @@ export function Footer() {
     <footer>
       <div>
         <strong>Kush Rishi</strong>
-        <p>Positioning, estimation and model evaluation.</p>
+        <p>ML systems, evaluation & spatial intelligence.</p>
       </div>
       <div className="footer-links">
         <a href="mailto:kushrishi04@gmail.com">Email</a>

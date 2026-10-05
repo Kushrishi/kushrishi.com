@@ -12,11 +12,13 @@ export const contentType = "image/png";
 
 export default function Image() {
   return new ImageResponse(
-    <SocialCard
-      eyebrow="MODEL REGRESSION FORENSICS / RESEARCH"
-      lines={["MODEL", "REGRESSION", "FORENSICS."]}
-      footer="MODEL DEBUGGING · TRAINING CHANGES · CONTROLLED RETRAINING"
-    />,
+    (
+      <SocialCard
+        eyebrow="MODEL REGRESSION FORENSICS / RESEARCH"
+        lines={["MODEL", "REGRESSION", "FORENSICS."]}
+        footer="MODEL DEBUGGING · TRAINING CHANGES · CONTROLLED RETRAINING"
+      />
+    ),
     size,
   );
 }

@@ -15,7 +15,7 @@ export function EvidenceExplorer({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`experiment-plate ${compact ? "compact" : ""}`}>
       <div className="plate-heading">
-        <span>01 / TrueMargin</span>
+        <span>03 / TrueMargin</span>
         <span>Recorded experiment</span>
       </div>
       <div className="plot-intro">
@@ -48,8 +48,8 @@ export function EvidenceExplorer({ compact = false }: { compact?: boolean }) {
           Anatomy-level association with known spatial error
         </title>
         <desc id="plot-desc">
-          Ten anatomy-level median Spearman correlations. Cyan dots show
-          ensemble spread; coral dots show the selected comparator. A full data
+          Ten anatomy-level median Spearman correlations. Blue dots show
+          ensemble spread; orange dots show the selected comparator. A full data
           table follows.
         </desc>
         {[-0.5, 0, 0.5, 1].map((t) => (

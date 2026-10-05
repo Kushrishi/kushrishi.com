@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <LaunchPage
-      number="02"
+      number="01"
       title="Model Regression Forensics"
       question="A model gets worse after retraining. Which training change explains the regression?"
       status="Matched study complete / benchmark redesign next"

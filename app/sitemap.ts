@@ -8,11 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://kushrishi.com/projects/prairiereach",
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
       url: "https://kushrishi.com",
       changeFrequency: "monthly",
       priority: 1,

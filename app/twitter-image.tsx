@@ -11,11 +11,13 @@ export const contentType = "image/png";
 
 export default function Image() {
   return new ImageResponse(
-    <SocialCard
-      eyebrow="KUSH RISHI / MONTRÉAL, CANADA"
-      lines={["KUSH RISHI", "ENGINEERING", "& RESEARCH"]}
-      footer="POSITIONING · ESTIMATION · MODEL EVALUATION"
-    />,
+    (
+      <SocialCard
+        eyebrow="KUSH RISHI / MONTRÉAL, CANADA"
+        lines={["KUSH RISHI", "ENGINEERING", "& RESEARCH"]}
+        footer="POSITIONING · ESTIMATION · MODEL EVALUATION"
+      />
+    ),
     size,
   );
 }

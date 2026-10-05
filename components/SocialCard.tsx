@@ -10,31 +10,26 @@ export function SocialCard({ eyebrow, footer }: Props) {
     ? "mrf"
     : eyebrow.includes("AUTONOMY")
       ? "asl"
-      : eyebrow.includes("PRAIRIEREACH")
-        ? "prairie"
-        : eyebrow.includes("TRUEMARGIN")
-          ? "tm"
-          : "home";
+      : eyebrow.includes("TRUEMARGIN")
+        ? "tm"
+        : "home";
   const names = {
     home: "Kush Rishi",
     tm: "TrueMargin",
     mrf: "Model Regression Forensics",
     asl: "Autonomy Simulation Lab",
-    prairie: "PrairieReach",
   };
   const labels = {
-    home: "Positioning, estimation and model evaluation",
+    home: "ML systems, evaluation and spatial intelligence",
     tm: "Registration uncertainty and spatial error",
     mrf: "Training changes and ambiguous repairs",
     asl: "Planning, localization and native replay",
-    prairie: "Changed bookings and task ownership",
   };
   const color = {
-    home: "#9cf3ee",
-    tm: "#9cf3ee",
-    mrf: "#f3a58f",
-    asl: "#d2e29a",
-    prairie: "#c9baf0",
+    home: "#adc0ff",
+    tm: "#adc0ff",
+    mrf: "#efb17e",
+    asl: "#9edcd4",
   }[kind];
   return (
     <div
@@ -42,7 +37,7 @@ export function SocialCard({ eyebrow, footer }: Props) {
         display: "flex",
         width: "100%",
         height: "100%",
-        background: "#10181b",
+        background: "#182235",
         color: "#f1f0e8",
         padding: 58,
         position: "relative",
@@ -123,13 +118,13 @@ export function SocialCard({ eyebrow, footer }: Props) {
                     cx={15 + r.ice * 350}
                     cy={20 + i * 28}
                     r="5"
-                    fill="#f3a58f"
+                    fill="#efb17e"
                   />
                   <circle
                     cx={15 + r.spread * 350}
                     cy={20 + i * 28}
                     r="5"
-                    fill="#9cf3ee"
+                    fill="#adc0ff"
                   />
                 </g>
               ))}
@@ -169,14 +164,7 @@ export function SocialCard({ eyebrow, footer }: Props) {
             <div style={{ display: "flex", fontSize: 16, color: "#afbec2" }}>
               IMPLEMENTED / NEXT
             </div>
-            {(kind === "asl"
-              ? [
-                  "Grid planning",
-                  "Noisy localization",
-                  "PNG replay → preprocessing",
-                ]
-              : ["Source instruction", "Task owner", "Changed source → review"]
-            ).map((s, i) => (
+            {["Stable browser simulator", "Validated C++ frame decoding", "Next: preprocessing + inference"].map((s, i) => (
               <div
                 key={s}
                 style={{

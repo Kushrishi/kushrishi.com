@@ -6,9 +6,8 @@ const routes = [
   "/research/truemargin",
   "/research/model-regression-forensics",
   "/projects/autonomy-simulation-lab",
-  "/projects/prairiereach",
 ];
-for (const width of [320, 390, 768, 1440]) {
+for (const width of [320, 390, 430, 768, 1024, 1440, 1920]) {
   test(`all pages remain readable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     for (const route of routes) {
@@ -32,7 +31,7 @@ for (const width of [320, 390, 768, 1440]) {
         overflow.scroll,
         JSON.stringify({ route, ...overflow }),
       ).toBeLessThanOrEqual(width);
-      if (route === "/" || route === "/research/truemargin") {
+      if (route === "/research/truemargin") {
         await page.getByText("Data and provenance", { exact: true }).click();
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth),
@@ -49,7 +48,7 @@ for (const width of [320, 390, 768, 1440]) {
 test("comparison selection changes the recorded values and remains keyboard accessible", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/research/truemargin");
   await page
     .getByLabel("Compare ensemble spread with")
     .selectOption("residual");
@@ -88,13 +87,41 @@ test("recorded values and navigation are present without JavaScript", async ({
 }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto("http://127.0.0.1:3011/");
+  await page.goto("http://127.0.0.1:3012/");
   await expect(
-    page.getByRole("heading", { name: "Kush Rishi", exact: true }),
+    page.getByRole("heading", { name: "Kush Rishi.", exact: true }),
   ).toBeVisible();
+  await page.goto("http://127.0.0.1:3012/research/truemargin");
   await page.getByText("Data and provenance", { exact: true }).click();
   await expect(
     page.getByRole("link", { name: "Source CSV", exact: true }),
   ).toBeVisible();
   await context.close();
+});
+
+test("retired project and social media return 410 without indexing", async ({
+  request,
+}) => {
+  for (const path of [
+    "/projects/prairiereach",
+    "/projects/prairiereach/opengraph-image",
+  ]) {
+    const response = await request.get(path);
+    expect(response.status()).toBe(410);
+    expect(response.headers()["x-robots-tag"]).toContain("noindex");
+  }
+});
+test("hero is keyboard operable and links expose three flagships", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("link", { name: "Skip to content" }),
+  ).toBeFocused();
+  const slider = page.getByLabel("Explore displacement");
+  await slider.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(slider).toHaveValue("56");
+  await expect(page.locator(".project-row")).toHaveCount(3);
 });
