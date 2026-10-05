@@ -148,7 +148,7 @@ test("visual evidence, image loading, console and zoom", async ({
         .locator("img")
         .evaluateAll((images) =>
           images
-            .filter((i) => i.complete && i.naturalWidth === 0)
+            .filter((i): i is HTMLImageElement => i instanceof HTMLImageElement && i.complete && i.naturalWidth === 0)
             .map((i) => i.src),
         );
       expect(broken).toEqual([]);
