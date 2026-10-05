@@ -32,6 +32,15 @@ for (const width of [320, 390, 768, 1440]) {
         overflow.scroll,
         JSON.stringify({ route, ...overflow }),
       ).toBeLessThanOrEqual(width);
+      if (route === "/" || route === "/research/truemargin") {
+        await page.getByText("Data and provenance", { exact: true }).click();
+        expect(
+          await page.evaluate(() => document.documentElement.scrollWidth),
+        ).toBeLessThanOrEqual(width);
+        await expect(
+          page.getByRole("link", { name: "Source CSV", exact: true }),
+        ).toBeVisible();
+      }
       expect(await page.locator("body").innerText()).not.toContain("\u2014");
       await expect(page.locator("main")).toBeVisible();
     }

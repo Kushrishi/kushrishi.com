@@ -124,7 +124,9 @@ export default function Page() {
                 and Canadian Cancer Society programs address travel and
                 financial support within their conditions. Momentm NovusMED
                 already supplies transport scheduling, dispatch and
-                communication tools.
+                communication tools. Caring Village already offers shared care
+                calendars, tasks and family coordination; Guava connects
+                personal health records and visit preparation.
               </p>
               <p>
                 The opportunity to test is coordination around several existing
