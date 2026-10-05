@@ -108,7 +108,7 @@ export default function CVPage() {
         </article>
       </section>
 
-      <section>
+      <section className="print-research">
         <h2>Independent research</h2>
         <article>
           <h3>
