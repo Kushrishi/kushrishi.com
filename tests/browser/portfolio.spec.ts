@@ -125,3 +125,45 @@ test("hero is keyboard operable and links expose three flagships", async ({
   await expect(slider).toHaveValue("56");
   await expect(page.locator(".project-row")).toHaveCount(3);
 });
+
+test("visual evidence, image loading, console and zoom", async ({
+  page,
+}, testInfo) => {
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  for (const width of [390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    for (const route of routes) {
+      await page.goto(route);
+      await page.evaluate(() => document.fonts.ready);
+      await expect(page.locator("main")).toBeVisible();
+      await testInfo.attach(
+        `${width}-${route.replaceAll("/", "-") || "home"}`,
+        {
+          body: await page.screenshot({ fullPage: true }),
+          contentType: "image/png",
+        },
+      );
+      const broken = await page
+        .locator("img")
+        .evaluateAll((images) =>
+          images
+            .filter((i) => i.complete && i.naturalWidth === 0)
+            .map((i) => i.src),
+        );
+      expect(broken).toEqual([]);
+    }
+  }
+  await page.setViewportSize({ width: 1280, height: 900 });
+  for (const route of routes) {
+    await page.goto(route);
+    await page.evaluate(() => {
+      document.documentElement.style.zoom = "2";
+    });
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth),
+    ).toBeLessThanOrEqual(1280);
+    await expect(page.locator("h1")).toBeVisible();
+  }
+  expect(errors).toEqual([]);
+});

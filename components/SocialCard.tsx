@@ -5,7 +5,7 @@ type Props = {
   footer: string;
   accentLine?: number;
 };
-export function SocialCard({ eyebrow, footer }: Props) {
+export function SocialCard({ eyebrow }: Props) {
   const kind = eyebrow.includes("REGRESSION")
     ? "mrf"
     : eyebrow.includes("AUTONOMY")
@@ -13,23 +13,35 @@ export function SocialCard({ eyebrow, footer }: Props) {
       : eyebrow.includes("TRUEMARGIN")
         ? "tm"
         : "home";
-  const names = {
-    home: "Kush Rishi",
-    tm: "TrueMargin",
-    mrf: "Model Regression Forensics",
-    asl: "Autonomy Simulation Lab",
-  };
-  const labels = {
-    home: "ML systems, evaluation and spatial intelligence",
-    tm: "Registration uncertainty and spatial error",
-    mrf: "Training changes and ambiguous repairs",
-    asl: "Planning, localization and native replay",
-  };
-  const color = {
-    home: "#adc0ff",
-    tm: "#adc0ff",
-    mrf: "#efb17e",
-    asl: "#9edcd4",
+  const info = {
+    home: {
+      name: "Kush Rishi",
+      sub: "ML systems. Evaluation. Spatial intelligence.",
+      color: "#284bea",
+      label: "SPATIAL CORRESPONDENCE",
+      foot: "GNSS Analyst at Xona · Montréal",
+    },
+    tm: {
+      name: "TrueMargin",
+      sub: "Useful uncertainty. Important blind spots.",
+      color: "#284bea",
+      label: "RECORDED ANATOMY ASSOCIATIONS",
+      foot: "30 controlled cases · 10 anatomies · External validation next",
+    },
+    mrf: {
+      name: "Model Regression Forensics",
+      sub: "What explains a model regression?",
+      color: "#a6532e",
+      label: "RECORDED ROOT-CANDIDATE RANK",
+      foot: "Two constructed Banking77 worlds · Matched study complete",
+    },
+    asl: {
+      name: "Autonomy Simulation Lab",
+      sub: "Sensing systems you can inspect.",
+      color: "#136c64",
+      label: "NATIVE REPLAY FOUNDATION",
+      foot: "Stable browser v1 · C++ replay foundation in development",
+    },
   }[kind];
   return (
     <div
@@ -37,159 +49,209 @@ export function SocialCard({ eyebrow, footer }: Props) {
         display: "flex",
         width: "100%",
         height: "100%",
-        background: "#182235",
-        color: "#f1f0e8",
-        padding: 58,
+        background: "#fafbfc",
+        color: "#192132",
+        padding: 56,
         position: "relative",
+        fontFamily: "sans-serif",
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", width: 640 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: 590,
+          paddingRight: 30,
+        }}
+      >
         <div
           style={{
             display: "flex",
-            fontSize: 15,
-            color: "#afbec2",
-            letterSpacing: "0.06em",
+            fontSize: 16,
+            letterSpacing: "0.08em",
+            color: "#586170",
           }}
         >
-          KUSH RISHI / ENGINEERING & RESEARCH
+          KUSH RISHI / SELECTED WORK
         </div>
         <div
           style={{
             display: "flex",
-            fontSize: 64,
+            fontSize: 66,
             letterSpacing: "-0.045em",
-            lineHeight: 1.04,
-            marginTop: 84,
-            maxWidth: 640,
+            lineHeight: 1.05,
+            marginTop: 90,
           }}
         >
-          {names[kind]}
+          {info.name}
         </div>
         <div
           style={{
             display: "flex",
-            fontSize: 25,
-            lineHeight: 1.4,
-            color,
+            fontSize: 29,
+            lineHeight: 1.35,
+            color: info.color,
             marginTop: 24,
-            maxWidth: 600,
           }}
         >
-          {labels[kind]}
+          {info.sub}
         </div>
         <div
           style={{
             display: "flex",
-            marginTop: "auto",
-            fontSize: 14,
-            color: "#afbec2",
-            maxWidth: 620,
+            fontSize: 17,
             lineHeight: 1.5,
+            color: "#586170",
+            marginTop: "auto",
           }}
         >
-          {kind === "home" ? "GNSS Analyst at Xona · Montréal" : footer}
+          {info.foot}
         </div>
       </div>
       <div
         style={{
           display: "flex",
-          width: 390,
-          marginLeft: 35,
-          alignItems: "center",
           flexDirection: "column",
+          width: 470,
+          background: info.color,
+          color: "#fff",
+          padding: 28,
           justifyContent: "center",
         }}
       >
-        {kind === "tm" || kind === "home" ? (
-          <div style={{ display: "flex", flexDirection: "column", width: 390 }}>
-            <svg width="390" height="330" viewBox="0 0 390 330">
-              <line x1="15" x2="375" y1="300" y2="300" stroke="#34474d" />
+        <div
+          style={{
+            display: "flex",
+            fontSize: 13,
+            letterSpacing: "0.04em",
+            marginBottom: 24,
+          }}
+        >
+          {info.label}
+        </div>
+        {kind === "home" ? (
+          <svg width="410" height="330" viewBox="0 0 410 330">
+            {Array.from({ length: 99 }, (_, i) => {
+              const x = 25 + (i % 11) * 35,
+                y = 25 + Math.floor(i / 11) * 34;
+              const d = Math.exp(-((x - 205) ** 2 + (y - 165) ** 2) / 14000);
+              return (
+                <g key={i}>
+                  <line
+                    x1={x}
+                    y1={y}
+                    x2={x + 35 * d}
+                    y2={y - 25 * d}
+                    stroke="#8eabff"
+                  />
+                  <circle cx={x + 35 * d} cy={y - 25 * d} r="2.7" fill="#fff" />
+                </g>
+              );
+            })}
+            <circle
+              cx="220"
+              cy="150"
+              r="38"
+              stroke="#efb17e"
+              fill="none"
+              strokeDasharray="4 5"
+            />
+          </svg>
+        ) : kind === "tm" ? (
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <svg width="410" height="330" viewBox="0 0 410 330">
               {records.map((r, i) => (
                 <g key={r.id}>
                   <line
-                    x1={15 + r.spread * 350}
-                    x2={15 + r.ice * 350}
-                    y1={20 + i * 28}
-                    y2={20 + i * 28}
-                    stroke="#75888e"
+                    x1={20 + r.spread * 350}
+                    x2={20 + r.ice * 350}
+                    y1={20 + i * 29}
+                    y2={20 + i * 29}
+                    stroke="#afc0f9"
                   />
                   <circle
-                    cx={15 + r.ice * 350}
-                    cy={20 + i * 28}
-                    r="5"
+                    cx={20 + r.ice * 350}
+                    cy={20 + i * 29}
+                    r="6"
                     fill="#efb17e"
                   />
                   <circle
-                    cx={15 + r.spread * 350}
-                    cy={20 + i * 28}
-                    r="5"
-                    fill="#adc0ff"
+                    cx={20 + r.spread * 350}
+                    cy={20 + i * 29}
+                    r="6"
+                    fill="#fff"
                   />
                 </g>
               ))}
             </svg>
-            <div style={{ display: "flex", fontSize: 13, color: "#afbec2" }}>
-              Recorded anatomy-level associations
+            <div style={{ display: "flex", fontSize: 15 }}>
+              White: ensemble spread · Amber: ICE
             </div>
           </div>
         ) : kind === "mrf" ? (
-          <div style={{ display: "flex", flexDirection: "column", width: 390 }}>
-            <div style={{ display: "flex", fontSize: 18, color: "#afbec2" }}>
-              Root rank / World 00 · 01
-            </div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             {[
+              ["Diagnostic", "World 00 / 01"],
               ["Label overlap", "1 / 1"],
+              ["Lexical Jaccard", "1 / 1"],
               ["Grad-Dot", "1 / 5"],
               ["TracIn", "1 / 5"],
-            ].map(([label, value]) => (
+            ].map(([a, b], i) => (
               <div
-                key={label}
+                key={a}
                 style={{
                   display: "flex",
-                  width: 390,
                   justifyContent: "space-between",
+                  fontSize: i === 0 ? 14 : 23,
                   padding: "20px 0",
-                  borderBottom: "1px solid #34474d",
-                  fontSize: 22,
+                  borderBottom: "1px solid #d9a487",
                 }}
               >
-                <span>{label}</span>
-                <span style={{ color }}>{value}</span>
+                <span>{a}</span>
+                <span>{b}</span>
               </div>
             ))}
           </div>
         ) : (
-          <div style={{ display: "flex", flexDirection: "column", width: 390 }}>
-            <div style={{ display: "flex", fontSize: 16, color: "#afbec2" }}>
-              IMPLEMENTED / NEXT
-            </div>
-            {["Stable browser simulator", "Validated C++ frame decoding", "Next: preprocessing + inference"].map((s, i) => (
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {[
+              "01   Manifest + timestamp contracts",
+              "02   File identity + SHA-256",
+              "03   Bounded RGB8 decoding",
+            ].map((s) => (
               <div
                 key={s}
                 style={{
                   display: "flex",
-                  padding: "22px 0",
-                  borderBottom: "1px solid #34474d",
-                  width: 390,
                   fontSize: 21,
-                  color: i === 2 ? color : "#f1f0e8",
+                  padding: "24px 0",
+                  borderBottom: "1px solid #7bb5af",
                 }}
               >
                 {s}
               </div>
             ))}
+            <div
+              style={{
+                display: "flex",
+                fontSize: 17,
+                marginTop: 30,
+                lineHeight: 1.5,
+              }}
+            >
+              NEXT / Preprocessing → inference → evaluation
+            </div>
           </div>
         )}
       </div>
       <div
         style={{
-          position: "absolute",
-          bottom: 25,
-          right: 58,
           display: "flex",
-          fontSize: 17,
-          color,
+          position: "absolute",
+          bottom: 18,
+          right: 56,
+          fontSize: 15,
+          color: "#586170",
         }}
       >
         kushrishi.com

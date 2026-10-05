@@ -1412,3 +1412,5 @@ td,
 a {
   overflow-wrap: break-word;
 }
+
+@media print { .print-control { display: none; } }
