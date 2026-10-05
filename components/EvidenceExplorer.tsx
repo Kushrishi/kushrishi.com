@@ -98,6 +98,34 @@ export function EvidenceExplorer({ compact = false }: { compact?: boolean }) {
           Rank correlation with error (Spearman ρ)
         </text>
       </svg>
+      <div
+        className="mobile-plot"
+        role="img"
+        aria-label="Ten anatomy-level rank correlations. Cyan is ensemble spread; coral is the selected comparator. Full values follow in the data table."
+      >
+        {records.map((row) => (
+          <div className="mobile-plot-row" key={row.id}>
+            <span>{row.id}</span>
+            <div className="mobile-plot-field">
+              <i
+                className="comparator-point"
+                style={{ left: `${((row[comparator] + 0.5) / 1.5) * 100}%` }}
+              />
+              <i
+                className="spread-point"
+                style={{ left: `${((row.spread + 0.5) / 1.5) * 100}%` }}
+              />
+            </div>
+          </div>
+        ))}
+        <div className="mobile-plot-axis">
+          <span>−0.5</span>
+          <span>0</span>
+          <span>0.5</span>
+          <span>1.0</span>
+        </div>
+        <p>Rank correlation with error (Spearman ρ)</p>
+      </div>
       <div className="plot-legend">
         <span>
           <i className="dot cyan" />

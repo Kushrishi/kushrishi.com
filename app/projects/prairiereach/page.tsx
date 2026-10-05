@@ -122,7 +122,7 @@ export default function Page() {
               <p>
                 211 Saskatchewan already provides service navigation. Hope Air
                 and Canadian Cancer Society programs address travel and
-                financial support within their conditions. TripSpark NovusMED
+                financial support within their conditions. Momentm NovusMED
                 already supplies transport scheduling, dispatch and
                 communication tools.
               </p>

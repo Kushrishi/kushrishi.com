@@ -1159,3 +1159,70 @@ footer p {
 .recorded-figure figcaption {
   color: var(--plate-muted);
 }
+
+.about-section {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.about-section > * {
+  min-width: 0;
+}
+.about-section h2 {
+  overflow-wrap: break-word;
+}
+.mobile-plot {
+  display: none;
+}
+@media (max-width: 760px) {
+  .about-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 440px) {
+  .experiment-plate > svg {
+    display: none;
+  }
+  .mobile-plot {
+    display: block;
+    margin: 24px 0 18px;
+  }
+  .mobile-plot-row {
+    display: grid;
+    grid-template-columns: 68px minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    min-height: 30px;
+    font-size: 0.7rem;
+  }
+  .mobile-plot-field {
+    position: relative;
+    height: 22px;
+    border-bottom: 1px solid #bcc5c2;
+  }
+  .mobile-plot-field i {
+    position: absolute;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  .mobile-plot-field .spread-point {
+    background: var(--cyan);
+    border: 1px solid #417a77;
+  }
+  .mobile-plot-field .comparator-point {
+    background: var(--coral);
+    border: 1px solid #965a48;
+  }
+  .mobile-plot-axis {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 76px;
+    font-size: 0.7rem;
+  }
+  .mobile-plot p {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 8px;
+  }
+}
