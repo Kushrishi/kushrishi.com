@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "./readability.css";
 
 const siteDescription =
   "Kush Rishi, GNSS Analyst at Xona. Engineering and independent research in positioning, estimation and model evaluation.";
