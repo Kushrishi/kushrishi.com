@@ -87,11 +87,13 @@ test("recorded values and navigation are present without JavaScript", async ({
 }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto("http://127.0.0.1:3012/");
+  await page.goto((process.env.BASE_URL || "http://127.0.0.1:3012") + "/");
   await expect(
     page.getByRole("heading", { name: "Kush Rishi.", exact: true }),
   ).toBeVisible();
-  await page.goto("http://127.0.0.1:3012/research/truemargin");
+  await page.goto(
+    (process.env.BASE_URL || "http://127.0.0.1:3012") + "/research/truemargin",
+  );
   await page.getByText("Data and provenance", { exact: true }).click();
   await expect(
     page.getByRole("link", { name: "Source CSV", exact: true }),

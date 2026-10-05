@@ -1,0 +1,30 @@
+name: Live production audit
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run test:browser
+        env:
+          BASE_URL: https://kushrishi.com
+      - name: Mobile Lighthouse measurement
+        run: npx --yes lighthouse@13.0.1 https://kushrishi.com --chrome-flags="--headless --no-sandbox" --output=json --output=html --output-path=./lighthouse-mobile --only-categories=performance,accessibility,best-practices,seo
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-production-audit
+          path: |
+            playwright-report/
+            lighthouse-mobile.*
+          retention-days: 14
