@@ -37,7 +37,7 @@ export function SocialCard({
         style={{
           display: "flex",
           flexDirection: "column",
-          width: "79%",
+          width: "100%",
           height: "100%",
         }}
       >
@@ -61,7 +61,7 @@ export function SocialCard({
             lineHeight: 0.88,
             letterSpacing: "-0.045em",
             fontWeight: 800,
-            fontSize: 90,
+            fontSize: 80,
           }}
         >
           {lines.map((line, index) => (
@@ -81,7 +81,7 @@ export function SocialCard({
           style={{
             display: "flex",
             marginTop: "auto",
-            fontSize: 15,
+            fontSize: 13,
             letterSpacing: "0.12em",
             color: "#93a0a6",
             fontWeight: 700,
@@ -91,99 +91,7 @@ export function SocialCard({
         </div>
       </div>
 
-      <div
-        style={{
-          position: "absolute",
-          right: 72,
-          top: 110,
-          width: 178,
-          height: 360,
-          display: "flex",
-          borderLeft: "1px solid rgba(255,255,255,0.10)",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            left: 34,
-            top: 24,
-            width: 112,
-            height: 112,
-            borderRadius: 999,
-            border: "1px solid rgba(157,249,255,0.30)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: 62,
-            top: 52,
-            width: 56,
-            height: 56,
-            borderRadius: 999,
-            border: "1px solid rgba(157,249,255,0.58)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: 86,
-            top: 76,
-            width: 8,
-            height: 8,
-            borderRadius: 999,
-            backgroundColor: "#9df9ff",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: 30,
-            top: 210,
-            width: 122,
-            height: 1,
-            backgroundColor: "rgba(255,255,255,0.15)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: 30,
-            top: 210,
-            width: 54,
-            height: 1,
-            backgroundColor: "#9df9ff",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: 84,
-            top: 210,
-            width: 28,
-            height: 1,
-            backgroundColor: "#ff9b8f",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: 106,
-            top: 206,
-            width: 9,
-            height: 9,
-            borderRadius: 999,
-            backgroundColor: "#ff9b8f",
-            display: "flex",
-          }}
-        />
-      </div>
+      <div style={{ position:"absolute", right:64, bottom:54, display:"flex", fontSize:20, color:"#9df9ff", fontWeight:600 }}>kushrishi.com</div>
     </div>
   );
 }
