@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PrintCV } from "@/components/PrintCV";
 
 export const metadata: Metadata = {
   title: "CV | Kush Rishi",
@@ -23,9 +24,10 @@ export default function CVPage() {
       <h1>Kush Rishi</h1>
       <p>
         GNSS Analyst at Xona. Geomatics Engineering graduate with independent
-        work in model evaluation and state estimation.
+        work in ML systems, evaluation and spatial intelligence.
       </p>
       <div className="cv-links">
+        <PrintCV />
         <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">
           GitHub
         </a>

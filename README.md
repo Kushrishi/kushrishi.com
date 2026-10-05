@@ -9,7 +9,6 @@ Personal website with independent research and engineering projects.
 - **TrueMargin:** registration uncertainty, recorded correlations, blind spots and calibrated error bounds.
 - **Model Regression Forensics:** training-change diagnostics, negative results and ambiguous repairs.
 - **Autonomy Simulation Lab:** interactive planning/localization and a separate native replay tool.
-- **PrairieReach:** fictional care-access coordination and product-validation questions.
 
 Each page links to methods, results, limitations, code and reproduction instructions. The home-page plot uses the retained TrueMargin anatomy comparator CSV. `data/registration.json` preserves its numeric values; rounding is applied only in the display. Comparator failures and valid-case counts remain in the linked source record.
 

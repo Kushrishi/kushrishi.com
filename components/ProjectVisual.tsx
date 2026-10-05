@@ -10,7 +10,7 @@ export function RegressionVisual() {
   return (
     <div className="rank-plate">
       <div className="plate-heading">
-        <span>02 / Banking77</span>
+        <span>01 / Banking77</span>
         <span>Two constructed worlds</span>
       </div>
       <h3>
@@ -18,6 +18,18 @@ export function RegressionVisual() {
         <br />
         found both roots.
       </h3>
+      <div className="diagnostic-flow" aria-label="Diagnostic evidence flow">
+        <div>
+          <small>Release change</small>Baseline → retrained model
+        </div>
+        <div>
+          <small>Observed regression</small>Rank five candidate changes
+        </div>
+        <div className="flow-outcome">
+          <small>Separate repair fixture</small>Two successful repairs →
+          ambiguous cause
+        </div>
+      </div>
       <table>
         <caption>
           Rank of the planted training change. 1 is best; 5 is last.
@@ -56,48 +68,11 @@ export function RegressionVisual() {
     </div>
   );
 }
-export function CoordinationVisual() {
-  return (
-    <div className="coordination-plate">
-      <div className="plate-heading">
-        <span>04 / PrairieReach</span>
-        <span>Fictional example</span>
-      </div>
-      <h3>
-        A booking changes.
-        <br />
-        What needs review?
-      </h3>
-      <div className="source-change">
-        <span>Booking / version 1</span>
-        <b>Booking / version 2</b>
-      </div>
-      <ol className="dependency-list">
-        <li>
-          <span>Outward ride</span>
-          <b>Review required</b>
-        </li>
-        <li>
-          <span>Return ride</span>
-          <b>Review required</b>
-        </li>
-        <li>
-          <span>Unchanged resource</span>
-          <b className="retained">Retained</b>
-        </li>
-      </ol>
-      <p className="plot-note">
-        Affected tasks are reopened. Reviewing an instruction does not confirm a
-        ride. No messages or appointments are created.
-      </p>
-    </div>
-  );
-}
 export function SimulatorVisual() {
   return (
     <figure className="simulator-plate">
       <div className="plate-heading">
-        <span>03 / Autonomy Simulation Lab</span>
+        <span>02 / Autonomy Simulation Lab</span>
         <span>Actual browser interface</span>
       </div>
       <Image

@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import localFont from "next/font/local";
+const manrope = localFont({
+  src: "./fonts/manrope.woff2",
+  variable: "--font-sans",
+  display: "swap",
+  weight: "200 800",
+});
 
 const siteDescription =
-  "Kush Rishi, GNSS Analyst at Xona. Engineering and independent research in positioning, estimation and model evaluation.";
+  "Kush Rishi, GNSS Analyst at Xona. ML systems, evaluation and spatial intelligence. Independent research and engineering grounded in measurement.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kushrishi.com"),
-  title: "Kush Rishi | Engineering & Research",
+  title: "Kush Rishi | ML Systems, Evaluation & Spatial Intelligence",
   description: siteDescription,
   authors: [{ name: "Kush Rishi", url: "https://kushrishi.com" }],
   creator: "Kush Rishi",
@@ -15,7 +22,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Kush Rishi | Engineering & Research",
+    title: "Kush Rishi | ML Systems, Evaluation & Spatial Intelligence",
     description: siteDescription,
     url: "/",
     siteName: "Kush Rishi",
@@ -23,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kush Rishi | Engineering & Research",
+    title: "Kush Rishi | ML Systems, Evaluation & Spatial Intelligence",
     description: siteDescription,
   },
   robots: {
@@ -36,7 +43,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={manrope.variable}>
       <body>{children}</body>
     </html>
   );

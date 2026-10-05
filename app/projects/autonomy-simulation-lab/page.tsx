@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <LaunchPage
-      number="03"
+      number="02"
       title="Autonomy Simulation Lab"
       question="How do path planning and localization behave when the map changes and measurements get noisy?"
       status="Browser simulator complete / native pipeline in progress"

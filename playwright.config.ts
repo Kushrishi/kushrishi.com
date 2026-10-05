@@ -4,10 +4,10 @@ export default defineConfig({
   fullyParallel: true,
   retries: process.env.CI ? 1 : 0,
   reporter: [["list"], ["html", { open: "never" }]],
-  use: { baseURL: "http://127.0.0.1:3011", trace: "retain-on-failure" },
+  use: { baseURL: "http://127.0.0.1:3012", trace: "retain-on-failure" },
   webServer: {
-    command: "npm run start -- --port 3011",
-    url: "http://127.0.0.1:3011",
+    command: "npm run start -- --hostname 127.0.0.1 --port 3012",
+    url: "http://127.0.0.1:3012",
     reuseExistingServer: !process.env.CI,
   },
   projects: [

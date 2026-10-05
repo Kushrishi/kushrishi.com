@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <LaunchPage
-      number="01"
+      number="03"
       title="TrueMargin"
       question="Can disagreement between image registrations reveal where the alignment is wrong?"
       status="Controlled study complete / external validation pending"
@@ -92,14 +92,15 @@ export default function Page() {
             <>
               <ul>
                 <li>
-                  <strong>M4:</strong> rank association on known deformations.
+                  <strong>Association:</strong> rank association on known
+                  deformations.
                 </li>
                 <li>
-                  <strong>M5:</strong> case failures and high-error, low-spread
-                  blind spots in the same observations.
+                  <strong>Failures:</strong> case failures and high-error,
+                  low-spread blind spots in the same observations.
                 </li>
                 <li>
-                  <strong>M6:</strong> group-calibrated bounds using 30
+                  <strong>Calibration:</strong> group-calibrated bounds using 30
                   calibration and 30 evaluation anatomies across two acquisition
                   sources.
                 </li>
