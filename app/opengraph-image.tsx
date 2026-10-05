@@ -10,14 +10,5 @@ export const size = {
 export const contentType = "image/png";
 
 export default function Image() {
-  return new ImageResponse(
-    (
-      <SocialCard
-        eyebrow="KUSH RISHI / MONTRÉAL, CANADA"
-        lines={["KUSH RISHI", "ENGINEERING", "& RESEARCH"]}
-        footer="ML SYSTEMS · EVALUATION · SPATIAL INTELLIGENCE"
-      />
-    ),
-    size,
-  );
+  return new ImageResponse(<SocialCard kind="home" />, size);
 }

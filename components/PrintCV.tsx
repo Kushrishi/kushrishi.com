@@ -2,7 +2,7 @@
 export function PrintCV() {
   return (
     <button className="button print-control" onClick={() => window.print()}>
-      Print / Save PDF
+      Save résumé as PDF
     </button>
   );
 }
