@@ -14,7 +14,7 @@ export default function Image() {
     <SocialCard
       eyebrow="KUSH RISHI / MONTRÉAL, CANADA"
       lines={["KUSH RISHI", "ENGINEERING", "& RESEARCH"]}
-      footer="RELIABLE ML · SENSING · LOCALIZATION · ESTIMATION"
+      footer="POSITIONING · ESTIMATION · MODEL EVALUATION"
     />,
     size,
   );
