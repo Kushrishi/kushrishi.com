@@ -1489,3 +1489,5 @@ a {
     display: none;
   }
 }
+
+@media print { .cv-page .print-research { break-before: page; } }
