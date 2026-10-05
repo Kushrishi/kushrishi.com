@@ -7,7 +7,17 @@ export const metadata: Metadata = {
   description:
     "Engineering experience, independent research, and selected technical work.",
   alternates: { canonical: "/cv" },
-  openGraph: { title: "CV | Kush Rishi", url: "/cv" },
+  openGraph: {
+    title: "CV | Kush Rishi",
+    description: "Engineering experience, independent research, and selected technical work.",
+    url: "/cv",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Kush Rishi | ML systems, evaluation & spatial intelligence" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CV | Kush Rishi",
+    description: "Engineering experience, independent research, and selected technical work.",
+  },
 };
 
 export default function CVPage() {
