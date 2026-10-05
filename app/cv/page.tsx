@@ -16,7 +16,7 @@ export default function CVPage() {
         <Link href="/" prefetch={false}>Portfolio</Link>
       </header>
       <h1>Kush Rishi</h1>
-      <p>GNSS Analyst at Xona. Geomatics Engineering graduate working on reliable ML, sensing, localization, and estimation.</p>
+      <p>GNSS Analyst at Xona. Geomatics Engineering graduate with independent work in model evaluation and state estimation.</p>
       <div className="cv-links">
         <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -69,7 +69,7 @@ export default function CVPage() {
         <article>
           <h3><a href="https://github.com/Kushrishi/autonomy-simulation-lab">Autonomy Simulation Lab</a></h3>
           <p>Built a browser grid simulator with A*, Dijkstra, BFS, dynamic replanning, noisy sensing, range localization, Kalman filtering, and telemetry analysis. The separate C++ replay tool currently validates frame identities and file integrity and decodes PNG inputs. Preprocessing and inference are planned.</p>
-          <p><a href="https://kushrishi.github.io/autonomy-simulation-lab/">Interactive demo →</a></p>
+          <p><a href="https://kushrishi.github.io/autonomy-simulation-lab/">Interactive demo</a></p>
         </article>
       </section>
 

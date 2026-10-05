@@ -3,11 +3,11 @@ import "./globals.css";
 import "./readability.css";
 
 const siteDescription =
-  "GNSS engineering, reliable machine learning, sensing, localization, and estimation.";
+  "Kush Rishi, GNSS Analyst at Xona. Engineering and independent research in positioning, estimation and model evaluation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kushrishi.com"),
-  title: "Kush Rishi | Reliable ML, Sensing & Estimation",
+  title: "Kush Rishi | Engineering & Research",
   description: siteDescription,
   authors: [{ name: "Kush Rishi", url: "https://kushrishi.com" }],
   creator: "Kush Rishi",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Kush Rishi | Reliable ML, Sensing & Estimation",
+    title: "Kush Rishi | Engineering & Research",
     description: siteDescription,
     url: "/",
     siteName: "Kush Rishi",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kush Rishi | Reliable ML, Sensing & Estimation",
+    title: "Kush Rishi | Engineering & Research",
     description: siteDescription,
   },
   robots: {
