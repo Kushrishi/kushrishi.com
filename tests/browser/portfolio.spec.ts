@@ -137,6 +137,14 @@ test("visual evidence, image loading, console and zoom", async ({
       await page.goto(route);
       await page.evaluate(() => document.fonts.ready);
       await expect(page.locator("main")).toBeVisible();
+      for (const img of await page.locator("img").all()) {
+        await img.scrollIntoViewIfNeeded();
+        await expect(img).toHaveJSProperty("complete", true);
+        expect(
+          await img.evaluate((i) => (i as HTMLImageElement).naturalWidth),
+        ).toBeGreaterThan(0);
+      }
+      await page.evaluate(() => window.scrollTo(0, 0));
       await testInfo.attach(
         `${width}-${route.replaceAll("/", "-") || "home"}`,
         {
@@ -148,7 +156,12 @@ test("visual evidence, image loading, console and zoom", async ({
         .locator("img")
         .evaluateAll((images) =>
           images
-            .filter((i): i is HTMLImageElement => i instanceof HTMLImageElement && i.complete && i.naturalWidth === 0)
+            .filter(
+              (i): i is HTMLImageElement =>
+                i instanceof HTMLImageElement &&
+                i.complete &&
+                i.naturalWidth === 0,
+            )
             .map((i) => i.src),
         );
       expect(broken).toEqual([]);

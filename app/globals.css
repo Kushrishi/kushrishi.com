@@ -1083,9 +1083,7 @@ line {
   .hero-statement {
     font-size: 2rem;
   }
-  .hero-statement br {
-    display: none;
-  }
+
   .hero-statement em:before {
     content: " ";
   }
@@ -1128,9 +1126,7 @@ line {
   .project-copy h3 {
     font-size: 2.5rem;
   }
-  .project-copy h3 br {
-    display: none;
-  }
+
   .project-links {
     margin-top: 24px;
   }
