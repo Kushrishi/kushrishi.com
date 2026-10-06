@@ -7,6 +7,16 @@ const routes = [
   "/research/model-regression-forensics",
   "/projects/autonomy-simulation-lab",
 ];
+test("unknown routes show a branded, noindex 404", async ({ page }) => {
+  const response = await page.goto("/this-page-does-not-exist");
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole("heading", { name: "Page not found." })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Back to selected work →" })).toHaveAttribute("href", "/#work");
+  const robots = await page.locator('meta[name="robots"]').evaluateAll(
+    (tags) => tags.map((tag) => tag.getAttribute("content") || ""),
+  );
+  expect(robots.some((value) => value.includes("noindex"))).toBe(true);
+});
 for (const width of [320, 390, 430, 768, 1024, 1440, 1920]) {
   test(`all pages remain readable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
