@@ -171,7 +171,7 @@ export default function Page() {
                 comparison reaches the same conclusions. Repairs are
                 unevaluated in this example; no training is needed.
               </p>
-              <pre>
+              <pre tabIndex={0} role="region" aria-label="Saved-prediction import commands">
                 <code>{"python -m pip install .\nmrf-import examples/deployment_comparison/policy.json examples/deployment_comparison/predictions.csv deployment-investigation"}</code>
               </pre>
               <p>
