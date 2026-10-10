@@ -27,8 +27,8 @@ export function SocialCard({ kind = "home" }: Props) {
       name: "Autonomy Simulation Lab",
       sub: "Sensing systems you can inspect.",
       color: "#136c64",
-      label: "NATIVE REPLAY FOUNDATION",
-      foot: "Stable browser v1 · C++ replay foundation in development",
+      label: "NATIVE RECORDING COMPARISON",
+      foot: "Browser v1 released · Native desktop acceptance pending",
     },
   }[kind];
   return (
@@ -203,9 +203,9 @@ export function SocialCard({ kind = "home" }: Props) {
         ) : (
           <div style={{ display: "flex", flexDirection: "column" }}>
             {[
-              "01   Manifest + timestamp contracts",
-              "02   File identity + SHA-256",
-              "03   Bounded RGB8 decoding",
+              "01   Verify recording identity",
+              "02   Execute CPU inference",
+              "03   Compare + inspect changed frames",
             ].map((s) => (
               <div
                 key={s}
@@ -227,7 +227,7 @@ export function SocialCard({ kind = "home" }: Props) {
                 lineHeight: 1.5,
               }}
             >
-              NEXT / Preprocessing → inference → evaluation
+              NEXT / Desktop acceptance + independent first use
             </div>
           </div>
         )}
