@@ -25,7 +25,7 @@ export default function Page() {
     <LaunchPage
       number="01"
       title="Model Regression Forensics"
-      question="A model gets worse after retraining. Which training change explains the regression?"
+      question="A classification release changes behavior. What does the evidence support?"
       status="Release investigation implemented / independent use pending"
       stack="Python / release policies / portable reports"
       links={[
@@ -36,6 +36,10 @@ export default function Page() {
         {
           label: "Technical report",
           href: "https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md",
+        },
+        {
+          label: "Run the example",
+          href: "https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/deployment-comparison.md",
         },
       ]}
       visual={<RegressionVisual />}
