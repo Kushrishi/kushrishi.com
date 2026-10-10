@@ -237,9 +237,9 @@ export default function Page() {
                 </a>
               </p>
               <p>
-                Result-bearing runs enforce frozen protocol identities.
-                Replaying or testing software does not authorize a new
-                scientific run.
+                Result-bearing runs record frozen protocol and input identities.
+                Software checks and saved-result replay are separate from new
+                scientific experiments.
               </p>
             </>
           ),
@@ -255,12 +255,13 @@ export default function Page() {
                 implemented, but the experiment has not run.
               </p>
               <p>
-                First verify archive identity, establish the actual
-                complete-pair count and check geometry on training images. The
-                current documentation distinguishes thirty volumes from a
-                requested twenty complete pairs; a verified manifest must
-                resolve that mismatch before evaluation. Freeze the scale,
-                baseline and analysis before reading test landmarks.
+                The original source path stopped at unresolved landmark
+                provenance. All ten DIR-Lab fallback packets are acquired and
+                image decoding is qualified, with numerical landmarks sealed.
+                The latest Colab attempt has no verified terminal result or
+                complete field. Qualify persistent local execution, retain and
+                reopen one completed member, then budget the complete study and
+                finalize the replacement protocol before outcome access.
               </p>
               <p>
                 <a href="https://github.com/Kushrishi/truemargin/blob/main/docs/external_lung_validation_protocol.md">
