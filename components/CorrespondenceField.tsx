@@ -15,6 +15,16 @@ const grid = Array.from({ length: 117 }, (_, i) => {
   };
 });
 
+function circlePath(x: number, y: number, radius: number) {
+  return `M${x - radius},${y}a${radius},${radius} 0 1,0 ${radius * 2},0a${radius},${radius} 0 1,0 ${-radius * 2},0z`;
+}
+
+const gridPath = [
+  ...Array.from({ length: 9 }, (_, r) => `M36,${44 + r * 36}H468`),
+  ...Array.from({ length: 13 }, (_, c) => `M${36 + c * 36},44V332`),
+].join("");
+const referencePath = grid.map((p) => circlePath(p.x, p.y, 2)).join("");
+
 /** A schematic correspondence field, not an experimental result. */
 export function CorrespondenceField() {
   const [amount, setAmount] = useState(55);
@@ -34,33 +44,29 @@ export function CorrespondenceField() {
         role="img"
         aria-label="Conceptual coordinate grid showing reference points and displaced estimates"
       >
-        <g fill="none" stroke="currentColor" opacity=".13">
-          {Array.from({ length: 9 }, (_, r) => (
-            <path key={`r${r}`} d={`M36 ${44 + r * 36}H468`} />
-          ))}
-          {Array.from({ length: 13 }, (_, c) => (
-            <path key={`c${c}`} d={`M${36 + c * 36} 44V332`} />
-          ))}
-        </g>
-        {points.map((p, i) => (
-          <g key={i}>
-            <circle cx={p.x} cy={p.y} r="2" fill="currentColor" opacity=".25" />
-            <line
-              x1={p.x}
-              y1={p.y}
-              x2={p.x + p.dx}
-              y2={p.y + p.dy}
-              stroke="currentColor"
-              opacity=".4"
-            />
-            <circle
-              cx={p.x + p.dx}
-              cy={p.y + p.dy}
-              r={i === 58 ? 6 : 2.5}
-              fill={i === 58 ? "#eeaa50" : "currentColor"}
-            />
-          </g>
-        ))}
+        <path d={gridPath} fill="none" stroke="currentColor" opacity=".13" />
+        <path d={referencePath} fill="currentColor" opacity=".25" />
+        <path
+          d={points
+            .map((p) => `M${p.x},${p.y}L${p.x + p.dx},${p.y + p.dy}`)
+            .join("")}
+          fill="none"
+          stroke="currentColor"
+          opacity=".4"
+        />
+        <path
+          d={points
+            .filter((_, i) => i !== 58)
+            .map((p) => circlePath(p.x + p.dx, p.y + p.dy, 2.5))
+            .join("")}
+          fill="currentColor"
+        />
+        <circle
+          cx={points[58].x + points[58].dx}
+          cy={points[58].y + points[58].dy}
+          r="6"
+          fill="#eeaa50"
+        />
         <circle
           cx={points[58].x + points[58].dx}
           cy={points[58].y + points[58].dy}
