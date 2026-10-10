@@ -88,7 +88,7 @@ export default function Home() {
                 <span>Finding</span>Repairing a failure does not always identify
                 its cause.
               </div>
-              <p className="status">Matched study complete · Redesign next</p>
+              <p className="status">Release investigation implemented · Independent use pending</p>
               <div className="project-links">
                 <Link
                   className="button"
@@ -124,17 +124,16 @@ export default function Home() {
                 Make a sensing system’s assumptions inspectable.
               </p>
               <p>
-                A live planning and localization sandbox with exported
-                telemetry. A separate native C++ foundation validates
-                recordings, checks file identities and decodes bounded image
-                inputs.
+                A browser planning and localization simulator, alongside a
+                native C++/Python tool that verifies recordings, runs CPU
+                inference and compares processing configurations.
               </p>
               <div className="finding">
-                <span>Implemented</span>Manifest → timestamps → hashes → bounded
-                PNG decoding.
+                <span>Verified</span>108 recorded frames replayed and compared;
+                retained outputs can be reopened.
               </div>
               <p className="status">
-                Browser v1 stable · Native replay in development
+                Browser v1 released · Native desktop acceptance pending
               </p>
               <div className="project-links">
                 <Link

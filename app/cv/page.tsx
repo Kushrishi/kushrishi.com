@@ -155,16 +155,18 @@ export default function CVPage() {
             Studied regressions after training-data changes in two constructed
             Banking77 worlds, with three paired training trajectories each.
             Simple baselines localized both planted changes; gradient-based
-            methods added no top-1 benefit. Built an experimental release
-            comparator checked against NumPy and a deterministic example in
-            which two distinct repairs restore the same predictions. These
-            results do not establish unique causal attribution.
+            methods added no top-1 benefit. Built a prediction importer, release-policy checks and portable
+            reports for inspecting changed cases and repairs. A deterministic
+            example shows two distinct repairs restoring the same predictions.
+            Independent user benefit and unique causal attribution remain
+            unestablished.
           </p>
           <p className="print-only">
             Two matched Banking77 worlds: simple baselines ranked both planted
             changes first; gradient-based diagnostics added no consistent top-1
             benefit. Separate deterministic fixture showed two repairs can
-            restore identical predictions. Benchmark redesign next.
+            restore identical predictions. Release-investigation software is
+            implemented; independent use remains pending.
           </p>
         </article>
       </section>
@@ -180,15 +182,16 @@ export default function CVPage() {
           <p className="web-only">
             Built a browser grid simulator with A*, Dijkstra, BFS, dynamic
             replanning, noisy sensing, range localization, Kalman filtering, and
-            telemetry analysis. The separate C++ replay tool currently validates
-            frame identities and file integrity and decodes PNG inputs.
-            Preprocessing and inference are planned.
+            telemetry analysis. The separate C++/Python replay tool validates
+            recording identity, runs pinned CPU inference, compares processing
+            configurations and exports Rerun recordings. A 108-frame comparison
+            passed; desktop acceptance and independent first use remain open.
           </p>
           <p className="print-only">
             Stable browser planning/localization simulator with telemetry.
-            Separate C++ foundation validates manifests, timestamps, contained
-            paths and SHA-256 identities, then performs bounded PNG decoding.
-            Sanitizer-tested; preprocessing and inference planned.
+            C++/Python replay with recording validation, CPU inference,
+            configuration comparison and Rerun export. Retained 108-frame
+            example; desktop acceptance pending.
           </p>
           <p>
             <a href="https://kushrishi.github.io/autonomy-simulation-lab/">

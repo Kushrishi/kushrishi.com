@@ -50,8 +50,8 @@ export function LaunchPage({
               {title === "TrueMargin"
                 ? "Registration spread carries useful rank information in a controlled study, but six of thirty cases reverse the association. Calibrated bounds are conservative. Independent landmark validation is the next test."
                 : title === "Model Regression Forensics"
-                  ? "Simple baselines find the planted change in both Banking77 worlds; the tested model-based diagnostics add no consistent top-1 benefit. A separate repair fixture shows why successful restoration can still leave the cause ambiguous."
-                  : "A stable browser simulator makes planning and localization inspectable. The separate C++ replay foundation checks manifests, timestamps and file hashes, then decodes bounded PNG inputs. Preprocessing and inference are planned."}
+                  ? "MRF imports aligned release predictions, checks declared requirements and creates portable reports for inspecting changed cases and repairs. Its completed Banking77 study found no consistent diagnostic advantage over simple baselines."
+                  : "The native C++/Python tool verifies recordings, runs CPU inference, compares configurations and exports a Rerun inspection recording. The 108-frame example is retained; desktop acceptance remains open. A separate browser simulator demonstrates planning and localization."}
             </p>
           </div>
           {visual}

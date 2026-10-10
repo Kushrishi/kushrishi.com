@@ -4,12 +4,12 @@ import { SimulatorVisual } from "@/components/ProjectVisual";
 export const metadata: Metadata = {
   title: "Autonomy Simulation Lab | Kush Rishi",
   description:
-    "Stable browser planning/localization simulator and a C++ replay foundation: manifest, timestamp, SHA-256 and bounded PNG contracts.",
+    "Native C++/Python recording replay, CPU inference and configuration comparison, alongside a released browser planning/localization simulator.",
   alternates: { canonical: "/projects/autonomy-simulation-lab" },
   openGraph: {
     title: "Autonomy Simulation Lab | Kush Rishi",
     description:
-      "Stable browser planning/localization simulator and a C++ replay foundation: manifest, timestamp, SHA-256 and bounded PNG contracts.",
+      "Native C++/Python recording replay, CPU inference and configuration comparison, alongside a released browser planning/localization simulator.",
     url: "/projects/autonomy-simulation-lab",
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Autonomy Simulation Lab | Kush Rishi",
     description:
-      "Stable browser planning/localization simulator and a C++ replay foundation: manifest, timestamp, SHA-256 and bounded PNG contracts.",
+      "Native C++/Python recording replay, CPU inference and configuration comparison, alongside a released browser planning/localization simulator.",
   },
 };
 export default function Page() {
@@ -25,8 +25,8 @@ export default function Page() {
     <LaunchPage
       number="02"
       title="Autonomy Simulation Lab"
-      question="How do path planning and localization behave when the map changes and measurements get noisy?"
-      status="Browser simulator complete / native pipeline in progress"
+      question="Which frames change when a sensing pipeline changes, and what do their timing and spatial context show?"
+      status="Browser v1 released / native desktop acceptance pending"
       stack="TypeScript / React / Python / C++"
       links={[
         {
@@ -162,19 +162,21 @@ export default function Page() {
                 with a pixel-count limit.
               </p>
               <p>
-                Linux CI uses address and undefined-behavior sanitizers.
-                Preprocessing, inference and a viewer are next; they are not
-                part of the complete browser simulator.
+                The runner applies explicit preprocessing and executes a pinned
+                ONNX Runtime CPU model. Python tools compare frame predictions,
+                identities and latency. Optional Rerun export combines camera
+                imagery, timing, synchronization skew and ENU positions. Native
+                CI covers Linux and macOS; Linux also uses sanitizers.
               </p>
               <MethodChain
                 steps={[
-                  "Implemented: recording manifest and structural validation",
-                  "Implemented: timestamp and contained-path constraints",
-                  "Implemented: SHA-256 file identity verification",
-                  "Implemented: bounded PNG decode into RGB8",
+                  "Verify recording, model and preprocessing identity",
+                  "Decode images and execute CPU inference",
+                  "Compare predictions and processing configurations",
+                  "Inspect camera, timing and spatial context in Rerun",
                 ]}
               />
-              <p className="status-line">Planned: preprocessing parity → inference → deterministic comparison/evaluation. No native model output or replay viewer is implemented.</p>
+              <p className="status-line">A relocated installation compared all 108 recorded frames and reproduced the retained baseline exactly. Desktop acceptance and independent first use remain open. Historical output residue is detected but its original cause remains unresolved.</p>
             </>
           ),
         },
@@ -200,7 +202,11 @@ export default function Page() {
               </pre>
               <p>
                 <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/native/README.md">
-                  Native contracts and examples
+                  Native contracts and build options
+                </a>{" "}
+                ·{" "}
+                <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/native/INSTALLED_RECORDING_WORKFLOW.md">
+                  Installed recording walkthrough
                 </a>{" "}
                 ·{" "}
                 <a href="https://github.com/Kushrishi/autonomy-simulation-lab/releases/tag/v1.0.0">
@@ -216,16 +222,16 @@ export default function Page() {
           content: (
             <>
               <p>
-                Specify channel order, tensor layout, resize interpolation and
-                normalization. Verify preprocessing against an independent
-                Python reference before integrating a pinned CPU ONNX model.
+                Open the retained recording and layout in the desktop viewer.
+                Inspect beginning, middle and end frames, read camera/timing/
+                skew panels, navigate the ENU view, then close and reopen.
+                Record setup, readability and responsiveness problems.
               </p>
               <p>
-                Then add a replay viewer and measure decode, preprocessing,
-                inference and total latency, including p50, p95, peak memory and
-                recorded hardware. Compare matched inputs and retain correctness
-                failures. The result should be a reproducible systems
-                demonstration rather than an unqualified speed claim.
+                Verify the installed synthetic example on another machine and
+                complete independent first use before a native release. The
+                existing comparison establishes repeatability in its measured
+                environment, not perception accuracy or sensor fusion.
               </p>
             </>
           ),
