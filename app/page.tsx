@@ -58,11 +58,7 @@ export default function Home() {
         <section className="work-section" id="work">
           <div className="section-heading">
             <p className="eyebrow">Selected work</p>
-            <h2>
-              Built to be
-              <br />
-              <em>looked into.</em>
-            </h2>
+            <h2>Software and research.</h2>
             <p>
               Working software, measured results and the failures that shaped
               the next question.
@@ -80,9 +76,11 @@ export default function Home() {
                 What evidence can explain a model regression?
               </p>
               <p>
-                Two matched Banking77 worlds expose a benchmark shortcut: simple
-                baselines find both planted changes. Model-based diagnostics add
-                no consistent top-1 benefit.
+                Compare saved classification predictions, check release
+                requirements and inspect changed cases in a portable report.
+                In the completed research study, simple baselines found both
+                planted changes; model-based diagnostics added no consistent
+                top-1 benefit.
               </p>
               <div className="finding">
                 <span>Finding</span>Repairing a failure does not always identify
@@ -107,6 +105,12 @@ export default function Home() {
                   href={`${gh}/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md`}
                 >
                   Report
+                </a>
+                <a
+                  className="text-link"
+                  href={`${gh}/model-regression-forensics/blob/main/docs/deployment-comparison.md`}
+                >
+                  Run the example
                 </a>
               </div>
             </div>
