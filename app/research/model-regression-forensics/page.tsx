@@ -26,8 +26,8 @@ export default function Page() {
       number="01"
       title="Model Regression Forensics"
       question="A model gets worse after retraining. Which training change explains the regression?"
-      status="Matched study complete / benchmark redesign next"
-      stack="Python / PyTorch / DistilBERT"
+      status="Release investigation implemented / independent use pending"
+      stack="Python / release policies / portable reports"
       links={[
         {
           label: "Code",
@@ -154,26 +154,29 @@ export default function Page() {
         },
         {
           id: "engineering",
-          title: "Comparison utility",
+          title: "Release investigation software",
           content: (
             <>
               <p>
-                An experimental release comparator validates aligned records,
-                declared evaluation slices and accuracy-drop tolerances. A
-                handwritten-digits fixture agrees with an independent NumPy
-                reference.
+                The installed importer accepts aligned baseline, candidate and
+                repair predictions. It checks declared accuracy floors and
+                allowed drops, retains source identities and creates a portable
+                HTML report with text previews, filters and case export.
               </p>
               <p>
-                This verifies arithmetic and policy handling. It does not
-                diagnose a cause. The repair example can be run without
-                retraining the research models.
+                A retained real-text deployment example contains 1,969 cases.
+                INT8 conversion changes eight labels, including three new
+                errors and three corrections, while overall accuracy remains
+                88.07% and all declared limits pass. Ordinary prediction
+                comparison reaches the same conclusions. Repairs are
+                unevaluated in this example; no training is needed.
               </p>
               <pre>
-                <code>uv run python examples/ambiguous_repairs.py</code>
+                <code>{"python -m pip install .\nmrf-import examples/deployment_comparison/policy.json examples/deployment_comparison/predictions.csv deployment-investigation"}</code>
               </pre>
               <p>
-                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/ambiguous-repairs.md">
-                  Repair example
+                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/deployment-comparison.md">
+                  Saved-prediction walkthrough
                 </a>{" "}
                 ·{" "}
                 <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/external-release-task.md">
@@ -230,22 +233,23 @@ export default function Page() {
         },
         {
           id: "next",
-          title: "Next experiment",
+          title: "Next evaluation",
           content: (
             <>
               <p>
-                Construct candidate changes with overlapping target labels and
-                plausible semantic alternatives. Test cheap visible-change
-                baselines before paying for larger training runs. Freeze the
-                construction criteria instead of selecting worlds after
-                favorable outcomes.
+                Observe an independent engineer importing saved predictions,
+                inspecting failed requirements and exporting evidence for a
+                release decision. Fix actual setup or interpretation problems
+                before expanding the application. Maintainer-assisted use
+                does not establish independent user benefit.
               </p>
               <p>
-                Then compare diagnostic ranking, verified recovery, alternative
-                repairs, ambiguity and computational cost. A contribution review
-                must show what decision this adds beyond existing causal
-                diagnosis and training-data attribution. The existing
-                continuation gate remains in force.
+                A comparative study needs qualified real incidents with known
+                versions and outcome evidence. Compare direct prediction
+                inspection, diff inspection, complete and targeted rollback,
+                and full retraining with matched information and cost. No
+                eligible training-release incident has yet been established;
+                the failed small-model study remains closed.
               </p>
             </>
           ),
