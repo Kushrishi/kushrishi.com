@@ -258,10 +258,12 @@ export default function Page() {
                 The original source path stopped at unresolved landmark
                 provenance. All ten DIR-Lab fallback packets are acquired and
                 image decoding is qualified, with numerical landmarks sealed.
-                The latest Colab attempt has no verified terminal result or
-                complete field. Qualify persistent local execution, retain and
-                reopen one completed member, then budget the complete study and
-                finalize the replacement protocol before outcome access.
+                One later Case7 member completed on a persistent Mac worker
+                and passed a whole-field integrity audit and same-host readback.
+                Earlier disconnected Colab attempts remain unresolved.
+                Independent cross-host restoration, representative runtime,
+                optimizer-stopping analysis and prospective campaign approval
+                are still required before full-scale execution or landmark access.
               </p>
               <p>
                 <a href="https://github.com/Kushrishi/truemargin/blob/main/docs/external_lung_validation_protocol.md">
