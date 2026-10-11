@@ -7,7 +7,7 @@ Personal website with independent research and engineering projects.
 ## Project pages
 
 - **TrueMargin:** registration uncertainty, recorded correlations, blind spots and calibrated error bounds.
-- **Model Regression Forensics:** training-change diagnostics, negative results and ambiguous repairs.
+- **Model Regression Forensics:** saved classification-release comparison and portable reports; completed attribution research, negative results and ambiguous repairs.
 - **Autonomy Simulation Lab:** interactive planning/localization and a separate native replay tool.
 
 Each page links to methods, results, limitations, code and reproduction instructions. The interactive plot on the TrueMargin project page uses the retained anatomy comparator CSV. `data/registration.json` preserves its numeric values; rounding is applied only in the display. Comparator failures and valid-case counts remain in the linked source record. The homepage's coordinate grid is a labeled conceptual illustration, not experimental data.

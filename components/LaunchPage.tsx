@@ -51,7 +51,7 @@ export function LaunchPage({
                 ? "Registration spread carries useful rank information in a controlled study, but six of thirty cases reverse the association. Calibrated bounds are conservative. Independent landmark validation is the next test."
                 : title === "Model Regression Forensics"
                   ? "MRF imports aligned release predictions, checks declared requirements and creates portable reports for inspecting changed cases and repairs. Its completed Banking77 study found no consistent diagnostic advantage over simple baselines."
-                  : "The native C++/Python tool verifies recordings, runs CPU inference, compares configurations and exports a Rerun inspection recording. Three matched 108-frame pairs reduced median whole-process wall time by 8.9749% with exact recorded output parity. Desktop acceptance remains open. A separate browser simulator demonstrates planning and localization."}
+                  : "The native C++/Python tool verifies recordings, runs CPU inference, compares configurations and exports a Rerun inspection recording. Three matched 108-frame pairs reduced median whole-process wall time by 8.9749% with exact recorded output parity. Owner-side Mac graphical inspection is complete; independent first use remains unestablished. A separate browser simulator demonstrates planning and localization."}
             </p>
           </div>
           {visual}

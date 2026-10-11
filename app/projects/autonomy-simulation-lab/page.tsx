@@ -26,7 +26,7 @@ export default function Page() {
       number="02"
       title="Autonomy Simulation Lab"
       question="Which frames change when a sensing pipeline changes, and what do their timing and spatial context show?"
-      status="Browser v1.0.2 maintenance / native desktop acceptance pending"
+      status="Browser v1.0.2 maintenance / owner Mac graphical review complete"
       stack="TypeScript / React / Python / C++"
       links={[
         {
@@ -192,7 +192,7 @@ export default function Page() {
                 Rerun is the third-party viewer. KITTI imagery remains subject to its
                 dataset terms and is not republished here.
               </p>
-              <p className="status-line">A relocated installation compared all 108 recorded frames and reproduced the retained baseline exactly. Desktop acceptance and independent first use remain open. Historical output residue is detected but its original cause remains unresolved.</p>
+              <p className="status-line">A relocated installation compared all 108 recorded frames and reproduced the retained baseline exactly. Owner-side Mac graphical inspection is complete; independent first use remains unestablished. The review covered both accepted recordings at six selected frames in Rerun 0.38.1. Close/reopen persistence and broader perception validation are not established. Historical output residue is detected but its original cause remains unresolved.</p>
             </>
           ),
         },

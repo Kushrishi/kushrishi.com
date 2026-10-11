@@ -28,7 +28,7 @@ export function SocialCard({ kind = "home" }: Props) {
       sub: "Sensing systems you can inspect.",
       color: "#136c64",
       label: "NATIVE RECORDING COMPARISON",
-      foot: "Browser v1.0.2 maintenance · Native desktop acceptance pending",
+      foot: "Browser v1.0.2 maintenance · Owner Mac graphical review complete",
     },
   }[kind];
   return (
@@ -227,7 +227,7 @@ export function SocialCard({ kind = "home" }: Props) {
                 lineHeight: 1.5,
               }}
             >
-              NEXT / Desktop acceptance + independent first use
+              Owner Mac graphical review complete · Independent first use pending
             </div>
           </div>
         )}
