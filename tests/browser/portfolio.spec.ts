@@ -143,7 +143,7 @@ test("visual evidence, image loading, console and zoom", async ({
 }, testInfo) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  for (const width of [390, 768, 1440]) {
+  for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     for (const route of routes) {
       await page.goto(route);
