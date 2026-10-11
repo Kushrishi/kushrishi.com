@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LaunchPage, MethodChain } from "@/components/LaunchPage";
-import { SimulatorVisual } from "@/components/ProjectVisual";
+import { SimulatorVisual, NativeBenchmarkVisual } from "@/components/ProjectVisual";
 export const metadata: Metadata = {
   title: "Autonomy Simulation Lab | Kush Rishi",
   description:
@@ -26,7 +26,7 @@ export default function Page() {
       number="02"
       title="Autonomy Simulation Lab"
       question="Which frames change when a sensing pipeline changes, and what do their timing and spatial context show?"
-      status="Browser v1 released / native desktop acceptance pending"
+      status="Browser v1.0.2 maintenance / native desktop acceptance pending"
       stack="TypeScript / React / Python / C++"
       links={[
         {
@@ -38,11 +38,11 @@ export default function Page() {
           href: "https://github.com/Kushrishi/autonomy-simulation-lab",
         },
       ]}
-      visual={<SimulatorVisual />}
+      visual={<NativeBenchmarkVisual />}
       sections={[
         {
           id: "question",
-          title: "The problem",
+          title: "Browser simulator",
           content: (
             <>
               <p>
@@ -87,9 +87,10 @@ export default function Page() {
         },
         {
           id: "demo",
-          title: "Try an experiment",
+          title: "Try the browser demo",
           content: (
             <>
+              <SimulatorVisual />
               <ol>
                 <li>Open the simulator and choose the warehouse scenario.</li>
                 <li>
@@ -144,14 +145,19 @@ export default function Page() {
                 The GNSS-inspired model omits satellite ephemerides, receiver
                 clock bias, atmospheric effects, multipath, ambiguities and
                 cycle slips. The current browser release does not perform camera
-                perception or learned navigation.
+                perception or learned navigation. Process noise uses a simplified Q
+                model; deterministic noise is not calibrated covariance. Gauss–Newton
+                has bounded iteration, not a convergence guarantee. Browser import,
+                accessibility and full cross-browser acceptance remain incomplete.
+                The owner accepted the specific v1.0.2 search/movement regression,
+                not the entire application.
               </p>
             </>
           ),
         },
         {
           id: "native",
-          title: "Native replay pipeline",
+          title: "Native C++ systems case study",
           content: (
             <>
               <p>
@@ -176,6 +182,16 @@ export default function Page() {
                   "Inspect camera, timing and spatial context in Rerun",
                 ]}
               />
+              <p>
+                I implemented a center-crop decode path that avoids the full-frame
+                intermediate buffer. Three matched 108-frame baseline/candidate
+                pairs reduced median whole-process wall time by 8.9749% and the
+                measured preprocessing stage by 57.5238%, with exact recorded output
+                parity. This is one Linux host, one model and one workload.
+                Libpng, ONNX Runtime, the pretrained model and Rerun are dependencies;
+                Rerun is the third-party viewer. KITTI imagery remains subject to its
+                dataset terms and is not republished here.
+              </p>
               <p className="status-line">A relocated installation compared all 108 recorded frames and reproduced the retained baseline exactly. Desktop acceptance and independent first use remain open. Historical output residue is detected but its original cause remains unresolved.</p>
             </>
           ),
@@ -209,9 +225,9 @@ export default function Page() {
                   Installed recording walkthrough
                 </a>{" "}
                 ·{" "}
-                <a href="https://github.com/Kushrishi/autonomy-simulation-lab/releases/tag/v1.0.0">
-                  Browser v1.0.0 release
-                </a>
+                <a href="https://github.com/Kushrishi/autonomy-simulation-lab/releases/tag/v1.0.2">
+                  Browser v1.0.2 release
+                </a>{" "} · <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/analysis/numerical-audit/README.md">Numerical audit</a>
               </p>
             </>
           ),

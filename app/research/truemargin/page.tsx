@@ -261,9 +261,17 @@ export default function Page() {
                 One later Case7 member completed on a persistent Mac worker
                 and passed a whole-field integrity audit and same-host readback.
                 Earlier disconnected Colab attempts remain unresolved.
-                Independent cross-host restoration, representative runtime,
-                optimizer-stopping analysis and prospective campaign approval
-                are still required before full-scale execution or landmark access.
+                Cross-host restoration is now accepted. The second Case7
+                tolerance setting collapsed to the reference field (4.1018e-12 mm
+                vector RMS difference; reference displacement RMS 0.89043 mm),
+                and both runs reached the 15-iteration cap. This establishes
+                neither convergence nor useful ensemble diversity. The ten original
+                DIR-Lab archive identities and paired 300-landmark entry metadata
+                are verified; numerical landmarks remain sealed. That pathway is
+                a prospective external cohort distinct from the blocked Learn2Reg
+                protocol. Resource and launcher review, a prospective freeze and
+                separate approval remain required before further registration or
+                landmark evaluation.
               </p>
               <p>
                 <a href="https://github.com/Kushrishi/truemargin/blob/main/docs/external_lung_validation_protocol.md">
