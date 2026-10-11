@@ -137,7 +137,7 @@ export default function Home() {
                 matched 108-frame native pairs; exact output parity.
               </div>
               <p className="status">
-                Browser v1.0.2 · Maintenance · Native desktop acceptance pending
+                Browser v1.0.2 · Maintenance · Owner Mac graphical review complete; independent first use pending
               </p>
               <div className="project-links">
                 <Link

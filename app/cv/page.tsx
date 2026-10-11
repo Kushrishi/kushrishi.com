@@ -186,14 +186,14 @@ export default function CVPage() {
             recording identity, runs pinned CPU inference, compares processing
             configurations and exports Rerun recordings. Three matched 108-frame pairs showed an 8.9749% median whole-process
             reduction with exact recorded output parity on one Linux host.
-            Desktop acceptance and independent first use remain open.
+            Owner-side Mac graphical inspection is complete; independent first use remains unestablished.
           </p>
           <p className="print-only">
             Stable browser planning/localization simulator with telemetry.
             C++/Python replay with recording validation, CPU inference,
             configuration comparison and Rerun export. Three matched 108-frame pairs: 8.9749% median
             whole-process reduction, exact recorded output parity; one Linux host.
-            Desktop acceptance pending.
+            Owner Mac graphical review complete; independent first use unestablished.
           </p>
           <p>
             <a href="https://kushrishi.github.io/autonomy-simulation-lab/">
