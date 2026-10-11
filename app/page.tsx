@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Header, Footer } from "@/components/SiteChrome";
 import { CorrespondenceField } from "@/components/CorrespondenceField";
-import { RegressionVisual, SimulatorVisual } from "@/components/ProjectVisual";
+import { ReleaseInvestigationVisual, SimulatorVisual } from "@/components/ProjectVisual";
 
 const gh = "https://github.com/Kushrishi";
 export default function Home() {
@@ -86,7 +86,7 @@ export default function Home() {
                 <span>Finding</span>Repairing a failure does not always identify
                 its cause.
               </div>
-              <p className="status">Release investigation implemented · Independent use pending</p>
+              <p className="status">Maintenance · Independent-user benefit unestablished</p>
               <div className="project-links">
                 <Link
                   className="button"
@@ -114,7 +114,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <RegressionVisual />
+            <ReleaseInvestigationVisual />
           </article>
           <article className="project-row reverse project-asl" id="autonomy">
             <div className="project-copy">
@@ -133,11 +133,11 @@ export default function Home() {
                 inference and compares processing configurations.
               </p>
               <div className="finding">
-                <span>Verified</span>108 recorded frames replayed and compared;
-                retained outputs can be reopened.
+                <span>Verified</span>8.9749% median whole-process reduction across three
+                matched 108-frame native pairs; exact output parity.
               </div>
               <p className="status">
-                Browser v1 released · Native desktop acceptance pending
+                Browser v1.0.2 · Maintenance · Native desktop acceptance pending
               </p>
               <div className="project-links">
                 <Link

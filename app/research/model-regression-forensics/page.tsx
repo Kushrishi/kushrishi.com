@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { LaunchPage, MethodChain } from "@/components/LaunchPage";
-import { RegressionVisual } from "@/components/ProjectVisual";
+import { RegressionVisual, ReleaseInvestigationVisual } from "@/components/ProjectVisual";
 export const metadata: Metadata = {
   title: "Model Regression Forensics | Kush Rishi",
   description:
-    "Comparing evidence for regressions after training-data changes.",
+    "Saved-prediction release investigation, with a real report and completed negative attribution study.",
   alternates: { canonical: "/research/model-regression-forensics" },
   openGraph: {
     title: "Model Regression Forensics | Kush Rishi",
     description:
-      "Comparing evidence for regressions after training-data changes.",
+      "Saved-prediction release investigation, with a real report and completed negative attribution study.",
     url: "/research/model-regression-forensics",
     type: "website",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Model Regression Forensics | Kush Rishi",
     description:
-      "Comparing evidence for regressions after training-data changes.",
+      "Saved-prediction release investigation, with a real report and completed negative attribution study.",
   },
 };
 export default function Page() {
@@ -26,7 +26,7 @@ export default function Page() {
       number="01"
       title="Model Regression Forensics"
       question="A classification release changes behavior. What does the evidence support?"
-      status="Release investigation implemented / independent use pending"
+      status="Maintenance / independent-user benefit unestablished"
       stack="Python / release policies / portable reports"
       links={[
         {
@@ -42,7 +42,7 @@ export default function Page() {
           href: "https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/deployment-comparison.md",
         },
       ]}
-      visual={<RegressionVisual />}
+      visual={<ReleaseInvestigationVisual />}
       sections={[
         {
           id: "question",
@@ -50,8 +50,8 @@ export default function Page() {
           content: (
             <>
               <p>
-                After a model regresses, a team needs to decide which training
-                change to inspect or reverse. MRF studies what evidence can
+                The maintained application compares saved classification releases, checks declared slice policies and makes changed cases inspectable. The completed research asks a separate question: after a model regresses, which training
+                change should a team inspect or reverse? MRF studies what evidence can
                 support that decision, and when a successful repair still leaves
                 the historical cause uncertain.
               </p>
@@ -68,6 +68,9 @@ export default function Page() {
           title: "Method and architecture",
           content: (
             <>
+              <p>
+                I implemented the prediction importer, source-integrity checks, policy comparison, supplied-repair assessment and portable HTML report. The research uses third-party Banking77 data and a pinned DistilBERT classifier, not an original pretrained model.
+              </p>
               <p>
                 Two constructed Banking77 worlds contain five matched label-swap
                 candidates each. Every candidate changes sixty-six label slots
@@ -118,7 +121,7 @@ export default function Page() {
         },
         {
           id: "results",
-          title: "Results",
+          title: "Completed research results",
           content: (
             <>
               <p>
@@ -132,6 +135,7 @@ export default function Page() {
                 construction. Known target labels and disjoint candidate pairs
                 made the simple baseline decisive.
               </p>
+              <RegressionVisual />
             </>
           ),
         },
@@ -199,7 +203,7 @@ export default function Page() {
                 Two constructed worlds, a controlled classifier task and planted
                 changes are a narrow basis for inference. A successful
                 counterfactual repair is not necessarily proof of a unique
-                historical cause. The release utility is experimental; the
+                historical cause. The bounded release utility is in maintenance; the
                 project has no published paper.
               </p>
             </>

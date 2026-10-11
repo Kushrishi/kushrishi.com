@@ -184,14 +184,16 @@ export default function CVPage() {
             replanning, noisy sensing, range localization, Kalman filtering, and
             telemetry analysis. The separate C++/Python replay tool validates
             recording identity, runs pinned CPU inference, compares processing
-            configurations and exports Rerun recordings. A 108-frame comparison
-            passed; desktop acceptance and independent first use remain open.
+            configurations and exports Rerun recordings. Three matched 108-frame pairs showed an 8.9749% median whole-process
+            reduction with exact recorded output parity on one Linux host.
+            Desktop acceptance and independent first use remain open.
           </p>
           <p className="print-only">
             Stable browser planning/localization simulator with telemetry.
             C++/Python replay with recording validation, CPU inference,
-            configuration comparison and Rerun export. Retained 108-frame
-            example; desktop acceptance pending.
+            configuration comparison and Rerun export. Three matched 108-frame pairs: 8.9749% median
+            whole-process reduction, exact recorded output parity; one Linux host.
+            Desktop acceptance pending.
           </p>
           <p>
             <a href="https://kushrishi.github.io/autonomy-simulation-lab/">
