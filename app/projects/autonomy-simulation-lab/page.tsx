@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LaunchPage, MethodChain } from "@/components/LaunchPage";
-import { SimulatorVisual, NativeBenchmarkVisual } from "@/components/ProjectVisual";
+import { SimulatorVisual } from "@/components/ProjectVisual";
+import { NativeBenchmarkPublication } from "@/components/PublicationEvidence";
 export const metadata: Metadata = {
   title: "Autonomy Simulation Lab | Kush Rishi",
   description:
@@ -38,7 +39,7 @@ export default function Page() {
           href: "https://github.com/Kushrishi/autonomy-simulation-lab",
         },
       ]}
-      visual={<NativeBenchmarkVisual />}
+      visual={<NativeBenchmarkPublication />}
       sections={[
         {
           id: "question",
@@ -238,10 +239,10 @@ export default function Page() {
           content: (
             <>
               <p>
-                Open the retained recording and layout in the desktop viewer.
-                Inspect beginning, middle and end frames, read camera/timing/
-                skew panels, navigate the ENU view, then close and reopen.
-                Record setup, readability and responsiveness problems.
+                Owner-side graphical inspection of both accepted recordings is
+                complete within its six-frame scope. Remaining acceptance includes
+                close/reopen persistence and independent first use; neither is
+                established by the retained screenshots.
               </p>
               <p>
                 Verify the installed synthetic example on another machine and

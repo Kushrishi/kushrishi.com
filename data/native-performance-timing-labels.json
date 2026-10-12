@@ -1,0 +1,17 @@
+[
+  {
+    "pair": 1,
+    "baseline_wall_seconds": "4.141379592998419",
+    "candidate_wall_seconds": "3.5931763839980704"
+  },
+  {
+    "pair": 2,
+    "baseline_wall_seconds": "3.9591646699991543",
+    "candidate_wall_seconds": "3.628907812999387"
+  },
+  {
+    "pair": 3,
+    "baseline_wall_seconds": "3.9802216890020645",
+    "candidate_wall_seconds": "3.6230019760041614"
+  }
+]

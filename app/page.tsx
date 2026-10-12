@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { TrueMarginHomeSummary } from "@/components/PublicationEvidence";
 import { Header, Footer } from "@/components/SiteChrome";
 import { CorrespondenceField } from "@/components/CorrespondenceField";
 import { ReleaseInvestigationVisual, SimulatorVisual } from "@/components/ProjectVisual";
@@ -27,9 +27,8 @@ export default function Home() {
               <em>Spatial intelligence.</em>
             </p>
             <p className="hero-deck">
-              I build and evaluate systems that learn from imperfect data. My
-              work connects model reliability with geometry, measurement and
-              real-world sensing.
+              I build software for ML evaluation and sensing systems, with an
+              emphasis on measurement, uncertainty and reproducible engineering.
             </p>
             <p className="current-role">
               <span>Currently</span> GNSS Analyst at <strong>Xona</strong> ·
@@ -201,25 +200,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <figure className="recorded-figure">
-              <div className="plate-heading">
-                <span>Information & blind spots</span>
-                <span>Recorded results</span>
-              </div>
-              <Image
-                src="/projects/truemargin.png"
-                width={2040}
-                height={1360}
-                sizes="(max-width: 760px) 100vw, 55vw"
-                alt="TrueMargin recorded results: positive aggregate association, six case reversals, 39 blind spots and conservative error bounds"
-              />
-              <figcaption>
-                Controlled association, failure analysis and held-out bounds.{" "}
-                <a href={`${gh}/truemargin/blob/main/docs/technical_report.md`}>
-                  Read the definitions and limitations.
-                </a>
-              </figcaption>
-            </figure>
+            <TrueMarginHomeSummary />
           </article>
         </section>
         <section className="themes-section">
@@ -315,7 +296,7 @@ export default function Home() {
           <div>
             <p className="eyebrow">Background</p>
             <h2>
-              Geometry was
+              Measurement was
               <br />
               the starting point.
             </h2>
