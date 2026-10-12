@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LaunchPage, MethodChain } from "@/components/LaunchPage";
 import { EvidenceExplorer } from "@/components/EvidenceExplorer";
-import Image from "next/image";
+import { TrueMarginOverview } from "@/components/PublicationEvidence";
 export const metadata: Metadata = {
   title: "TrueMargin | Kush Rishi",
   description:
@@ -152,19 +152,8 @@ export default function Page() {
                 crossed zero, so an advantage over that baseline was not
                 established.
               </p>
-              <figure className="project-figure recorded-figure">
-                <Image
-                  src="/projects/truemargin.png"
-                  width={2040}
-                  height={1360}
-                  alt="Recorded TrueMargin association, blind spots and calibrated error bounds"
-                  sizes="(max-width:760px) 100vw, 760px"
-                />
-                <figcaption>
-                  Repository figure covering M4 to M6. Definitions and
-                  exclusions are in the technical report.
-                </figcaption>
-              </figure>
+              <TrueMarginOverview />
+              <p className="original-evidence"><a href="/projects/truemargin.png">Original M4–M6 technical figure, preserved at full resolution</a>. M6 calibration uses a separate cohort; its conservative-radius findings remain below.</p>
             </>
           ),
         },
