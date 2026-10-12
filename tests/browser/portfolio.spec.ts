@@ -156,6 +156,11 @@ test("visual evidence, image loading, console and zoom", async ({
           await img.evaluate((i) => (i as HTMLImageElement).naturalWidth),
         ).toBeGreaterThan(0);
       }
+      if (route === "/projects/autonomy-simulation-lab") {
+        await page.getByText("Inspect exact recorded timings", { exact: true }).click();
+        await expect(page.locator(".exact-timings")).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+      }
       await page.evaluate(() => window.scrollTo(0, 0));
       await testInfo.attach(
         `${width}-${route.replaceAll("/", "-") || "home"}`,
