@@ -6,7 +6,9 @@ Presentation only: no inference, registration, benchmark or source-measurement c
   of the accepted `docs/assets/performance_data.json` in autonomy-simulation-lab.
   Source SHA-256: `9abbd18cc1009551e02e814eba70a1498c82c50ba8e9d2982d7826c00f3fc23c`.
   Original website benchmark remains at `/projects/native-asl-matched-wall-time.png`.
-  All six values and retained pair ordering are unchanged. The separate 57.5238%
+  All six values and retained pair ordering are unchanged. Full-precision HTML labels
+  are exact decimal strings copied from that JSON, avoiding JavaScript
+  number-to-string normalization of the original recorded digits. The separate 57.5238%
   stage result is retained from the accepted native case study, not derived from
   the whole-process JSON. ONNX Runtime, MobileNetV2, KITTI, libpng and Rerun remain
   third-party runtime/model/data/decoder/viewer components.

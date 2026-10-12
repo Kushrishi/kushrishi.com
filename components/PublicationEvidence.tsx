@@ -1,5 +1,6 @@
 import Image from "next/image";
 import benchmark from "@/data/native-performance-publication.json";
+import timingLabels from "@/data/native-performance-timing-labels.json";
 import values from "@/data/truemargin-publication.json";
 
 export function TrueMarginHomeSummary() {
@@ -54,7 +55,7 @@ export function NativeBenchmarkPublication() {
     <figcaption><strong>8.9749% median whole-process reduction</strong> and a separate <strong>57.5238% preprocessing-stage reduction</strong>. Three matched 108-frame pairs on one Linux x86_64 host; MobileNetV2, ONNX Runtime 1.30.0 CPU, one thread. Exact model-output parity excludes timings. Startup is included; cache and scheduling are uncontrolled. No perception-accuracy or universal speed claim.</figcaption>
     <table><caption>Recorded whole-process wall time (seconds)</caption><thead><tr><th scope="col">Pair</th><th scope="col">Baseline</th><th scope="col">Candidate</th></tr></thead><tbody>{benchmark.pairs.map(r=><tr key={r.pair}><th scope="row">{r.pair}</th><td>{r.baseline_wall_seconds.toFixed(6)}</td><td>{r.candidate_wall_seconds.toFixed(6)}</td></tr>)}</tbody></table>
     <p><a href="/projects/publication/native-asl-wall-time-publication.svg">Open the full-resolution figure</a>. The table above provides readable recorded values on mobile; the source file preserves full numeric precision.</p>
-    <details><summary>Inspect exact recorded timings</summary><dl className="exact-timings">{benchmark.pairs.map(r => <div key={r.pair}><dt>Pair {r.pair}: baseline (seconds)</dt><dd>{String(r.baseline_wall_seconds)}</dd><dt>Pair {r.pair}: candidate (seconds)</dt><dd>{String(r.candidate_wall_seconds)}</dd></div>)}</dl></details>
+    <details><summary>Inspect exact recorded timings</summary><dl className="exact-timings">{timingLabels.map(r => <div key={r.pair}><dt>Pair {r.pair}: baseline (seconds)</dt><dd>{r.baseline_wall_seconds}</dd><dt>Pair {r.pair}: candidate (seconds)</dt><dd>{r.candidate_wall_seconds}</dd></div>)}</dl></details>
     <p>Pair reductions: 13.24%, 8.34%, 8.97%, in retained order.</p>
     <p><a href="/projects/native-asl-matched-wall-time.png">Original accepted figure, preserved</a> · <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/docs/assets/performance_data.json">Exact source measurements</a> · <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/native/README.md">Method and reproduction</a></p>
   </figure>;
