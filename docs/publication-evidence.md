@@ -24,3 +24,21 @@ Presentation only: no inference, registration, benchmark or source-measurement c
   Original M4–M6 figure remains at `/projects/truemargin.png`.
 - No native Rerun screenshot or dataset-derived telemetry derivative is included:
   its rights gate remains unresolved. No private original screenshots are included.
+
+## Regenerate the TrueMargin publication panels
+
+From the repository root, with Python and Matplotlib installed:
+
+```bash
+python3 scripts/render_truemargin_publication.py
+```
+
+The public-only script reads `data/truemargin-publication.json` and writes the
+association/case SVG and PNG files to `public/projects/publication/`.
+Use `--output-dir /tmp/truemargin-publication-check` to verify without replacing
+reviewed assets. It asserts exact plotted values, retained case ordering and six
+negative associations; it does not calculate new correlations or calibration.
+M6 remains a separate cohort. No native screenshots or dataset images are read.
+Fixed font/canvas settings, SVG IDs and omitted dates make repeat output
+byte-identical within the same rendering environment (verified Matplotlib 3.10.8).
+Original research figures and source-value JSON remain unchanged.
