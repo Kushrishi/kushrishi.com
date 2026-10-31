@@ -2,116 +2,51 @@ import type { Metadata } from "next";
 import { LaunchPage, MethodChain } from "@/components/LaunchPage";
 import { EvidenceExplorer } from "@/components/EvidenceExplorer";
 import { TrueMarginOverview } from "@/components/PublicationEvidence";
+
+const description = "Controlled experiments on registration variability, spatial error and calibrated bounds.";
+const repo = "https://github.com/Kushrishi/truemargin";
 export const metadata: Metadata = {
   title: "TrueMargin | Kush Rishi",
-  description:
-    "Testing whether registration uncertainty predicts spatial alignment error.",
+  description,
   alternates: { canonical: "/research/truemargin" },
-  openGraph: {
-    title: "TrueMargin | Kush Rishi",
-    description:
-      "Testing whether registration uncertainty predicts spatial alignment error.",
-    url: "/research/truemargin",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TrueMargin | Kush Rishi",
-    description:
-      "Testing whether registration uncertainty predicts spatial alignment error.",
-  },
+  openGraph: { title: "TrueMargin | Kush Rishi", description, url: "/research/truemargin", type: "website" },
+  twitter: { card: "summary_large_image", title: "TrueMargin | Kush Rishi", description },
 };
+
 export default function Page() {
   return (
     <LaunchPage
       number="03"
       title="TrueMargin"
-      question="Can disagreement between image registrations reveal where the alignment is wrong?"
-      status="Controlled study complete / external validation pending"
+      question="Can disagreement between image registrations reveal alignment error?"
+      status="Controlled studies complete / external validation deferred"
       stack="Python / SimpleITK / numerical evaluation"
       links={[
-        { label: "Code", href: "https://github.com/Kushrishi/truemargin" },
-        {
-          label: "Technical report",
-          href: "https://github.com/Kushrishi/truemargin/blob/main/docs/technical_report.md",
-        },
+        { label: "Code", href: repo },
+        { label: "Technical report", href: `${repo}/blob/main/docs/technical_report.md` },
       ]}
       visual={<EvidenceExplorer />}
       sections={[
         {
           id: "question",
           title: "The question",
-          content: (
-            <>
-              <p>
-                Medical image registration aligns two scans. A registration can
-                look plausible while placing anatomy incorrectly. TrueMargin
-                asks whether variation across repeated registrations carries
-                useful information about that spatial error.
-              </p>
-              <p>
-                The goal is to distinguish three things: ranking likely errors,
-                finding blind spots, and producing numerical error bounds.
-                Success at one does not establish the others.
-              </p>
-            </>
-          ),
+          content: <p>Image registration aligns two scans. This study asks whether variation between registrations identifies local spatial error. Error ranking, blind spots and calibrated bounds are evaluated separately.</p>,
         },
         {
           id: "method",
-          title: "Method and architecture",
+          title: "Method",
           content: (
             <>
-              <p>
-                A fixed nine-member hyperparameter ensemble produces
-                displacement fields. Their local spread is compared with known
-                error from synthetic deformations. Image geometry, masks and
-                sampled coordinates are checked before analysis.
-              </p>
-              <MethodChain
-                steps={[
-                  "Align images with nine fixed parameter settings",
-                  "Measure local displacement disagreement",
-                  "Compare with error and independent baselines",
-                ]}
-              />
-              <p>
-                The controlled study uses 30 cases across 10 anatomies and 1,500
-                sampled locations. Anatomy-level summaries keep repeated spatial
-                measurements from being counted as independent subjects.
-                Comparators are inverse-consistency error, same-modality image
-                residual and Jacobian deviation.
-              </p>
+              <p>A fixed nine-setting ensemble produces displacement fields. Their local spread is compared with known error from synthetic deformations, inverse-consistency error, image residual and Jacobian deviation.</p>
+              <MethodChain steps={["Align images with fixed parameter settings", "Measure displacement disagreement", "Compare with known error and baselines"]} />
+              <p>The controlled study contains 30 cases across 10 anatomies and 1,500 sampled locations. Anatomy-level summaries avoid counting spatial samples as independent subjects.</p>
             </>
           ),
         },
         {
           id: "experiments",
           title: "Experiments",
-          content: (
-            <>
-              <ul>
-                <li>
-                  <strong>Association:</strong> rank association on known
-                  deformations.
-                </li>
-                <li>
-                  <strong>Failures:</strong> case failures and high-error,
-                  low-spread blind spots in the same observations.
-                </li>
-                <li>
-                  <strong>Calibration:</strong> group-calibrated bounds using 30
-                  calibration and 30 evaluation anatomies across two acquisition
-                  sources.
-                </li>
-              </ul>
-              <p>
-                The interactive plot above shows the ten anatomy-level medians
-                from the retained comparator CSV. It is a view of recorded
-                results, not a simulation.
-              </p>
-            </>
-          ),
+          content: <p>The first study measured associations and failure cases. A separate calibration study used 30 calibration and 30 evaluation anatomies across two sources. The interactive plot shows retained comparator data, not simulated results.</p>,
         },
         {
           id: "results",
@@ -120,153 +55,54 @@ export default function Page() {
             <>
               <table className="result-table">
                 <caption>Median anatomy-level Spearman correlation</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">Signal</th>
-                    <th scope="col">Correlation</th>
-                  </tr>
-                </thead>
+                <thead><tr><th scope="col">Signal</th><th scope="col">Correlation</th></tr></thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">Ensemble spread</th>
-                    <td>0.6841</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Inverse-consistency error</th>
-                    <td>0.7203</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Image residual</th>
-                    <td>0.2851</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Jacobian deviation</th>
-                    <td>0.1689</td>
-                  </tr>
+                  <tr><th scope="row">Ensemble spread</th><td>0.6841</td></tr>
+                  <tr><th scope="row">Inverse-consistency error</th><td>0.7203</td></tr>
+                  <tr><th scope="row">Image residual</th><td>0.2851</td></tr>
+                  <tr><th scope="row">Jacobian deviation</th><td>0.1689</td></tr>
                 </tbody>
               </table>
-              <p>
-                All ten anatomy-level spread/error associations were positive.
-                The median correlation confidence interval was [0.3048, 0.8284].
-                The paired difference interval against inverse-consistency error
-                crossed zero, so an advantage over that baseline was not
-                established.
-              </p>
+              <p>All ten anatomy-level spread/error associations were positive. The median correlation confidence interval was [0.3048, 0.8284]. No advantage over inverse-consistency error was established: the paired difference interval crossed zero.</p>
               <TrueMarginOverview />
-              <p className="original-evidence"><a href="/projects/truemargin.png">Original M4–M6 technical figure, preserved at full resolution</a>. M6 calibration uses a separate cohort; its conservative-radius findings remain below.</p>
+              <p className="original-evidence"><a href="/projects/truemargin.png">Original technical figure</a>. Calibration results below use a separate cohort.</p>
             </>
           ),
         },
         {
           id: "failures",
-          title: "Negative results",
+          title: "Failures and bounds",
           content: (
             <>
-              <p>
-                Six of thirty case-level correlations were negative. Thirty-nine
-                of 1,500 observations had high error despite low spread. Those
-                failures remain in the analysis.
-              </p>
-              <p>
-                At nominal 90% coverage, the separate evaluation study reached
-                97.73% and 99.73% mean anatomy-level coverage, but median
-                anatomy radii were 3.93 mm and 4.36 mm. One radius reached 70.69
-                mm. At 95%, thresholds were infinite with fifteen calibration
-                groups per source. Reverse-registration failures prevented the
-                planned full-cohort calibrated comparison with
-                inverse-consistency error.
-              </p>
+              <p>Six of 30 case-level correlations were negative. Thirty-nine of 1,500 observations had high error despite low spread; these failures remain in the analysis.</p>
+              <p>At nominal 90% coverage, the separate evaluation reached 97.73% and 99.73% mean anatomy-level coverage, with median anatomy radii of 3.93 mm and 4.36 mm. One anatomy had a 70.69 mm median radius. The 95% thresholds were infinite with fifteen calibration groups per source. Reverse-registration failures prevented the planned full-cohort calibrated baseline comparison.</p>
             </>
           ),
         },
         {
           id: "limits",
           title: "Limitations",
-          content: (
-            <>
-              <p>
-                The controlled association does not establish clinical validity,
-                external generalization or uniformly useful bounds. A later
-                calibration-only development analysis reduced radius in one
-                source and increased it in the other. Its overlapping folds are
-                not independent confirmation.
-              </p>
-              <p>
-                The project has a public technical report and research records.
-                It does not have an accepted peer-reviewed paper.
-              </p>
-            </>
-          ),
+          content: <p>These studies do not establish clinical validity, external generalization or uniformly useful bounds. A later calibration-only analysis found source-dependent effects, not a consistent improvement. The work has a technical report, not an accepted peer-reviewed publication.</p>,
         },
         {
           id: "reproduce",
           title: "Reproducibility",
           content: (
             <>
-              <p>
-                Python 3.12, optional imaging dependencies and the system
-                OpenSlide library are documented in the repository. Software
-                checks can run without the imaging dataset; a full experiment
-                also needs the source images and frozen protocol.
-              </p>
-              <pre>
-                <code>
-                  {
-                    'python -m pip install -e ".[realdata,dev]"\nruff check src tests scripts\nblack --check src tests scripts\nmypy\npytest'
-                  }
-                </code>
-              </pre>
-              <p>
-                <a href="https://github.com/Kushrishi/truemargin/blob/main/docs/reproduction.md">
-                  Environment and execution instructions
-                </a>{" "}
-                ·{" "}
-                <a href="https://github.com/Kushrishi/truemargin/tree/main/research">
-                  Protocols and result records
-                </a>
-              </p>
-              <p>
-                Result-bearing runs record frozen protocol and input identities.
-                Software checks and saved-result replay are separate from new
-                scientific experiments.
-              </p>
+              <p>From a checkout with Python 3.12, check the saved calibration and evaluation records without imaging data:</p>
+              <pre tabIndex={0} role="region" aria-label="Saved-result verification commands"><code>{"python scripts/verify_m6_phase_a_result.py results/m6_phase_a\npython scripts/verify_m6_phase_b_result.py results/m6_phase_b"}</code></pre>
+              <p>These checks do not rerun registrations. Full experiments require the source data and documented imaging dependencies.</p>
+              <p><a href={`${repo}/blob/main/docs/reproduction.md`}>Reproduction guide</a> · <a href={`${repo}/tree/main/research`}>Protocols and results</a></p>
             </>
           ),
         },
         {
           id: "next",
-          title: "Next experiment",
+          title: "Deferred external study",
           content: (
             <>
-              <p>
-                Test the unchanged estimator on external lung CT pairs with
-                manual landmarks. The protocol and training-image preflight are
-                implemented, but the experiment has not run.
-              </p>
-              <p>
-                The original source path stopped at unresolved landmark
-                provenance. All ten DIR-Lab fallback packets are acquired and
-                image decoding is qualified, with numerical landmarks sealed.
-                One later Case7 member completed on a persistent Mac worker
-                and passed a whole-field integrity audit and same-host readback.
-                Earlier disconnected Colab attempts remain unresolved.
-                Cross-host restoration is now accepted. The second Case7
-                tolerance setting collapsed to the reference field (4.1018e-12 mm
-                vector RMS difference; reference displacement RMS 0.89043 mm),
-                and both runs reached the 15-iteration cap. This establishes
-                neither convergence nor useful ensemble diversity. The ten original
-                DIR-Lab archive identities and paired 300-landmark entry metadata
-                are verified; numerical landmarks remain sealed. That pathway is
-                a prospective external cohort distinct from the blocked Learn2Reg
-                protocol. Resource and launcher review, a prospective freeze and
-                separate approval remain required before further registration or
-                landmark evaluation.
-              </p>
-              <p>
-                <a href="https://github.com/Kushrishi/truemargin/blob/main/docs/external_lung_validation_protocol.md">
-                  External-validation protocol
-                </a>
-              </p>
+              <p>An independent lung-CT protocol and image-only preflight were prepared. Two retained Case7 fields were almost identical after a tolerance change; both reached the iteration cap. This establishes neither convergence nor useful ensemble diversity. Numerical landmarks remain sealed and external landmark validation has not run.</p>
+              <p><a href={`${repo}/blob/main/docs/external_lung_validation_protocol.md`}>External protocol</a> · <a href={`${repo}/blob/main/research/STATE.md`}>Historical execution record</a></p>
             </>
           ),
         },
