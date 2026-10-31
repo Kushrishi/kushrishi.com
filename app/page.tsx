@@ -8,152 +8,68 @@ const gh = "https://github.com/Kushrishi";
 export default function Home() {
   return (
     <>
-      <a className="skip-link" href="#main">
-        Skip to content
-      </a>
+      <a className="skip-link" href="#main">Skip to content</a>
       <Header />
       <main id="main">
         <section className="hero">
           <div className="hero-copy">
-            <p className="eyebrow">Engineering & independent research</p>
-            <h1>
-              Kush Rishi<span className="name-period">.</span>
-            </h1>
-            <p className="hero-statement">
-              ML systems.
-              <br />
-              Evaluation.
-              <br />
-              <em>Spatial intelligence.</em>
-            </p>
+            <p className="eyebrow">Engineering &amp; independent research</p>
+            <h1>Kush Rishi<span className="name-period">.</span></h1>
+            <p className="hero-statement">ML systems.<br />Evaluation.<br /><em>Spatial intelligence.</em></p>
             <p className="hero-deck">
-              I build software for ML evaluation and sensing systems, with an
-              emphasis on measurement, uncertainty and reproducible engineering.
+              I build Python and C++ tools for measurement and model evaluation.
+              My research interests are reliable machine learning for physiological
+              signals and healthcare monitoring.
             </p>
-            <p className="current-role">
-              <span>Currently</span> GNSS Analyst at <strong>Xona</strong> ·
-              Montréal
-            </p>
+            <p className="current-role"><span>Currently</span> GNSS Analyst at <strong>Xona</strong> · Montréal</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#work">
-                Selected work
-              </a>
-              <a className="text-link" href={gh}>
-                GitHub
-              </a>
-              <Link className="text-link" href="/cv">
-                CV / Résumé
-              </Link>
+              <a className="button button-primary" href="#work">Selected work</a>
+              <a className="text-link" href={gh}>GitHub</a>
+              <Link className="text-link" href="/cv">CV / Résumé</Link>
             </div>
           </div>
           <CorrespondenceField />
         </section>
         <div className="work-index">
-          <span className="eyebrow">Three lines of inquiry</span>
+          <span className="eyebrow">Selected work</span>
           <a href="#mrf">01 · Model evaluation</a>
-          <a href="#autonomy">02 · Systems & sensing</a>
+          <a href="#autonomy">02 · Systems &amp; sensing</a>
           <a href="#truemargin">03 · Spatial uncertainty</a>
         </div>
         <section className="work-section" id="work">
           <div className="section-heading">
             <p className="eyebrow">Selected work</p>
             <h2>Software and research.</h2>
-            <p>
-              Working software, measured results and the failures that shaped
-              the next question.
-            </p>
+            <p>Working examples, measured results and documented limitations.</p>
           </div>
           <article className="project-row project-mrf" id="mrf">
             <div className="project-copy">
-              <p className="eyebrow">01 / ML evaluation & reliability</p>
-              <h3>
-                Model Regression
-                <br />
-                Forensics
-              </h3>
-              <p className="project-question">
-                What evidence can explain a model regression?
-              </p>
-              <p>
-                Compare saved classification predictions, check release
-                requirements and inspect changed cases in a portable report.
-                In the completed research study, simple baselines found both
-                planted changes; model-based diagnostics added no consistent
-                top-1 benefit.
-              </p>
-              <div className="finding">
-                <span>Finding</span>Repairing a failure does not always identify
-                its cause.
-              </div>
-              <p className="status">Maintenance · Independent-user benefit unestablished</p>
+              <p className="eyebrow">01 / ML evaluation &amp; reliability</p>
+              <h3>Model Regression<br />Forensics</h3>
+              <p className="project-question">What changed between two classifier releases?</p>
+              <p>Compare saved predictions, check declared requirements and inspect changed cases in a local report.</p>
+              <div className="finding"><span>Research result</span>Model-based diagnostics added no consistent benefit over simple baselines in two constructed benchmarks.</div>
+              <p className="status">Maintenance · Completed localization study</p>
               <div className="project-links">
-                <Link
-                  className="button"
-                  href="/research/model-regression-forensics"
-                >
-                  Explore the study
-                </Link>
-                <a
-                  className="text-link"
-                  href={`${gh}/model-regression-forensics`}
-                >
-                  Code
-                </a>
-                <a
-                  className="text-link"
-                  href={`${gh}/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md`}
-                >
-                  Report
-                </a>
-                <a
-                  className="text-link"
-                  href={`${gh}/model-regression-forensics/blob/main/docs/deployment-comparison.md`}
-                >
-                  Run the example
-                </a>
+                <Link className="button" href="/research/model-regression-forensics">Explore the study</Link>
+                <a className="text-link" href={`${gh}/model-regression-forensics`}>Code</a>
+                <a className="text-link" href={`${gh}/model-regression-forensics/blob/main/docs/deployment-comparison.md`}>Run the example</a>
               </div>
             </div>
             <ReleaseInvestigationVisual />
           </article>
           <article className="project-row reverse project-asl" id="autonomy">
             <div className="project-copy">
-              <p className="eyebrow">02 / Systems & sensing</p>
-              <h3>
-                Autonomy
-                <br />
-                Simulation Lab
-              </h3>
-              <p className="project-question">
-                Make a sensing system’s assumptions inspectable.
-              </p>
-              <p>
-                A browser planning and localization simulator, alongside a
-                native C++/Python tool that verifies recordings, runs CPU
-                inference and compares processing configurations.
-              </p>
-              <div className="finding">
-                <span>Verified</span>8.9749% median whole-process reduction across three
-                matched 108-frame native pairs; exact output parity.
-              </div>
-              <p className="status">
-                Browser v1.0.2 · Maintenance · Owner Mac graphical review complete; independent first use pending
-              </p>
+              <p className="eyebrow">02 / Systems &amp; sensing</p>
+              <h3>Autonomy<br />Simulation Lab</h3>
+              <p className="project-question">Inspect a sensing pipeline when its processing changes.</p>
+              <p>C++/Python recording replay and CPU inference, alongside a separate browser planning and localization simulator.</p>
+              <div className="finding"><span>Measured</span>8.97% median whole-process time reduction across three matched 108-frame pairs, with exact recorded output parity on one Linux host.</div>
+              <p className="status">Browser v1.0.2 · Native case study in maintenance</p>
               <div className="project-links">
-                <Link
-                  className="button"
-                  href="/projects/autonomy-simulation-lab"
-                >
-                  Explore the system
-                </Link>
-                <a
-                  className="text-link"
-                  href="https://kushrishi.github.io/autonomy-simulation-lab/"
-                >
-                  Live demo
-                </a>
-                <a className="text-link" href={`${gh}/autonomy-simulation-lab`}>
-                  Code
-                </a>
+                <Link className="button" href="/projects/autonomy-simulation-lab">Explore the system</Link>
+                <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/">Live demo</a>
+                <a className="text-link" href={`${gh}/autonomy-simulation-lab`}>Code</a>
               </div>
             </div>
             <SimulatorVisual />
@@ -162,167 +78,41 @@ export default function Home() {
             <div className="project-copy">
               <p className="eyebrow">03 / Spatial uncertainty</p>
               <h3>TrueMargin</h3>
-              <p className="project-question">
-                Can registration uncertainty reveal alignment error?
-              </p>
-              <p>
-                A controlled image-registration study finds useful rank
-                information, alongside case-level reversals and high-error blind
-                spots.
-              </p>
+              <p className="project-question">Can registration variability reveal alignment error?</p>
+              <p>Controlled image-registration experiments, including case-level failures and calibrated error bounds.</p>
               <div className="result-line">
                 <b>0.6841</b>
-                <span>
-                  Median anatomy-level Spearman correlation
-                  <br />
-                  30 controlled cases · 10 anatomies
-                </span>
+                <span>Median anatomy-level Spearman correlation<br />30 controlled cases · 10 anatomies</span>
               </div>
-              <div className="finding">
-                <span>Boundary</span>Useful association. No established
-                advantage over inverse-consistency error.
-              </div>
-              <p className="status">
-                Controlled studies complete · External validation next
-              </p>
+              <div className="finding"><span>Limitation</span>No advantage over inverse-consistency error was established.</div>
+              <p className="status">Controlled studies complete · External validation deferred</p>
               <div className="project-links">
-                <Link className="button" href="/research/truemargin">
-                  Explore the study
-                </Link>
-                <a className="text-link" href={`${gh}/truemargin`}>
-                  Code
-                </a>
-                <a
-                  className="text-link"
-                  href={`${gh}/truemargin/blob/main/docs/technical_report.md`}
-                >
-                  Report
-                </a>
+                <Link className="button" href="/research/truemargin">Explore the study</Link>
+                <a className="text-link" href={`${gh}/truemargin`}>Code</a>
+                <a className="text-link" href={`${gh}/truemargin/blob/main/docs/technical_report.md`}>Report</a>
               </div>
             </div>
             <TrueMarginHomeSummary />
           </article>
         </section>
-        <section className="themes-section">
-          <p className="eyebrow">What connects the work</p>
-          <h2>
-            How much should we
-            <br />
-            trust an output?
-          </h2>
-          <div className="themes">
-            <div>
-              <h3>Evaluate the change.</h3>
-              <p>
-                Separate a suspicious training change from a verified repair and
-                a uniquely supported cause.
-              </p>
-              <a href="/research/model-regression-forensics">
-                Model evaluation
-              </a>
-            </div>
-            <div>
-              <h3>Locate the uncertainty.</h3>
-              <p>
-                Measure where a spatial estimate is informative, overconfident
-                or too conservative to help.
-              </p>
-              <a href="/research/truemargin">Spatial intelligence</a>
-            </div>
-            <div>
-              <h3>Inspect the system.</h3>
-              <p>
-                Make input identity, timing, failure handling and
-                reproducibility part of the software contract.
-              </p>
-              <a href="/projects/autonomy-simulation-lab">
-                Systems engineering
-              </a>
-            </div>
-          </div>
-        </section>
         <section className="experience-section" id="experience">
           <div>
             <p className="eyebrow">Experience</p>
-            <h2>
-              From measurements
-              <br />
-              to working systems.
-            </h2>
-            <Link className="text-link" href="/cv">
-              Full experience & CV
-            </Link>
+            <h2>Engineering practice.</h2>
+            <Link className="text-link" href="/cv">Full experience &amp; CV</Link>
           </div>
           <div className="timeline">
-            <article>
-              <span>2026–present</span>
-              <div>
-                <h3>
-                  GNSS Analyst <span>· Xona</span>
-                </h3>
-                <p>
-                  Python and Linux workflows for positioning data, automated
-                  validation, monitoring and engineering analysis.
-                </p>
-              </div>
-            </article>
-            <article>
-              <span>2025–2026</span>
-              <div>
-                <h3>
-                  Research Assistant <span>· UCalgary</span>
-                </h3>
-                <p>
-                  LiDAR and photogrammetric point-cloud processing, spatial
-                  quality metrics and research visualizations.
-                </p>
-              </div>
-            </article>
-            <article>
-              <span>2024</span>
-              <div>
-                <h3>
-                  Survey Assistant <span>· McElhanney</span>
-                </h3>
-                <p>
-                  Control, layout and as-built measurements for the Valley Line
-                  West LRT extension.
-                </p>
-              </div>
-            </article>
+            <article><span>2026–present</span><div><h3>GNSS Analyst <span>· Xona</span></h3><p>Python and Linux workflows for positioning data, validation, monitoring and engineering analysis.</p></div></article>
+            <article><span>2025–2026</span><div><h3>Research Assistant <span>· UCalgary</span></h3><p>LiDAR and photogrammetric point-cloud processing, spatial quality metrics and research visualizations.</p></div></article>
+            <article><span>2024</span><div><h3>Survey Assistant <span>· McElhanney</span></h3><p>Control, layout and as-built measurements for the Valley Line West LRT extension.</p></div></article>
           </div>
         </section>
         <section className="about-section" id="about">
-          <div>
-            <p className="eyebrow">Background</p>
-            <h2>
-              Measurement was
-              <br />
-              the starting point.
-            </h2>
-          </div>
+          <div><p className="eyebrow">Background</p><h2>Measurements, models<br />and their limits.</h2></div>
           <div className="about-copy">
-            <p>
-              Geomatics taught me to ask what a measurement means, where its
-              error comes from and whether the evidence supports the conclusion.
-              That perspective carries into how I build software and study
-              machine-learning systems.
-            </p>
-            <p>
-              At Xona, I work with real positioning data. Independently, I’m
-              developing work in ML evaluation, spatial uncertainty and
-              reproducible sensing systems. The questions differ; careful
-              measurement matters in all of them.
-            </p>
-            <div className="education">
-              <span className="eyebrow">Education</span>
-              <h3>University of Calgary</h3>
-              <p>
-                BSc Geomatics Engineering
-                <br />
-                With Distinction · 2022–2026
-              </p>
-            </div>
+            <p>My background is in sensing, estimation and numerical evaluation. I am preparing for graduate research that connects those methods with reliable healthcare AI.</p>
+            <p>The projects above are independent work. Their reports separate implemented software, measured findings and questions that remain open.</p>
+            <div className="education"><span className="eyebrow">Education</span><h3>University of Calgary</h3><p>BSc Geomatics Engineering<br />With Distinction · 2022–2026</p></div>
           </div>
         </section>
       </main>
