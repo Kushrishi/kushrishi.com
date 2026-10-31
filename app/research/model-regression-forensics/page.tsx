@@ -1,266 +1,100 @@
 import type { Metadata } from "next";
 import { LaunchPage, MethodChain } from "@/components/LaunchPage";
 import { RegressionVisual, ReleaseInvestigationVisual } from "@/components/ProjectVisual";
+
+const repo = "https://github.com/Kushrishi/model-regression-forensics";
+const description = "Compare classifier releases and inspect changed predictions, with a separate completed localization study.";
 export const metadata: Metadata = {
   title: "Model Regression Forensics | Kush Rishi",
-  description:
-    "Saved-prediction release investigation, with a real report and completed negative attribution study.",
+  description,
   alternates: { canonical: "/research/model-regression-forensics" },
-  openGraph: {
-    title: "Model Regression Forensics | Kush Rishi",
-    description:
-      "Saved-prediction release investigation, with a real report and completed negative attribution study.",
-    url: "/research/model-regression-forensics",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Model Regression Forensics | Kush Rishi",
-    description:
-      "Saved-prediction release investigation, with a real report and completed negative attribution study.",
-  },
+  openGraph: { title: "Model Regression Forensics | Kush Rishi", description, url: "/research/model-regression-forensics", type: "website" },
+  twitter: { card: "summary_large_image", title: "Model Regression Forensics | Kush Rishi", description },
 };
+
 export default function Page() {
   return (
     <LaunchPage
       number="01"
       title="Model Regression Forensics"
-      question="A classification release changes behavior. What does the evidence support?"
-      status="Maintenance / independent-user benefit unestablished"
-      stack="Python / release policies / portable reports"
+      question="What changed between two classifier releases?"
+      status="Maintained comparison utility / completed research study"
+      stack="Python / release policies / local HTML reports"
       links={[
-        {
-          label: "Code",
-          href: "https://github.com/Kushrishi/model-regression-forensics",
-        },
-        {
-          label: "Technical report",
-          href: "https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_TECHNICAL_REPORT.md",
-        },
-        {
-          label: "Run the example",
-          href: "https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/deployment-comparison.md",
-        },
+        { label: "Code", href: repo },
+        { label: "Technical report", href: `${repo}/blob/main/research/M4_TECHNICAL_REPORT.md` },
+        { label: "Run the example", href: `${repo}/blob/main/docs/deployment-comparison.md` },
       ]}
       visual={<ReleaseInvestigationVisual />}
       sections={[
         {
           id: "question",
           title: "The question",
+          content: <p>The application compares saved predictions and checks declared release requirements. A separate research study asks whether a diagnostic ranking can identify the training change responsible for a regression. A successful repair does not necessarily identify a unique cause.</p>,
+        },
+        {
+          id: "engineering",
+          title: "Release comparison software",
           content: (
             <>
-              <p>
-                The maintained application compares saved classification releases, checks declared slice policies and makes changed cases inspectable. The completed research asks a separate question: after a model regresses, which training
-                change should a team inspect or reverse? MRF studies what evidence can
-                support that decision, and when a successful repair still leaves
-                the historical cause uncertain.
-              </p>
-              <p>
-                It separates localization, restoration and specificity: finding
-                a suspicious change, repairing behavior, and distinguishing that
-                repair from plausible alternatives.
-              </p>
+              <p>I implemented the prediction importer, identity checks, slice-policy comparison, supplied-repair assessment and local HTML report. The retained example contains 1,969 cases: eight labels change, including three new errors and three corrections, while the candidate still passes its declared policy. Repairs are unevaluated in this example.</p>
+              <pre tabIndex={0} role="region" aria-label="Saved-prediction import commands"><code>{"python -m pip install .\nmrf-import examples/deployment_comparison/policy.json examples/deployment_comparison/predictions.csv deployment-investigation"}</code></pre>
+              <p>From a checkout with Python 3.12 or later, use a new output directory and open its <code>index.html</code>. The example needs no model training or report server.</p>
+              <p><a href={`${repo}/blob/main/docs/deployment-comparison.md`}>Walkthrough</a> · <a href={`${repo}/blob/main/docs/architecture.md`}>Architecture</a></p>
             </>
           ),
         },
         {
           id: "method",
-          title: "Method and architecture",
+          title: "Study design",
           content: (
             <>
-              <p>
-                I implemented the prediction importer, source-integrity checks, policy comparison, supplied-repair assessment and portable HTML report. The research uses third-party Banking77 data and a pinned DistilBERT classifier, not an original pretrained model.
-              </p>
-              <p>
-                Two constructed Banking77 worlds contain five matched label-swap
-                candidates each. Every candidate changes sixty-six label slots
-                while leaving text and aggregate label counts unchanged.
-                Candidate identifiers are opaque. A pinned DistilBERT classifier
-                is trained across three paired trajectories per world.
-              </p>
-              <MethodChain
-                steps={[
-                  "Construct candidate changes and paired model releases",
-                  "Rank candidates without benchmark truth",
-                  "Finalize rankings, then score against planted truth",
-                ]}
-              />
-              <p>
-                The study compares deterministic random ranking, target-label
-                overlap, lexical Jaccard, final-checkpoint Grad-Dot and
-                seven-checkpoint TracIn. Ranking aggregation and truth scoring
-                are separate steps with retained identities and digests.
-              </p>
-            </>
-          ),
-        },
-        {
-          id: "experiments",
-          title: "Experiment history",
-          content: (
-            <>
-              <p>
-                Earlier shape-task experiments tested task capability, lexical
-                shortcuts and restoration specificity. Some could not learn the
-                clean task; others produced nonlocal regressions or competing
-                repairs. They are retained as negative development evidence.
-              </p>
-              <p>
-                A Banking77 pilot found separable root restoration, but nuisance
-                changes differed structurally. The matched study addressed that
-                confound without removing a semantic shortcut. Its repeated
-                training trajectories are not independent benchmark worlds.
-              </p>
-              <p>
-                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/EXPERIMENT_HISTORY.md">
-                  Complete experimental history
-                </a>
-              </p>
+              <p>Two constructed Banking77 benchmarks contain five matched label-swap candidates each. A third-party DistilBERT classifier was trained across three paired trajectories per benchmark. Rankings were finalized before truth scoring.</p>
+              <MethodChain steps={["Construct candidate changes and paired model releases", "Rank candidates without planted truth", "Finalize rankings and evaluate"]} />
+              <p>The comparison includes deterministic random ranking, target-label overlap, lexical Jaccard, final-checkpoint Grad-Dot and seven-checkpoint TracIn. Repeated training trajectories are not additional independent benchmarks.</p>
             </>
           ),
         },
         {
           id: "results",
-          title: "Completed research results",
+          title: "Research results",
           content: (
             <>
-              <p>
-                Label overlap and lexical similarity ranked the planted root
-                first in both matched worlds. Grad-Dot and TracIn ranked it
-                first in one world and last in the other. The random reference
-                ranked it third in each.
-              </p>
-              <p>
-                The model-based diagnostics added no top-1 benefit in this
-                construction. Known target labels and disjoint candidate pairs
-                made the simple baseline decisive.
-              </p>
+              <p>Label overlap and lexical similarity ranked the planted change first in both benchmarks. Grad-Dot and TracIn ranked it first in one and fifth in the other. The random reference ranked it third in each.</p>
+              <p>No consistent top-1 benefit from model-based diagnostics was established. Known target labels and disjoint candidate pairs provide a semantic shortcut for the simple baseline.</p>
               <RegressionVisual />
             </>
           ),
         },
         {
           id: "failures",
-          title: "Negative results",
-          content: (
-            <>
-              <p>
-                Matching the size and structure of changes did not make the
-                benchmark semantically difficult. This study cannot establish
-                general root-cause identification or superiority to modern
-                training-data attribution.
-              </p>
-              <p>
-                A separate deterministic repair example shows another limit:
-                restoring input feature order and reversing model weights both
-                recover the same baseline predictions. The assessment returns{" "}
-                <code>ambiguous_repairs</code> and leaves the historical cause{" "}
-                <code>not_identified</code>.
-              </p>
-            </>
-          ),
-        },
-        {
-          id: "engineering",
-          title: "Release investigation software",
-          content: (
-            <>
-              <p>
-                The installed importer accepts aligned baseline, candidate and
-                repair predictions. It checks declared accuracy floors and
-                allowed drops, retains source identities and creates a portable
-                HTML report with text previews, filters and case export.
-              </p>
-              <p>
-                A retained real-text deployment example contains 1,969 cases.
-                INT8 conversion changes eight labels, including three new
-                errors and three corrections, while overall accuracy remains
-                88.07% and all declared limits pass. Ordinary prediction
-                comparison reaches the same conclusions. Repairs are
-                unevaluated in this example; no training is needed.
-              </p>
-              <pre tabIndex={0} role="region" aria-label="Saved-prediction import commands">
-                <code>{"python -m pip install .\nmrf-import examples/deployment_comparison/policy.json examples/deployment_comparison/predictions.csv deployment-investigation"}</code>
-              </pre>
-              <p>
-                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/deployment-comparison.md">
-                  Saved-prediction walkthrough
-                </a>{" "}
-                ·{" "}
-                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/external-release-task.md">
-                  Independent comparison fixture
-                </a>
-              </p>
-            </>
-          ),
+          title: "Ambiguous repairs",
+          content: <p>A separate deterministic example restores identical predictions in two ways: correcting feature order or reversing model weights. The report returns <code>ambiguous_repairs</code> and leaves the historical cause <code>not_identified</code>. Passing a policy is not proof of a unique cause.</p>,
         },
         {
           id: "limits",
           title: "Limitations",
-          content: (
-            <>
-              <p>
-                Two constructed worlds, a controlled classifier task and planted
-                changes are a narrow basis for inference. A successful
-                counterfactual repair is not necessarily proof of a unique
-                historical cause. The bounded release utility is in maintenance; the
-                project has no published paper.
-              </p>
-            </>
-          ),
+          content: <p>Two constructed settings are a narrow basis for inference. The project does not establish general causal identification, superiority to attribution methods, statistical significance from policy thresholds, or independent-user benefit. There is no peer-reviewed publication or project-wide software licence grant.</p>,
+        },
+        {
+          id: "experiments",
+          title: "Experiment history",
+          content: <p>Earlier unsuccessful tasks, confounds and competing repairs remain in the <a href={`${repo}/blob/main/research/EXPERIMENT_HISTORY.md`}>experimental history</a>. Presentation changes do not alter those records.</p>,
         },
         {
           id: "reproduce",
           title: "Reproducibility",
           content: (
             <>
-              <pre>
-                <code>
-                  {
-                    "uv sync --extra dev\nuv run ruff check .\nuv run ruff format --check .\nuv run pytest"
-                  }
-                </code>
-              </pre>
-              <p>
-                Python 3.12 or later is required. The retained twelve-file M4
-                replay reproduces aggregation and truth scoring without a GPU,
-                model training or dataset downloads. It does not regenerate the
-                original scores or checkpoints.
-              </p>
-              <p>
-                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/REPRODUCE_M4.md">
-                  Digest-checked replay instructions
-                </a>{" "}
-                ·{" "}
-                <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/research/M4_RESULT.json">
-                  Accepted result record
-                </a>
-              </p>
+              <pre tabIndex={0} role="region" aria-label="Development verification commands"><code>{"uv sync --extra dev\nuv run ruff check .\nuv run ruff format --check .\nuv run pytest"}</code></pre>
+              <p><a href={`${repo}/blob/main/research/REPRODUCE_M4.md`}>Saved-result replay</a> checks aggregation and truth scoring without retraining. It does not regenerate original checkpoints or scores. Optional research dependencies are documented separately.</p>
             </>
           ),
         },
         {
           id: "next",
-          title: "Next evaluation",
-          content: (
-            <>
-              <p>
-                Observe an independent engineer importing saved predictions,
-                inspecting failed requirements and exporting evidence for a
-                release decision. Fix actual setup or interpretation problems
-                before expanding the application. Maintainer-assisted use
-                does not establish independent user benefit.
-              </p>
-              <p>
-                A comparative study needs qualified real incidents with known
-                versions and outcome evidence. Compare direct prediction
-                inspection, diff inspection, complete and targeted rollback,
-                and full retraining with matched information and cost. No
-                eligible training-release incident has yet been established;
-                the failed small-model study remains closed.
-              </p>
-            </>
-          ),
+          title: "Current scope",
+          content: <p>The comparison utility is in maintenance. Independent first use remains unestablished; new comparative research is deferred. Any future study needs a qualified task, a fair baseline and independent evaluation rather than another scorer alone.</p>,
         },
       ]}
     />
