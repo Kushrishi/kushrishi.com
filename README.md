@@ -42,3 +42,18 @@ Browser checks cover five content routes at 320, 390, 430, 768, 1024, 1440 and 1
 - `tests/browser/`: Chromium and WebKit checks, also run by CI.
 
 Essential content renders as HTML. Graphics do not require WebGL. Reduced-motion preferences disable transitions. The site uses no trackers or third-party animation runtime.
+
+## CV download
+
+`/cv` is the maintained CV source. `/Kush-Rishi-CV.pdf` is its reviewed two-page
+export; the page also provides browser printing. After changing CV content,
+styles, layout or its font, rebuild and regenerate the PDF:
+
+```bash
+npm run build
+UPDATE_CV_PDF=1 npx playwright test --project=chromium -g "Letter resume PDF"
+```
+
+Inspect both PDF pages, check links and commit the PDF and `tests/cv-pdf.json`
+with the source change. Normal CI checks the source fingerprints, served PDF
+bytes and two-page count so the download cannot silently become stale.

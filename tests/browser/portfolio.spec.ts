@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import { readFileSync, writeFileSync } from "node:fs";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 const routes = [
@@ -247,7 +249,8 @@ test("Letter resume PDF and current icon metadata", async ({
   await expect(page.locator(".print-contact")).toBeVisible();
   if (browserName === "chromium") {
     const output = testInfo.outputPath("Kush-Rishi-Resume.pdf");
-    await page.pdf({
+    await page.evaluate(() => document.fonts.ready);
+    const pdf = await page.pdf({
       path: output,
       preferCSSPageSize: true,
       printBackground: true,
@@ -258,6 +261,24 @@ test("Letter resume PDF and current icon metadata", async ({
       path: output,
       contentType: "application/pdf",
     });
+    const inputs = ["app/cv/page.tsx", "app/globals.css", "app/layout.tsx", "app/fonts/manrope.woff2"];
+    const sha = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
+    const sourceHashes = Object.fromEntries(inputs.map((path) => [path, sha(readFileSync(path))]));
+    const manifestPath = "tests/cv-pdf.json";
+    if (process.env.UPDATE_CV_PDF === "1") {
+      writeFileSync("public/Kush-Rishi-CV.pdf", pdf);
+      writeFileSync(manifestPath, JSON.stringify({ sources: sourceHashes, pdf: sha(pdf) }, null, 2) + "\n");
+    } else {
+      const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+      expect(sourceHashes, "Regenerate and visually review the CV PDF after changing its source").toEqual(manifest.sources);
+      const download = await page.request.get("/Kush-Rishi-CV.pdf");
+      expect(download.status()).toBe(200);
+      expect(download.headers()["content-type"]).toContain("application/pdf");
+      const bytes = await download.body();
+      expect(bytes.subarray(0, 5).toString()).toBe("%PDF-");
+      expect(sha(bytes)).toBe(manifest.pdf);
+      expect(bytes.toString("latin1").match(/\/Type \/Page\b/g)).toHaveLength(2);
+    }
   }
   await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute(
     "sizes",
