@@ -46,8 +46,9 @@ Essential content renders as HTML. Graphics do not require WebGL. Reduced-motion
 ## CV download
 
 `/cv` is the maintained CV source. `/Kush-Rishi-CV.pdf` is its reviewed two-page
-export; the page also provides browser printing. After changing CV content,
-styles, layout or its font, rebuild and regenerate the PDF:
+export. Download the PDF to view, save or print the reviewed layout. Browser
+printing of the web page can vary with browser and paper settings.
+After changing CV content, styles, layout or its font, rebuild and regenerate the PDF:
 
 ```bash
 npm run build

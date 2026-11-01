@@ -243,7 +243,11 @@ test("Letter resume PDF and current icon metadata", async ({
   await page.goto("/cv");
   await expect(
     page.getByRole("button", { name: "Print CV" }),
-  ).toBeVisible();
+  ).toHaveCount(0);
+  const downloadLink = page.getByRole("link", { name: "Download CV (PDF)" });
+  await expect(downloadLink).toBeVisible();
+  await expect(downloadLink).toHaveAttribute("href", "/Kush-Rishi-CV.pdf");
+  await expect(downloadLink).toHaveAttribute("download", "");
   await page.emulateMedia({ media: "print" });
   await expect(page.locator(".site-header")).toBeHidden();
   await expect(page.locator(".print-contact")).toBeVisible();

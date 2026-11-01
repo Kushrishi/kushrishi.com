@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ThemeSelect } from "@/components/ThemeSelect";
-import { PrintCV } from "@/components/PrintCV";
 
 export const metadata: Metadata = {
   title: "CV | Kush Rishi",
@@ -32,7 +31,6 @@ export default function CVPage() {
       <p className="print-contact">Montréal · <a href="mailto:kushrishi04@gmail.com">kushrishi04@gmail.com</a> · <a href="https://kushrishi.com">kushrishi.com</a> · <a href="https://github.com/Kushrishi">github.com/Kushrishi</a></p>
       <div className="cv-links web-only">
         <a className="button" href="/Kush-Rishi-CV.pdf" download>Download CV (PDF)</a>
-        <PrintCV />
         <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="mailto:kushrishi04@gmail.com">Email</a>
