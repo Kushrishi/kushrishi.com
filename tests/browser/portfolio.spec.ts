@@ -240,7 +240,7 @@ test("Letter resume PDF and current icon metadata", async ({
 }, testInfo) => {
   await page.goto("/cv");
   await expect(
-    page.getByRole("button", { name: "Save résumé as PDF" }),
+    page.getByRole("button", { name: "Print CV" }),
   ).toBeVisible();
   await page.emulateMedia({ media: "print" });
   await expect(page.locator(".site-header")).toBeHidden();
@@ -251,6 +251,8 @@ test("Letter resume PDF and current icon metadata", async ({
       path: output,
       preferCSSPageSize: true,
       printBackground: true,
+      tagged: true,
+      outline: true,
     });
     await testInfo.attach("resume", {
       path: output,

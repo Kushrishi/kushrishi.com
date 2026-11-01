@@ -29,21 +29,14 @@ export default function CVPage() {
       </header>
       <h1>Kush Rishi</h1>
       <p>GNSS Analyst at Xona. BSc in Geomatics Engineering, University of Calgary.</p>
-      <p className="print-contact">Montréal · kushrishi04@gmail.com · kushrishi.com · github.com/Kushrishi</p>
+      <p className="print-contact">Montréal · <a href="mailto:kushrishi04@gmail.com">kushrishi04@gmail.com</a> · <a href="https://kushrishi.com">kushrishi.com</a> · <a href="https://github.com/Kushrishi">github.com/Kushrishi</a></p>
       <div className="cv-links web-only">
+        <a className="button" href="/Kush-Rishi-CV.pdf" download>Download CV (PDF)</a>
         <PrintCV />
         <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="mailto:kushrishi04@gmail.com">Email</a>
       </div>
-
-      <section>
-        <h2>Education</h2>
-        <h3>University of Calgary</h3>
-        <p>BSc Geomatics Engineering, With Distinction · 2022–2026</p>
-        <p>Measurement, sensing, estimation, positioning and digital imaging.</p>
-        <p>President, Geomatics Engineering Students’ Society; Engineering Students’ Society Board of Directors, 2025–2026.</p>
-      </section>
 
       <section>
         <h2>Experience</h2>
@@ -74,11 +67,18 @@ export default function CVPage() {
         </article>
       </section>
 
+      <section>
+        <h2>Education</h2>
+        <h3>University of Calgary</h3>
+        <p>BSc Geomatics Engineering, With Distinction · 2022–2026</p>
+        <p>President, Geomatics Engineering Students’ Society; Engineering Students’ Society Board of Directors, 2025–2026.</p>
+      </section>
+
       <section className="print-research">
         <p className="print-only cv-continuation">Kush Rishi · kushrishi.com · Projects and skills</p>
         <h2>Selected projects</h2>
         <article>
-          <h3><Link href="/research/model-regression-forensics" prefetch={false}>Model Regression Forensics</Link></h3>
+          <h3><a href="https://kushrishi.com/research/model-regression-forensics">Model Regression Forensics</a></h3>
           <p>Built a prediction importer, release-policy checks and local reports. In two constructed Banking77 benchmarks, model-based diagnostics added no consistent top-1 benefit over simple baselines. A separate example demonstrates ambiguous repairs; general causal identification is not established.</p>
         </article>
         <article>
@@ -87,7 +87,7 @@ export default function CVPage() {
           <p><a href="https://kushrishi.github.io/autonomy-simulation-lab/">Interactive demo</a></p>
         </article>
         <article>
-          <h3><Link href="/research/truemargin" prefetch={false}>TrueMargin</Link></h3>
+          <h3><a href="https://kushrishi.com/research/truemargin">TrueMargin</a></h3>
           <p>Evaluated registration variability against known spatial error in 30 controlled cases across 10 anatomies, followed by separate calibration and evaluation cohorts. Median anatomy-level rank correlation was 0.6841; six case-level associations were negative. Bounds were conservative, and no advantage over inverse-consistency error was established. Independent external validation was not completed.</p>
         </article>
       </section>
