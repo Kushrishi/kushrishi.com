@@ -4,31 +4,31 @@ export function SocialCard({ kind = "home" }: Props) {
   const info = {
     home: {
       name: "Kush Rishi",
-      sub: "ML systems. Evaluation. Spatial intelligence.",
+      sub: "GNSS Analyst at Xona",
       color: "#284bea",
-      label: "SPATIAL CORRESPONDENCE",
-      foot: "GNSS Analyst at Xona · Montréal",
+      label: "SPATIAL CORRESPONDENCE · ILLUSTRATION",
+      foot: "Experience · Projects · CV",
     },
     tm: {
       name: "TrueMargin",
-      sub: "Useful uncertainty. Important blind spots.",
+      sub: "Image-registration uncertainty and spatial error.",
       color: "#284bea",
       label: "RECORDED ANATOMY ASSOCIATIONS",
-      foot: "30 controlled cases · 10 anatomies · External validation next",
+      foot: "30 controlled cases · 10 anatomies · External validation deferred",
     },
     mrf: {
       name: "Model Regression Forensics",
-      sub: "What explains a model regression?",
+      sub: "Compare classifier releases and changed predictions.",
       color: "#a6532e",
       label: "RECORDED ROOT-CANDIDATE RANK",
-      foot: "Two constructed Banking77 worlds · Matched study complete",
+      foot: "Two constructed Banking77 benchmarks · Study complete",
     },
     asl: {
       name: "Autonomy Simulation Lab",
-      sub: "Sensing systems you can inspect.",
+      sub: "Recording replay and pipeline comparison.",
       color: "#136c64",
       label: "NATIVE RECORDING COMPARISON",
-      foot: "Browser v1.0.2 maintenance · Owner Mac graphical review complete",
+      foot: "Browser v1.0.2 · Native case study in maintenance",
     },
   }[kind];
   return (
@@ -227,7 +227,7 @@ export function SocialCard({ kind = "home" }: Props) {
                 lineHeight: 1.5,
               }}
             >
-              Owner Mac graphical review complete · Independent first use pending
+              Independent first use remains unestablished.
             </div>
           </div>
         )}
