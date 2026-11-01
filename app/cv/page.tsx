@@ -4,18 +4,18 @@ import { PrintCV } from "@/components/PrintCV";
 
 export const metadata: Metadata = {
   title: "CV | Kush Rishi",
-  description: "Engineering experience, education and independent research.",
+  description: "Engineering experience, education and independent projects.",
   alternates: { canonical: "/cv" },
   openGraph: {
     title: "CV | Kush Rishi",
-    description: "Engineering experience, education and independent research.",
+    description: "Engineering experience, education and independent projects.",
     url: "/cv",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Kush Rishi | ML systems, evaluation & spatial intelligence" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Kush Rishi | GNSS Analyst at Xona" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "CV | Kush Rishi",
-    description: "Engineering experience, education and independent research.",
+    description: "Engineering experience, education and independent projects.",
   },
 };
 
@@ -27,7 +27,7 @@ export default function CVPage() {
         <Link href="/" prefetch={false}>Portfolio</Link>
       </header>
       <h1>Kush Rishi</h1>
-      <p>GNSS Analyst at Xona. Research interests: reliable machine learning, physiological signals and healthcare monitoring.</p>
+      <p>GNSS Analyst at Xona. BSc in Geomatics Engineering, University of Calgary.</p>
       <p className="print-contact">Montréal · kushrishi04@gmail.com · kushrishi.com · github.com/Kushrishi</p>
       <div className="cv-links">
         <PrintCV />
@@ -45,7 +45,7 @@ export default function CVPage() {
       </section>
 
       <section>
-        <h2>Professional engineering</h2>
+        <h2>Experience</h2>
         <article>
           <h3>GNSS Analyst · Xona</h3>
           <p>Montréal · June 2026–present</p>
@@ -77,11 +77,11 @@ export default function CVPage() {
         <h2>Independent research</h2>
         <article>
           <h3><Link href="/research/truemargin" prefetch={false}>TrueMargin</Link></h3>
-          <p>Evaluated registration variability against known spatial error in 30 controlled cases across 10 anatomies, followed by separate calibration and evaluation cohorts. Median anatomy-level rank correlation was 0.6841; six case-level associations were negative. Bounds were conservative, and no advantage over inverse-consistency error was established. Further external validation is deferred; no clinical validation is claimed.</p>
+          <p>Evaluated registration variability against known spatial error in 30 controlled cases across 10 anatomies, followed by separate calibration and evaluation cohorts. Median anatomy-level rank correlation was 0.6841; six case-level associations were negative. Bounds were conservative, and no advantage over inverse-consistency error was established. Further external validation is deferred.</p>
         </article>
         <article>
           <h3><Link href="/research/model-regression-forensics" prefetch={false}>Model Regression Forensics</Link></h3>
-          <p>Built a prediction importer, release-policy checks and local reports. In two constructed Banking77 benchmarks, model-based diagnostics added no consistent top-1 benefit over simple baselines. A separate example demonstrates ambiguous repairs. General causal identification and independent-user benefit have not been established.</p>
+          <p>Built a prediction importer, release-policy checks and local reports. In two constructed Banking77 benchmarks, model-based diagnostics added no consistent top-1 benefit over simple baselines. A separate example demonstrates ambiguous repairs; general causal identification is not established.</p>
         </article>
       </section>
 
