@@ -600,7 +600,7 @@ figcaption a {
   max-width: 100%;
   margin-top: 24px;
   object-fit: cover;
-  object-position: 41% center;
+  object-position: center;
   border-radius: 4px;
 }
 .education {

@@ -111,7 +111,7 @@ export default function Home() {
           <div>
             <p className="eyebrow">About</p>
             <h2>Background.</h2>
-            <Image className="about-portrait" src="/images/kush-rishi.jpg" alt="Kush Rishi" width={1920} height={1280} sizes="360px" />
+            <Image className="about-portrait" src="/images/kush-rishi-portrait.jpg" alt="Kush Rishi" width={1920} height={1280} sizes="360px" />
           </div>
           <div className="about-copy">
             <p>My experience includes GNSS analysis, surveying, LiDAR and photogrammetry. The projects above are independent work alongside my professional experience.</p>
