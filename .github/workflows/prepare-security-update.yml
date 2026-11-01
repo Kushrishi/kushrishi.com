@@ -1,0 +1,53 @@
+name: Prepare security update
+on:
+  push:
+    branches: [maintenance/next-security-20261031]
+    paths: [.github/workflows/prepare-security-update.yml]
+permissions:
+  contents: write
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: maintenance/next-security-20261031
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - name: Resolve patched packages without executing dependency scripts
+        run: |
+          set -euo pipefail
+          npm install --package-lock-only --ignore-scripts --save-exact next@16.4.1
+          npm install --package-lock-only --ignore-scripts --save-dev --save-exact eslint-config-next@16.4.1
+          node -e "const p=require('./package.json'); const l=require('./package-lock.json'); if(p.dependencies.next!=='16.4.1'||p.devDependencies['eslint-config-next']!=='16.4.1'||l.packages['node_modules/next'].version!=='16.4.1')process.exit(1)"
+      - name: Save updated dependency audit
+        run: |
+          mkdir -p /tmp/security-update-review
+          set +e
+          npm audit --package-lock-only --ignore-scripts --json > /tmp/security-update-review/npm-audit.json
+          status=$?
+          set -e
+          printf '%s\n' "$status" > /tmp/security-update-review/npm-audit.exit.txt
+          git diff -- package.json package-lock.json > /tmp/security-update-review/dependency.diff
+          cp package.json package-lock.json /tmp/security-update-review/
+      - name: Commit only the dependency files on the maintenance branch
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = maintenance/next-security-20261031
+          git diff --name-only | grep -Ev '^(package.json|package-lock.json)$' > /tmp/unexpected-changes || true
+          test ! -s /tmp/unexpected-changes
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add package.json package-lock.json
+          git commit -m 'Update Next.js and its ESLint configuration to 16.4.1'
+          git push origin HEAD:maintenance/next-security-20261031
+          git rev-parse HEAD > /tmp/security-update-review/commit.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: security-update-review
+          path: /tmp/security-update-review/
+          retention-days: 3
+          if-no-files-found: warn
