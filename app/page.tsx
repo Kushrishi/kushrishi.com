@@ -16,7 +16,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="eyebrow">Portfolio</p>
             <h1>Kush Rishi<span className="name-period">.</span></h1>
-            <p className="hero-statement">GNSS Analyst<br /><em>at Xona.</em></p>
+            <p className="hero-statement">GNSS Analyst at Xona</p>
             <p className="hero-deck">
               I work with positioning data and build Python and C++ tools for
               measurement and evaluation.

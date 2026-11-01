@@ -190,11 +190,10 @@ nav a,
   color: var(--cyan);
 }
 .hero-statement {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: 1.125rem;
   font-weight: 500;
-  line-height: 1.22;
-  letter-spacing: -0.045em;
-  margin-bottom: 24px;
+  line-height: 1.5;
+  margin-bottom: 16px;
 }
 .hero-deck {
   max-width: 36rem;
@@ -1090,17 +1089,12 @@ line {
     font-size: clamp(3rem, 10vw, 4.5rem);
     margin-block: 8px 16px;
   }
-  .hero-statement { font-size: 1.5rem; margin-bottom: 16px; }
-  .hero-statement br { display: none; }
   .hero-copy .eyebrow { margin-bottom: 12px; }
   .hero-deck, .current-role { margin-bottom: 16px; }
   .hero-actions { margin-top: 20px; }
   .header-controls { gap: 12px; flex-wrap: wrap; justify-content: end; }
   .site-header { align-items: start; }
 
-  .hero-statement em:before {
-    content: " ";
-  }
   .hero-deck {
     font-size: 1rem;
   }
@@ -1239,9 +1233,6 @@ line {
   }
   nav a {
     font-size: 0.8rem;
-  }
-  .hero-statement {
-    font-size: 1.75rem;
   }
   .hero-actions {
     gap: 8px 20px;
