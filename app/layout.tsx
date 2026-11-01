@@ -8,9 +8,9 @@ const manrope = localFont({
   weight: "200 800",
 });
 
-const siteTitle = "Kush Rishi | GNSS Analyst at Xona";
+const siteTitle = "Kush Rishi | Engineering projects";
 const siteDescription =
-  "Kush Rishi, GNSS Analyst at Xona. Experience, independent projects and documented results in sensing, software and model evaluation.";
+  "Engineering experience and independent projects by Kush Rishi. Explore demos, code, measured results and a printable CV.";
 
 export const viewport: Viewport = {
   themeColor: "#fcfcfd",

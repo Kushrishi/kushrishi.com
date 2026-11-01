@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "CV | Kush Rishi",
     description: "Engineering experience, education and independent projects.",
     url: "/cv",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Kush Rishi | GNSS Analyst at Xona" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Kush Rishi | Engineering projects" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -29,7 +29,7 @@ export default function CVPage() {
       <h1>Kush Rishi</h1>
       <p>GNSS Analyst at Xona. BSc in Geomatics Engineering, University of Calgary.</p>
       <p className="print-contact">Montréal · kushrishi04@gmail.com · kushrishi.com · github.com/Kushrishi</p>
-      <div className="cv-links">
+      <div className="cv-links web-only">
         <PrintCV />
         <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/kushrishi/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -74,6 +74,7 @@ export default function CVPage() {
       </section>
 
       <section className="print-research">
+        <p className="print-only cv-continuation">Kush Rishi · kushrishi.com · Projects and skills</p>
         <h2>Independent research</h2>
         <article>
           <h3><Link href="/research/truemargin" prefetch={false}>TrueMargin</Link></h3>
@@ -89,7 +90,7 @@ export default function CVPage() {
         <h2>Selected engineering</h2>
         <article>
           <h3><a href="https://github.com/Kushrishi/autonomy-simulation-lab">Autonomy Simulation Lab</a></h3>
-          <p>Built a browser planning/localization simulator and a separate C++/Python recording-replay tool with CPU inference and configuration comparison. A crop-aware optimization reduced median whole-process time by 8.97% across three matched 108-frame pairs with exact recorded output parity on one Linux host. This is a bounded case study, not a general performance guarantee.</p>
+          <p>Built a browser planning/localization simulator and a separate C++/Python recording-replay tool with CPU inference and configuration comparison. A crop-aware optimization reduced median whole-process time by 8.97% across three matched 108-frame pairs with exact recorded output parity on one Linux host. Measurements apply to that host, model and workload.</p>
           <p><a href="https://kushrishi.github.io/autonomy-simulation-lab/">Interactive demo</a></p>
         </article>
       </section>
