@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --bg: #fcfcfd;
   --surface: #f0f3f8;
   --text: #182235;
@@ -111,7 +112,7 @@ figure {
   left: 20px;
   padding: 12px 20px;
   background: var(--text);
-  color: white;
+  color: var(--bg);
 }
 .skip-link:focus {
   top: 12px;
@@ -168,9 +169,12 @@ nav a,
   padding: 64px var(--gutter) 72px;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
+  grid-template-areas: "copy visual" "overview overview";
   gap: 32px;
   align-items: center;
 }
+.hero-copy { grid-area: copy; }
+.hero > .field-figure { grid-area: visual; }
 .hero-copy,
 .project-copy,
 .study-sections {
@@ -236,9 +240,9 @@ nav a,
   background: var(--surface);
 }
 .button-primary {
-  background: var(--cyan);
+  background: #234fe5;
   color: white;
-  border-color: var(--cyan);
+  border-color: #234fe5;
 }
 .button-primary:hover {
   background: #193dc1;
@@ -304,25 +308,18 @@ nav a,
   margin-top: 8px;
 }
 .work-index {
-  max-width: var(--max);
-  margin: auto;
-  padding: 24px var(--gutter);
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  border-block: 1px solid var(--line);
+  grid-area: overview;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
-.work-index a {
-  font-size: 0.875rem;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-.work-index > .eyebrow {
-  display: flex;
-  align-items: center;
-}
+.work-index a { display: flex; flex-direction: column; align-items: start; gap: 4px; padding: 8px 0; min-height: 44px; }
+.work-index strong { font-size: .95rem; font-weight: 650; }
+.work-index span { font-size: .8rem; color: var(--muted); }
+.header-controls { display: flex; align-items: center; gap: 24px; }
+.theme-select { width: 94px; font-size: .8rem; padding: 8px; }
 .work-section {
   max-width: var(--max);
   padding: 80px var(--gutter) 0;
@@ -419,7 +416,7 @@ nav a,
 }
 .recorded-figure {
   padding: 24px;
-  background: white;
+  background: var(--paper);
   border: 1px solid var(--line);
   min-width: 0;
 }
@@ -440,6 +437,7 @@ figcaption a {
   text-underline-offset: 3px;
 }
 .rank-plate {
+  color: #182235;
   background: #f8f1eb;
   padding: 32px;
   min-width: 0;
@@ -472,6 +470,7 @@ figcaption a {
   z-index: -1;
 }
 .simulator-plate {
+  color: #182235;
   background: #e9f1f0;
   padding: 24px;
   min-width: 0;
@@ -868,7 +867,7 @@ thead th {
 }
 select {
   color: var(--text);
-  background: white;
+  background: var(--paper);
   border: 1px solid var(--line);
   padding: 10px;
   min-height: 44px;
@@ -1023,7 +1022,7 @@ line {
 }
 .print-button {
   border: 1px solid var(--line);
-  background: white;
+  background: var(--paper);
   border-radius: 4px;
   padding: 8px 16px;
   min-height: 44px;
@@ -1083,16 +1082,21 @@ line {
   }
   .hero {
     grid-template-columns: 1fr;
-    padding-block: 40px 48px;
-    gap: 32px;
+    grid-template-areas: "copy" "overview" "visual";
+    padding-block: 24px 32px;
+    gap: 24px;
   }
   .hero-copy h1 {
-    font-size: clamp(3.9rem, 13vw, 6rem);
-    margin-block: 12px 24px;
+    font-size: clamp(3rem, 10vw, 4.5rem);
+    margin-block: 8px 16px;
   }
-  .hero-statement {
-    font-size: 2rem;
-  }
+  .hero-statement { font-size: 1.5rem; margin-bottom: 16px; }
+  .hero-statement br { display: none; }
+  .hero-copy .eyebrow { margin-bottom: 12px; }
+  .hero-deck, .current-role { margin-bottom: 16px; }
+  .hero-actions { margin-top: 20px; }
+  .header-controls { gap: 12px; flex-wrap: wrap; justify-content: end; }
+  .site-header { align-items: start; }
 
   .hero-statement em:before {
     content: " ";
@@ -1109,12 +1113,13 @@ line {
     box-shadow: none;
   }
   .field-figure svg {
-    max-height: 300px;
+    max-height: 180px;
   }
   .work-index {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 4px;
+    padding-top: 16px;
   }
   .work-section {
     padding-top: 48px;
@@ -1200,6 +1205,7 @@ line {
   }
   .experiment-plate,
   .rank-plate {
+  color: #182235;
     padding: 24px;
   }
   .plot-intro {
@@ -1539,3 +1545,32 @@ a {
 .exact-timings div { padding: 12px 0; border-bottom: 1px solid var(--line); }
 .exact-timings dt { font-size: .875rem; }
 .exact-timings dd { margin: 4px 0 12px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+
+@media screen {
+  :root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111827;
+  --surface: #1c2739;
+  --paper: #182235;
+  --text: #edf1f7;
+  --muted: #b7c2d3;
+  --line: #40506a;
+  --cyan: #a9bcff;
+  --coral: #ffb58f;
+  --lime: #74d9cb;
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  color-scheme: dark;
+  --bg: #111827;
+  --surface: #1c2739;
+  --paper: #182235;
+  --text: #edf1f7;
+  --muted: #b7c2d3;
+  --line: #40506a;
+  --cyan: #a9bcff;
+  --coral: #ffb58f;
+  --lime: #74d9cb;
+  }
+}

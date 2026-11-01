@@ -28,14 +28,13 @@ export default function Home() {
               <Link className="text-link" href="/cv">CV / Résumé</Link>
             </div>
           </div>
+          <nav className="work-index" aria-label="Selected projects">
+            <a href="#mrf"><strong>Model Regression Forensics</strong><span>Compare classifier predictions</span></a>
+            <a href="#autonomy"><strong>Autonomy Simulation Lab</strong><span>Planning simulation and recording replay</span></a>
+            <a href="#truemargin"><strong>TrueMargin</strong><span>Study image-registration uncertainty</span></a>
+          </nav>
           <CorrespondenceField />
         </section>
-        <div className="work-index">
-          <span className="eyebrow">Selected work</span>
-          <a href="#mrf">01 · Model evaluation</a>
-          <a href="#autonomy">02 · Simulation &amp; replay</a>
-          <a href="#truemargin">03 · Spatial uncertainty</a>
-        </div>
         <section className="work-section" id="work">
           <div className="section-heading">
             <p className="eyebrow">Selected work</p>
@@ -111,7 +110,7 @@ export default function Home() {
           <div>
             <p className="eyebrow">About</p>
             <h2>Background.</h2>
-            <Image className="about-portrait" src="/images/kush-rishi-portrait.jpg" alt="Kush Rishi" width={1920} height={1280} sizes="360px" />
+            <Image className="about-portrait" src="/images/kush-rishi-91.jpg" alt="Kush Rishi" width={1920} height={1280} sizes="360px" />
           </div>
           <div className="about-copy">
             <p>My experience includes GNSS analysis, surveying, LiDAR and photogrammetry. The projects above are independent work alongside my professional experience.</p>
