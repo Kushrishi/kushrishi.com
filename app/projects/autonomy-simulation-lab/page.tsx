@@ -2,89 +2,54 @@ import type { Metadata } from "next";
 import { LaunchPage, MethodChain } from "@/components/LaunchPage";
 import { SimulatorVisual } from "@/components/ProjectVisual";
 import { NativeBenchmarkPublication } from "@/components/PublicationEvidence";
+
+const repo = "https://github.com/Kushrishi/autonomy-simulation-lab";
+const description = "C++/Python recording replay and CPU inference, alongside an educational browser simulator.";
 export const metadata: Metadata = {
   title: "Autonomy Simulation Lab | Kush Rishi",
-  description:
-    "Native C++/Python recording replay, CPU inference and configuration comparison, alongside a released browser planning/localization simulator.",
+  description,
   alternates: { canonical: "/projects/autonomy-simulation-lab" },
-  openGraph: {
-    title: "Autonomy Simulation Lab | Kush Rishi",
-    description:
-      "Native C++/Python recording replay, CPU inference and configuration comparison, alongside a released browser planning/localization simulator.",
-    url: "/projects/autonomy-simulation-lab",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Autonomy Simulation Lab | Kush Rishi",
-    description:
-      "Native C++/Python recording replay, CPU inference and configuration comparison, alongside a released browser planning/localization simulator.",
-  },
+  openGraph: { title: "Autonomy Simulation Lab | Kush Rishi", description, url: "/projects/autonomy-simulation-lab", type: "website" },
+  twitter: { card: "summary_large_image", title: "Autonomy Simulation Lab | Kush Rishi", description },
 };
+
 export default function Page() {
   return (
     <LaunchPage
       number="02"
       title="Autonomy Simulation Lab"
-      question="Which frames change when a sensing pipeline changes, and what do their timing and spatial context show?"
-      status="Browser v1.0.2 maintenance / owner Mac graphical review complete"
-      stack="TypeScript / React / Python / C++"
+      question="What changes when a sensing pipeline processes the same recording differently?"
+      status="Browser v1.0.2 / native case study in maintenance"
+      stack="C++ / Python / TypeScript / React"
       links={[
-        {
-          label: "Live simulator",
-          href: "https://kushrishi.github.io/autonomy-simulation-lab/",
-        },
-        {
-          label: "Code",
-          href: "https://github.com/Kushrishi/autonomy-simulation-lab",
-        },
+        { label: "Live simulator", href: "https://kushrishi.github.io/autonomy-simulation-lab/" },
+        { label: "Code", href: repo },
       ]}
       visual={<NativeBenchmarkPublication />}
       sections={[
         {
-          id: "question",
-          title: "Browser simulator",
+          id: "native",
+          title: "Native C++ systems case study",
           content: (
             <>
-              <p>
-                Planning and localization are easier to understand when their
-                assumptions are visible. This simulator lets a visitor change a
-                grid, compare routes, introduce noisy measurements and inspect
-                the position estimates against simulated truth.
-              </p>
-              <p>
-                It is an educational engineering system, not a complete autonomy
-                stack or GNSS receiver.
-              </p>
+              <p>The native tool verifies recording timestamps, paths and file identities; decodes bounded PNG images; and runs a pinned ONNX Runtime CPU model. Python tools compare outputs and processing configurations. Optional Rerun export adds timing and spatial context.</p>
+              <MethodChain steps={["Verify recording and model identity", "Preprocess frames and run inference", "Compare outputs and timing"]} />
+              <p>I implemented a crop-aware preprocessing path that avoids computing resized pixels discarded by the center crop. Three matched 108-frame pairs showed an 8.97% median reduction in whole-process wall time and a separate 57.52% reduction in summed preprocessing time, with exact recorded model-output parity.</p>
+              <p>These measurements cover one Linux host, one MobileNetV2 model and one workload. Startup, cache and scheduling were not fully controlled. The exact measurements remain in the figure and linked case study; no general speedup or accuracy gain is claimed.</p>
+              <p>Libpng, ONNX Runtime, MobileNetV2 and Rerun are dependencies, not original components. KITTI data retains its own terms and is not republished here.</p>
+              <p><a href={`${repo}/blob/main/native/CONTROLLED_REPLAY_CASE_STUDY.md`}>Full case study</a> · <a href={`${repo}/blob/main/native/USABILITY.md`}>Native quickstart</a></p>
             </>
           ),
         },
         {
+          id: "question",
+          title: "Browser simulator",
+          content: <p>A separate educational simulator lets a visitor edit a grid, compare routes, introduce noisy measurements and inspect position estimates against simulated truth. It is not a complete autonomy stack or GNSS receiver.</p>,
+        },
+        {
           id: "method",
-          title: "System architecture",
-          content: (
-            <>
-              <MethodChain
-                steps={[
-                  "Edit a scenario and compare grid planners",
-                  "Move the robot and generate noisy observations",
-                  "Inspect estimates and export telemetry",
-                ]}
-              />
-              <p>
-                BFS provides an unweighted step-count reference. Dijkstra
-                minimizes terrain-weighted cost; A* uses the same cost model
-                with a Manhattan heuristic and binary priority queue. Dynamic
-                obstacles can trigger replanning from the robot’s current state.
-              </p>
-              <p>
-                Localization includes noisy position fixes, nonlinear
-                Gauss-Newton range least squares and a linear constant-velocity
-                Kalman filter. The Kalman filter uses position measurements; it
-                does not directly fuse the nonlinear beacon ranges.
-              </p>
-            </>
-          ),
+          title: "Planning and localization",
+          content: <p>BFS provides an unweighted step-count reference. A* and Dijkstra use terrain-weighted costs. Localization includes Gauss–Newton range estimation and a constant-velocity Kalman filter using position measurements, not direct nonlinear range fusion. JSON/CSV telemetry can be inspected with Python.</p>,
         },
         {
           id: "demo",
@@ -92,108 +57,24 @@ export default function Page() {
           content: (
             <>
               <SimulatorVisual />
-              <ol>
-                <li>Open the simulator and choose the warehouse scenario.</li>
-                <li>
-                  Compare BFS, Dijkstra and A* with terrain costs enabled.
-                </li>
-                <li>
-                  Add a route obstacle during motion and inspect replanning.
-                </li>
-                <li>Increase measurement noise and compare position errors.</li>
-                <li>Export JSON or CSV and inspect the Python analysis.</li>
-              </ol>
-              <p>
-                <a href="https://kushrishi.github.io/autonomy-simulation-lab/">
-                  Open the live simulator
-                </a>
-              </p>
+              <p>Choose a scenario, compare planners with terrain costs, add an obstacle during motion and inspect the resulting route. Increase measurement noise to compare estimates with simulated truth.</p>
+              <p><a href="https://kushrishi.github.io/autonomy-simulation-lab/">Open the live simulator</a></p>
             </>
           ),
         },
         {
           id: "verification",
           title: "Verification",
-          content: (
-            <>
-              <p>
-                Automated checks cover path validity, weighted optimality,
-                A*/Dijkstra agreement, queue ordering, blocked goals,
-                dynamic-obstacle helpers, range recovery, finite noisy estimates
-                and Kalman behavior. CI runs the tests and production build.
-              </p>
-              <p>
-                The quantitative displays report the current simulated run. They
-                are not claims of superiority on real vehicles. Matched seeds,
-                scenarios and hardware are needed before any performance
-                comparison.
-              </p>
-            </>
-          ),
+          content: <p>Automated checks cover paths, weighted optimality, queue ordering, range recovery, input validation and filter behaviour. The native workflow includes numerical-reference and repeated-run checks. Those tests are not evidence of real-vehicle perception accuracy or cross-platform numerical equivalence.</p>,
         },
         {
           id: "limits",
-          title: "Limits and failures",
+          title: "Limits and unresolved issues",
           content: (
             <>
-              <p>
-                A blocked goal may have no route. BFS deliberately ignores
-                terrain cost. Noisy or poorly conditioned measurements can
-                produce inaccurate estimates. Simulated ground truth makes these
-                failures inspectable.
-              </p>
-              <p>
-                The GNSS-inspired model omits satellite ephemerides, receiver
-                clock bias, atmospheric effects, multipath, ambiguities and
-                cycle slips. The current browser release does not perform camera
-                perception or learned navigation. Process noise uses a simplified Q
-                model; deterministic noise is not calibrated covariance. Gauss–Newton
-                has bounded iteration, not a convergence guarantee. Browser import,
-                accessibility and full cross-browser acceptance remain incomplete.
-                The owner accepted the specific v1.0.2 search/movement regression,
-                not the entire application.
-              </p>
-            </>
-          ),
-        },
-        {
-          id: "native",
-          title: "Native C++ systems case study",
-          content: (
-            <>
-              <p>
-                The separate C++ tool validates a tab-separated recording
-                manifest, increasing timestamps, bounded record counts,
-                contained file paths and SHA-256 identities. Bounded streaming
-                verifies frame bytes. Libpng decodes images into RGB8 buffers
-                with a pixel-count limit.
-              </p>
-              <p>
-                The runner applies explicit preprocessing and executes a pinned
-                ONNX Runtime CPU model. Python tools compare frame predictions,
-                identities and latency. Optional Rerun export combines camera
-                imagery, timing, synchronization skew and ENU positions. Native
-                CI covers Linux and macOS; Linux also uses sanitizers.
-              </p>
-              <MethodChain
-                steps={[
-                  "Verify recording, model and preprocessing identity",
-                  "Decode images and execute CPU inference",
-                  "Compare predictions and processing configurations",
-                  "Inspect camera, timing and spatial context in Rerun",
-                ]}
-              />
-              <p>
-                I implemented a center-crop decode path that avoids the full-frame
-                intermediate buffer. Three matched 108-frame baseline/candidate
-                pairs reduced median whole-process wall time by 8.9749% and the
-                measured preprocessing stage by 57.5238%, with exact recorded output
-                parity. This is one Linux host, one model and one workload.
-                Libpng, ONNX Runtime, the pretrained model and Rerun are dependencies;
-                Rerun is the third-party viewer. KITTI imagery remains subject to its
-                dataset terms and is not republished here.
-              </p>
-              <p className="status-line">A relocated installation compared all 108 recorded frames and reproduced the retained baseline exactly. Owner-side Mac graphical inspection is complete; independent first use remains unestablished. The review covered both accepted recordings at six selected frames in Rerun 0.38.1. Close/reopen persistence and broader perception validation are not established. Historical output residue is detected but its original cause remains unresolved.</p>
+              <p>The browser uses simplified dynamics and deterministic noise; its covariance is not calibrated to real sensing errors. Gauss–Newton has a finite iteration budget, not a convergence guarantee. Keyboard-only grid editing and full browser/accessibility acceptance remain incomplete.</p>
+              <p>The native workflow has no published release. A historical output-residue issue remains unresolved, although it is now detected. Owner-side Mac viewer inspection was completed; independent first use and close/reopen persistence remain unestablished.</p>
+              <p><a href={`${repo}/blob/main/native/RELEASE_READINESS_2026_10.md`}>Native release-readiness record</a> · <a href={`${repo}/blob/main/analysis/numerical-audit/README.md`}>Numerical audit</a></p>
             </>
           ),
         },
@@ -202,56 +83,17 @@ export default function Page() {
           title: "Run and reproduce",
           content: (
             <>
-              <pre>
-                <code>{"npm ci\nnpm test\nnpm run build\nnpm run dev"}</code>
-              </pre>
-              <p>
-                The Vite base path is <code>/autonomy-simulation-lab/</code>.
-                Telemetry exports can be analyzed with the supplied Python
-                utilities.
-              </p>
-              <pre>
-                <code>
-                  {
-                    "cmake -S native -B native/build -DCMAKE_BUILD_TYPE=Debug\ncmake --build native/build\nctest --test-dir native/build --output-on-failure"
-                  }
-                </code>
-              </pre>
-              <p>
-                <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/native/README.md">
-                  Native contracts and build options
-                </a>{" "}
-                ·{" "}
-                <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/native/INSTALLED_RECORDING_WORKFLOW.md">
-                  Installed recording walkthrough
-                </a>{" "}
-                ·{" "}
-                <a href="https://github.com/Kushrishi/autonomy-simulation-lab/releases/tag/v1.0.2">
-                  Browser v1.0.2 release
-                </a>{" "} · <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/analysis/numerical-audit/README.md">Numerical audit</a>
-              </p>
+              <pre tabIndex={0} role="region" aria-label="Browser development commands"><code>{"npm ci\nnpm test\nnpm run build\nnpm run dev"}</code></pre>
+              <p>The browser base path is <code>/autonomy-simulation-lab/</code>. Native builds and optional inference dependencies are documented separately.</p>
+              <pre tabIndex={0} role="region" aria-label="Native build commands"><code>{"cmake -S native -B native/build -DCMAKE_BUILD_TYPE=Debug\ncmake --build native/build\nctest --test-dir native/build --output-on-failure"}</code></pre>
+              <p><a href={`${repo}/blob/main/native/README.md`}>Native build options</a> · <a href={`${repo}/blob/main/native/INSTALLED_RECORDING_WORKFLOW.md`}>Recording walkthrough</a> · <a href={`${repo}/releases/tag/v1.0.2`}>Browser release</a></p>
             </>
           ),
         },
         {
           id: "next",
-          title: "Next engineering milestone",
-          content: (
-            <>
-              <p>
-                Owner-side graphical inspection of both accepted recordings is
-                complete within its six-frame scope. Remaining acceptance includes
-                close/reopen persistence and independent first use; neither is
-                established by the retained screenshots.
-              </p>
-              <p>
-                Verify the installed synthetic example on another machine and
-                complete independent first use before a native release. The
-                existing comparison establishes repeatability in its measured
-                environment, not perception accuracy or sensor fusion.
-              </p>
-            </>
-          ),
+          title: "Current scope",
+          content: <p>Both workflows are in maintenance. A native release would require the remaining acceptance work; current measurements do not establish independent usability, sensor fusion or clinical use.</p>,
         },
       ]}
     />

@@ -8,8 +8,9 @@ const manrope = localFont({
   weight: "200 800",
 });
 
+const siteTitle = "Kush Rishi | GNSS Analyst at Xona";
 const siteDescription =
-  "Kush Rishi, GNSS Analyst at Xona. ML systems, evaluation and spatial intelligence. Independent research and engineering grounded in measurement.";
+  "Kush Rishi, GNSS Analyst at Xona. Experience, independent projects and documented results in sensing, software and model evaluation.";
 
 export const viewport: Viewport = {
   themeColor: "#fcfcfd",
@@ -18,16 +19,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kushrishi.com"),
-  title: "Kush Rishi | ML Systems, Evaluation & Spatial Intelligence",
+  title: siteTitle,
   description: siteDescription,
   authors: [{ name: "Kush Rishi", url: "https://kushrishi.com" }],
   creator: "Kush Rishi",
   publisher: "Kush Rishi",
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Kush Rishi | ML Systems, Evaluation & Spatial Intelligence",
+    title: siteTitle,
     description: siteDescription,
     url: "/",
     siteName: "Kush Rishi",
@@ -35,13 +34,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kush Rishi | ML Systems, Evaluation & Spatial Intelligence",
+    title: siteTitle,
     description: siteDescription,
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

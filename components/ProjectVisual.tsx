@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 export function RegressionVisual() {
   const rows = [
     ["Label overlap", 1, 1],
@@ -7,85 +8,48 @@ export function RegressionVisual() {
     ["TracIn", 1, 5],
     ["Random reference", 3, 3],
   ] as const;
+
   return (
     <div className="rank-plate">
-      <div className="plate-heading">
-        <span>01 / Banking77</span>
-        <span>Two constructed worlds</span>
-      </div>
-      <h3>
-        The simplest baseline
-        <br />
-        found both roots.
-      </h3>
-      <div className="diagnostic-flow" aria-label="Diagnostic evidence flow">
-        <div>
-          <small>Release change</small>Baseline → retrained model
-        </div>
-        <div>
-          <small>Observed regression</small>Rank five candidate changes
-        </div>
-        <div className="flow-outcome">
-          <small>Separate repair fixture</small>Two successful repairs →
-          ambiguous cause
-        </div>
+      <div className="plate-heading"><span>Banking77</span><span>Two constructed benchmarks</span></div>
+      <h3>Simple baselines found<br />both planted changes.</h3>
+      <div className="diagnostic-flow" aria-label="Study workflow">
+        <div><small>Training change</small>Baseline → retrained model</div>
+        <div><small>Evaluation</small>Rank five candidate changes</div>
+        <div className="flow-outcome"><small>Separate repair example</small>Two repairs → same predictions</div>
       </div>
       <table>
-        <caption>
-          Rank of the planted training change. 1 is best; 5 is last.
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col">Diagnostic</th>
-            <th scope="col">World 00</th>
-            <th scope="col">World 01</th>
-          </tr>
-        </thead>
+        <caption>Rank of the planted training change. 1 is best; 5 is last.</caption>
+        <thead><tr><th scope="col">Diagnostic</th><th scope="col">Benchmark A</th><th scope="col">Benchmark B</th></tr></thead>
         <tbody>
-          {rows.map(([s, a, b]) => (
-            <tr key={s}>
-              <th scope="row">{s}</th>
-              <td>
-                <span className="rank-cell">
-                  <i style={{ width: `${a * 18}%` }} />
-                  {a}
-                </span>
-              </td>
-              <td>
-                <span className="rank-cell">
-                  <i style={{ width: `${b * 18}%` }} />
-                  {b}
-                </span>
-              </td>
+          {rows.map(([name, a, b]) => (
+            <tr key={name}>
+              <th scope="row">{name}</th>
+              <td><span className="rank-cell"><i style={{ width: `${a * 18}%` }} />{a}</span></td>
+              <td><span className="rank-cell"><i style={{ width: `${b * 18}%` }} />{b}</span></td>
             </tr>
           ))}
         </tbody>
       </table>
       <p className="plot-note">
-        Known target labels and disjoint candidate pairs expose a shortcut.
-        Repeated training trajectories are not additional benchmark worlds.
+        The constructed labels give simple baselines a shortcut. Repeated training runs are not additional independent benchmarks.
       </p>
     </div>
   );
 }
+
 export function SimulatorVisual() {
   return (
     <figure className="simulator-plate">
-      <div className="plate-heading">
-        <span>02 / Autonomy Simulation Lab</span>
-        <span>Actual browser interface</span>
-      </div>
+      <div className="plate-heading"><span>Autonomy Simulation Lab</span><span>Browser demo</span></div>
       <Image
         src="/projects/asl-v1-current.webp"
         width={1280}
         height={900}
-        alt="Live ASL v1 weighted-terrain A-star route beside populated noisy-position, range least-squares and Kalman localization metrics"
+        alt="An A-star route through weighted terrain beside position-estimation results"
         sizes="(max-width: 800px) 100vw, 55vw"
       />
-      <figcaption>
-        Captured from a completed weighted-terrain A* run on 5 October 2026.
-        Simulated measurements; this is the browser v1, not native inference.
-      </figcaption>
+      <figcaption>A completed A* run with simulated measurements. This is the browser simulator, not the native replay tool.</figcaption>
     </figure>
   );
 }
@@ -93,21 +57,22 @@ export function SimulatorVisual() {
 export function ReleaseInvestigationVisual() {
   return (
     <figure className="recorded-figure">
-      <div className="plate-heading">
-        <span>01 / Release investigation</span><span>Actual HTML report</span>
-      </div>
-      <a href="/projects/mrf-release-investigation-real.png" aria-label="Open the actual MRF report screenshot at full resolution">
-        <Image src="/projects/mrf-release-investigation-real.png" width={1440} height={1514}
-          alt="Passing release policy above a searchable table of eight changed Banking77 predictions, including three new errors and three corrections"
-          sizes="(max-width: 800px) 100vw, 900px" />
+      <div className="plate-heading"><span>Model Regression Forensics</span><span>HTML report</span></div>
+      <a href="/projects/mrf-release-investigation-real.png" aria-label="Open the MRF report screenshot at full resolution">
+        <Image
+          src="/projects/mrf-release-investigation-real.png"
+          width={1440}
+          height={1514}
+          alt="A classifier comparison report listing eight changed predictions, including three new errors and three corrections"
+          sizes="(max-width: 800px) 100vw, 900px"
+        />
       </a>
       <figcaption>
-        1,969 cases; 78 passing slices; eight changed predictions. Three new errors,
-        three corrections and two wrong-to-wrong changes leave aggregate accuracy unchanged.
-        Owner-supplied capture; independent Chromium interaction check reported.
-        Banking77: PolyAI, Casanueva et al. (2020), <a href="https://github.com/PolyAI-LDN/task-specific-datasets">source</a>, {" "}
-        <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
-        Changes: case selection, predictions and grouping. <a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/deployment-comparison.md#published-report-capture">Capture identity and limits</a>.
+        Eight of 1,969 predictions changed while overall accuracy stayed the same: three new errors, three corrections and two changes between incorrect labels.
+        {" "}Banking77: PolyAI, Casanueva et al. (2020), <a href="https://github.com/PolyAI-LDN/task-specific-datasets">source</a>,
+        {" "}<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+        Case selection, predictions and grouping were added for this example.
+        {" "}<a href="https://github.com/Kushrishi/model-regression-forensics/blob/main/docs/deployment-comparison.md#published-report-capture">Example details</a>.
       </figcaption>
     </figure>
   );
@@ -116,17 +81,19 @@ export function ReleaseInvestigationVisual() {
 export function NativeBenchmarkVisual() {
   return (
     <figure className="recorded-figure">
-      <div className="plate-heading"><span>Native C++ / CPU inference</span><span>Measured wall time</span></div>
-      <Image src="/projects/native-asl-matched-wall-time.png" width={1890} height={1116}
-        alt="Three paired 108-frame runs: baseline and candidate wall times, with exact recorded output parity and a median whole-process reduction of 8.9749 percent"
-        sizes="(max-width: 800px) 100vw, 900px" />
+      <div className="plate-heading"><span>C++ preprocessing</span><span>Whole-process time</span></div>
+      <Image
+        src="/projects/native-asl-matched-wall-time.png"
+        width={1890}
+        height={1116}
+        alt="Three paired runs with an 8.97 percent median reduction in whole-process time"
+        sizes="(max-width: 800px) 100vw, 900px"
+      />
       <figcaption>
-        Original accepted figure, unchanged. Median whole-process reduction: 8.9749%;
-        preprocessing-stage reduction: 57.5238%. Three matched pairs, one Linux host,
-        one model and one recording. Exact recorded output parity excludes timing.
-        No perception-accuracy or universal speed claim. {" "}
-        <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/docs/assets/performance_data.json">Source measurements</a> · {" "}
-        <a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/native/README.md">Method and reproduction</a>.
+        Three paired runs of a 108-frame workload: median whole-process time fell by 8.97%, with identical model outputs.
+        These measurements cover one Linux host, model and recording.
+        {" "}<a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/docs/assets/performance_data.json">Measurements</a>
+        {" · "}<a href="https://github.com/Kushrishi/autonomy-simulation-lab/blob/main/native/CONTROLLED_REPLAY_CASE_STUDY.md">Method and limitations</a>.
       </figcaption>
     </figure>
   );
