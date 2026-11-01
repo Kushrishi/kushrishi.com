@@ -14,7 +14,5 @@ for y in range(38,390,29):
 d.ellipse((265,112,337,184),outline='#efb17e',width=2)
 font=lambda n:ImageFont.truetype('/tmp/kush-manrope.ttf',n)
 d.text((605,63),'Kush Rishi',font=font(57),fill='white')
-d.text((609,160),'ML systems. Evaluation.',font=font(34),fill='white')
-d.text((609,207),'Spatial intelligence.',font=font(34),fill='white')
 d.text((610,301),'kushrishi.com',font=font(23),fill='#d8e0ff')
 im.save(root/'public/brand/linkedin-banner.png',optimize=True)

@@ -2,7 +2,7 @@
   "sources": {
     "app/cv/page.tsx": "ba0566a4c8e4d655840d7ea6492124ce5da730c437aab6685829476cdd58008f",
     "app/globals.css": "bc1a7a19871a76567743802cc00b2666bcb1a8d67448f7b149a8e6e86e2d469b",
-    "app/layout.tsx": "5384234483db5bb7d327074b04f7a51f9739235616f1432f976dbfd6ed681b61",
+    "app/layout.tsx": "9bf4ecb7af7e0e881019a512f4650ac41f8773a99e511c0d9cae118617c4518f",
     "app/fonts/manrope.woff2": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
   },
   "pdf": "cf089151f2d3932ad4875b03ebc2746990ee6cc711b11e0375f6d3c9bae418ea"

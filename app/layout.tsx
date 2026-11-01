@@ -8,7 +8,7 @@ const manrope = localFont({
   weight: "200 800",
 });
 
-const siteTitle = "Kush Rishi | Engineering projects";
+const siteTitle = "Kush Rishi";
 const siteDescription =
   "Engineering experience and independent projects by Kush Rishi. Explore demos, code, measured results and a printable CV.";
 
