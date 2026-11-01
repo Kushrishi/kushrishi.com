@@ -593,6 +593,16 @@ figcaption a {
   max-width: 38rem;
   min-width: 0;
 }
+.about-portrait {
+  display: block;
+  width: 208px;
+  height: 240px;
+  max-width: 100%;
+  margin-top: 24px;
+  object-fit: cover;
+  object-position: 41% center;
+  border-radius: 4px;
+}
 .education {
   border-top: 1px solid var(--line);
   padding-top: 24px;

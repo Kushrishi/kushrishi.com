@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { TrueMarginHomeSummary } from "@/components/PublicationEvidence";
 import { Header, Footer } from "@/components/SiteChrome";
 import { CorrespondenceField } from "@/components/CorrespondenceField";
@@ -107,7 +108,11 @@ export default function Home() {
           </div>
         </section>
         <section className="about-section" id="about">
-          <div><p className="eyebrow">About</p><h2>Background.</h2></div>
+          <div>
+            <p className="eyebrow">About</p>
+            <h2>Background.</h2>
+            <Image className="about-portrait" src="/images/kush-rishi.jpg" alt="Kush Rishi" width={1920} height={1280} sizes="208px" />
+          </div>
           <div className="about-copy">
             <p>My experience includes GNSS analysis, surveying, LiDAR and photogrammetry. The projects above are independent work alongside my professional experience.</p>
             <div className="education"><span className="eyebrow">Education</span><h3>University of Calgary</h3><p>BSc Geomatics Engineering<br />With Distinction · 2022–2026</p></div>
