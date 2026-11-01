@@ -59,7 +59,7 @@ export default function Page() {
           content: (
             <>
               <SimulatorVisual />
-              <p>Choose a scenario, compare planners with terrain costs, add an obstacle during motion and inspect the resulting route. Increase measurement noise to compare estimates with simulated truth.</p>
+              <p>Choose a scenario, compare planners with terrain costs, add an obstacle during motion and inspect the resulting route. Use arrow keys to move between grid cells and Enter or Space to apply the selected editor tool.</p>
               <p><a href="https://kushrishi.github.io/autonomy-simulation-lab/">Open the live simulator</a></p>
             </>
           ),
@@ -74,7 +74,7 @@ export default function Page() {
           title: "Limits and unresolved issues",
           content: (
             <>
-              <p>The browser uses simplified dynamics and deterministic noise; its covariance is not calibrated to real sensing errors. Gauss–Newton has a finite iteration budget, not a convergence guarantee. Keyboard-only grid editing and full browser/accessibility acceptance remain incomplete.</p>
+              <p>The browser uses simplified dynamics and deterministic noise; its covariance is not calibrated to real sensing errors. Gauss–Newton has a finite iteration budget, not a convergence guarantee. Compatibility with assistive technologies has not been established.</p>
               <p>The native tool has no packaged release. An earlier output-cleanup issue remains unresolved. Installation by a new user and reopening saved viewer sessions still need testing.</p>
               <p><a href={`${repo}/blob/main/native/RELEASE_READINESS_2026_10.md`}>Native release-readiness record</a> · <a href={`${repo}/blob/main/analysis/numerical-audit/README.md`}>Numerical audit</a></p>
             </>
