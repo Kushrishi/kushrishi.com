@@ -1,6 +1,6 @@
 {
   "sources": {
-    "app/cv/page.tsx": "ba0566a4c8e4d655840d7ea6492124ce5da730c437aab6685829476cdd58008f",
+    "app/cv/page.tsx": "120fc004b190a0f736f3fda7f44b23a3231107d46a470a46f8150d7703169419",
     "app/globals.css": "f4118891bf6560dd506bb614e70ba65c3b9a38429bee494cf26349c860c82fb6",
     "app/layout.tsx": "9bf4ecb7af7e0e881019a512f4650ac41f8773a99e511c0d9cae118617c4518f",
     "app/fonts/manrope.woff2": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
