@@ -13,15 +13,14 @@ export default function Home() {
       <main id="main">
         <section className="hero">
           <div className="hero-copy">
-            <p className="eyebrow">Engineering &amp; independent research</p>
+            <p className="eyebrow">Portfolio</p>
             <h1>Kush Rishi<span className="name-period">.</span></h1>
-            <p className="hero-statement">ML systems.<br />Evaluation.<br /><em>Spatial intelligence.</em></p>
+            <p className="hero-statement">GNSS Analyst<br /><em>at Xona.</em></p>
             <p className="hero-deck">
-              I build Python and C++ tools for measurement and model evaluation.
-              My research interests are reliable machine learning for physiological
-              signals and healthcare monitoring.
+              I work with positioning data and build Python and C++ tools for
+              measurement and evaluation.
             </p>
-            <p className="current-role"><span>Currently</span> GNSS Analyst at <strong>Xona</strong> · Montréal</p>
+            <p className="current-role">Montréal · BSc Geomatics Engineering, University of Calgary</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Selected work</a>
               <a className="text-link" href={gh}>GitHub</a>
@@ -44,7 +43,7 @@ export default function Home() {
           </div>
           <article className="project-row project-mrf" id="mrf">
             <div className="project-copy">
-              <p className="eyebrow">01 / ML evaluation &amp; reliability</p>
+              <p className="eyebrow">01 / ML evaluation</p>
               <h3>Model Regression<br />Forensics</h3>
               <p className="project-question">What changed between two classifier releases?</p>
               <p>Compare saved predictions, check declared requirements and inspect changed cases in a local report.</p>
@@ -108,10 +107,9 @@ export default function Home() {
           </div>
         </section>
         <section className="about-section" id="about">
-          <div><p className="eyebrow">Background</p><h2>Measurements, models<br />and their limits.</h2></div>
+          <div><p className="eyebrow">About</p><h2>Background.</h2></div>
           <div className="about-copy">
-            <p>My background is in sensing, estimation and numerical evaluation. I am preparing for graduate research that connects those methods with reliable healthcare AI.</p>
-            <p>The projects above are independent work. Their reports separate implemented software, measured findings and questions that remain open.</p>
+            <p>My background is in sensing, estimation and numerical evaluation. The projects above are independent work alongside my professional experience.</p>
             <div className="education"><span className="eyebrow">Education</span><h3>University of Calgary</h3><p>BSc Geomatics Engineering<br />With Distinction · 2022–2026</p></div>
           </div>
         </section>
