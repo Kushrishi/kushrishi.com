@@ -7,7 +7,7 @@ export function TrueMarginHomeSummary() {
   return (
     <figure className="recorded-figure tm-home-summary">
       <div className="plate-heading"><span>Controlled study</span><span>30 cases</span></div>
-      <h4>Where the signal fails</h4>
+      <h4>Correlations varied by case</h4>
       <p className="tm-case-count"><strong>6 of 30</strong><span>cases had negative spread/error correlations</span></p>
       <div
         className="tm-case-groups"
@@ -37,7 +37,7 @@ export function TrueMarginOverview() {
   return (
     <figure className="recorded-figure tm-overview publication-evidence">
       <div className="plate-heading"><span>Controlled study</span><span>10 anatomies</span></div>
-      <h3>Correlations and failure cases</h3>
+      <h3>Registration spread and alignment error</h3>
       <p>Each anatomy has three synthetic deformations with known alignment errors.</p>
       <div className="tm-panel-grid">
         <div>
@@ -56,7 +56,7 @@ export function TrueMarginOverview() {
           <p>Spread did not show an advantage over inverse-consistency error. The comparator’s valid-case counts vary by anatomy.</p>
         </div>
         <div>
-          <h4>Case-level failures</h4>
+          <h4>Case-level correlations</h4>
           <p>Spread/error correlations for all 30 deformation cases.</p>
           <Image
             src="/projects/publication/truemargin-cases-publication.svg"

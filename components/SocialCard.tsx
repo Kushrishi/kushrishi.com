@@ -6,9 +6,9 @@ export function SocialCard({ kind = "home" }: Props) {
   const info = {
     home: {
       name: "Kush Rishi",
-      sub: "GNSS Analyst at Xona",
+      sub: "Engineering projects",
       color: "#284bea",
-      label: "SPATIAL CORRESPONDENCE · ILLUSTRATION",
+      label: "SELECTED PROJECTS",
       foot: "Experience · Projects · CV",
     },
     tm: {
@@ -56,7 +56,7 @@ export function SocialCard({ kind = "home" }: Props) {
         }}
       >
         <div style={{ display: "flex", fontSize: 16, letterSpacing: "0.08em", color: "#586170" }}>
-          KUSH RISHI / SELECTED WORK
+          {kind === "home" ? "PORTFOLIO" : "KUSH RISHI / SELECTED WORK"}
         </div>
         <div
           style={{
@@ -91,20 +91,18 @@ export function SocialCard({ kind = "home" }: Props) {
           {info.label}
         </div>
         {kind === "home" ? (
-          <svg width="410" height="330" viewBox="0 0 410 330">
-            {Array.from({ length: 99 }, (_, i) => {
-              const x = 25 + (i % 11) * 35;
-              const y = 25 + Math.floor(i / 11) * 34;
-              const d = Math.exp(-((x - 205) ** 2 + (y - 165) ** 2) / 14000);
-              return (
-                <g key={i}>
-                  <line x1={x} y1={y} x2={x + 35 * d} y2={y - 25 * d} stroke="#8eabff" />
-                  <circle cx={x + 35 * d} cy={y - 25 * d} r="2.7" fill="#fff" />
-                </g>
-              );
-            })}
-            <circle cx="220" cy="150" r="38" stroke="#efb17e" fill="none" strokeDasharray="4 5" />
-          </svg>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {[
+              ["Model Regression Forensics", "Compare classifier predictions"],
+              ["Autonomy Simulation Lab", "Simulate planning and replay recordings"],
+              ["TrueMargin", "Measure image-registration uncertainty"],
+            ].map(([name, purpose]) => (
+              <div key={name} style={{ display: "flex", flexDirection: "column", padding: "24px 0", borderBottom: "1px solid #8298f4" }}>
+                <span style={{ fontSize: 25, lineHeight: 1.2 }}>{name}</span>
+                <span style={{ fontSize: 19, lineHeight: 1.4, marginTop: 10, color: "#e2e8ff" }}>{purpose}</span>
+              </div>
+            ))}
+          </div>
         ) : kind === "tm" ? (
           <div style={{ display: "flex", flexDirection: "column" }}>
             <svg width="410" height="330" viewBox="0 0 410 330">
