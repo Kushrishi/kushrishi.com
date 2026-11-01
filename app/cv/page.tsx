@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ThemeSelect } from "@/components/ThemeSelect";
 import { PrintCV } from "@/components/PrintCV";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function CVPage() {
     <main className="cv-page">
       <header className="site-header compact-header">
         <Link className="wordmark" href="/" prefetch={false}>KR</Link>
-        <Link href="/" prefetch={false}>Portfolio</Link>
+        <div className="header-controls"><Link href="/" prefetch={false}>Portfolio</Link><ThemeSelect /></div>
       </header>
       <h1>Kush Rishi</h1>
       <p>GNSS Analyst at Xona. BSc in Geomatics Engineering, University of Calgary.</p>
