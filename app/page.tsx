@@ -32,7 +32,7 @@ export default function Home() {
         <div className="work-index">
           <span className="eyebrow">Selected work</span>
           <a href="#mrf">01 · Model evaluation</a>
-          <a href="#autonomy">02 · Systems &amp; sensing</a>
+          <a href="#autonomy">02 · Simulation &amp; replay</a>
           <a href="#truemargin">03 · Spatial uncertainty</a>
         </div>
         <section className="work-section" id="work">
@@ -59,9 +59,9 @@ export default function Home() {
           </article>
           <article className="project-row reverse project-asl" id="autonomy">
             <div className="project-copy">
-              <p className="eyebrow">02 / Systems &amp; sensing</p>
+              <p className="eyebrow">02 / Simulation &amp; replay</p>
               <h3>Autonomy<br />Simulation Lab</h3>
-              <p className="project-question">Inspect a sensing pipeline when its processing changes.</p>
+              <p className="project-question">Replay recordings and compare model outputs.</p>
               <p>C++/Python recording replay and CPU inference, alongside a separate browser planning and localization simulator.</p>
               <div className="finding"><span>Measured</span>8.97% median whole-process time reduction across three matched 108-frame pairs, with exact recorded output parity on one Linux host.</div>
               <p className="status">Browser v1.0.2 · Native case study in maintenance</p>
@@ -109,7 +109,7 @@ export default function Home() {
         <section className="about-section" id="about">
           <div><p className="eyebrow">About</p><h2>Background.</h2></div>
           <div className="about-copy">
-            <p>My background is in sensing, estimation and numerical evaluation. The projects above are independent work alongside my professional experience.</p>
+            <p>My experience includes GNSS analysis, surveying, LiDAR and photogrammetry. The projects above are independent work alongside my professional experience.</p>
             <div className="education"><span className="eyebrow">Education</span><h3>University of Calgary</h3><p>BSc Geomatics Engineering<br />With Distinction · 2022–2026</p></div>
           </div>
         </section>

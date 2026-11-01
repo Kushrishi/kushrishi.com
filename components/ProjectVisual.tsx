@@ -60,10 +60,10 @@ export function ReleaseInvestigationVisual() {
       <div className="plate-heading"><span>Model Regression Forensics</span><span>HTML report</span></div>
       <a href="/projects/mrf-release-investigation-real.png" aria-label="Open the MRF report screenshot at full resolution">
         <Image
-          src="/projects/mrf-release-investigation-real.png"
+          src="/projects/mrf-case-inspection-detail.png"
           width={1440}
-          height={1514}
-          alt="A classifier comparison report listing eight changed predictions, including three new errors and three corrections"
+          height={725}
+          alt="Detail of the classifier report showing the filter controls and eight changed predictions"
           sizes="(max-width: 800px) 100vw, 900px"
         />
       </a>
