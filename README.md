@@ -10,7 +10,7 @@ Personal website with independent research and engineering projects.
 - **Autonomy Simulation Lab:** interactive planning/localization and a separate native replay tool.
 - **TrueMargin:** registration uncertainty, recorded correlations, blind spots and calibrated error bounds.
 
-Each page links to methods, results, limitations, code and reproduction instructions. The interactive plot on the TrueMargin project page uses the retained anatomy comparator CSV. `data/registration.json` preserves its numeric values; rounding is applied only in the display. Comparator failures and valid-case counts remain in the linked source record. The homepage's coordinate grid is a labeled conceptual illustration, not experimental data.
+Each page links to methods, results, limitations, code and reproduction instructions. The interactive plot on the TrueMargin project page uses the retained anatomy comparator CSV. `data/registration.json` preserves its numeric values; rounding is applied only in the display. Comparator failures and valid-case counts remain in the linked source record.
 
 ## Run
 
