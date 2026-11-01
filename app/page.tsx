@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { TrueMarginHomeSummary } from "@/components/PublicationEvidence";
 import { Header, Footer } from "@/components/SiteChrome";
-import { CorrespondenceField } from "@/components/CorrespondenceField";
 import { ReleaseInvestigationVisual, SimulatorVisual } from "@/components/ProjectVisual";
 
 const gh = "https://github.com/Kushrishi";
@@ -33,7 +32,6 @@ export default function Home() {
             <a href="#autonomy"><strong>Autonomy Simulation Lab</strong><span>Planning simulation and recording replay</span></a>
             <a href="#truemargin"><strong>TrueMargin</strong><span>Study image-registration uncertainty</span></a>
           </nav>
-          <CorrespondenceField />
         </section>
         <section className="work-section" id="work">
           <div className="section-heading">

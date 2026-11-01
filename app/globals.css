@@ -169,12 +169,11 @@ nav a,
   padding: 64px var(--gutter) 72px;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  grid-template-areas: "copy visual" "overview overview";
+  grid-template-areas: "copy overview";
   gap: 32px;
   align-items: center;
 }
 .hero-copy { grid-area: copy; }
-.hero > .field-figure { grid-area: visual; }
 .hero-copy,
 .project-copy,
 .study-sections {
@@ -260,59 +259,14 @@ nav a,
 .text-link:hover {
   text-decoration-color: currentColor;
 }
-.field-figure {
-  background: #203dc5;
-  color: #e7edff;
-  padding: 24px;
-  border-radius: 2px;
-  transform: rotate(-2deg);
-  box-shadow: 12px 12px 0 #e7ecfa;
-  animation: field-entry var(--slow) var(--ease) both;
-}
-.field-label {
-  display: flex;
-  justify-content: space-between;
-  font: 12px/1.5 var(--mono);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #ffffff40;
-}
-.field-figure svg {
-  display: block;
-  width: 100%;
-  padding-block: 16px;
-}
-.field-figure circle,
-.field-figure line {
-  transition: none;
-}
-.field-control {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-}
-.field-control label {
-  font-size: 0.875rem;
-}
-.field-control input {
-  width: 38%;
-  min-height: 44px;
-  accent-color: #f2b565;
-}
-.field-figure figcaption {
-  font-size: 0.75rem;
-  color: #e7edff;
-  margin-top: 8px;
-}
+
 .work-index {
   grid-area: overview;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 24px 0 24px 32px;
+  border-left: 1px solid var(--line);
 }
 .work-index a { display: flex; flex-direction: column; align-items: start; gap: 4px; padding: 8px 0; min-height: 44px; }
 .work-index strong { font-size: .95rem; font-weight: 650; }
@@ -1028,14 +982,6 @@ line {
   cursor: pointer;
   color: var(--text);
 }
-@keyframes field-entry {
-  from {
-    transform: translateY(12px) rotate(0);
-  }
-  to {
-    transform: translateY(0) rotate(-2deg);
-  }
-}
 @media (max-width: 1024px) {
   .hero {
     gap: 24px;
@@ -1081,7 +1027,7 @@ line {
   }
   .hero {
     grid-template-columns: 1fr;
-    grid-template-areas: "copy" "overview" "visual";
+    grid-template-areas: "copy" "overview";
     padding-block: 24px 32px;
     gap: 24px;
   }
@@ -1098,22 +1044,14 @@ line {
   .hero-deck {
     font-size: 1rem;
   }
-  .field-figure {
-    max-width: 560px;
-    width: 100%;
-    justify-self: center;
-    transform: none;
-    animation: none;
-    box-shadow: none;
-  }
-  .field-figure svg {
-    max-height: 180px;
-  }
+
   .work-index {
     display: grid;
     grid-template-columns: 1fr;
     gap: 4px;
-    padding-top: 16px;
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
   .work-section {
     padding-top: 48px;
@@ -1215,7 +1153,6 @@ line {
   .simulator-plate {
     padding: 20px;
   }
-  .field-label,
   .plate-heading {
     font-size: 0.75rem;
   }
@@ -1237,19 +1174,7 @@ line {
   .hero-actions {
     gap: 8px 20px;
   }
-  .field-figure {
-    padding: 16px;
-  }
-  .field-control {
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-  .field-control input {
-    width: 100%;
-  }
-  .field-figure svg {
-    padding-block: 8px;
-  }
+
   .plate-heading {
     flex-wrap: wrap;
     gap: 4px;
@@ -1343,9 +1268,7 @@ line {
     animation: none !important;
     transition: none !important;
   }
-  .field-figure {
-    transform: none;
-  }
+
 }
 @media print {
   body {
@@ -1421,22 +1344,6 @@ a {
   }
 }
 
-@media (max-width: 440px) {
-  .field-figure {
-    padding: 12px 16px;
-  }
-  .field-label {
-    padding-bottom: 8px;
-  }
-  .field-figure svg {
-    height: auto;
-    aspect-ratio: 510 / 320;
-    padding-block: 4px;
-  }
-  .field-figure figcaption {
-    margin-top: 4px;
-  }
-}
 @media print {
   @page {
     size: letter;

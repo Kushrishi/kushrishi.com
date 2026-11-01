@@ -20,5 +20,5 @@ test("public pages describe current work without internal process notes", async 
   }
   await page.goto("/");
   await expect(page.locator(".hero-statement")).toHaveText("GNSS Analyst at Xona");
-  await expect(page.locator("footer")).toContainText("Engineering projects");
+  await expect(page.locator("footer")).toContainText("Kush Rishi");
 });

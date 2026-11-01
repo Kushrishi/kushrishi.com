@@ -6,7 +6,7 @@ export function SocialCard({ kind = "home" }: Props) {
   const info = {
     home: {
       name: "Kush Rishi",
-      sub: "Engineering projects",
+      sub: "Selected work",
       color: "#284bea",
       label: "SELECTED PROJECTS",
       foot: "Experience · Projects · CV",
@@ -95,7 +95,7 @@ export function SocialCard({ kind = "home" }: Props) {
             {[
               ["Model Regression Forensics", "Compare classifier predictions"],
               ["Autonomy Simulation Lab", "Simulate planning and replay recordings"],
-              ["TrueMargin", "Measure image-registration uncertainty"],
+              ["TrueMargin", "Study image-registration uncertainty"],
             ].map(([name, purpose]) => (
               <div key={name} style={{ display: "flex", flexDirection: "column", padding: "24px 0", borderBottom: "1px solid #8298f4" }}>
                 <span style={{ fontSize: 25, lineHeight: 1.2 }}>{name}</span>

@@ -39,7 +39,7 @@ test("dark pages remain accessible and fit mobile and desktop", async ({ page },
   }
 });
 
-test("mobile overview lists all projects before the illustration", async ({ page }) => {
+test("mobile overview puts all three project links near the introduction", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const links = page.getByRole("navigation", { name: "Selected projects" }).getByRole("link");
@@ -48,7 +48,5 @@ test("mobile overview lists all projects before the illustration", async ({ page
   await expect(links.nth(1)).toContainText("Autonomy Simulation Lab");
   await expect(links.nth(2)).toContainText("TrueMargin");
   const overview = await page.locator(".work-index").boundingBox();
-  const figure = await page.locator(".field-figure").boundingBox();
-  expect(overview!.y + overview!.height).toBeLessThanOrEqual(figure!.y);
   expect(overview!.y).toBeLessThan(700);
 });
