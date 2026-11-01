@@ -13,8 +13,8 @@ const siteDescription =
   "Engineering experience and independent projects by Kush Rishi. Explore demos, code, measured results and a printable CV.";
 
 export const viewport: Viewport = {
-  themeColor: "#fcfcfd",
-  colorScheme: "light",
+  themeColor: [{ media: "(prefers-color-scheme: light)", color: "#fcfcfd" }, { media: "(prefers-color-scheme: dark)", color: "#111827" }],
+  colorScheme: "light dark",
 };
 
 export const metadata: Metadata = {
@@ -44,7 +44,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={manrope.variable}>
+    <html lang="en" className={manrope.variable} suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}})()` }} /></head>
       <body>{children}</body>
     </html>
   );
