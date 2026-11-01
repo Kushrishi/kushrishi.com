@@ -1,7 +1,7 @@
 {
   "sources": {
     "app/cv/page.tsx": "ba0566a4c8e4d655840d7ea6492124ce5da730c437aab6685829476cdd58008f",
-    "app/globals.css": "0af28e1f7a929b0082c61fea0b50f5964c62212118f5fda914c0af95d479dcb2",
+    "app/globals.css": "bc1a7a19871a76567743802cc00b2666bcb1a8d67448f7b149a8e6e86e2d469b",
     "app/layout.tsx": "5384234483db5bb7d327074b04f7a51f9739235616f1432f976dbfd6ed681b61",
     "app/fonts/manrope.woff2": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
   },
