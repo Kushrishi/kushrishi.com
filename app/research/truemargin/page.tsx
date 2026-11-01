@@ -24,6 +24,7 @@ export default function Page() {
       stack="Python / SimpleITK / numerical evaluation"
       links={[
         { label: "Code", href: repo },
+        { label: "MIT licence", href: `${repo}/blob/main/LICENSE` },
         { label: "Technical report", href: `${repo}/blob/main/docs/technical_report.md` },
       ]}
       visual={<EvidenceExplorer />}

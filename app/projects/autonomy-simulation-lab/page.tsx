@@ -25,6 +25,7 @@ export default function Page() {
       links={[
         { label: "Live simulator", href: "https://kushrishi.github.io/autonomy-simulation-lab/" },
         { label: "Code", href: repo },
+        { label: "MIT licence", href: `${repo}/blob/main/LICENSE` },
       ]}
       visual={<NativeBenchmarkPublication />}
       sections={[
