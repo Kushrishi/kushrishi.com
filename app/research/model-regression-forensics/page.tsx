@@ -23,6 +23,7 @@ export default function Page() {
       stack="Python / release policies / local HTML reports"
       links={[
         { label: "Code", href: repo },
+        { label: "MIT licence", href: `${repo}/blob/main/LICENSE` },
         { label: "Technical report", href: `${repo}/blob/main/research/M4_TECHNICAL_REPORT.md` },
         { label: "Run the example", href: `${repo}/blob/main/docs/deployment-comparison.md` },
       ]}
@@ -75,12 +76,12 @@ export default function Page() {
         {
           id: "limits",
           title: "Limitations",
-          content: <p>Two constructed settings are a narrow basis for inference. The project does not establish general causal identification, superiority to attribution methods, statistical significance from policy thresholds, or independent-user benefit. There is no peer-reviewed publication or project-wide software licence grant.</p>,
+          content: <p>Two constructed settings are a narrow basis for inference. The project does not establish general causal identification, superiority to attribution methods, statistical significance from policy thresholds, or independent-user benefit. No peer-reviewed publication is claimed.</p>,
         },
         {
           id: "experiments",
           title: "Experiment history",
-          content: <p>Earlier unsuccessful tasks, confounds and competing repairs remain in the <a href={`${repo}/blob/main/research/EXPERIMENT_HISTORY.md`}>experimental history</a>. Presentation changes do not alter those records.</p>,
+          content: <p>Earlier unsuccessful tasks, confounds and competing repairs remain in the <a href={`${repo}/blob/main/research/EXPERIMENT_HISTORY.md`}>experimental history</a>.</p>,
         },
         {
           id: "reproduce",
