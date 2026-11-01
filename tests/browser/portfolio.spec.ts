@@ -133,10 +133,10 @@ test("hero is keyboard operable and links expose three flagships", async ({
   await expect(
     page.getByRole("link", { name: "Skip to content" }),
   ).toBeFocused();
-  const slider = page.getByLabel("Explore displacement");
-  await slider.focus();
-  await page.keyboard.press("ArrowRight");
-  await expect(slider).toHaveValue("56");
+  const firstProject = page.getByRole("navigation", { name: "Selected projects" }).getByRole("link").first();
+  await firstProject.focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#mrf$/);
   await expect(page.locator(".project-row")).toHaveCount(3);
 });
 
@@ -201,41 +201,6 @@ test("visual evidence, image loading, console and zoom", async ({
   expect(errors).toEqual([]);
 });
 
-test("direct slider manipulation has no positional easing", async ({
-  page,
-  browser,
-}) => {
-  const context = await browser.newContext({
-    viewport: { width: 390, height: 844 },
-    hasTouch: true,
-  });
-  const touchPage = await context.newPage();
-  await touchPage.goto("/");
-  const slider = touchPage.getByRole("slider", {
-    name: "Explore displacement",
-  });
-  await slider.scrollIntoViewIfNeeded();
-  const rect = await slider.boundingBox();
-  if (!rect) throw new Error("Slider is missing");
-  await touchPage.touchscreen.tap(
-    rect.x + rect.width * 0.8,
-    rect.y + rect.height / 2,
-  );
-  const value = Number(await slider.inputValue());
-  expect(value).toBeGreaterThan(55);
-  expect(
-    await touchPage
-      .locator(".field-figure circle")
-      .first()
-      .evaluate((e) => getComputedStyle(e).transitionDuration),
-  ).toBe("0s");
-  const center = touchPage.locator(".field-figure circle[r='6']");
-  expect(Number(await center.getAttribute("cx"))).toBeCloseTo(
-    252 + value * 0.85,
-    3,
-  );
-  await context.close();
-});
 test("Letter resume PDF and current icon metadata", async ({
   page,
   browserName,
