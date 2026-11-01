@@ -29,14 +29,13 @@ export default function Home() {
           </div>
           <nav className="work-index" aria-label="Selected projects">
             <a href="#mrf"><strong>Model Regression Forensics</strong><span>Compare classifier predictions</span></a>
-            <a href="#autonomy"><strong>Autonomy Simulation Lab</strong><span>Planning simulation and recording replay</span></a>
+            <a href="#autonomy"><strong>Autonomy Simulation Lab</strong><span>Replay recordings and simulate routes</span></a>
             <a href="#truemargin"><strong>TrueMargin</strong><span>Study image-registration uncertainty</span></a>
           </nav>
         </section>
         <section className="work-section" id="work">
           <div className="section-heading">
-            <p className="eyebrow">Selected work</p>
-            <h2>Software and research.</h2>
+            <h2>Selected work</h2>
             <p>Working examples, measured results and documented limitations.</p>
           </div>
           <article className="project-row project-mrf" id="mrf">
@@ -46,9 +45,8 @@ export default function Home() {
               <p className="project-question">What changed between two classifier releases?</p>
               <p>Compare saved predictions, check declared requirements and inspect changed cases in a local report.</p>
               <div className="finding"><span>Research result</span>Model-based diagnostics added no consistent benefit over simple baselines in two constructed benchmarks.</div>
-              <p className="status">Maintenance · Completed localization study</p>
               <div className="project-links">
-                <Link className="button" href="/research/model-regression-forensics">Explore the study</Link>
+                <Link className="button" href="/research/model-regression-forensics">View project</Link>
                 <a className="text-link" href={`${gh}/model-regression-forensics`}>Code</a>
                 <a className="text-link" href={`${gh}/model-regression-forensics/blob/main/docs/deployment-comparison.md`}>Run the example</a>
               </div>
@@ -62,9 +60,8 @@ export default function Home() {
               <p className="project-question">Replay recordings and compare model outputs.</p>
               <p>C++/Python recording replay and CPU inference, alongside a separate browser planning and localization simulator.</p>
               <div className="finding"><span>Measured</span>8.97% median whole-process time reduction across three matched 108-frame pairs, with exact recorded output parity on one Linux host.</div>
-              <p className="status">Browser v1.0.2 · Native case study in maintenance</p>
               <div className="project-links">
-                <Link className="button" href="/projects/autonomy-simulation-lab">Explore the system</Link>
+                <Link className="button" href="/projects/autonomy-simulation-lab">View project</Link>
                 <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/">Live demo</a>
                 <a className="text-link" href={`${gh}/autonomy-simulation-lab`}>Code</a>
               </div>
@@ -81,10 +78,9 @@ export default function Home() {
                 <b>0.6841</b>
                 <span>Median anatomy-level Spearman correlation<br />30 controlled cases · 10 anatomies</span>
               </div>
-              <div className="finding"><span>Limitation</span>No advantage over inverse-consistency error was established.</div>
-              <p className="status">Controlled studies complete · External validation deferred</p>
+              <div className="finding"><span>Limitation</span>No advantage over inverse-consistency error was established. Independent external validation was not completed.</div>
               <div className="project-links">
-                <Link className="button" href="/research/truemargin">Explore the study</Link>
+                <Link className="button" href="/research/truemargin">View project</Link>
                 <a className="text-link" href={`${gh}/truemargin`}>Code</a>
                 <a className="text-link" href={`${gh}/truemargin/blob/main/docs/technical_report.md`}>Report</a>
               </div>
@@ -94,8 +90,7 @@ export default function Home() {
         </section>
         <section className="experience-section" id="experience">
           <div>
-            <p className="eyebrow">Experience</p>
-            <h2>Engineering practice.</h2>
+            <h2>Experience</h2>
             <Link className="text-link" href="/cv">Full experience &amp; CV</Link>
           </div>
           <div className="timeline">
@@ -106,8 +101,7 @@ export default function Home() {
         </section>
         <section className="about-section" id="about">
           <div>
-            <p className="eyebrow">About</p>
-            <h2>Background.</h2>
+            <h2>About</h2>
             <Image className="about-portrait" src="/images/kush-rishi-91.jpg" alt="Kush Rishi" width={1920} height={1280} sizes="360px" />
           </div>
           <div className="about-copy">
