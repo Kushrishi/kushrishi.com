@@ -18,7 +18,8 @@ export default function Page() {
       number="01"
       title="Model Regression Forensics"
       question="What changed between two classifier releases?"
-      status="Maintained comparison utility / completed research study"
+      summary="Import saved predictions, compare model versions and inspect changed cases in a local HTML report. A separate study compares methods for tracing model regressions."
+      status="Comparison tool and completed study"
       stack="Python / release policies / local HTML reports"
       links={[
         { label: "Code", href: repo },
@@ -94,7 +95,7 @@ export default function Page() {
         {
           id: "next",
           title: "Current scope",
-          content: <p>The comparison utility is in maintenance. Independent first use remains unestablished; new comparative research is deferred. Any future study needs a qualified task, a fair baseline and independent evaluation rather than another scorer alone.</p>,
+          content: <p>The comparison tool is in maintenance and the research study is complete. Its usefulness to independent users has not been evaluated.</p>,
         },
       ]}
     />

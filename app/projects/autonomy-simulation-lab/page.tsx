@@ -18,8 +18,9 @@ export default function Page() {
     <LaunchPage
       number="02"
       title="Autonomy Simulation Lab"
-      question="What changes when a sensing pipeline processes the same recording differently?"
-      status="Browser v1.0.2 / native case study in maintenance"
+      question="Compare model outputs from the same recording."
+      summary="C++ and Python tools for replaying recorded data and comparing model outputs. A separate browser simulator demonstrates route planning and position estimation."
+      status="Browser v1.0.2 / native tool in maintenance"
       stack="C++ / Python / TypeScript / React"
       links={[
         { label: "Live simulator", href: "https://kushrishi.github.io/autonomy-simulation-lab/" },
@@ -73,7 +74,7 @@ export default function Page() {
           content: (
             <>
               <p>The browser uses simplified dynamics and deterministic noise; its covariance is not calibrated to real sensing errors. Gauss–Newton has a finite iteration budget, not a convergence guarantee. Keyboard-only grid editing and full browser/accessibility acceptance remain incomplete.</p>
-              <p>The native workflow has no published release. A historical output-residue issue remains unresolved, although it is now detected. Owner-side Mac viewer inspection was completed; independent first use and close/reopen persistence remain unestablished.</p>
+              <p>The native tool has no packaged release. An earlier output-cleanup issue remains unresolved. Installation by a new user and reopening saved viewer sessions still need testing.</p>
               <p><a href={`${repo}/blob/main/native/RELEASE_READINESS_2026_10.md`}>Native release-readiness record</a> · <a href={`${repo}/blob/main/analysis/numerical-audit/README.md`}>Numerical audit</a></p>
             </>
           ),
@@ -93,7 +94,7 @@ export default function Page() {
         {
           id: "next",
           title: "Current scope",
-          content: <p>Both workflows are in maintenance. A native release would require the remaining acceptance work; current measurements do not establish independent usability, sensor fusion or clinical use.</p>,
+          content: <p>Both workflows are in maintenance. This project compares software behaviour on recorded or simulated data; it does not validate real-world driving performance.</p>,
         },
       ]}
     />

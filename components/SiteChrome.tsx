@@ -19,7 +19,7 @@ export function Footer() {
     <footer>
       <div>
         <strong>Kush Rishi</strong>
-        <p>ML systems, evaluation & spatial intelligence.</p>
+        <p>GNSS Analyst at Xona.</p>
       </div>
       <div className="footer-links">
         <a href="mailto:kushrishi04@gmail.com">Email</a>

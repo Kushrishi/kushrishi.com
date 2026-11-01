@@ -19,7 +19,8 @@ export default function Page() {
       number="03"
       title="TrueMargin"
       question="Can disagreement between image registrations reveal alignment error?"
-      status="Controlled studies complete / external validation deferred"
+      summary="Experiments on whether variation between image alignments helps identify spatial error. The study compares error estimates with known deformations and simpler methods."
+      status="Completed controlled studies"
       stack="Python / SimpleITK / numerical evaluation"
       links={[
         { label: "Code", href: repo },
@@ -101,7 +102,7 @@ export default function Page() {
           title: "Deferred external study",
           content: (
             <>
-              <p>An independent lung-CT protocol and image-only preflight were prepared. Two retained Case7 fields were almost identical after a tolerance change; both reached the iteration cap. This establishes neither convergence nor useful ensemble diversity. Numerical landmarks remain sealed and external landmark validation has not run.</p>
+              <p>An independent lung-CT protocol and initial image checks were prepared. Two retained Case7 fields were almost identical after a tolerance change; both reached the iteration cap. This establishes neither convergence nor useful ensemble diversity. Numerical landmarks remain sealed and external landmark validation has not run.</p>
               <p><a href={`${repo}/blob/main/docs/external_lung_validation_protocol.md`}>External protocol</a> · <a href={`${repo}/blob/main/research/STATE.md`}>Historical execution record</a></p>
             </>
           ),
