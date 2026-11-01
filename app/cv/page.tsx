@@ -77,7 +77,7 @@ export default function CVPage() {
         <h2>Independent research</h2>
         <article>
           <h3><Link href="/research/truemargin" prefetch={false}>TrueMargin</Link></h3>
-          <p>Evaluated registration variability against known spatial error in 30 controlled cases across 10 anatomies, followed by separate calibration and evaluation cohorts. Median anatomy-level rank correlation was 0.6841; six case-level associations were negative. Bounds were conservative, and no advantage over inverse-consistency error was established. Further external validation is deferred.</p>
+          <p>Evaluated registration variability against known spatial error in 30 controlled cases across 10 anatomies, followed by separate calibration and evaluation cohorts. Median anatomy-level rank correlation was 0.6841; six case-level associations were negative. Bounds were conservative, and no advantage over inverse-consistency error was established. Independent external validation was not completed.</p>
         </article>
         <article>
           <h3><Link href="/research/model-regression-forensics" prefetch={false}>Model Regression Forensics</Link></h3>
@@ -96,7 +96,7 @@ export default function CVPage() {
 
       <section>
         <h2>Technical focus</h2>
-        <p>Python, C++, PyTorch, Linux, Git, CI, data pipelines, numerical evaluation, GNSS/PNT, localization, state estimation and medical-image computing.</p>
+        <p>Python, C++, PyTorch, Linux, Git, CI, data pipelines, numerical evaluation, GNSS/PNT, localization, state estimation and image registration.</p>
       </section>
     </main>
   );
