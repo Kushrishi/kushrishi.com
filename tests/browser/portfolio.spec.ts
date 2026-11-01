@@ -86,7 +86,7 @@ test("WCAG automated checks on all routes", async ({ page }) => {
 });
 test("reduced motion removes graphical transitions", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
+  await page.goto("/research/truemargin");
   expect(
     await page
       .locator("circle")
