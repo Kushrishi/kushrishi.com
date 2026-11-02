@@ -94,7 +94,7 @@ export function SocialCard({ kind = "home" }: Props) {
           <div style={{ display: "flex", flexDirection: "column" }}>
             {[
               ["Model Regression Forensics", "Compare classifier predictions"],
-              ["Autonomy Simulation Lab", "Simulate planning and replay recordings"],
+              ["Autonomy Simulation Lab", "Replay recordings and simulate routes"],
               ["TrueMargin", "Study image-registration uncertainty"],
             ].map(([name, purpose]) => (
               <div key={name} style={{ display: "flex", flexDirection: "column", padding: "24px 0", borderBottom: "1px solid #8298f4" }}>
