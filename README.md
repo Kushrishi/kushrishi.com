@@ -58,3 +58,11 @@ UPDATE_CV_PDF=1 npx playwright test --project=chromium -g "Letter resume PDF"
 Inspect both PDF pages, check links and commit the PDF and `tests/cv-pdf.json`
 with the source change. Normal CI checks the source fingerprints, served PDF
 bytes and two-page count so the download cannot silently become stale.
+
+## Profile artwork
+
+`public/brand/linkedin-banner.png` is the approved navy “Selected work” master
+image. LinkedIn applies its cover crop when uploading; keep the text on the right
+and the portrait area clear. Project previews use the shared
+`SocialCard` layout with distinct project accents; they do not follow a visitor’s
+light/dark preference.

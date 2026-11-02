@@ -87,19 +87,18 @@ export function SocialCard({ kind = "home" }: Props) {
           justifyContent: "center",
         }}
       >
-        <div style={{ display: "flex", fontSize: 13, letterSpacing: "0.04em", marginBottom: 24 }}>
+        <div style={{ display: "flex", fontSize: kind === "home" ? 18 : 13, letterSpacing: "0.04em", marginBottom: 24 }}>
           {info.label}
         </div>
         {kind === "home" ? (
           <div style={{ display: "flex", flexDirection: "column" }}>
             {[
-              ["Model Regression Forensics", "Compare classifier predictions"],
-              ["Autonomy Simulation Lab", "Simulate planning and replay recordings"],
-              ["TrueMargin", "Study image-registration uncertainty"],
-            ].map(([name, purpose]) => (
+              "Model Regression Forensics",
+              "Autonomy Simulation Lab",
+              "TrueMargin",
+            ].map((name) => (
               <div key={name} style={{ display: "flex", flexDirection: "column", padding: "24px 0", borderBottom: "1px solid #8298f4" }}>
-                <span style={{ fontSize: 25, lineHeight: 1.2 }}>{name}</span>
-                <span style={{ fontSize: 19, lineHeight: 1.4, marginTop: 10, color: "#e2e8ff" }}>{purpose}</span>
+                <span style={{ fontSize: 34, lineHeight: 1.25 }}>{name}</span>
               </div>
             ))}
           </div>
