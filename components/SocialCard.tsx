@@ -93,9 +93,10 @@ export function SocialCard({ kind = "home" }: Props) {
         {kind === "home" ? (
           <div style={{ display: "flex", flexDirection: "column" }}>
             {[
+              "Capsule Review",
+              "TrueMargin",
               "Model Regression Forensics",
               "Autonomy Simulation Lab",
-              "TrueMargin",
             ].map((name) => (
               <div key={name} style={{ display: "flex", flexDirection: "column", padding: "24px 0", borderBottom: "1px solid #8298f4" }}>
                 <span style={{ fontSize: 34, lineHeight: 1.25 }}>{name}</span>

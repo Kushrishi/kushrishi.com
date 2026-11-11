@@ -13,6 +13,7 @@ test("public pages describe current work without internal process notes", async 
   for (const route of routes) {
     await page.goto(route);
     const text = await page.locator("main").innerText();
+    expect(text).not.toMatch(/Montréal|Montreal/i);
     expect(text).not.toMatch(/owner-side|independent first use remains unestablished|independent landmark validation is (?:next|the next test)|healthcare AI research interests|\bpreflight\b/i);
     if (route !== "/" && route !== "/cv") {
       await expect(page.locator(".launch-summary p")).not.toBeEmpty();

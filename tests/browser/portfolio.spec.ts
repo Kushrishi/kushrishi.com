@@ -125,7 +125,7 @@ test("retired project and social media return 410 without indexing", async ({
     expect(response.headers()["x-robots-tag"]).toContain("noindex");
   }
 });
-test("hero is keyboard operable and links expose three flagships", async ({
+test("hero is keyboard operable and links expose four projects", async ({
   page,
 }) => {
   await page.goto("/");
@@ -136,8 +136,8 @@ test("hero is keyboard operable and links expose three flagships", async ({
   const firstProject = page.getByRole("navigation", { name: "Selected projects" }).getByRole("link").first();
   await firstProject.focus();
   await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(/#mrf$/);
-  await expect(page.locator(".project-row")).toHaveCount(3);
+  await expect(page).toHaveURL(/#capsule$/);
+  await expect(page.locator(".project-row")).toHaveCount(4);
 });
 
 test("visual evidence, image loading, console and zoom", async ({

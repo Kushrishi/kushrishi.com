@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <LaunchPage
-      number="03"
+      number="02"
       title="TrueMargin"
       question="Can disagreement between image registrations reveal alignment error?"
       summary="Experiments on whether variation between image alignments helps identify spatial error. The study compares error estimates with known deformations and simpler methods."
