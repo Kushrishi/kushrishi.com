@@ -20,7 +20,7 @@ export default function Home() {
               I work with positioning data and build Python and C++ tools for
               measurement and evaluation.
             </p>
-            <p className="current-role">Montréal · BSc Geomatics Engineering, University of Calgary</p>
+            <p className="current-role">BSc Geomatics Engineering, University of Calgary</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Selected work</a>
               <a className="text-link" href={gh}>GitHub</a>
