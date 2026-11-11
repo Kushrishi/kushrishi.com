@@ -1,9 +1,9 @@
 {
   "sources": {
-    "app/cv/page.tsx": "6d27ca5a4630773e99eb1e01ae68665db0a2b74e6c2ca36938fa449caa2badf3",
+    "app/cv/page.tsx": "2e30f7e4ae67c9c780249f2276c48d4d8752070eb64a9a90a9976a7a0a8483b5",
     "app/globals.css": "f4118891bf6560dd506bb614e70ba65c3b9a38429bee494cf26349c860c82fb6",
     "app/layout.tsx": "9bf4ecb7af7e0e881019a512f4650ac41f8773a99e511c0d9cae118617c4518f",
     "app/fonts/manrope.woff2": "a30ddcd349703aff7464c34bef3fffdff405ee50c113440d7c8693c02d210972"
   },
-  "pdf": "2b04c8264e2c21c956eb0adcc135d1ae004974ea275bebba60fecfe1cda87d8a"
+  "pdf": "becd4699ffda0c372c8cf6e1e9c1cee08fff9eaeda094dc543402f28982a9fa2"
 }
