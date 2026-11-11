@@ -15,7 +15,7 @@ export function EvidenceExplorer({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`experiment-plate ${compact ? "compact" : ""}`}>
       <div className="plate-heading">
-        <span>03 / TrueMargin</span>
+        <span>02 / TrueMargin</span>
         <span>Recorded experiment</span>
       </div>
       <div className="plot-intro">
@@ -159,8 +159,7 @@ export function EvidenceExplorer({ compact = false }: { compact?: boolean }) {
       </div>
       <p className="plot-note">
         30 controlled cases · 10 anatomies. Correlation measures ordering, not
-        error in millimetres. These data do not establish an advantage over
-        inverse-consistency error.
+        error in millimetres; see the report for error magnitudes.
       </p>
       <details className="data-details">
         <summary>Data and provenance</summary>

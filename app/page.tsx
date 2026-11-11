@@ -65,7 +65,7 @@ export default function Home() {
               </table>
               <figcaption>
                 163,161 source-verified images. Recall is undefined for the four examinations without positive runs.
-                No clinical benefit or reading-time savings were established. The public software demo uses synthetic images and generated scores.
+                The study measured annotation coverage, not clinician reading time or lesion sensitivity. The public software demo uses synthetic images and generated scores.
                 {" "}<a href={`${gh}/capsule-review-public/blob/main/docs/GALAR_UNSEEN_11_20_RESULTS.md`}>Study methods and results</a>.
               </figcaption>
             </figure>
@@ -80,7 +80,7 @@ export default function Home() {
                 <b>0.6841</b>
                 <span>Median anatomy-level Spearman correlation<br />30 controlled cases · 10 anatomies</span>
               </div>
-              <div className="finding"><span>Limitation</span>No advantage over inverse-consistency error was established. Independent external validation was not completed.</div>
+              <div className="finding"><span>Comparator</span>Inverse-consistency error had a higher median correlation: 0.7203. External landmark testing is unfinished.</div>
               <div className="project-links">
                 <Link className="button" href="/research/truemargin">View project</Link>
                 <a className="text-link" href={`${gh}/truemargin`}>Code</a>

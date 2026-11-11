@@ -53,7 +53,7 @@ export function TrueMarginOverview() {
             <span>Registration spread<br /><strong>Median 0.6841</strong></span>
             <span>Inverse-consistency error<br /><strong>Median 0.7203</strong></span>
           </div>
-          <p>Spread did not show an advantage over inverse-consistency error. The comparator’s valid-case counts vary by anatomy.</p>
+          <p>The median correlation was 0.6841 for spread and 0.7203 for inverse-consistency error. The comparator’s valid-case counts vary by anatomy.</p>
         </div>
         <div>
           <h4>Case-level correlations</h4>
