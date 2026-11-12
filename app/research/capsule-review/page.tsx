@@ -18,7 +18,7 @@ export default function Page() {
       number="01"
       title="Capsule Review"
       question="Can selecting fewer capsule-endoscopy images still capture distinct blood-positive sequences?"
-      summary="I built an image viewer and tested which images to select for review. When selecting 10% of annotated images, the model-guided method reached 49.35% of blood-positive sequences, versus 50.62% for evenly spaced sampling, averaged across six examinations with positive sequences. It did not improve coverage."
+      summary="I built a viewer for images recorded by a swallowed camera and tested which images to select for review. When selecting 10% of annotated images, the model-guided method reached 49.35% of blood-positive sequences, versus 50.62% for evenly spaced sampling, averaged across six examinations with positive sequences. It did not improve coverage."
       status="Research software / locked study complete"
       stack="Python / FastAPI / JavaScript / CNN evaluation"
       links={[
@@ -66,7 +66,7 @@ export default function Page() {
                 <tr><th scope="row">Uniform</th><td>170</td><td>63 / 154</td></tr>
               </tbody>
             </table>
-            <p>Here, an annotation run means consecutive blood-positive labels at the dataset’s native annotation stride. It is not an independently adjudicated lesion. Pooled run counts and equally weighted examination means answer different questions.</p>
+            <p>Pooled run counts give more weight to examinations with more runs. The primary result instead gives each positive-run examination equal weight.</p>
           </>,
         },
         {
