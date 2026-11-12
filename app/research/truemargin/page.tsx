@@ -39,7 +39,7 @@ export default function Page() {
           title: "Method",
           content: (
             <>
-              <p>A fixed nine-setting ensemble produces displacement fields. Their local spread is compared with known error from synthetic deformations, inverse-consistency error, image residual and Jacobian deviation.</p>
+              <p>I built a Python/SimpleITK evaluation workflow around a fixed nine-setting registration ensemble. It compares local displacement spread with known error from synthetic deformations and three other indicators: inverse-consistency error, image residual and Jacobian deviation.</p>
               <MethodChain steps={["Align images with fixed parameter settings", "Measure displacement disagreement", "Compare with known error and baselines"]} />
               <p>The controlled study contains 30 cases across 10 anatomies and 1,500 sampled locations. Anatomy-level summaries avoid counting spatial samples as independent subjects.</p>
             </>
