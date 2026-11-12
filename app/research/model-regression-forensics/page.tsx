@@ -63,7 +63,7 @@ export default function Page() {
           content: (
             <>
               <p>Label overlap and lexical similarity ranked the planted change first in both benchmarks. Grad-Dot and TracIn ranked it first in one and fifth in the other. The random reference ranked it third in each.</p>
-              <p>No consistent top-1 benefit from model-based diagnostics was established. Known target labels and disjoint candidate pairs provide a semantic shortcut for the simple baseline.</p>
+              <p>In these two benchmarks, model-based diagnostics did not improve on the label-overlap baseline at rank one. Known target labels and disjoint candidate pairs provide a semantic shortcut for the simple baseline.</p>
               <RegressionVisual />
             </>
           ),
