@@ -38,7 +38,7 @@ export default function Page() {
           title: "What I built",
           content: <>
             <p>I built a local research viewer with sequence navigation, human notes, bookmarks and intervals, imported model scores, deterministic review queues and verifiable evidence exports. Unselected images remain accessible; model scores stay separate from human findings.</p>
-            <p>The experimental work includes compact-CNN training and evaluation, original-image verification, fixed-budget policy comparisons and independent numerical replay. Later studies tested training diversity and short-event ranking across excluded examinations. </p>
+            <p>The experimental work includes compact-CNN training and evaluation, original-image verification, fixed-budget policy comparisons and independent numerical replay. Later studies tested training diversity and short-event ranking across excluded examinations.</p>
             <p><a href={`${repo}/tree/main/src/capsule_review`}>Viewer and selection code</a> · <a href={`${repo}/tree/main/tests`}>Tests</a></p>
           </>,
         },
