@@ -17,8 +17,8 @@ export default function Page() {
     <LaunchPage
       number="01"
       title="Capsule Review"
-      question="Which annotated events survive a limited frame-review budget?"
-      summary="At a fixed 10% review budget, score-per-bin selection reached 49.35% of positive annotation runs versus 50.62% for uniform sampling. The model-guided policy did not improve the primary result."
+      question="Can selecting fewer capsule-endoscopy images still capture distinct blood-positive sequences?"
+      summary="I built a viewer for images recorded by a swallowed camera and tested which images to select for review. When selecting 10% of annotated images, the model-guided method reached 49.35% of blood-positive sequences, versus 50.62% for evenly spaced sampling, averaged across six examinations with positive sequences. It did not improve coverage."
       status="Research software / locked study complete"
       stack="Python / FastAPI / JavaScript / CNN evaluation"
       links={[
@@ -31,7 +31,7 @@ export default function Page() {
         {
           id: "question",
           title: "The question",
-          content: <p>Capsule endoscopy produces long image sequences. Selecting the highest-scoring frames may repeatedly capture one long positive region while missing shorter events. This project asks whether model-guided selection can cover more distinct blood-positive annotation runs than uniform sampling when both select the same number of frames.</p>,
+          content: <p>A swallowed camera records images of the digestive tract during capsule endoscopy. Selecting many blood-positive images from one sequence can still miss other positive sequences. Here, an annotation run is a sequence of consecutive blood-positive labels at the dataset’s sampled image intervals; it is not a confirmed lesion. Run recall measures the fraction of those sequences reached by at least one selected image.</p>,
         },
         {
           id: "contribution",
@@ -48,7 +48,7 @@ export default function Page() {
           content: <>
             <p>The Galar 11–20 study used 163,161 source-verified images from ten examinations, including 1,742 blood-positive annotated images in 154 contiguous annotation runs. Six examinations contained positive runs; recall is undefined for the other four.</p>
             <MethodChain steps={["Verify original images and chronology", "Select the same exact K frames per policy", "Measure frame retrieval and distinct-run coverage"]} />
-            <p>The compact blood CNN and four deterministic policies were fixed before the corrected evaluation outcomes were inspected. Policies included uniform midpoint sampling, unrestricted highest-score ranking, score per chronological bin and score with temporal spacing. The prespecified primary compared score-per-bin with uniform selection at 10% of each examination’s annotated frames.</p>
+            <p>A fixed review budget means selecting the same number of images under each policy. Uniform sampling chooses evenly spaced images; score-per-bin chooses the highest-scoring image within each chronological segment. The compact convolutional neural network (CNN) and four deterministic policies were fixed before the corrected evaluation outcomes were inspected. Policies included uniform midpoint sampling, unrestricted highest-score ranking, score per chronological bin and score with temporal spacing. The prespecified primary compared score-per-bin with uniform selection at 10% of each examination’s annotated frames.</p>
             <p>The mean paired difference was −1.27 percentage points across the six positive-run examinations: two improved, two declined and two tied. The 25% secondary comparison was +9.51 points, with substantial variation between examinations; it does not reverse the negative primary result.</p>
             <p><a href={`${repo}/blob/main/docs/GALAR_UNSEEN_11_20_EVALUATION_LOCK.json`}>Frozen evaluation contract</a> · <a href={`${repo}/blob/main/experiments/galar-unseen-11-20-20261104/aggregate.json`}>Preserved public aggregate</a></p>
           </>,
@@ -66,7 +66,7 @@ export default function Page() {
                 <tr><th scope="row">Uniform</th><td>170</td><td>63 / 154</td></tr>
               </tbody>
             </table>
-            <p>Here, an annotation run means consecutive blood-positive labels at the dataset’s native annotation stride. It is not an independently adjudicated lesion. Pooled run counts and equally weighted examination means answer different questions.</p>
+            <p>Pooled run counts give more weight to examinations with more runs. The primary result instead gives each positive-run examination equal weight.</p>
           </>,
         },
         {

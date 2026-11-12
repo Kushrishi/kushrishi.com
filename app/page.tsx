@@ -44,9 +44,9 @@ export default function Home() {
             <div className="project-copy">
               <p className="eyebrow">01 / Biomedical imaging</p>
               <h3>Capsule Review</h3>
-              <p className="project-question">Which annotated events survive a limited frame-review budget?</p>
-              <p>Local capsule-endoscopy viewer and experiments comparing model-guided frame selection with uniform sampling.</p>
-              <div className="finding"><span>Primary result</span>Score-per-bin selection did not beat uniform sampling at the locked 10% budget.</div>
+              <p className="project-question">Can fewer images still capture distinct blood-positive sequences?</p>
+              <p>An image viewer and selection experiments for the long sequences recorded by a swallowed camera.</p>
+              <div className="finding"><span>Primary result</span>Selecting 10% of annotated images with model scores did not cover more positive sequences than evenly spaced sampling.</div>
               <div className="project-links">
                 <Link className="button" href="/research/capsule-review">View project</Link>
                 <a className="text-link" href={`${gh}/capsule-review-public`}>Code</a>
@@ -59,13 +59,13 @@ export default function Home() {
             <div className="project-copy">
               <p className="eyebrow">02 / Spatial uncertainty</p>
               <h3>TrueMargin</h3>
-              <p className="project-question">Can registration variability reveal alignment error?</p>
-              <p>Controlled image-registration experiments, including case-level failures and calibrated error bounds.</p>
+              <p className="project-question">Can disagreement between image alignments reveal errors?</p>
+              <p>I compared different alignments with known error. Agreement between alignments sometimes hid large errors.</p>
               <div className="result-line">
                 <b>0.6841</b>
                 <span>Median anatomy-level Spearman correlation<br />30 controlled cases · 10 anatomies</span>
               </div>
-              <div className="finding"><span>Comparator</span>Inverse-consistency error had a higher median correlation: 0.7203. External landmark testing is unfinished.</div>
+              <div className="finding"><span>Comparator</span>A forward-and-back alignment check (inverse-consistency error) had a higher median correlation: 0.7203. External landmark testing is unfinished.</div>
               <div className="project-links">
                 <Link className="button" href="/research/truemargin">View project</Link>
                 <a className="text-link" href={`${gh}/truemargin`}>Code</a>
@@ -80,7 +80,7 @@ export default function Home() {
               <h3>Model Regression<br />Forensics</h3>
               <p className="project-question">What changed between two classifier releases?</p>
               <p>Compare saved predictions, check declared requirements and inspect changed cases in a local report.</p>
-              <div className="finding"><span>Research result</span>In two constructed benchmarks, label-overlap and lexical baselines ranked the planted change first both times; Grad-Dot and TracIn did so once.</div>
+              <div className="finding"><span>Research result</span>In two tests with deliberately changed training labels, simple label and word-overlap methods found the planted change first both times; model-based methods did so once.</div>
               <div className="project-links">
                 <Link className="button" href="/research/model-regression-forensics">View project</Link>
                 <a className="text-link" href={`${gh}/model-regression-forensics`}>Code</a>
@@ -94,8 +94,8 @@ export default function Home() {
               <p className="eyebrow">04 / Simulation &amp; replay</p>
               <h3>Autonomy<br />Simulation Lab</h3>
               <p className="project-question">Replay recordings and compare model outputs.</p>
-              <p>C++/Python recording replay and CPU inference, alongside a separate browser planning and localization simulator.</p>
-              <div className="finding"><span>Measured</span>8.97% median whole-process time reduction across three matched 108-frame pairs, with exact recorded output parity on one Linux host.</div>
+              <p>C++/Python tools process recorded images and compare predictions. A separate browser simulator demonstrates route planning and position estimation.</p>
+              <div className="finding"><span>Measured</span>8.97% median whole-process time reduction across three matched 108-frame pairs, with identical model outputs on one Linux host.</div>
               <div className="project-links">
                 <Link className="button" href="/projects/autonomy-simulation-lab">View project</Link>
                 <a className="text-link" href="https://kushrishi.github.io/autonomy-simulation-lab/">Live demo</a>

@@ -18,7 +18,7 @@ export default function Page() {
       number="03"
       title="Model Regression Forensics"
       question="What changed between two classifier releases?"
-      summary="Import saved predictions, compare model versions and inspect changed cases in a local HTML report. A separate study compares methods for tracing model regressions."
+      summary="Import saved predictions, compare model versions and inspect changed cases in a local HTML report. A separate study investigates why a newer model makes errors that an older version avoided."
       status="Comparison tool and completed study"
       stack="Python / release policies / local HTML reports"
       links={[
@@ -51,9 +51,9 @@ export default function Page() {
           title: "Study design",
           content: (
             <>
-              <p>Two constructed Banking77 benchmarks contain five matched label-swap candidates each. A third-party DistilBERT classifier was trained across three paired trajectories per benchmark. Rankings were finalized before truth scoring.</p>
+              <p>The study deliberately changed training labels in a banking-intent classification dataset (Banking77), so the responsible change was known for scoring. These are constructed tests, not observed production failures. Two benchmarks contain five matched label-swap candidates each. A third-party DistilBERT classifier was trained across three paired trajectories per benchmark. Rankings were finalized before truth scoring.</p>
               <MethodChain steps={["Construct candidate changes and paired model releases", "Rank candidates without planted truth", "Finalize rankings and evaluate"]} />
-              <p>The comparison includes deterministic random ranking, target-label overlap, lexical Jaccard, final-checkpoint Grad-Dot and seven-checkpoint TracIn. Repeated training trajectories are not additional independent benchmarks.</p>
+              <p>The comparison includes random ranking, shared target labels, word overlap (lexical Jaccard), and two gradient-based methods for ranking influential training examples: Grad-Dot at the final checkpoint and TracIn across seven checkpoints. Repeated training trajectories are not additional independent benchmarks.</p>
             </>
           ),
         },

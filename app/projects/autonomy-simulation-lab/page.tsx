@@ -19,7 +19,7 @@ export default function Page() {
       number="04"
       title="Autonomy Simulation Lab"
       question="Compare model outputs from the same recording."
-      summary="C++ and Python tools for replaying recorded data and comparing model outputs. A separate browser simulator demonstrates route planning and position estimation."
+      summary="I built C++ and Python tools to process the same recorded images repeatedly and compare model predictions. A separate interactive browser simulator demonstrates route planning and position estimation."
       status="Browser v1.0.2 / native tool in maintenance"
       stack="C++ / Python / TypeScript / React"
       links={[
@@ -35,8 +35,8 @@ export default function Page() {
           content: (
             <>
               <p>The native tool verifies recording timestamps, paths and file identities; decodes bounded PNG images; and runs a pinned ONNX Runtime CPU model. Python tools compare outputs and processing configurations. Optional Rerun export adds timing and spatial context.</p>
-              <MethodChain steps={["Verify recording and model identity", "Preprocess frames and run inference", "Compare outputs and timing"]} />
-              <p>I implemented a crop-aware preprocessing path that avoids computing resized pixels discarded by the center crop. The figure above reports the paired timings, output parity and workload limits.</p>
+              <MethodChain steps={["Verify recording and model identity", "Prepare images and compute model predictions", "Compare outputs and timing"]} />
+              <p>I implemented a crop-aware preprocessing path that avoids computing resized pixels discarded by the center crop. The figure above reports the paired timings, identical model outputs and workload limits.</p>
               <p>Libpng, ONNX Runtime, MobileNetV2 and Rerun are dependencies, not original components. KITTI data retains its own terms and is not republished here.</p>
               <p><a href={`${repo}/blob/main/native/CONTROLLED_REPLAY_CASE_STUDY.md`}>Full case study</a> · <a href={`${repo}/blob/main/native/USABILITY.md`}>Native quickstart</a></p>
             </>

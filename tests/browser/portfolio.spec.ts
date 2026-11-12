@@ -20,7 +20,7 @@ test("unknown routes show a branded, noindex 404", async ({ page }) => {
   );
   expect(robots.some((value) => value.includes("noindex"))).toBe(true);
 });
-for (const width of [320, 390, 430, 768, 1024, 1440, 1920]) {
+for (const width of [320, 360, 390, 430, 768, 1024, 1440, 1920]) {
   test(`all pages remain readable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     for (const route of routes) {
@@ -80,7 +80,7 @@ test("WCAG automated checks on all routes", async ({ page }) => {
   for (const route of routes) {
     await page.goto(route);
     const result = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
       .analyze();
     expect(result.violations).toEqual([]);
   }
