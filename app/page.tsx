@@ -122,7 +122,7 @@ export default function Home() {
             <Image className="about-portrait" src="/images/kush-rishi-91.jpg" alt="Kush Rishi" width={1920} height={1280} sizes="360px" />
           </div>
           <div className="about-copy">
-            <p>My experience includes GNSS analysis, surveying, LiDAR and photogrammetry. The projects above are independent work alongside my professional experience.</p>
+            <p>I work with GNSS and positioning data at Xona and develop independent research software outside work. My earlier experience includes surveying, LiDAR and photogrammetry.</p>
             <div className="education"><span className="eyebrow">Education</span><h3>University of Calgary</h3><p>BSc Geomatics Engineering<br />With Distinction · 2022–2026</p></div>
           </div>
         </section>
