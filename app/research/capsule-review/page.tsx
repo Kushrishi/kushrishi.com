@@ -38,7 +38,7 @@ export default function Page() {
           title: "What I built",
           content: <>
             <p>I built a local research viewer with sequence navigation, human notes, bookmarks and intervals, imported model scores, deterministic review queues and verifiable evidence exports. Unselected images remain accessible; model scores stay separate from human findings.</p>
-            <p>The experimental work includes compact-CNN training and evaluation, original-image verification, fixed-budget policy comparisons and independent numerical replay. Later studies tested training diversity and short-event ranking across excluded examinations. The code, tests and dated reports preserve both improvements and failures.</p>
+            <p>The experimental work includes compact-CNN training and evaluation, original-image verification, fixed-budget policy comparisons and independent numerical replay. Later studies tested training diversity and short-event ranking across excluded examinations. </p>
             <p><a href={`${repo}/tree/main/src/capsule_review`}>Viewer and selection code</a> · <a href={`${repo}/tree/main/tests`}>Tests</a></p>
           </>,
         },
@@ -71,7 +71,7 @@ export default function Page() {
         },
         {
           id: "limits",
-          title: "What the evidence supports",
+          title: "Limitations",
           content: <p>This is a retrospective annotation-coverage study, not clinical validation. Examination IDs have not been verified as unique patients, and the sampled annotations are not complete video-event ground truth. No clinician reading-time savings or lesion sensitivity were measured. The evaluated 11–20 examinations are already inspected; the dataset authors’ reserved 61–80 outcomes remain unopened.</p>,
         },
         {
