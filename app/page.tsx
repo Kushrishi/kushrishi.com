@@ -80,7 +80,7 @@ export default function Home() {
               <h3>Model Regression<br />Forensics</h3>
               <p className="project-question">What changed between two classifier releases?</p>
               <p>Compare saved predictions, check declared requirements and inspect changed cases in a local report.</p>
-              <div className="finding"><span>Research result</span>Model-based diagnostics added no consistent benefit over simple baselines in two constructed benchmarks.</div>
+              <div className="finding"><span>Research result</span>In two constructed benchmarks, label-overlap and lexical baselines ranked the planted change first both times; Grad-Dot and TracIn did so once.</div>
               <div className="project-links">
                 <Link className="button" href="/research/model-regression-forensics">View project</Link>
                 <a className="text-link" href={`${gh}/model-regression-forensics`}>Code</a>
