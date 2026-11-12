@@ -76,17 +76,21 @@ export default function CVPage() {
         <p className="print-only cv-continuation">Kush Rishi · kushrishi.com · Projects and skills</p>
         <h2>Selected projects</h2>
         <article>
+          <h3><a href="https://github.com/Kushrishi/capsule-review-public">Capsule Review</a></h3>
+          <p>Built a local capsule-endoscopy viewer and fixed-budget frame-selection experiments. In a locked study of 163,161 images from ten examinations, mean blood-positive annotation-run recall at 10% workload was 49.35% for score-per-bin selection versus 50.62% for uniform sampling across six positive-run examinations. Annotation runs are not independently adjudicated lesions; the public demo uses synthetic images and scores.</p>
+        </article>
+        <article>
+          <h3><a href="https://kushrishi.com/research/truemargin">TrueMargin</a></h3>
+          <p>Evaluated registration variability against known spatial error in 30 controlled cases across ten anatomies, followed by separate calibration and evaluation cohorts. Median anatomy-level Spearman correlation was 0.6841 for spread versus 0.7203 for inverse-consistency error; six case-level associations were negative. Some calibrated bounds were very large. External landmark testing remains unfinished.</p>
+        </article>
+        <article>
           <h3><a href="https://kushrishi.com/research/model-regression-forensics">Model Regression Forensics</a></h3>
-          <p>Built a prediction importer, release-policy checks and local reports. In two constructed Banking77 benchmarks, model-based diagnostics added no consistent top-1 benefit over simple baselines. A separate example demonstrates ambiguous repairs; general causal identification is not established.</p>
+          <p>Built a prediction importer, release-policy checks and local reports. In two constructed Banking77 benchmarks, a simple label-overlap baseline ranked the injected change first; learned diagnostics did not consistently match it. A separate example shows how different repairs can fit the same observed regression.</p>
         </article>
         <article>
           <h3><a href="https://github.com/Kushrishi/autonomy-simulation-lab">Autonomy Simulation Lab</a></h3>
           <p>Built a browser planning/localization simulator and a separate C++/Python recording-replay tool with CPU inference and configuration comparison. A crop-aware optimization reduced median whole-process time by 8.97% across three matched 108-frame pairs with exact recorded output parity on one Linux host. Measurements apply to that host, model and workload.</p>
           <p><a href="https://kushrishi.github.io/autonomy-simulation-lab/">Interactive demo</a></p>
-        </article>
-        <article>
-          <h3><a href="https://kushrishi.com/research/truemargin">TrueMargin</a></h3>
-          <p>Evaluated registration variability against known spatial error in 30 controlled cases across 10 anatomies, followed by separate calibration and evaluation cohorts. Median anatomy-level rank correlation was 0.6841; six case-level associations were negative. Bounds were conservative, and no advantage over inverse-consistency error was established. Independent external validation was not completed.</p>
         </article>
       </section>
 

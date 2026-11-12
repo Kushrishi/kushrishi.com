@@ -6,11 +6,12 @@ Personal website with independent research and engineering projects.
 
 ## Project pages
 
+- **Capsule Review:** capsule-endoscopy viewer and a locked, negative comparison of fixed-budget frame selection, with links to the scientific summary and synthetic demo.
+- **TrueMargin:** registration uncertainty, recorded correlations, blind spots and calibrated error bounds.
 - **Model Regression Forensics:** saved classification-release comparison and portable reports; completed attribution research, negative results and ambiguous repairs.
 - **Autonomy Simulation Lab:** interactive planning/localization and a separate native replay tool.
-- **TrueMargin:** registration uncertainty, recorded correlations, blind spots and calibrated error bounds.
 
-Each page links to methods, results, limitations, code and reproduction instructions. The interactive plot on the TrueMargin project page uses the retained anatomy comparator CSV. `data/registration.json` preserves its numeric values; rounding is applied only in the display. Comparator failures and valid-case counts remain in the linked source record.
+Project entries link to methods, results, limitations, code and reproduction instructions. The interactive plot on the TrueMargin project page uses the retained anatomy comparator CSV. `data/registration.json` preserves its numeric values; rounding is applied only in the display. Comparator failures and valid-case counts remain in the linked source record.
 
 ## Run
 

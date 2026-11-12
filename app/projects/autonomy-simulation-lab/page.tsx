@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <LaunchPage
-      number="02"
+      number="04"
       title="Autonomy Simulation Lab"
       question="Compare model outputs from the same recording."
       summary="C++ and Python tools for replaying recorded data and comparing model outputs. A separate browser simulator demonstrates route planning and position estimation."
@@ -36,8 +36,7 @@ export default function Page() {
             <>
               <p>The native tool verifies recording timestamps, paths and file identities; decodes bounded PNG images; and runs a pinned ONNX Runtime CPU model. Python tools compare outputs and processing configurations. Optional Rerun export adds timing and spatial context.</p>
               <MethodChain steps={["Verify recording and model identity", "Preprocess frames and run inference", "Compare outputs and timing"]} />
-              <p>I implemented a crop-aware preprocessing path that avoids computing resized pixels discarded by the center crop. Three matched 108-frame pairs showed an 8.97% median reduction in whole-process wall time and a separate 57.52% reduction in summed preprocessing time, with exact recorded model-output parity.</p>
-              <p>These measurements cover one Linux host, one MobileNetV2 model and one workload. Startup, cache and scheduling were not fully controlled. The exact measurements remain in the figure and linked case study; no general speedup or accuracy gain is claimed.</p>
+              <p>I implemented a crop-aware preprocessing path that avoids computing resized pixels discarded by the center crop. The figure above reports the paired timings, output parity and workload limits.</p>
               <p>Libpng, ONNX Runtime, MobileNetV2 and Rerun are dependencies, not original components. KITTI data retains its own terms and is not republished here.</p>
               <p><a href={`${repo}/blob/main/native/CONTROLLED_REPLAY_CASE_STUDY.md`}>Full case study</a> · <a href={`${repo}/blob/main/native/USABILITY.md`}>Native quickstart</a></p>
             </>

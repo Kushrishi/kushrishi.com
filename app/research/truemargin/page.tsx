@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <LaunchPage
-      number="03"
+      number="02"
       title="TrueMargin"
       question="Can disagreement between image registrations reveal alignment error?"
       summary="Experiments on whether variation between image alignments helps identify spatial error. The study compares error estimates with known deformations and simpler methods."
@@ -65,7 +65,7 @@ export default function Page() {
                   <tr><th scope="row">Jacobian deviation</th><td>0.1689</td></tr>
                 </tbody>
               </table>
-              <p>All ten anatomy-level spread/error associations were positive. The median correlation confidence interval was [0.3048, 0.8284]. No advantage over inverse-consistency error was established: the paired difference interval crossed zero.</p>
+              <p>All ten anatomy-level spread/error associations were positive. The median correlation confidence interval was [0.3048, 0.8284]. The paired spread-minus-ICE difference interval was [-0.0903, 0.0736], spanning zero.</p>
               <TrueMarginOverview />
               <p className="original-evidence"><a href="/projects/truemargin.png">Original technical figure</a>. Calibration results below use a separate cohort.</p>
             </>
@@ -84,7 +84,7 @@ export default function Page() {
         {
           id: "limits",
           title: "Limitations",
-          content: <p>These studies do not establish clinical validity, external generalization or uniformly useful bounds. A later calibration-only analysis found source-dependent effects, not a consistent improvement. The work has a technical report, not an accepted peer-reviewed publication.</p>,
+          content: <p>The experiments used controlled deformations; external landmark testing is unfinished. Calibration-only follow-up effects differed by source, and some error bounds were very large. Results are documented in a technical report and have not been peer reviewed.</p>,
         },
         {
           id: "reproduce",

@@ -28,9 +28,10 @@ export default function Home() {
             </div>
           </div>
           <nav className="work-index" aria-label="Selected projects">
+            <a href="#capsule"><strong>Capsule Review</strong><span>Evaluate capsule-image selection</span></a>
+            <a href="#truemargin"><strong>TrueMargin</strong><span>Study image-registration uncertainty</span></a>
             <a href="#mrf"><strong>Model Regression Forensics</strong><span>Compare classifier predictions</span></a>
             <a href="#autonomy"><strong>Autonomy Simulation Lab</strong><span>Replay recordings and simulate routes</span></a>
-            <a href="#truemargin"><strong>TrueMargin</strong><span>Study image-registration uncertainty</span></a>
           </nav>
         </section>
         <section className="work-section" id="work">
@@ -38,9 +39,59 @@ export default function Home() {
             <h2>Selected work</h2>
             <p>Working examples, measured results and documented limitations.</p>
           </div>
+          <article className="project-row" id="capsule">
+            <div className="project-copy">
+              <p className="eyebrow">01 / Biomedical imaging</p>
+              <h3>Capsule Review</h3>
+              <p className="project-question">Which annotated events survive a limited frame-review budget?</p>
+              <p>Local capsule-endoscopy viewer and experiments comparing model-guided frame selection with uniform sampling.</p>
+              <div className="finding"><span>Primary result</span>The locked 10% comparison did not improve blood-positive annotation-run recall. Runs are dataset annotations, not independently adjudicated lesions.</div>
+              <div className="project-links">
+                <a className="button" href={`${gh}/capsule-review-public/blob/main/docs/RESEARCH_COLLABORATION_BRIEF.md`}>Research summary</a>
+                <a className="text-link" href={`${gh}/capsule-review-public`}>Code</a>
+                <a className="text-link" href={`${gh}/capsule-review-public/blob/main/docs/SUPERVISOR_DEMO.md`}>Run the synthetic demo</a>
+              </div>
+            </div>
+            <figure className="recorded-figure">
+              <div className="plate-heading"><span>Locked Galar study</span><span>10 examinations</span></div>
+              <h4>Mean annotation-run recall at 10% workload</h4>
+              <table>
+                <caption>Six examinations with positive annotation runs</caption>
+                <thead><tr><th scope="col">Selection policy</th><th scope="col">Recall</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Top score per chronology bin</th><td>49.35%</td></tr>
+                  <tr><th scope="row">Uniform sampling</th><td>50.62%</td></tr>
+                </tbody>
+              </table>
+              <figcaption>
+                163,161 source-verified images. Recall is undefined for the four examinations without positive runs.
+                The study measured annotation coverage, not clinician reading time or lesion sensitivity. The public software demo uses synthetic images and generated scores.
+                {" "}<a href={`${gh}/capsule-review-public/blob/main/docs/GALAR_UNSEEN_11_20_RESULTS.md`}>Study methods and results</a>.
+              </figcaption>
+            </figure>
+          </article>
+          <article className="project-row project-tm" id="truemargin">
+            <div className="project-copy">
+              <p className="eyebrow">02 / Spatial uncertainty</p>
+              <h3>TrueMargin</h3>
+              <p className="project-question">Can registration variability reveal alignment error?</p>
+              <p>Controlled image-registration experiments, including case-level failures and calibrated error bounds.</p>
+              <div className="result-line">
+                <b>0.6841</b>
+                <span>Median anatomy-level Spearman correlation<br />30 controlled cases · 10 anatomies</span>
+              </div>
+              <div className="finding"><span>Comparator</span>Inverse-consistency error had a higher median correlation: 0.7203. External landmark testing is unfinished.</div>
+              <div className="project-links">
+                <Link className="button" href="/research/truemargin">View project</Link>
+                <a className="text-link" href={`${gh}/truemargin`}>Code</a>
+                <a className="text-link" href={`${gh}/truemargin/blob/main/docs/technical_report.md`}>Report</a>
+              </div>
+            </div>
+            <TrueMarginHomeSummary />
+          </article>
           <article className="project-row project-mrf" id="mrf">
             <div className="project-copy">
-              <p className="eyebrow">01 / ML evaluation</p>
+              <p className="eyebrow">03 / ML evaluation</p>
               <h3>Model Regression<br />Forensics</h3>
               <p className="project-question">What changed between two classifier releases?</p>
               <p>Compare saved predictions, check declared requirements and inspect changed cases in a local report.</p>
@@ -55,7 +106,7 @@ export default function Home() {
           </article>
           <article className="project-row reverse project-asl" id="autonomy">
             <div className="project-copy">
-              <p className="eyebrow">02 / Simulation &amp; replay</p>
+              <p className="eyebrow">04 / Simulation &amp; replay</p>
               <h3>Autonomy<br />Simulation Lab</h3>
               <p className="project-question">Replay recordings and compare model outputs.</p>
               <p>C++/Python recording replay and CPU inference, alongside a separate browser planning and localization simulator.</p>
@@ -67,25 +118,6 @@ export default function Home() {
               </div>
             </div>
             <SimulatorVisual />
-          </article>
-          <article className="project-row project-tm" id="truemargin">
-            <div className="project-copy">
-              <p className="eyebrow">03 / Spatial uncertainty</p>
-              <h3>TrueMargin</h3>
-              <p className="project-question">Can registration variability reveal alignment error?</p>
-              <p>Controlled image-registration experiments, including case-level failures and calibrated error bounds.</p>
-              <div className="result-line">
-                <b>0.6841</b>
-                <span>Median anatomy-level Spearman correlation<br />30 controlled cases · 10 anatomies</span>
-              </div>
-              <div className="finding"><span>Limitation</span>No advantage over inverse-consistency error was established. Independent external validation was not completed.</div>
-              <div className="project-links">
-                <Link className="button" href="/research/truemargin">View project</Link>
-                <a className="text-link" href={`${gh}/truemargin`}>Code</a>
-                <a className="text-link" href={`${gh}/truemargin/blob/main/docs/technical_report.md`}>Report</a>
-              </div>
-            </div>
-            <TrueMarginHomeSummary />
           </article>
         </section>
         <section className="experience-section" id="experience">

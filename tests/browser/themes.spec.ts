@@ -39,14 +39,17 @@ test("dark pages remain accessible and fit mobile and desktop", async ({ page },
   }
 });
 
-test("mobile overview puts all three project links near the introduction", async ({ page }) => {
+test("mobile overview puts all four project links near the introduction", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const links = page.getByRole("navigation", { name: "Selected projects" }).getByRole("link");
-  await expect(links).toHaveCount(3);
-  await expect(links.nth(0)).toContainText("Model Regression Forensics");
-  await expect(links.nth(1)).toContainText("Autonomy Simulation Lab");
-  await expect(links.nth(2)).toContainText("TrueMargin");
+  await expect(links).toHaveCount(4);
+  await expect(links).toHaveText([
+    "Capsule ReviewEvaluate capsule-image selection",
+    "TrueMarginStudy image-registration uncertainty",
+    "Model Regression ForensicsCompare classifier predictions",
+    "Autonomy Simulation LabReplay recordings and simulate routes",
+  ]);
   const overview = await page.locator(".work-index").boundingBox();
   expect(overview!.y).toBeLessThan(700);
 });

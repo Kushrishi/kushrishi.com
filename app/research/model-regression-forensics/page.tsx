@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <LaunchPage
-      number="01"
+      number="03"
       title="Model Regression Forensics"
       question="What changed between two classifier releases?"
       summary="Import saved predictions, compare model versions and inspect changed cases in a local HTML report. A separate study compares methods for tracing model regressions."
