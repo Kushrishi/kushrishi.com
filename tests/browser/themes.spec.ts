@@ -29,7 +29,7 @@ test("dark pages remain accessible and fit mobile and desktop", async ({ page },
   await page.emulateMedia({ colorScheme: "dark" });
   for (const width of [320, 390, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ["/", "/cv", "/research/truemargin", "/research/model-regression-forensics", "/projects/autonomy-simulation-lab"]) {
+    for (const route of ["/", "/cv", "/research/capsule-review", "/research/truemargin", "/research/model-regression-forensics", "/projects/autonomy-simulation-lab"]) {
       await page.goto(route);
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
       const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();

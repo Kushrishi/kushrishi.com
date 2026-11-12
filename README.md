@@ -6,7 +6,7 @@ Personal website with independent research and engineering projects.
 
 ## Project pages
 
-- **Capsule Review:** capsule-endoscopy viewer and a locked, negative comparison of fixed-budget frame selection, with links to the scientific summary and synthetic demo.
+- **[Capsule Review](https://kushrishi.com/research/capsule-review):** capsule-endoscopy viewer and a locked, negative comparison of fixed-budget frame selection, with links to the scientific summary and synthetic demo.
 - **TrueMargin:** registration uncertainty, recorded correlations, blind spots and calibrated error bounds.
 - **Model Regression Forensics:** saved classification-release comparison and portable reports; completed attribution research, negative results and ambiguous repairs.
 - **Autonomy Simulation Lab:** interactive planning/localization and a separate native replay tool.
@@ -31,7 +31,7 @@ npx playwright install --with-deps chromium webkit
 npm run test:browser
 ```
 
-Browser checks cover five content routes at 320, 390, 430, 768, 1024, 1440 and 1920 pixels, plot selection, keyboard focus, automated WCAG checks, reduced motion, image loading, zoom, print output and content without JavaScript. Unknown routes and the retired PrairieReach routes have separate status/indexing checks. These checks do not replace physical-device or assistive-technology testing.
+Browser checks cover six content routes at 320, 390, 430, 768, 1024, 1440 and 1920 pixels, plot selection, keyboard focus, automated WCAG checks, reduced motion, image loading, zoom, print output and content without JavaScript. Unknown routes and the retired PrairieReach routes have separate status/indexing checks. These checks do not replace physical-device or assistive-technology testing.
 
 ## Structure
 

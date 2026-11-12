@@ -1,6 +1,6 @@
 import records from "@/data/registration.json";
 
-type Props = { kind?: "home" | "tm" | "mrf" | "asl" };
+type Props = { kind?: "home" | "capsule" | "tm" | "mrf" | "asl" };
 
 export function SocialCard({ kind = "home" }: Props) {
   const info = {
@@ -10,6 +10,13 @@ export function SocialCard({ kind = "home" }: Props) {
       color: "#284bea",
       label: "SELECTED PROJECTS",
       foot: "Experience · Projects · CV",
+    },
+    capsule: {
+      name: "Capsule Review",
+      sub: "Frame selection at fixed review budgets.",
+      color: "#284bea",
+      label: "ANNOTATION-RUN RECALL AT 10%",
+      foot: "Locked Galar study · Six positive-run examinations",
     },
     tm: {
       name: "TrueMargin",
@@ -102,6 +109,16 @@ export function SocialCard({ kind = "home" }: Props) {
                 <span style={{ fontSize: 34, lineHeight: 1.25 }}>{name}</span>
               </div>
             ))}
+          </div>
+        ) : kind === "capsule" ? (
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {[ ["Score per bin", "49.35%"], ["Uniform sampling", "50.62%"] ].map(([name, value]) => (
+              <div key={name} style={{ display: "flex", flexDirection: "column", padding: "26px 0", borderBottom: "1px solid #8298f4" }}>
+                <span style={{ fontSize: 24 }}>{name}</span>
+                <span style={{ fontSize: 52, marginTop: 12 }}>{value}</span>
+              </div>
+            ))}
+            <span style={{ fontSize: 16, marginTop: 24 }}>Annotation runs, not adjudicated lesions</span>
           </div>
         ) : kind === "tm" ? (
           <div style={{ display: "flex", flexDirection: "column" }}>
