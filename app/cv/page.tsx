@@ -28,7 +28,7 @@ export default function CVPage() {
       </header>
       <h1>Kush Rishi</h1>
       <p>GNSS Analyst at Xona. BSc in Geomatics Engineering, University of Calgary.</p>
-      <p className="print-contact">Montréal · <a href="mailto:kushrishi04@gmail.com">kushrishi04@gmail.com</a> · <a href="https://kushrishi.com">kushrishi.com</a> · <a href="https://github.com/Kushrishi">github.com/Kushrishi</a></p>
+      <p className="print-contact"><a href="mailto:kushrishi04@gmail.com">kushrishi04@gmail.com</a> · <a href="https://kushrishi.com">kushrishi.com</a> · <a href="https://github.com/Kushrishi">github.com/Kushrishi</a></p>
       <div className="cv-links web-only">
         <a className="button" href="/Kush-Rishi-CV.pdf" download>Download CV (PDF)</a>
         <a href="https://github.com/Kushrishi" target="_blank" rel="noreferrer">GitHub</a>
@@ -40,7 +40,7 @@ export default function CVPage() {
         <h2>Experience</h2>
         <article>
           <h3>GNSS Analyst · Xona</h3>
-          <p>Montréal · June 2026–present</p>
+          <p>June 2026–present</p>
           <p>Develop Python and Linux workflows for GNSS collection, processing, monitoring and validation. Build data-quality checks, engineering metrics and dashboards; support receiver integration and troubleshooting.</p>
         </article>
         <article>
