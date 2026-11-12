@@ -5,6 +5,7 @@ import AxeBuilder from "@axe-core/playwright";
 const routes = [
   "/",
   "/cv",
+  "/research/capsule-review",
   "/research/truemargin",
   "/research/model-regression-forensics",
   "/projects/autonomy-simulation-lab",
@@ -260,4 +261,25 @@ test("Letter resume PDF and current icon metadata", async ({
   const icon = await page.request.get(href!);
   expect(icon.status()).toBe(200);
   expect(await icon.text()).toContain("#234fe5");
+});
+
+test("Capsule project has a reachable overview, evidence and share metadata", async ({ page, request }) => {
+  await page.goto("/");
+  await page.locator("#capsule").getByRole("link", { name: "View project" }).click();
+  await expect(page).toHaveURL(/\/research\/capsule-review$/);
+  await expect(page.locator("h1")).toHaveText("Capsule Review");
+  await expect(page.locator("main")).toContainText("49.35%");
+  await expect(page.locator("main")).toContainText("50.62%");
+  await expect(page.getByRole("link", { name: "Synthetic demo instructions" })).toHaveAttribute("href", /SUPERVISOR_DEMO.md$/);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://kushrishi.com/research/capsule-review");
+  const imageUrl = await page.locator('meta[property="og:image"]').getAttribute("content");
+  expect(imageUrl).toContain("/research/capsule-review/opengraph-image");
+  const image = await request.get(new URL(imageUrl!).pathname);
+  expect(image.status()).toBe(200);
+  expect(image.headers()["content-type"]).toContain("image/png");
+  expect(await (await request.get("/sitemap.xml")).text()).toContain("https://kushrishi.com/research/capsule-review");
+  for (const link of await page.locator('.launch-toc a').all()) {
+    const target = await link.getAttribute("href");
+    await expect(page.locator(target!)).toHaveCount(1);
+  }
 });

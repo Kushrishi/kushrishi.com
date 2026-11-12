@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CapsuleEvidence } from "@/components/CapsuleEvidence";
 import Image from "next/image";
 import { TrueMarginHomeSummary } from "@/components/PublicationEvidence";
 import { Header, Footer } from "@/components/SiteChrome";
@@ -45,30 +46,14 @@ export default function Home() {
               <h3>Capsule Review</h3>
               <p className="project-question">Which annotated events survive a limited frame-review budget?</p>
               <p>Local capsule-endoscopy viewer and experiments comparing model-guided frame selection with uniform sampling.</p>
-              <div className="finding"><span>Primary result</span>The locked 10% comparison did not improve blood-positive annotation-run recall. Runs are dataset annotations, not independently adjudicated lesions.</div>
+              <div className="finding"><span>Primary result</span>Score-per-bin selection did not beat uniform sampling at the locked 10% budget.</div>
               <div className="project-links">
-                <a className="button" href={`${gh}/capsule-review-public/blob/main/docs/RESEARCH_COLLABORATION_BRIEF.md`}>Research summary</a>
+                <Link className="button" href="/research/capsule-review">View project</Link>
                 <a className="text-link" href={`${gh}/capsule-review-public`}>Code</a>
-                <a className="text-link" href={`${gh}/capsule-review-public/blob/main/docs/SUPERVISOR_DEMO.md`}>Run the synthetic demo</a>
+                <a className="text-link" href={`${gh}/capsule-review-public/blob/main/docs/SUPERVISOR_DEMO.md`}>Synthetic demo instructions</a>
               </div>
             </div>
-            <figure className="recorded-figure">
-              <div className="plate-heading"><span>Locked Galar study</span><span>10 examinations</span></div>
-              <h4>Mean annotation-run recall at 10% workload</h4>
-              <table>
-                <caption>Six examinations with positive annotation runs</caption>
-                <thead><tr><th scope="col">Selection policy</th><th scope="col">Recall</th></tr></thead>
-                <tbody>
-                  <tr><th scope="row">Top score per chronology bin</th><td>49.35%</td></tr>
-                  <tr><th scope="row">Uniform sampling</th><td>50.62%</td></tr>
-                </tbody>
-              </table>
-              <figcaption>
-                163,161 source-verified images. Recall is undefined for the four examinations without positive runs.
-                The study measured annotation coverage, not clinician reading time or lesion sensitivity. The public software demo uses synthetic images and generated scores.
-                {" "}<a href={`${gh}/capsule-review-public/blob/main/docs/GALAR_UNSEEN_11_20_RESULTS.md`}>Study methods and results</a>.
-              </figcaption>
-            </figure>
+            <CapsuleEvidence />
           </article>
           <article className="project-row project-tm" id="truemargin">
             <div className="project-copy">
