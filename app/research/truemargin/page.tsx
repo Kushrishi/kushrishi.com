@@ -32,7 +32,7 @@ export default function Page() {
         {
           id: "question",
           title: "The question",
-          content: <p>Image registration aligns two scans so corresponding structures can be compared. Repeating it with different settings produces a range of alignments, called ensemble spread. The question is whether larger spread identifies larger errors—and whether small spread can falsely suggest a reliable alignment.</p>,
+          content: <p>Image registration aligns two scans so corresponding structures can be compared. Repeating it with different settings produces a range of alignments, called ensemble spread. The question is whether larger spread identifies larger errors and whether small spread can falsely suggest a reliable alignment.</p>,
         },
         {
           id: "method",
