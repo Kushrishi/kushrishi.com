@@ -21,7 +21,7 @@ export function SocialCard({ kind = "home" }: Props) {
     tm: {
       name: "TrueMargin",
       sub: "Image-registration error and uncertainty.",
-      color: "#284bea",
+      color: "#6b4c9a",
       label: "ANATOMY-LEVEL CORRELATIONS",
       foot: "30 controlled cases · 10 anatomies",
     },
@@ -125,7 +125,7 @@ export function SocialCard({ kind = "home" }: Props) {
             <svg width="410" height="330" viewBox="0 0 410 330">
               {records.map((record, i) => (
                 <g key={record.id}>
-                  <line x1={20 + record.spread * 350} x2={20 + record.ice * 350} y1={20 + i * 29} y2={20 + i * 29} stroke="#afc0f9" />
+                  <line x1={20 + record.spread * 350} x2={20 + record.ice * 350} y1={20 + i * 29} y2={20 + i * 29} stroke="#dcccf0" />
                   <circle cx={20 + record.ice * 350} cy={20 + i * 29} r="6" fill="#efb17e" />
                   <circle cx={20 + record.spread * 350} cy={20 + i * 29} r="6" fill="#fff" />
                 </g>
