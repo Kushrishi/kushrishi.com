@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import viewer from "@/public/images/capsule-review/viewer-desktop.png";
+import queues from "@/public/images/capsule-review/synthetic-policy-comparison.png";
 import { LaunchPage, MethodChain } from "@/components/LaunchPage";
 import { CapsuleEvidence } from "@/components/CapsuleEvidence";
 
@@ -26,7 +29,15 @@ export default function Page() {
         { label: "Locked study", href: `${repo}/blob/main/docs/GALAR_UNSEEN_11_20_RESULTS.md` },
         { label: "Synthetic demo instructions", href: `${repo}/blob/main/docs/SUPERVISOR_DEMO.md` },
       ]}
-      visual={<CapsuleEvidence />}
+      visual={<>
+        <figure className="project-figure">
+          <a href="/images/capsule-review/viewer-desktop.png" aria-label="Open the synthetic viewer screenshot at full size">
+            <Image unoptimized src={viewer} alt="Capsule Review desktop viewer with a synthetic frame, sequence navigation and human review controls." sizes="(max-width: 960px) 100vw, 900px" style={{ width: "100%", height: "auto" }} />
+          </a>
+          <figcaption>The working local viewer with synthetic images and generated demonstration scores, separate from the evaluated blood CNN. Select the image to inspect the controls at full size.</figcaption>
+        </figure>
+        <CapsuleEvidence />
+      </>}
       sections={[
         {
           id: "question",
@@ -40,6 +51,12 @@ export default function Page() {
             <p>I built a local research viewer with sequence navigation, human notes, bookmarks and intervals, imported model scores, deterministic review queues and verifiable evidence exports. Unselected images remain accessible; model scores stay separate from human findings.</p>
             <p>The experimental work includes compact-CNN training and evaluation, original-image verification, fixed-budget policy comparisons and independent numerical replay. Later studies tested training diversity and short-event ranking across excluded examinations.</p>
             <p><a href={`${repo}/tree/main/src/capsule_review`}>Viewer and selection code</a> · <a href={`${repo}/tree/main/tests`}>Tests</a></p>
+            <figure className="project-figure">
+              <a href="/images/capsule-review/synthetic-policy-comparison.png" aria-label="Open the synthetic frame-selection comparison at full size">
+                <Image unoptimized src={queues} alt="Synthetic demonstration comparing frame-selection policies at the same six-image review budget." sizes="(max-width: 960px) 100vw, 800px" style={{ width: "100%", height: "auto" }} />
+              </a>
+              <figcaption>Frame-selection policies using deterministic generated scores on the synthetic sequence. These software examples are separate from the Galar research results. Select the image for full size.</figcaption>
+            </figure>
           </>,
         },
         {
